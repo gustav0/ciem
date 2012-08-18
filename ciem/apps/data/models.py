@@ -1,6 +1,6 @@
 from django.db import models
 from ciem.apps.data.managers import EntryManager
-
+from ciem.apps.data.managers import alimentoManager
 class Entry(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -13,33 +13,34 @@ class Entry(models.Model):
     def __unicode__(self):
         return u"%s - %s" % (self.title, self.created) 
 
-class Alimento(models.Model):
+class alimento(models.Model):
 	nombre = models.CharField(max_length=70)
 	calorias = models.FloatField()
+	humedad = models.FloatField()
+	proteina = models.FloatField()
+	grasas = models.FloatField()
+	carbohidratos_disponibles = models.FloatField()
+	carbohidratos_totales = models.FloatField()
+	fibra_dietetica_total = models.FloatField()
+	fibra_dietetica_insoluble = models.FloatField()
+	cenizas = models.FloatField()
+	calcio = models.FloatField()
+	fosforo = models.FloatField()
+	hierro = models.FloatField()
+	magnesio = models.FloatField()
+	zinc = models.FloatField()
+	cobre = models.FloatField()
+	sodio = models.FloatField()
+	potasio = models.FloatField()
+	vitamina_a = models.FloatField()
+	caroteno_equivalente_total = models.FloatField()
+	tiamina = models.FloatField()
+	riboflavina = models.FloatField()
+	niacina = models.FloatField()
+	vitamina_b6 = models.FloatField()
+	acido_ascorbico = models.FloatField()
 
-	"""
-   `calorias` float DEFAULT NULL,
-  `humedad` float DEFAULT NULL,
-  `proteina` float DEFAULT NULL,
-  `grasas` float DEFAULT NULL,
-  `carbohidratos_disponibles` float DEFAULT NULL,
-  `carbohidratos_totales` float DEFAULT NULL,
-  `fibra_dietetica_total` float DEFAULT NULL,
-  `fibra_dietetica_insoluble` float DEFAULT NULL,
-  `cenizas` float DEFAULT NULL,
-  `calcio` float DEFAULT NULL,
-  `fosforo` float DEFAULT NULL,
-  `hierro` float DEFAULT NULL,
-  `magnesio` float DEFAULT NULL,
-  `zinc` float DEFAULT NULL,
-  `cobre` float DEFAULT NULL,
-  `sodio` float DEFAULT NULL,
-  `potasio` float DEFAULT NULL,
-  `vitamina_a` float DEFAULT NULL,
-  `caroteno_equivalente_total` float DEFAULT NULL,
-  `tiamina` float DEFAULT NULL,
-  `riboflavina` float DEFAULT NULL,
-  `niacina` float DEFAULT NULL,
-  `vitamina_b6` float DEFAULT NULL,
-  `acido_ascorbico` float DEFAULT NULL,"""
+	objects = alimentoManager()
 
+	def __unicode__(self):
+		return u"%s - %s" % (self.nombre, self.calorias) 

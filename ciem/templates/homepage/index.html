@@ -11,11 +11,12 @@
 {% endblock%}
 {% block content %}
 	<h2>Entries:</h2>
-	{% for e in entries %}
-		<div> {{ e.tittle }} . {{ e.created }} </div>
-			<div> {{ e.text }} </div>
-		<br>
+	<div id="alimentosGetAll">
+	{% for a in alimentos %}
+		<div id="alimentoItem"> {{ a.nombre }} </div>
+	<br>
 	{% endfor %}
+	</div>
 {% endblock%}
 
 {% block footer %}

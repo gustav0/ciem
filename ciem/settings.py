@@ -151,3 +151,8 @@ LOGGING = {
         },
     }
 }
+
+TEMPLATE_CONTEXT_PROCESSOR = (
+ 'django.contrib.auth.context_processors.auth',
+ 'django.core.context_processors.media',
+)
