@@ -1,0 +1,16 @@
+#top{
+	font-size: 3em;
+}
+#navi{
+	border-bottom: 2px solid black;
+	float: left;
+}
+#clear{
+	clear:both;
+}
+#content{
+	background-color: #eee;
+}	
+#footer{
+font-size: 0.6em;
+}

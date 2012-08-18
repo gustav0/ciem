@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block tittle %}
+ Index Page (TITLE BLOCK)
+{% endblock%}
+
+{% block navi %}
+ <a href="{% url homepage_index %}">Home</a> - <a href="{% url homepage_about %}">About</a> - <a href="{% url homepage_register %}">Register</a> - <a href="{% url homepage_contact %}">Contact</a>
+{% endblock %}
+{% block clear %}
+{% endblock%}
+{% block content %}
+	<h2>Entries:</h2>
+	{% for e in entries %}
+		<div> {{ e.tittle }} . {{ e.created }} </div>
+			<div> {{ e.text }} </div>
+		<br>
+	{% endfor %}
+{% endblock%}
+
+{% block footer %}
+ 2012 COPYRIGHT! 
+{% endblock%}
