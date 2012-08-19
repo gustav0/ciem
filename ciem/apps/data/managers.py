@@ -9,3 +9,5 @@ class alimentoManager(models.Manager):
 		return self.model.objects.all()
 	def getByName(self,name):
 		return self.model.objects.filter(nombre=str(name))
+	def getById(self,id):
+		return self.model.objects.filter(id=id)
