@@ -1,3 +1,4 @@
+# -*- encoding:utf-8 -*-
 # Django settings for ciem project.
 import os
 DEBUG = True
