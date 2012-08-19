@@ -1,13 +1,16 @@
 {% extends "homepage/index.html" %}
 
 {% block tittle %}
-Contacto
+Contact
 {% endblock %}
 
 {% block content %}
-<h2>Contact</h2>
-<form id='formulario' metho='POST'action=''>{% csrf_token %}
-		{{formulario.as_p}}
-		<p><input type='submit' value='Confirmar' /></p>
-</form>
+	<h2>Contact</h2>
+
+	<form action="." method="POST">
+	{{ contact_form.as_p }}
+
+	<input type="submit" value="Send">
+	<input type="reset" value="Reset">
+	</form>
 {% endblock %}
