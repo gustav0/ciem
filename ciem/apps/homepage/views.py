@@ -3,9 +3,9 @@ from ciem.apps.data.models import *
 from django.template import RequestContext
 
 def index(request):
-	alimentos = alimento.objects.getByName("arroz blanco")
-	ctx = { 'alimentos':alimentos }
-	return render_to_response('homepage/index.html', ctx, context_instance=RequestContext(request))
+	alimentos = alimento.objects.getAll
+	listaAlimentos = { 'alimentos':alimentos }
+	return render_to_response('homepage/index.html', listaAlimentos, context_instance=RequestContext(request))
 
 def about(request):
 	return render_to_response('homepage/about.html', context_instance=RequestContext(request))

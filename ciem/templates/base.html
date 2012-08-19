@@ -4,10 +4,12 @@
 {% block css %}	<link rel="stylesheet" href=" {{ MEDIA_URL }}css/indexpage.css">{% endblock %}
 </head>
 <body>
-	<div id="top">Centro de Investigaciones Endocrino-Metabólicas</div>
-	<div id="navi">{% block navi %} {% endblock%}</div>
-	<div id="clear"> {% block clear %} {% endblock %}</div>
-	<div id="content">{% block content %} {% endblock%}</div>
-	<div id="footer">{% block footer %} {% endblock%}</div>
+	<div id="tablaAlineacion" align="center"> 
+		<div id="top">{% block top %} {% endblock%}</div>
+		<div id="navi">{% block navi %} {% endblock%}</div>
+		<div id="clear"> {% block clear %} {% endblock %}</div>
+		<div id="content">{% block content %} {% endblock%}</div>
+		<div id="footer">{% block footer %} {% endblock%}</div>
+	</div>
 </body>
 </html>

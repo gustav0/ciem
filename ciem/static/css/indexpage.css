@@ -1,16 +1,38 @@
-#top{
-	font-size: 3em;
+#tablaAlineacion{
+
 }
+#top{
+	width: 773px;
+	height: 93px;
+	background: url(../img/ciem.jpg) no-repeat;
+}
+
 #navi{
+	width: 286px;
+	text-align: center;
 	border-bottom: 2px solid black;
-	float: left;
+}
+#navi a{
+	text-decoration: none;
+	font-size: 18px;
+	color: black;
+}
+#navi a:hover{
+	color: gray;
+}
+#linkHome,#linkAbout,#linkRegister{
+	margin-right: 20px;
 }
 #clear{
 	clear:both;
 }
 #content{
 	background-color: #eee;
+	width: 960px;
 }	
 #footer{
 font-size: 0.6em;
+}
+.alimentoItem{
+	text-align: left;
 }

@@ -1,20 +1,19 @@
 {% extends "base.html" %}
 
 {% block tittle %}
- Index Page (TITLE BLOCK)
+ <title>Index Page</title>
 {% endblock%}
 
 {% block navi %}
- <a href="{% url homepage_index %}">Home</a> - <a href="{% url homepage_about %}">About</a> - <a href="{% url homepage_register %}">Register</a> - <a href="{% url homepage_contact %}">Contact</a>
+ <a id="linkHome" href="{% url homepage_index %}">Home</a> <a id="linkAbout" href="{% url homepage_about %}">About</a> <a id="linkRegister" href="{% url homepage_register %}">Register</a> <a id="linkContact" href="{% url homepage_contact %}">Contact</a>
 {% endblock %}
 {% block clear %}
 {% endblock%}
 {% block content %}
-	<h2>Entries:</h2>
-	<div id="alimentosGetAll">
+	<h2>Lista de Alimentos:</h2>
+	<div id="listaAlimentos">
 	{% for a in alimentos %}
-		<div id="alimentoItem"> {{ a.nombre }} </div>
-	<br>
+		<div class="alimentoItem">- {{ a.nombre }} . {{a.id}} </div>
 	{% endfor %}
 	</div>
 {% endblock%}
