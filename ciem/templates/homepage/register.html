@@ -6,4 +6,9 @@ Register
 
 {% block content %}
 <h2>Register</h2>
+<form action="." method="POST">
+	{{ register_form.as_p }}
+	<input type="submit" value="Send">
+	<input type="reset" value="Reset">
+</form>
 {% endblock %}
