@@ -6,9 +6,18 @@ Contact
 
 {% block content %}
 <h2>Contact</h2>
-<form action="." method="POST">
+
+	{% if success %}
+	<h3>Data posted:</h3>
+	<p>email: {{ email }}</p>
+	<p>title: {{ title }}</p>
+	<p>text: {{ text }}</p>
+	{% else %}
+
+	<form action="." method="POST">	{% csrf_token %}
 	{{ contact_form.as_p }}
 	<input type="submit" value="Send">
 	<input type="reset" value="Reset">
-</form>
+	</form>
+	{% endif %}
 {% endblock %}

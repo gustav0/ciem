@@ -156,11 +156,14 @@ LOGGING = {
 TEMPLATE_CONTEXT_PROCESSOR = (
  'django.contrib.auth.context_processors.auth',
  'django.core.context_processors.media',
+ 'django.core.context_processors.csrf',
 )
 
 #Configuraciones para enviar mensajes usando gmail
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'email@gmail.com'
-EMAIL_HOST_PASSWORD = 'passwrod'
+EMAIL_HOST_USER = 'ciem.luz.mail@gmail.com'
+EMAIL_HOST_PASSWORD = 'ciem1234'
 EMAIL_POST = 587
+
+#CSRF_FAILURE_VIEW = 'ciem.apps.homepage.views.csrf_malo'
