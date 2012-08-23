@@ -3,6 +3,7 @@ from ciem.apps.data.models import *
 from django.template import RequestContext
 from ciem.apps.homepage.forms import *
 from django.core.mail import send_mail
+from django.contrib.auth.decorators import login_required
 
 def index(request):
 	alimentos = alimento.objects.getAll
@@ -44,6 +45,10 @@ def register(request):
 	ctx = {'register_form':register_form}
 	return render_to_response('homepage/register.html', ctx, context_instance=RequestContext(request))
 
+@login_required
+def profile(request):
+	ctx={}
+	return render_to_response('homepage/profile.html', ctx, context_instance=RequestContext(request))
 
 #CSRF EN CONTACTO * TUTORIAL
 def csrf_malo(request, reason=''):

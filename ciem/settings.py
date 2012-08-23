@@ -116,6 +116,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
+    'django.contrib.sitemaps',
     #'django.contrib.staticfiles',
     'ciem.apps.data',
     # Uncomment the next line to enable the admin:
@@ -167,3 +168,6 @@ EMAIL_HOST_PASSWORD = 'ciem1234'
 EMAIL_POST = 587
 
 #CSRF_FAILURE_VIEW = 'ciem.apps.homepage.views.csrf_malo'
+
+LOGIN_REDIRECT_URL = '/profile/'
+LOGIN_URL = '/login/'

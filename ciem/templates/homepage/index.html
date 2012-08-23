@@ -5,7 +5,13 @@
 {% endblock%}
 
 {% block navi %}
- <a id="linkHome" href="{% url homepage_index %}">Home</a> <a id="linkAbout" href="{% url homepage_about %}">About</a> <a id="linkRegister" href="{% url homepage_register %}">Register</a> <a id="linkContact" href="{% url homepage_contact %}">Contact</a>
+ <a id="linkHome" href="{% url homepage_index %}">Home</a> <a id="linkAbout" href="{% url homepage_about %}">About</a> <a id="linkContact" href="{% url homepage_contact %}">Contact</a>
+{% if user.is_authenticated %}
+<a id="linkProfile" href="{% url homepage_profile %}">Profile</a> <a id="linkLogOut" href="{% url homepage_logout %}">Logout</a>
+{% else %}
+<a id="linkLogin" href="{% url homepage_login %}">Login</a>
+{% endif %}
+
 {% endblock %}
 {% block clear %}
 {% endblock%}
