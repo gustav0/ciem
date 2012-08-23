@@ -6,31 +6,28 @@ from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required
 
 def index(request):
-	alimentos = alimento.objects.getAll
-	#login_form = loginForm()
-	ctx = {'alimentos':alimentos}
+	ctx = {}
 	return render_to_response('homepage/index.html', ctx,  context_instance=RequestContext(request))
 
 def about(request):
 	return render_to_response('homepage/about.html', context_instance=RequestContext(request))
-
+	
 def contact(request):
 	success = False
 	email = ""
-	title = ""
-	text = ""
+	asunto = ""
+	texto = ""
 	if request.method == "POST":
 		contact_form = contactForm(request.POST)
 		if contact_form.is_valid():
 			success = True
 			email = contact_form.cleaned_data['email']
-			title = contact_form.cleaned_data['title']
-			text = contact_form.cleaned_data['text']
-
-			send_mail(title,"Text message: %s" % (text), email,['ciem.luz.mail@gmail.com'])
+			asunto = contact_form.cleaned_data['asunto']
+			texto = contact_form.cleaned_data['texto']
+			send_mail(asunto,"Email contacto: %s \nAsunto: %s \nTexto: %s" % (email,asunto,texto), 'ciem.luz.mail@gmail.com',['ciem.luz.mail@gmail.com'])
 	else:
 		contact_form = contactForm()
-	ctx = {'contact_form':contact_form, 'email':email, 'title':title, 'text':text, 'success':success}
+	ctx = {'contact_form':contact_form, 'email':email, 'asunto':asunto, 'texto':texto, 'success':success}
 	return render_to_response('homepage/contact.html', ctx, context_instance=RequestContext(request))
 
 def register(request):
@@ -49,9 +46,4 @@ def register(request):
 def profile(request):
 	ctx={}
 	return render_to_response('homepage/profile.html', ctx, context_instance=RequestContext(request))
-
-#CSRF EN CONTACTO * TUTORIAL
-def csrf_malo(request, reason=''):
-	ctx= {'reason':reason}
-	return render_to_response('csrf/rejected.html',ctx)
 

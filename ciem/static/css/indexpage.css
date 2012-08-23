@@ -8,7 +8,7 @@
 }
 
 #navi{
-	width: 286px;
+	width: 486px;
 	text-align: center;
 	border-bottom: 2px solid black;
 }
@@ -21,7 +21,7 @@
 	color: gray;
 }
 #linkHome,#linkAbout,#linkRegister{
-	margin-right: 20px;
+
 }
 #clear{
 	clear:both;

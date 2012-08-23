@@ -8,10 +8,10 @@ Contact
 <h2>Contact</h2>
 
 	{% if success %}
-	<h3>Data posted:</h3>
-	<p>email: {{ email }}</p>
-	<p>title: {{ title }}</p>
-	<p>text: {{ text }}</p>
+	<h3>Se ha enviado:</h3>
+	<p>Email: {{ email }}</p>
+	<p>Asunto: {{ asunto }}</p>
+	<p>Texto: {{ texto }}</p>
 	{% else %}
 
 	<form action="." method="POST">	{% csrf_token %}
