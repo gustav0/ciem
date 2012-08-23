@@ -31,8 +31,24 @@
 	width: 960px;
 }	
 #footer{
-font-size: 0.6em;
+	font-size: 0.6em;
 }
 .alimentoItem{
 	text-align: left;
+}
+
+#calculadoraDiv{
+	float: left;
+	background-color: #E29D9D;
+	width: 130px;
+	margin-left: 400px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+}
+#calculadoraDiv:hover{
+	background-color: #42C929;
+}
+
+.calculadoraA{
+	text-decoration: none;
 }

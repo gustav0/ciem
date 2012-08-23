@@ -1,0 +1,13 @@
+{% extends "homepage/index.html" %}
+
+
+{% block content %}
+<br>
+CALCULADORA
+<br><br><br />
+<div id="alimentos">
+{% for a in alimentos%}
+	{{ a.nombre }} <br>
+{% endfor %}
+</div>
+{% endblock%}

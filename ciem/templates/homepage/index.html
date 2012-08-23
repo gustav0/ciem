@@ -26,15 +26,17 @@
 {% else %}
 <a id="linkLogin" href="{% url homepage_login %}">Login</a>
 {% endif %}
-
 {% endblock %}
+
 {% block clear %}
 {% endblock%}
+
 {% block content %}
 <br>
-INDEX
+Index
 <br><br><br />
 
+<a class="calculadoraA" href="{% url homepage_calculadora %}"><div id="calculadoraDiv">CALCULADORA</div></a>
 {% endblock%}
 
 {% block footer %}
