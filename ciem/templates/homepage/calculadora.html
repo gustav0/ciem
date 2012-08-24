@@ -1,14 +1,30 @@
 {% extends "homepage/index.html" %}
 {% block head%}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+<script src="{{ MEDIA_URL }}js/Adquiridos/jquery.min.js"></script>
 <script>
     $(function(){
+    	num=0;
         $('#selCombo').change(function() {
             var obj = document.getElementById('selCombo');
             $('#calorias').text("Calorias = "+ obj.value);
         });
+        $('#addAlimento').click(function(){
+        	var obj = document.getElementById('selCombo');
+        	num++;
+        	var ali = document.getElementById('tablaCalc');
+        	var contenedor = document.createElement('div');
+        	var calorias = document.createElement('div');
+        	calorias.id = 'caloriasId';
+            contenedor.value = obj.value;
+        	contenedor.id = 'alimentoId';
+        	contenedor.innerHTML=obj.value
+        	calorias.innerHTML=' c.'
+        	ali.appendChild(contenedor);
+        	ali.appendChild(calorias);
+        })
     });
 </script>
+
 {% endblock%}
 {% block tittle %}
  Calc
@@ -17,15 +33,16 @@
 {% block content %}
 <br>
 CALCULADORA
-<br><br><br />
-<div id="alimentos">
-<SELECT id="selCombo" NAME="selCombo" SIZE=1 onChange="cambiarValor()"> 
-{% for a in alimentos%}
-<OPTION value="{{a.calorias}}" ><p>{{ a.nombre }}</p></OPTION>
-{% endfor %}
-</SELECT> 
-
-<br>
-<div id="calorias">Calorias = </div>
+<div id="fondo1">
+	<div id="alimentos">
+		<SELECT id="selCombo" NAME="selCombo" SIZE=1 onChange="cambiarValor()"> 
+			{% for a in alimentos%}
+			<OPTION value="{{a.calorias}}" ><p>{{ a.nombre }}</p></OPTION>
+			{% endfor %}
+		</SELECT> 
+	</div>
+	<div id="calorias">Calorias = </div>
+	<a id="add" href="#"><div id="addAlimento">ADD</div></a>
+	<div id="tablaCalc"></div>
 </div>
 {% endblock%}

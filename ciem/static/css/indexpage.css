@@ -32,6 +32,7 @@
 }	
 #footer{
 	font-size: 0.6em;
+	clear: both;
 }
 .alimentoItem{
 	text-align: left;
@@ -51,4 +52,34 @@
 
 .calculadoraA{
 	text-decoration: none;
+}
+#selCombo{
+	width: 150px;
+	float: left;
+}
+#calorias{
+	float:left;
+	margin-left: 20px;
+}
+#tablaCalc{
+	float: left;
+	width: 80px;
+	height: 300px;
+	outline: thin solid black;
+	margin-top: 30px;
+	clear: both;
+}
+#fondo1{
+	width: 600px;
+	height: 500px;
+}
+#addAlimento{
+	float: left;
+	text-decoration: none;
+	width: 36px;
+	margin-left: 20px;
+}
+#caloriasId, #alimentoId{
+	float: left;
+	margin-left: 5px;
 }
