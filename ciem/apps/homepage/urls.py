@@ -16,4 +16,4 @@ urlpatterns += patterns('',
 	url(r'login$', login, kwargs={'template_name':'homepage/login.html'}, name="homepage_login"),
 	url(r'logout$', logout, kwargs={'next_page':'login'}, name="homepage_logout"),
 	(r'^feed/archive/$', archiveFeed()),
-	)
+)
