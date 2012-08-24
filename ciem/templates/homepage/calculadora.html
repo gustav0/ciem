@@ -1,29 +1,7 @@
 {% extends "homepage/index.html" %}
 {% block head%}
-<script src="{{ MEDIA_URL }}js/Adquiridos/jquery.min.js"></script>
-<script>
-    $(function(){
-    	num=0;
-        $('#selCombo').change(function() {
-            var obj = document.getElementById('selCombo');
-            $('#calorias').text("Calorias = "+ obj.value);
-        });
-        $('#addAlimento').click(function(){
-        	var obj = document.getElementById('selCombo');
-        	num++;
-        	var ali = document.getElementById('tablaCalc');
-        	var contenedor = document.createElement('div');
-        	var calorias = document.createElement('div');
-        	calorias.id = 'caloriasId';
-            contenedor.value = obj.value;
-        	contenedor.id = 'alimentoId';
-        	contenedor.innerHTML=obj.value
-        	calorias.innerHTML=' c.'
-        	ali.appendChild(contenedor);
-        	ali.appendChild(calorias);
-        })
-    });
-</script>
+<script src="{{ MEDIA_URL }}js/adquiridos/jquery.min.js"></script>
+<script src="{{ MEDIA_URL }}js/propios/calculadora.js"></script>
 
 {% endblock%}
 {% block tittle %}
@@ -42,7 +20,13 @@ CALCULADORA
 		</SELECT> 
 	</div>
 	<div id="calorias">Calorias = </div>
+    <br>
 	<a id="add" href="#"><div id="addAlimento">ADD</div></a>
-	<div id="tablaCalc"></div>
+    <br>
+	<div id="tablaCalc">
+    </div>
+    <a id="sumar" href="#"><div id="sumarAlimento">SUM</div></a>
+    <div id="alimento"></div>
+    <div id="resultado"></div>
 </div>
 {% endblock%}

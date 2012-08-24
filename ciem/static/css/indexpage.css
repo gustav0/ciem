@@ -64,8 +64,7 @@
 #tablaCalc{
 	float: left;
 	width: 80px;
-	height: 300px;
-	outline: thin solid black;
+	background-color: white;
 	margin-top: 30px;
 	clear: both;
 }
