@@ -53,7 +53,7 @@ def profile(request):
 	return render_to_response('homepage/profile.html', ctx, context_instance=RequestContext(request))
 
 def calculadora(request):
-	alimentos = alimento.objects.getAll
+	alimentos = alimento.objects.all().order_by('nombre')
 	ctx={ 'alimentos':alimentos }
 	return render_to_response('homepage/calculadora.html', ctx, context_instance=RequestContext(request))
 
