@@ -7,9 +7,9 @@
 {% block navi %}
  <a id="linkHome" href="{% url homepage_index %}">Inicio</a> 
  {% if user.is_authenticated %}
- <a id="linkUsuarios" href="{% url homepage_profile %}">Usuarios</a> 
+ <a id="linkUsuarios" href="{% url account_profile %}">Usuarios</a> 
  {% else %}
- <a id="linkUsuarios" href="{% url homepage_login %}">Usuarios</a> 
+ <a id="linkUsuarios" href="{% url account_login %}">Usuarios</a> 
  {% endif %}
 
  {% if user.is_authenticated %}
@@ -22,9 +22,9 @@
  <a id="linkContact" href="{% url homepage_contact %}">Contacto</a>
 
 {% if user.is_authenticated %}
-<a id="linkLogOut" href="{% url homepage_logout %}">Logout</a>
+<a id="linkLogOut" href="{% url account_logout %}">Logout</a>
 {% else %}
-<a id="linkLogin" href="{% url homepage_login %}">Login</a>
+<a id="linkLogin" href="{% url account_login %}">Login</a>
 {% endif %}
 {% endblock %}
 

@@ -47,11 +47,6 @@ def register(request):
 	ctx = {'register_form':register_form}
 	return render_to_response('homepage/register.html', ctx, context_instance=RequestContext(request))
 
-@login_required
-def profile(request):
-	ctx={}
-	return render_to_response('homepage/profile.html', ctx, context_instance=RequestContext(request))
-
 def calculadora(request):
 	alimentos = alimento.objects.all().order_by('nombre')
 	ctx={ 'alimentos':alimentos }

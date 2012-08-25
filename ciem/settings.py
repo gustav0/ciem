@@ -171,3 +171,5 @@ EMAIL_POST = 587
 
 LOGIN_REDIRECT_URL = '/profile/'
 LOGIN_URL = '/login/'
+
+AUTHENTICATION_BACKENDS = ('ciem.apps.account.auth.backends.loginBackend',)
