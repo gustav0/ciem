@@ -4,6 +4,6 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def profile(request):
-	ctx={}
+	ctx={'profile':request.user.get_profile(),}
 	return render_to_response('account/profile.html', ctx, context_instance=RequestContext(request))
 

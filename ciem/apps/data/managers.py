@@ -10,4 +10,4 @@ class alimentoManager(models.Manager):
 	def getByName(self,name):
 		return self.model.objects.filter(nombre=str(name))
 	def getById(self,id):
-		return self.model.objects.filter(id=id)
+		return self.model.objects.filter(id=id).order_by('id')

@@ -119,6 +119,7 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
     #'django.contrib.staticfiles',
     'ciem.apps.data',
+    'ciem.apps.account',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -173,3 +174,4 @@ LOGIN_REDIRECT_URL = '/profile/'
 LOGIN_URL = '/login/'
 
 AUTHENTICATION_BACKENDS = ('ciem.apps.account.auth.backends.loginBackend',)
+AUTH_PROFILE_MODULE ='account.userProfile'
