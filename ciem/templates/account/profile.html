@@ -2,5 +2,5 @@
 
 {% block content %}
 	{{ profile.user }}' profile
-	<div> {{ profile.gender }} </div>
+	<div> {{ profile.get_gender_display }} </div>
 {% endblock %}
