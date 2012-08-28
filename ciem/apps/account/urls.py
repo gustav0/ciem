@@ -3,6 +3,7 @@ from django.contrib.auth.views import login, logout
 
 urlpatterns = patterns('ciem.apps.account.views',
  url(r'^profile/$', 'profile', name="account_profile"),
+ url(r'^register/$', 'register', name="account_register"),
 )
 
 urlpatterns += patterns('',

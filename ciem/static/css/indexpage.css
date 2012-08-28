@@ -1,5 +1,4 @@
 #tablaAlineacion{
-
 }
 #top{
 	width: 773px;
@@ -61,13 +60,6 @@
 	float:left;
 	margin-left: 20px;
 }
-#tablaCalc{
-	float: left;
-	width: 80px;
-	background-color: white;
-	margin-top: 30px;
-	clear: both;
-}
 #fondo1{
 	width: 600px;
 	height: 500px;
@@ -78,7 +70,40 @@
 	width: 36px;
 	margin-left: 20px;
 }
-#caloriasId, #alimentoId{
+
+#tablaCalc{
 	float: left;
-	margin-left: 5px;
+	width: 340px;
+	background-color: white;
+	margin-top: 40px;
+	clear: both;
+	outline: thin solid black;
+}
+
+.caloriasT{
+	float: right;
+	width: 120px;
+	height: 20px;
+	border-left: thin solid black;
+}
+.alimentosT{
+	height: 20px;
+	width: 340px;
+	border-bottom: thin solid black;
+}
+#caloriaT{
+	float: right;
+	width: 120px;
+	height: 20px;
+	outline: thin solid black;
+}
+#alimentoT{
+
+	height: 20px;
+	width: 340px;
+	outline: thin solid black;
+}
+
+.helptext{
+	display: none;
 }
