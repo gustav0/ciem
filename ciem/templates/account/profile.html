@@ -2,5 +2,8 @@
 
 {% block content %}
 	{{ profile.user }}' profile
-	<div> {{ profile.get_gender_display }} </div>
+	<div> Gender: {{ profile.get_gender_display }} </div>
+	<div> Cédula: {% load humanize %}
+	{{ profile.cedula|floatformat:0|intcomma }} </div>
+	<div> Fecha de nacimiento: {{ profile.fecha_nacimiento }} </div>
 {% endblock %}

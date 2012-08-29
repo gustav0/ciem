@@ -117,6 +117,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.sitemaps',
+    'django.contrib.humanize',
     #'django.contrib.staticfiles',
     'ciem.apps.data',
     'ciem.apps.account',
