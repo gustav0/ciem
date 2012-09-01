@@ -33,5 +33,5 @@ def datosAntropometricos(request):
 			formulario.save()
 	else:
 		formulario=datosAntropometricosForm()
-	crx= {'formulario':formulario,}
+	ctx= {'formulario':formulario,}
 	return render_to_response('account/datosAntropometricosForm.html', ctx, context_instance=RequestContext(request))	
