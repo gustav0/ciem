@@ -8,11 +8,10 @@ class userProfile(models.Model):
 	          ('f', 'Female'),
 	         )
 	gender = models.CharField(max_length=1, choices=GENDER, default='m')
-<<<<<<< HEAD
+
 	cedula = models.FloatField(default=1)
 	fecha_nacimiento = models.DateField(default=datetime.date.today)
 	user = models.ForeignKey(User)
-=======
 	user = models.ForeignKey(User)
 	
 class datosAntropometricos(models.Model):
@@ -25,5 +24,4 @@ class datosAntropometricos(models.Model):
 	 )
 	patologia1 = models.CharField(max_length=1, choices=PATOLOGIA1, default='0', verbose_name='Sufre usted de patologia1')
 	user = models.ForeignKey(User)
-	 
->>>>>>> Registro de datos antropometricos
+
