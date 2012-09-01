@@ -24,7 +24,8 @@ def register(request):
 
 	ctx={'form': form,}
 	return render_to_response('account/register.html', ctx, context_instance=RequestContext(request))
-
+	
+@login_required(login_url='/login')
 def datosAntropometricos(request):
 	if request.method =='POST':
 		formulario = datosAntropometricosForm(request.POST, request.FILES)
@@ -32,4 +33,5 @@ def datosAntropometricos(request):
 			formulario.save()
 	else:
 		formulario=datosAntropometricosForm()
-	return render_to_response('account/datosAntropometricosForm.html', {'formulario':formulario,}, context_instance=RequestContext(request))	
+	crx= {'formulario':formulario,}
+	return render_to_response('account/datosAntropometricosForm.html', ctx, context_instance=RequestContext(request))	
