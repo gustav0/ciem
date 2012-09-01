@@ -5,6 +5,8 @@ from ciem.apps.account.forms import registerForm
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.contrib.auth import login
+from ciem.apps.account.forms import datosAntropometricosForm
+from django.http import HttpResponseRedirect
 
 @login_required(login_url='/login')
 def profile(request):
@@ -22,3 +24,12 @@ def register(request):
 
 	ctx={'form': form,}
 	return render_to_response('account/register.html', ctx, context_instance=RequestContext(request))
+
+def datosAntropometricos(request):
+	if request.method =='POST':
+		formulario = datosAntropometricosForm(request.POST, request.FILES)
+		if formulario.is_valid():
+			formulario.save()
+	else:
+		formulario=datosAntropometricosForm()
+	return render_to_response('account/datosAntropometricosForm.html', {'formulario':formulario,}, context_instance=RequestContext(request))	
