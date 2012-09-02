@@ -16,9 +16,12 @@ DATABASES = {
         'NAME': 'ciem',                      # Or path to database file if using sqlite3.
         'USER': 'root',                      # Not used with sqlite3.
 <<<<<<< HEAD
+<<<<<<< HEAD
         'PASSWORD': '1212',                  # Not used with sqlite3.
         'HOST': '1',                      # Set to empty string for localhost. Not used with sqlite3.
 =======
+=======
+>>>>>>> Gustavo
         'PASSWORD': '1234',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
 >>>>>>> gustavo
