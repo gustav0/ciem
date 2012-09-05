@@ -5,29 +5,30 @@
 {% endblock%}
 
 {% block navi %}
- <a id="linkHome" href="{% url homepage_index %}">Inicio</a> 
+<ul class="menu">
+<li> <a id="linkHome" href="{% url homepage_index %}">Inicio</a> </li>
  {% if user.is_authenticated %}
- <a id="linkUsuarios" href="{% url account_profile %}">Usuarios</a> 
+<li> <a id="linkUsuarios" href="{% url account_profile %}">Usuarios</a></li> 
  {% else %}
- <a id="linkUsuarios" href="{% url account_login %}">Usuarios</a> 
+ <li><a id="linkUsuarios" href="{% url account_login %}">Usuarios</a> </li>
  {% endif %}
 
  {% if user.is_authenticated %}
- <a id="linkNutricionistas" href="#">Nutricionistas</a>  
+ <li><a id="linkNutricionistas" href="#">Nutricionistas</a> </li> 
  {% else %}
- <a id="linkNutricionistas" href="#">Nutricionistas</a> 
+<li><a id="linkNutricionistas" href="#">Nutricionistas</a> </li>
  {% endif %}
  
- <a id="linkAbout" href="{% url homepage_about %}">CIEM</a> 
- <a id="linkContact" href="{% url homepage_contact %}">Contacto</a>
+ <li><a id="linkAbout" href="{% url homepage_about %}">CIEM</a> </li>
+ <li><a id="linkContact" href="{% url homepage_contact %}">Contacto</a></li>
 
 {% if user.is_authenticated %}
-<a id="linkLogOut" href="{% url account_logout %}">Logout</a>
+<li><a id="linkLogOut" href="{% url account_logout %}">Logout</a></li>
 {% else %}
-<a id="linkLogin" href="{% url account_register %}">Register</a>
+<li><a id="linkLogin" href="{% url account_register %}">Register</a></li>
 {% endif %}
 {% endblock %}
-
+</ul>
 {% block clear %}
 {% endblock%}
 

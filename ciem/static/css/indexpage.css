@@ -1,24 +1,25 @@
 #tablaAlineacion{
-}
+}/*773px*/
 #top{
-	width: 773px;
+	width: 50%;
 	height: 93px;
 	background: url(../img/ciem.jpg) no-repeat;
 }
-
+/*468*/
 #navi{
-	width: 486px;
+	width: 760;
 	text-align: center;
-	border-bottom: 2px solid black;
+	height:35px;
 }
 #navi a{
 	text-decoration: none;
-	font-size: 18px;
-	color: black;
+	font-size: 12px;
+	color:#CCC;
+	font-family:Tahoma, Geneva, sans-serif;
+	text-transform:uppercase;
+	text-align:center;
 }
-#navi a:hover{
-	color: gray;
-}
+
 #linkHome,#linkAbout,#linkRegister{
 
 }
@@ -107,3 +108,27 @@
 .helptext{
 	display: none;
 }
+
+.menu{
+	text-decoration:none;
+	list-style-type:none;
+	display:block;
+	position:relative;
+	float:left;
+	text-align:center;
+	width:auto;
+
+	}
+.menu li{
+	width:120px;
+	display:block;
+	float:left;
+	background-color:#006600;
+	background-image:url(/ciem/static/img/menu-background.png);
+	padding-bottom:10px;
+	padding-top:10px;
+	}
+li:hover{
+	display:block;
+	float:left;
+	background-image:url(/ciem/static/img/menu-background-mouseover.png)}
