@@ -12,12 +12,13 @@ class userProfile(models.Model):
 	cedula = models.FloatField(default=1)
 	fecha_nacimiento = models.DateField(default=datetime.date.today)
 	user = models.ForeignKey(User)
-	user = models.ForeignKey(User)
+
 	
 class datosAntropometricos(models.Model):
-	peso=models.DecimalField(max_digits=3, decimal_places=3, verbose_name='Peso')
-	circunferencia_cintura= models.DecimalField(max_digits=3, decimal_places=3, verbose_name='Circunferencia de Cintura')
-	circunferencia_cadera= models.DecimalField(max_digits=3, decimal_places=3, verbose_name='Circunferencia de Cadera')
+	peso=models.FloatField(default=0, verbose_name='Peso')
+	circunferencia_cintura= models.FloatField(default=0, verbose_name='Circunferencia de Cintura')
+	circunferencia_cadera= models.FloatField(default=0, verbose_name='Circunferencia de Cadera')
+	talla= models.FloatField(default=0, verbose_name='Talla')
 	PATOLOGIA1=(
 	 ('1','Si'),
 	 ('0','No'),
