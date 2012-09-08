@@ -4,11 +4,11 @@ import datetime
 #from ciem.apps.account.managers import userManager
 
 class userProfile(models.Model):
-	GENDER = (('m', 'Male'),
-	          ('f', 'Female'),
+	GENERO = (('m', 'Masculino'),
+	          ('f', 'Femenino'),
+	          ('o', 'Otro'),
 	         )
-	gender = models.CharField(max_length=1, choices=GENDER, default='m')
-
+	genero = models.CharField(max_length=1, choices=GENERO, default='m')
 	cedula = models.FloatField(default=1)
 	fecha_nacimiento = models.DateField(default=datetime.date.today)
 	user = models.ForeignKey(User)
