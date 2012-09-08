@@ -5,7 +5,7 @@ from ciem.apps.data.managers import alimentoManager
 class Entry(models.Model):
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     fecha_actualizacion = models.DateTimeField(auto_now=True)
-    titylo   = models.CharField(max_length=64)
+    titulo   = models.CharField(max_length=64)
     texto    = models.TextField()
     publicado = models.BooleanField(db_index=True, default=True)
 
