@@ -1,11 +1,13 @@
 {% extends "homepage/index.html" %}
-{% block head%}<script src="{{ MEDIA_URL }}css/homepage/historia.css"></script>{% endblock%}
+{% block head %}
+<script src="{{ MEDIA_URL }}css/homepage/historia.css"></script>
+{% endblock %}
 {% block content %}
 	<form class="historia" method="POST" action="." >
 		{% csrf_token %}
-        <table>	
+        <table class="table">	
         	<tr>
-            <td> Salsas de queso y salsas cremosas como la de champinones, bechamel </td>
+            <td > Salsas de queso y salsas cremosas </br> como la de champinones, bechamel </td>
             <td>{{ formulario.f1 }}	</td>
             </tr>
             
