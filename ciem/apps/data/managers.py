@@ -2,7 +2,7 @@ from django.db import models
 
 class EntryManager(models.Manager):
 	def published_entries(self):
-		return self.model.objects.filter(published=True)
+		return self.model.objects.filter(publicado=True)
 
 class alimentoManager(models.Manager):
 	def getAll(self):
