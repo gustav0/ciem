@@ -19,10 +19,9 @@ class datosAntropometricos(models.Model):
 	circunferencia_cintura= models.FloatField(default=0, verbose_name='Circunferencia de Cintura')
 	circunferencia_cadera= models.FloatField(default=0, verbose_name='Circunferencia de Cadera')
 	talla= models.FloatField(default=0, verbose_name='Talla')
-	PATOLOGIA1=(
-	 ('1','Si'),
-	 ('0','No'),
-	 )
-	patologia1 = models.CharField(max_length=1, choices=PATOLOGIA1, default='0', verbose_name='Sufre usted de patologia1')
+	patologia1 = models.BooleanField(verbose_name="Patologia 1")
+	patologia2 = models.BooleanField(verbose_name="Patologia 2")
+	patologia3 = models.BooleanField(verbose_name="Patologia 3")
 	user = models.ForeignKey(User)
+	
 
