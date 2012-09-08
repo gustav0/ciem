@@ -1,8 +1,34 @@
 {% extends "homepage/index.html" %}
+{% block head %}<script src="{{ MEDIA_URL }}js/propios/hola.js"></script>{% endblock %}
 {% block content %}
-	<form id='formulario' method='post' enctype='multipart/form-data' action="">
+	<form action="/antropometricos/" id='formulario' method='post' enctype='multipart/form-data' action="">
 	{% csrf_token %}
-	{{formulario.as_p}}
+	<div id="pesoForm" class="campoForm">
+			Peso: {{ form.peso }}
+	</div>
+	<div id="tallaForm" class="campoForm">
+			Talla: {{ form.talla }}
+	</div>
+	<div id="circunferenciaCinturaForm" class="campoForm">
+			Circunferencia cintura: {{ form.circunferencia_cintura }}
+	</div>
+	<div id="circunferenciaCaderaForm" class="campoForm">
+			Circunferencia cadera: {{ form.circunferencia_cadera }}
+	</div>
+	<div id="patologia1Form" class="campoForm">
+			Patologia1: {{ form.patologia1 }}
+	</div>
+	<div id="patologia1Form" class="campoForm">
+			Patologia2: {{ form.patologia2 }}
+	</div>
+	<div id="patologia1Form" class="campoForm">
+			Patologia3: {{ form.patologia3 }}
+	</div>
+	<div id="userForm" class="campoForm noDisplay">
+		<select name="user" id="id_user">
+			<option value="{{ profile.user_id }}">{{ profile.user }}</option>
+		</select>
+	</div>
 	<p><input type='submit' value='Confirmar'/></p>
 	</form>
 {% endblock %}

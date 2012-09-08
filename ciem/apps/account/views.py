@@ -1,11 +1,10 @@
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
-from ciem.apps.account.forms import registerForm
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.contrib.auth import login
-from ciem.apps.account.forms import datosAntropometricosForm
+from ciem.apps.account.forms import antropometricosForm, registerForm
 from django.http import HttpResponseRedirect
 
 @login_required(login_url='/login')
@@ -27,11 +26,10 @@ def register(request):
 	
 @login_required(login_url='/login')
 def antropometricos(request):
-	if request.method =='POST':
-		formulario = datosAntropometricosForm(request.POST, request.FILES)
-		if formulario.is_valid():
-			formulario.save()
-	else:
-		formulario=datosAntropometricosForm()
-	ctx= {'formulario':formulario,}
+	form = antropometricosForm(request.POST or None)
+	form.user = 1;
+	if form.is_valid():
+		form.save()
+
+	ctx= {'form':form, 'profile':request.user.get_profile(),}
 	return render_to_response('account/datosAntropometricosForm.html', ctx, context_instance=RequestContext(request))	
