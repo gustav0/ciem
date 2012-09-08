@@ -14,6 +14,6 @@ class registerForm(UserCreationForm):
 		userProfile.objects.create(user=user, genero=self.cleaned_data['genero'],fecha_nacimiento=fecha_nacimiento, cedula=cedula,)
 		return user
 
-class datosAntropometricosForm(ModelForm):
+class antropometricosForm(ModelForm):
 	class Meta:
 		model = datosAntropometricos
