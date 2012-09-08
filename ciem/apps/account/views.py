@@ -26,7 +26,7 @@ def register(request):
 	return render_to_response('account/register.html', ctx, context_instance=RequestContext(request))
 	
 #@login_required(login_url='/login')
-def datosAntropometricos(request):
+def antropometricos(request):
 	if request.method =='POST':
 		formulario = datosAntropometricosForm(request.POST, request.FILES)
 		if formulario.is_valid():
