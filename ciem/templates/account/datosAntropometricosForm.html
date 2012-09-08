@@ -13,7 +13,7 @@
 			Circunferencia cadera: {{ form.circunferencia_cadera }}
 	</div>
 	<div id="tallaForm" class="campoForm">
-			talla: {{ form.talla }}
+			Talla: {{ form.talla }}
 	</div>
 	<div id="patologia1Form" class="campoForm">
 			Patologia1: {{ form.patologia1 }}
@@ -24,8 +24,8 @@
 	<div id="patologia1Form" class="campoForm">
 			Patologia3: {{ form.patologia3 }}
 	</div>
-	<div id="userForm" class="campoForm">
-		<select name="user" id="id_user" class="noDisplay">
+	<div id="userForm" class="campoForm noDisplay">
+		<select name="user" id="id_user">
 			<option value="{{ profile.user_id }}">{{ profile.user }}</option>
 		</select>
 	</div>
