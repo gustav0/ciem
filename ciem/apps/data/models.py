@@ -3,16 +3,16 @@ from ciem.apps.data.managers import EntryManager
 from ciem.apps.data.managers import alimentoManager
 
 class Entry(models.Model):
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
-    title   = models.CharField(max_length=64)
-    text    = models.TextField()
-    published = models.BooleanField(db_index=True, default=True)
+    fecha_creacion = models.DateTimeField(auto_now_add=True)
+    fecha_actualizacion = models.DateTimeField(auto_now=True)
+    titylo   = models.CharField(max_length=64)
+    texto    = models.TextField()
+    publicado = models.BooleanField(db_index=True, default=True)
 
     objects = EntryManager()
 
     def __unicode__(self):
-        return u"%s - %s" % (self.title, self.created) 
+        return u"%s - %s" % (self.titulo, self.fecha_creacion) 
 
 class alimento(models.Model):
 	nombre = models.CharField(max_length=70)
