@@ -21,7 +21,7 @@
  
  <li><a id="linkAbout" href="{% url homepage_about %}">CIEM</a> </li>
  <li><a id="linkContact" href="{% url homepage_contact %}">Contacto</a></li>
-
+ <li><a id="linkHistoria" href="{% url homepage_historia %}">Historia</a></li>
 {% if user.is_authenticated %}
 <li><a id="linkLogOut" href="{% url account_logout %}">Logout</a></li>
 {% else %}

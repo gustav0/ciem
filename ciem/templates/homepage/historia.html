@@ -1,0 +1,29 @@
+{% extends "homepage/index.html" %}
+{% block head%}<script src="{{ MEDIA_URL }}css/homepage/historia.css"></script>{% endblock%}
+{% block content %}
+	<form class="historia" method="POST" action="." >
+		{% csrf_token %}
+        <table>	
+        	<tr>
+            <td> Salsas de queso y salsas cremosas como la de champinones, bechamel </td>
+            <td>{{ formulario.f1 }}	</td>
+            </tr>
+            
+			<tr>
+            <td>Mayonesa o semejantes</td> 
+            <td>{{ formulario.f2 }}	</td>          
+            </tr>
+            	
+ 			<tr>
+            <td>Salsa de tomate Ketchup normal</td> 
+            <td>{{ formulario.f3 }}	</td>          
+            </tr>           
+            
+ 			<tr>
+            <td>Salsa de tomate ligera</td> 
+            <td>{{ formulario.f3 }}	</td>          
+            </tr>
+        </table>
+        		<p><input type='submit' value='Enviar'></p>
+	</form>
+{% endblock %}
