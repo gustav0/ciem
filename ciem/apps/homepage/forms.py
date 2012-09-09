@@ -34,6 +34,11 @@ class historiaForm(forms.Form):
 		('7','1 vez por dia'),
 		('8','2 o mas por dia'),
 	)
+	tamano = (
+		('p','Pequena'),
+		('m','Mediana'),
+		('g','Grande'),
+	)
 	f1 = forms.ChoiceField(choices = frecuencia)
 	f2 = forms.ChoiceField(choices = frecuencia)
 	f3 = forms.ChoiceField(choices = frecuencia)
@@ -41,3 +46,10 @@ class historiaForm(forms.Form):
 	f5 = forms.ChoiceField(choices = frecuencia)
 	f6 = forms.ChoiceField(choices = frecuencia)
 	f7 = forms.ChoiceField(choices = frecuencia)
+	t1 = forms.ChoiceField(choices = tamano)
+	t2 = forms.ChoiceField(choices = tamano)
+	t3 = forms.ChoiceField(choices = tamano)
+	t4 = forms.ChoiceField(choices = tamano)
+	t5 = forms.ChoiceField(choices = tamano)
+	t6 = forms.ChoiceField(choices = tamano)
+	t7 = forms.ChoiceField(choices = tamano)	

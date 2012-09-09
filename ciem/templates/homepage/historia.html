@@ -1,46 +1,69 @@
 {% extends "homepage/index.html" %}
-{% block head %}
-<script src="{{ MEDIA_URL }}css/homepage/historia.css"></script>
-{% endblock %}
+
+{% block head %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/homepage/historia.css">{% endblock %}
+
 {% block content %}
 	<form class="historia" method="POST" action="." >
 		{% csrf_token %}
-        <table class="table">	
-        	<tr>
-            <td > Salsas de queso y salsas cremosas </br> como la de champinones, bechamel </td>
-            <td>{{ formulario.f1 }}	</td>
-            </tr>
+          <div class="fondo"></div>
+          	<div class="Item" id="titulo"> 
+            	<div class="pregunta" id="subt">
+            	Salsas y condimentos</div>
+            	<div class="frecuencia" id="subt"><label>Frecuencia</label></div>
+                <div class="tamano" id="subt">Tamaño de la Porción</div>
+            </div>
+                    
+        	<div class="Item"> 
+            	<div class="pregunta">
+            	Salsas de queso y salsas cremosas  como la de champinones, bechamel </div>
+            	<div class="frecuencia">{{ formulario.f1 }}	</div>
+                <div class="tamano">{{ formulario.t1 }}	</div>
+            </div>
             
-			<tr>
-            <td>Mayonesa o semejantes</td> 
-            <td>{{ formulario.f2 }}	</td>          
-            </tr>
-            	
- 			<tr>
-            <td>Salsa de tomate Ketchup normal</td> 
-            <td>{{ formulario.f3 }}	</td>          
-            </tr>           
+          	<div class="Item"> 
+            	<div class="pregunta">
+            	Mayonesa o semejantes </div>
+            	<div class="frecuencia">{{ formulario.f2 }}	</div>
+                <div class="tamano">{{ formulario.t2 }}	</div>
+                
+            </div>    
+            	<div class="Item"> 
+            	<div class="pregunta">
+            	Salsa de tomate Ketchup normal </div>
+                <div class="frecuencia">{{ formulario.f3 }}	</div>
+                <div class="tamano">{{ formulario.t3 }}	</div>
+         
+            </div>  
+              
+            	<div class="Item"> 
+            	<div class="pregunta">
+            	Salsa de tomate ligera </div>
+            	<div class="frecuencia">{{ formulario.f4 }}	</div>
+  				<div class="tamano">{{ formulario.t4 }}	</div>              
+            </div>    
             
- 			<tr>
-            <td>Salsa de tomate ligera</td> 
-            <td>{{ formulario.f4 }}	</td>          
-            </tr>
-            
- 			<tr>
-            <td>Guasacaca</td> 
-            <td>{{ formulario.f5 }}	</td>          
-            </tr>  
-            
-  			<tr>
-            <td>Mostaza</td> 
-            <td>{{ formulario.f6 }}	</td>          
-            </tr>                      
+    
+            	<div class="Item"> 
+            	<div class="pregunta">
+            	Guasacaca </div>
+            	<div class="frecuencia">{{ formulario.f5 }}	</div>
+  				<div class="tamano">{{ formulario.t5 }}	</div>              
+            </div>  
  
-   			<tr>
-            <td>Salsas picantes</td> 
-            <td>{{ formulario.f7 }}	</td>          
-            </tr>            
-        </table>
-        		<p><input type='submit' value='Enviar'></p>
+            	<div class="Item"> 
+            	<div class="pregunta">
+            	Mostaza </div>
+            	<div class="frecuencia">{{ formulario.f6 }}	</div>   
+ 				<div class="tamano">{{ formulario.t6 }}	</div>                     
+               </div>  
+                 
+            	<div class="Item"> 
+            	<div class="pregunta">
+            	Salsas picantes </div>
+            	<div class="frecuencia">{{ formulario.f7 }}	</div>
+  				<div class="tamano">{{ formulario.t7 }}	</div>              
+            </div>            
+   
+         <div class="boton"><input type='submit' value='Enviar'></div>
 	</form>
 {% endblock %}
