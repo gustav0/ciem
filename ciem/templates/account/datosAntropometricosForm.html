@@ -1,5 +1,4 @@
 {% extends "homepage/index.html" %}
-{% block head %}<script src="{{ MEDIA_URL }}js/propios/hola.js"></script>{% endblock %}
 {% block content %}
 	<form action="/antropometricos/" id='formulario' method='post' enctype='multipart/form-data' action="">
 	{% csrf_token %}
