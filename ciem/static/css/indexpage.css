@@ -2,13 +2,12 @@
 	display: none;
 }
 #tablaAlineacion{
-}/*773px*/
+}
 #top{
 	width: 766px;
 	height: 93px;
 	background: url(../img/ciem.jpg) no-repeat;
 }
-/*468*/
 #navi{
 	width: 760;
 	text-align: center;
@@ -24,13 +23,12 @@
 }
 
 #linkHome,#linkAbout,#linkRegister{
-
 }
 #clear{
 	clear:both;
 }
 #content{
-	background-color: #eee;
+
 	width: 960px;
 }	
 #footer{
@@ -127,11 +125,11 @@
 	display:block;
 	float:left;
 	background-color:#006600;
-	background-image:url(/ciem/static/img/menu-background.png);
+	background-image:url(/ciem/static/img/menu-background.jpg);
 	padding-bottom:10px;
 	padding-top:10px;
 	}
 li:hover{
 	display:block;
 	float:left;
-	background-image:url(/ciem/static/img/menu-background-mouseover.png)}
+	background-image:url(/ciem/static/img/menu-background-mouseover.jpg)}

@@ -1,8 +1,42 @@
 {% extends "homepage/index.html" %}
+{% block head %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/account/login.css">{% endblock %}
 {% block content %}
-	<form action="/login" method="POST">
-		{% csrf_token %}
-		{{ form.as_p }}
-		<input type="submit" value="login">
-	</form>
+	<div id="loginForm">
+		<div id="alinearLoginForm">
+		<form action="/login" method="POST">
+			{% csrf_token %}
+			<div id="usernameForm" class="campoLogin" >
+				<div id="usernameFormTag" class="formTag {% if form.username.errors %}errorLogin">
+					Username *:
+				{% else %}">
+					Username:
+				{% endif %}
+				</div>
+				<div id="usernameFormField"> {{ form.username }}
+				</div>
+			</div>
+			<div id="passwordForm" class="campoLogin">
+				<div id="passwordFormTag" class="formTag {% if form.password.errors %}errorLogin">
+					Contraseña *:
+				{% else %}">
+					Contraseña:
+				{% endif %}
+				</div>
+				<div id="passwordFormField"> {{ form.password }}
+				</div>
+			</div>
+			<div id="loginError" class="errorLogin">
+				{% if form.non_field_errors %}
+					Usuario y/o contraseña incorrectos.
+				{% elif form.username.errors or form.password.errors %}
+					Campos obligatorios *.
+				{% else %}
+				<br>
+				{% endif %}
+			</div>
+			<div class="clear"></div>
+			<div id="inputForm"><input type="submit" value="login"></div>
+		</form>
+		</div>
+	</div>
 {% endblock %}
