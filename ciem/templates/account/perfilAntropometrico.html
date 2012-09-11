@@ -1,0 +1,16 @@
+{% extends 'homepage/index.html' %}
+
+{% block content %}
+	 {{ profile.user }}
+	 <br>
+	 {% if data %}
+	 	{% for d in data %}
+	 	<div>Perfil del {{ d.fecha_creacion }} </div>
+		<div>Peso: {{ d.peso }}</div>
+	 	<div>Talla: {{ d.talla }}</div>
+	 	<br>
+		{% endfor%}
+	{% endif %}
+<a class="Antro" href="{% url account_datosAntropometricos %}">
+	<div id="calculadoraDiv">LLENAR DATOS ATROPOMETRICOS</div></a>
+{% endblock %}
