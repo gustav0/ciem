@@ -6,6 +6,7 @@ from ciem.apps.homepage.forms import *
 from django.template import RequestContext
 from django.core.mail import send_mail
 from ciem.apps.homepage.forms import historiaForm
+from ciem.apps.homepage.forms import ipaqForm
 
 def index(request):
 	ctx = {}
@@ -49,3 +50,4 @@ def historia(request):
 		formulario=historiaForm()
 	ctx= {'formulario':formulario,}
 	return render_to_response('homepage/historia.html', ctx, context_instance=RequestContext(request))
+	
