@@ -8,6 +8,7 @@ from django.template import RequestContext
 from ciem.apps.account.forms import antropometricosForm, registerForm
 from ciem.apps.account.managers import antropometricosManager
 from ciem.apps.account.models import datosAntropometricos
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def register(request):
 	form = registerForm(request.POST or None)
@@ -26,9 +27,17 @@ def profile(request):
 
 @login_required(login_url='/login')
 def perfilAntropometrico(request):
-	i=0
 	data = datosAntropometricos.objects.getById(request.user.id)
-	ctx = {'profile':request.user.get_profile(), 'data':data, 'i':i,}
+	paginator = Paginator(data, 2)
+	numero_pagina = request.GET.get('page',1)
+	try:
+		pagina = paginator.page(numero_pagina)
+	except EmptyPage:
+		pagina = paginator.page(paginator.num_pages)
+	except PageNotAnInteger:
+		pagina = paginator.page(1)
+
+	ctx = {'profile':request.user.get_profile(), 'pagina':pagina, }
 	return render_to_response('account/perfilAntropometrico.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')

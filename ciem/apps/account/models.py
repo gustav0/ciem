@@ -23,6 +23,6 @@ class datosAntropometricos(models.Model):
 	patologia2 = models.BooleanField(verbose_name="Patologia 2")
 	patologia3 = models.BooleanField(verbose_name="Patologia 3")
 	user = models.ForeignKey(User)
-	fecha_creacion = models.DateTimeField(auto_now_add=True)
+	fecha_creacion = models.DateField(auto_now_add=True)
 
 	objects = antropometricosManager()
