@@ -1,0 +1,73 @@
+{% extends "homepage/index.html" %}
+
+{% block head %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/homepage/historia2.css">{% endblock %}
+
+{% block content %}
+	<form class="historia" method="POST" action="." >
+		{% csrf_token %}
+          <div class="pregunta">
+            	Salsas de queso y salsas cremosas  como la de champinones, bechamel </div>
+                <br>
+        <div class="Item"> 
+        		<div class="texto1">Frecuencia</div>
+            	<div class="frecuencia">{{ formulario.f1 }}	</div>
+                <div class="texto2">Tamaño</div>
+                <div class="tamano">{{ formulario.t1 }}	</div>
+                <div class="tip"><a href="">Ayuda</a></div>
+          </div>
+         <div class="pregunta">	Mayonesa o semejantes </div>         
+         <div class="Item"> 
+        		<div class="texto1">Frecuencia</div>
+            	<div class="frecuencia">{{ formulario.f2 }}	</div>
+                <div class="texto2">Tamaño</div>               
+                <div class="tamano">{{ formulario.t2 }}	</div>
+                <div class="tip"><a href="">Ayuda</a></div>                
+            </div>  
+            
+         <div class="pregunta">Salsa de tomate Ketchup normal </div>          			         <div class="Item"> 
+        		<div class="texto1">Frecuencia</div>
+                <div class="frecuencia">{{ formulario.f3 }}	</div>
+                <div class="texto2">Tamaño</div>                
+                <div class="tamano">{{ formulario.t3 }}	</div> 
+                <div class="tip"><a href="">Ayuda</a></div>                   
+            </div>
+              
+          <div class="pregunta"> Salsa de tomate ligera </div>             
+          <div class="Item"> 
+        		<div class="texto1">Frecuencia</div>
+            	<div class="frecuencia">{{ formulario.f4 }}	</div>
+                <div class="texto2">Tamaño</div>                 
+  				<div class="tamano">{{ formulario.t4 }}	</div>  
+                <div class="tip"><a href="">Ayuda</a></div>
+          </div>    
+            
+          <div class="pregunta"> Guasacaca </div>  
+          <div class="Item"> 
+        		<div class="texto1">Frecuencia</div>
+            	<div class="frecuencia">{{ formulario.f5 }}	</div>
+                <div class="texto2">Tamaño</div>                 
+  				<div class="tamano">{{ formulario.t5 }}	</div> 
+                <div class="tip"><a href="">Ayuda</a></div>          </div> 
+                 
+           <div class="pregunta"> Mostaza </div>
+           <div class="Item"> 
+        		<div class="texto1">Frecuencia</div>
+            	<div class="frecuencia">{{ formulario.f6 }}	</div>
+                <div class="texto2">Tamaño</div>                   
+ 				<div class="tamano">{{ formulario.t6 }}	</div>
+                <div class="tip"><a href="">Ayuda</a></div>            </div> 
+            
+           <div class="pregunta"> Salsas picantes </div>
+           <div class="Item">
+        		<div class="texto1">Frecuencia</div>           
+            	<div class="frecuencia">{{ formulario.f7 }}	</div>
+                <div class="texto2">Tamaño</div>                  
+  				<div class="tamano">{{ formulario.t7 }}	</div>  
+                <div class="tip"><a href="">Ayuda</a></div>                           
+            </div>            
+   
+
+
+         <div class="boton"><input type='submit' value='Enviar'></div>
+	</form>
+{% endblock %}
