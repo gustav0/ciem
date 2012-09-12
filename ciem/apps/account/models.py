@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 import datetime
+from ciem.apps.account.managers import antropometricosManager
 #from ciem.apps.account.managers import userManager
 
 class userProfile(models.Model):
@@ -22,3 +23,6 @@ class datosAntropometricos(models.Model):
 	patologia2 = models.BooleanField(verbose_name="Patologia 2")
 	patologia3 = models.BooleanField(verbose_name="Patologia 3")
 	user = models.ForeignKey(User)
+	fecha_creacion = models.DateField(auto_now_add=True)
+
+	objects = antropometricosManager()

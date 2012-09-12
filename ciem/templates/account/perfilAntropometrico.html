@@ -1,0 +1,23 @@
+{% extends 'homepage/index.html' %}
+
+{% block content %}
+	 {{ profile.user }}
+	 <br>
+
+	{% for d in pagina.object_list %}
+	<div>Perfil de {{ d.fecha_creacion|date:"d/m/y" }} </div>
+	<div>Peso: {{ d.peso }}</div>
+	<div>Talla: {{ d.talla }}</div>
+	<br>
+	{% endfor%}
+	{% if pagina.has_previous %}
+	<a href="?page={{ pagina.previous_page_number }} ">prev</a> |
+	{% endif %}
+	{{ pagina.number }}
+	{% if pagina.has_next %}
+	|<a href="?page={{ pagina.next_page_number }} "> next</a>
+	{% endif %}
+
+<a class="Antro" href="{% url account_datosAntropometricos %}">
+	<div id="calculadoraDiv">LLENAR DATOS ATROPOMETRICOS</div></a>
+{% endblock %}

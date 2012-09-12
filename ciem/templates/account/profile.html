@@ -6,6 +6,6 @@
 	<div> Cédula: {% load humanize %}
 	{{ profile.cedula|floatformat:0|intcomma }} </div>
 	<div> Fecha de nacimiento: {{ profile.fecha_nacimiento }} </div>
-	<a class="Antro" href="{% url account_datosAntropometricos %}">
-	<div id="calculadoraDiv">LLENAR DATOS ATROPOMETRICOS</div></a>
+	<a href="{% url account_perfilAntropometrico %}">
+	<div id="calculadoraDiv">MI PERFIL ATROPOMETRICO</div></a>
 {% endblock %}
