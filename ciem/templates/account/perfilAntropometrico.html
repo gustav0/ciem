@@ -5,7 +5,7 @@
 	 <br>
 
 	{% for d in pagina.object_list %}
-	<div>Perfil de {{ d.fecha_creacion|date:"d/m/y" }} </div>
+	<div>Perfil del {{ d.fecha_creacion|date:"d/m/y" }} </div>
 	<div>Peso: {{ d.peso }}</div>
 	<div>Talla: {{ d.talla }}</div>
 	<br>

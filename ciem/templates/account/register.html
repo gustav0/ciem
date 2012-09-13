@@ -3,23 +3,9 @@
 	<form action="." method="POST">
 		{% csrf_token %}
 		<div id="usernameForm" class="campoForm">
-			Usuario: {{ form.username }}
+			Usuario: {{ form.as_p }}
 		</div>
-		<div id="contrasenaForm" class="campoForm">
-			Contraseña: {{ form.password1 }}
-		</div>
-		<div id="contrasena2Form" class="campoForm">
-			Contraseña 2: {{ form.password2 }}
-		</div>
-		<div id="generoForm" class="campoForm">
-			Género: {{ form.genero }}
-		</div>
-		<div id="fechaNacimientoForm" class="campoForm">
-			Fecha nacimiento: {{ form.fecha_nacimiento }}
-		</div>
-		<div id="cedulaForm" class="campoForm">
-			Cédula: {{ form.cedula }}
-		</div>
+
 		<input type="submit" value="Register">
 	</form>
 {% endblock %}
