@@ -1,15 +1,24 @@
+<!DOCTYPE html>
 <html>
 <head>{% block head %} {% endblock%}
-<title>{% block title %} {% endblock%}	</title>
-{% block css %}	<link rel="stylesheet" href=" {{ MEDIA_URL }}css/indexpage.css">{% endblock %}
+<title>{% block title %} {% endblock%}</title>
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->	
+<!-- cuando se pruebe con otros navegador viejo quizas haya que activarlo <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/normalize.css"> -->
+<link rel="stylesheet" href=" {{ MEDIA_URL }}css/indexpage.css">
+{% block css %}
+{% endblock %}
 </head>
 <body>
-	<div id="tablaAlineacion" align="center"> 
-		<div id="top">{% block top %} {% endblock%}</div>
-		<div id="navi">{% block navi %} {% endblock%}</div>
-		<div id="clear"> {% block clear %} {% endblock %}</div>
-		<div id="content">{% block content %} {% endblock%}</div>
-		<div id="footer">{% block footer %} {% endblock%}</div>
+	<header>
+		<img src="{{ MEDIA_URL }}img/ciemlogo.png" alt="Logo del ciem">
+		<nav>{% block navi %} {% endblock%}</nav>
+	</header>	
+	<div id="wrapper">
+		<section>{% block content %} {% endblock%}</section>
+		<aside>{% block clear %} {% endblock %}</aside>
 	</div>
+	<footer class="pie">{% block footer %} {% endblock%}</footer>
 </body>
 </html>

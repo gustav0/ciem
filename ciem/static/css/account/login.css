@@ -2,6 +2,7 @@ input, input:focus{
     outline: none;
     margin: 0;
 }
+
 .errorLogin{
 	color: #CE0D0D;
 }
@@ -11,10 +12,15 @@ input, input:focus{
 	margin-top: 10px;
 }
 #loginForm{
+	position: relative;
+	top:90px;
+	left: 250px;
+	padding: 10px;
 	float:left;
 	height: auto;
 	width: 280px;
 	background-color: #EEE;
+	border: 1.7px solid #CCC;
 }
 .campoLogin{
 	float:left;
