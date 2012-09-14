@@ -32,6 +32,9 @@ Página principal
 {% endblock%}
 
 {% block content %}
+	{% if user.is_authenticated %}
+	{{ user.get_group_permissions }}
+	{% endif %}
 	<span>En calidad de vida, un paso más</span>
 	<div id="botones">
 			<div class="boton2">
@@ -45,6 +48,7 @@ Página principal
 			</div>
 		</a>
 	</div>
+
 {% endblock%}
 
 {% block footer %}

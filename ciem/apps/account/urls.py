@@ -6,6 +6,7 @@ urlpatterns = patterns('ciem.apps.account.views',
  url(r'^register/$', 'register', name="account_register"),
  url(r'^antropometricos/$', 'antropometricos', name="account_datosAntropometricos"),
  url(r'^diagnostico/$', 'perfilAntropometrico', name="account_perfilAntropometrico"),
+ url(r'^nutricionistas/$', 'nutricionistas', name="account_nutricionistas"),
 )
 
 urlpatterns += patterns('',

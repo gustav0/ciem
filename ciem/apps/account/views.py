@@ -13,16 +13,19 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 def register(request):
 	form = registerForm(request.POST or None)
 	if form.is_valid():
+		print "form.is_valid()"
 		user = form.save()
 		user.backend = settings.AUTHENTICATION_BACKENDS[0]
 		login(request, user)
+		print "return login"
 		return redirect(reverse('account_profile'))
+	print form._errors
 	ctx={'form': form,}
 	return render_to_response('account/register.html', ctx, context_instance=RequestContext(request))
 	
 @login_required(login_url='/login')
 def profile(request):
-	ctx={'profile':request.user.get_profile(),}
+	ctx={'profile':request.user.get_profile(),'usuario':request.user,}
 	return render_to_response('account/profile.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')
@@ -46,4 +49,9 @@ def antropometricos(request):
 	if form.is_valid():
 		form.save()
 	ctx= {'form':form, 'id':request.user.id, }
-	return render_to_response('account/datosAntropometricosForm.html', ctx, context_instance=RequestContext(request))	
+	return render_to_response('account/datosAntropometricosForm.html', ctx, context_instance=RequestContext(request))
+
+@login_required(login_url='/login')
+def nutricionistas(request):
+	ctx= {}	
+	return render_to_response('account/nutricionistas.html', ctx, context_instance=RequestContext(request))

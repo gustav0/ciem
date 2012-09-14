@@ -1,6 +1,11 @@
 {% extends 'homepage/index.html' %}
 
 {% block content %}
+	<!--{{ user.get_group_permissions }}-->
+	{{ perms.data }}
+	{% if perms.data.add_alimento and perms.data.change_alimento %}
+		<div>Eres nutricionista</div>
+	{% endif %}
 	Bienvenido {{ profile.user }}
 	<div> Genero: {{ profile.get_genero_display }} </div>
 	<div> Cédula: {% load humanize %}
