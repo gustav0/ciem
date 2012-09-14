@@ -25,7 +25,7 @@ def register(request):
 	
 @login_required(login_url='/login')
 def profile(request):
-	ctx={'profile':request.user.get_profile(),}
+	ctx={'profile':request.user.get_profile(),'usuario':request.user,}
 	return render_to_response('account/profile.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')
@@ -49,4 +49,9 @@ def antropometricos(request):
 	if form.is_valid():
 		form.save()
 	ctx= {'form':form, 'id':request.user.id, }
-	return render_to_response('account/datosAntropometricosForm.html', ctx, context_instance=RequestContext(request))	
+	return render_to_response('account/datosAntropometricosForm.html', ctx, context_instance=RequestContext(request))
+
+@login_required(login_url='/login')
+def nutricionistas(request):
+	ctx= {}	
+	return render_to_response('account/nutricionistas.html', ctx, context_instance=RequestContext(request))
