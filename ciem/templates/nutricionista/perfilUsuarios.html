@@ -1,0 +1,7 @@
+{% extends 'homepage/index.html' %}
+
+{% block content %}
+{% for u in usuario %}
+{{ u.user_id }}
+{% endfor %}
+{% endblock %}

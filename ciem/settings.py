@@ -122,6 +122,7 @@ INSTALLED_APPS = (
     #'django.contrib.staticfiles',
     'ciem.apps.data',
     'ciem.apps.account',
+    'ciem.apps.nutricionista',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
