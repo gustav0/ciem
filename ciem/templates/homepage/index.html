@@ -1,53 +1,63 @@
 {% extends "base.html" %}
 
 {% block tittle %}
- Index Page
+Página principal
 {% endblock%}
 
 {% block navi %}
-<div id="barraMenu">
- 	<div id="linkInicio" class="itemMenu">
- 		<a href="{% url homepage_index %}">Inicio</a>
- 	</div>
- 	<div id="linkUsuarios" class="itemMenu">
- 	{% if user.is_authenticated %}
- 		<a href="{% url account_profile %}">Usuarios</a> 
- 	{% else %}
- 		<a href="{% url account_login %}">Usuarios</a>
- 	{% endif %}
- 	</div>
- 	<div id="linkUsuarios" class="itemMenu">
- 		<a id="linkAbout" href="{% url homepage_about %}">CIEM</a>
- 	</div>
- 	<div id="linkContact" class="itemMenu">
- 		<a href="{% url homepage_contact %}">Contacto</a>
- 	</div>
- 	<div id="linkHistoria" class="itemMenu">
-		<a href="{% url homepage_historia %}">Historia</a>
-	</div>
-	<div id="linkLog" class="itemMenu">
-	{% if user.is_authenticated %}
-		<a href="{% url account_logout %}">Logout</a>
-	{% else %}
-		<a href="{% url account_register %}">Register</a>
-	{% endif %}
-	</div>
-</div>
+	<ul>
+		<li><a href="{% url homepage_index %}">Inicio</a></li>
+		<li>
+			{% if user.is_authenticated %}
+				<a href="{% url account_profile %}">Usuarios</a> 
+			{% else %}
+				<a href="{% url account_login %}">Usuarios</a>
+			{% endif %}
+		</li>
+		<li><a id="linkAbout" href="{% url homepage_about %}">CIEM</a></li>
+		<li><a href="{% url homepage_contact %}">Contacto</a></li>
+		<li><a href="{% url homepage_historia %}">Historia</a></li>
+		<li>
+			{% if user.is_authenticated %}
+				<a href="{% url account_logout %}">Logout</a>
+			{% else %}
+				<a href="{% url account_register %}">Register</a>
+			{% endif %}
+		</li>
+
+	</ul>
 {% endblock %}
 
 {% block clear %}
 {% endblock%}
 
 {% block content %}
+<<<<<<< HEAD
 <br>
 
 Index
 <br><br><br />
+=======
+	{% if user.is_authenticated %}
+	{{ user.get_group_permissions }}
+	{% endif %}
+	<span>En calidad de vida, un paso más</span>
+	<div id="botones">
+			<div class="boton2">
+				HISTORIA NUTRICIONA
+				<img src="http://www.armonio.net/Historial.JPG" alt="historial">
+			</div>
+			<a class="calculadoraA" href="{% url homepage_calculadora %}">
+			<div id="calculadoraDiv" class="boton">
+				CALCULADORA DE CALORIAS
+				<img src="http://docs.autodesk.com/ACDLT/2013/ESP/images/GUID-132C3F4D-124A-49CB-91CA-615C2C79FC0F-low.png" alt="dibujo">
+			</div>
+		</a>
+	</div>
+>>>>>>> origin
 
-<a class="calculadoraA" href="{% url homepage_calculadora %}"><div id="calculadoraDiv">CALCULADORA</div></a>
-<br><br />
 {% endblock%}
 
 {% block footer %}
- 2012 COPYRIGHT! 
+Desarrollo para optar por el titulo de ing en informatica 2012 COPYRIGHT 
 {% endblock%}
