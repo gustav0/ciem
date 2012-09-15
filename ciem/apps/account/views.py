@@ -19,7 +19,7 @@ def register(request):
 		return redirect(reverse('account_profile'))
 	ctx={'form': form,}
 	return render_to_response('account/register.html', ctx, context_instance=RequestContext(request))
-	
+
 @login_required(login_url='/login')
 def profile(request):
 	ctx={'profile':request.user.get_profile(),'usuario':request.user,}
@@ -36,7 +36,6 @@ def perfilAntropometrico(request):
 		pagina = paginator.page(paginator.num_pages)
 	except PageNotAnInteger:
 		pagina = paginator.page(1)
-
 	ctx = {'profile':request.user.get_profile(), 'pagina':pagina, }
 	return render_to_response('account/perfilAntropometrico.html', ctx, context_instance=RequestContext(request))
 
