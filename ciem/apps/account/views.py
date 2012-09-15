@@ -13,11 +13,9 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 def register(request):
 	form = registerForm(request.POST or None)
 	if form.is_valid():
-		print "form.is_valid()"
 		user = form.save()
 		user.backend = settings.AUTHENTICATION_BACKENDS[0]
 		login(request, user)
-		print "return login"
 		return redirect(reverse('account_profile'))
 	print form._errors
 	ctx={'form': form,}
