@@ -18,14 +18,14 @@ footer{
 header{
 	display: block;
 	width: 960px;
-	height: 130px;
+	height: 135px;
 }
 .colorCabecera{
-	background-color: green;
+	background-color: #339933;
 }
 #cabeceraLinea{
 	width: 960px;
-	height: 10px;
+	height: 15px;
 }
 #imagenCabecera{
 	float: left;
