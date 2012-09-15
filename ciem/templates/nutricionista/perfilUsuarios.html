@@ -1,0 +1,22 @@
+{% extends 'homepage/index.html' %}
+{% load custom_filters %}
+{% block content %}
+{% if usuario %}
+{% for u in usuario %}
+	<a href="?user={{ u.user_id }}">{{ u.user }}</a>
+	<br>
+	{% for p in perfil %}
+	Prueba N°{{ p|get_index:perfil }}
+	<br>
+	Peso: {{ p.peso }}
+	Talla: {{ p.talla }}
+
+
+	<br><br>
+	{% endfor %}
+
+{% endfor %}
+{% else %}
+
+{% endif %}
+{% endblock %}

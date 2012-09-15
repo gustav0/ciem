@@ -1,6 +1,10 @@
 {% extends 'homepage/index.html' %}
 
 {% block content %}
+	<!-- {{ perms.data }} -->
+	{% if perms.data.add_alimento and perms.data.change_alimento %}
+		<div><a href="{% url nutricionista_perfilUsuarios %}">Eres nutricionista</a></div>
+	{% endif %}
 	Bienvenido {{ profile.user }}
 	<div> Genero: {{ profile.get_genero_display }} </div>
 	<div> Cédula: {% load humanize %}
