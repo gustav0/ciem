@@ -17,7 +17,6 @@ def register(request):
 		user.backend = settings.AUTHENTICATION_BACKENDS[0]
 		login(request, user)
 		return redirect(reverse('account_profile'))
-	print form._errors
 	ctx={'form': form,}
 	return render_to_response('account/register.html', ctx, context_instance=RequestContext(request))
 	

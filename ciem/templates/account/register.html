@@ -3,7 +3,8 @@
 	<form action="." method="POST">
 		{% csrf_token %}
 		<div id="usernameForm" class="campoForm">
-			Usuario: {{ form.as_p }}
+			Usuario: 
+			{{ form.as_p }}
 		</div>
 
 		<input type="submit" value="Register">
