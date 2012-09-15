@@ -1,3 +1,8 @@
 section{
-	height: 460px;
+	height: 600px;
+}
+
+p{
+	padding: 5px;
+	background: #efefef;
 }
