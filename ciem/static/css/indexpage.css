@@ -29,6 +29,7 @@ form{
 
 footer{
 	clear: both; 
+	
 	text-align: center;
 	position: relative;
 	background:#efefef;
@@ -36,10 +37,7 @@ footer{
 	color:#999;
 	text-shadow:0px 1px 1px #fff;
 	width:100%;
-	max-width: inherit;
-	min-height: 80px;
-	padding-top:20px; 
-	
+	height: 80px;
 }
 
 header{
