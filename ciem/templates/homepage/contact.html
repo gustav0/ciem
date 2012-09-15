@@ -9,7 +9,7 @@ Contacto
 {% endblock %}
 
 {% block content %}
-<h2>Contacto</h2>
+<div id="contenedor"><h2>Contacto</h2>
 
 	{% if success %}
 	<h3>Se ha enviado:</h3>
@@ -25,4 +25,5 @@ Contacto
 	</form>
 	<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=es&amp;geocode=&amp;q=Facultad+de+Medicina,+Maracaibo,+Zulia,+Venezuela&amp;aq=0&amp;sll=10.671106,-71.633115&amp;sspn=0.023111,0.035834&amp;ie=UTF8&amp;hq=&amp;hnear=Facultad+de+Medicina,+Sector+Paraiso,+Maracaibo,+Zulia,+Venezuela&amp;ll=10.676845,-71.631289&amp;spn=0.01476,0.018239&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
 	{% endif %}
+</div>
 {% endblock %}

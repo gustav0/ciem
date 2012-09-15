@@ -1,9 +1,11 @@
 div#wrapper{
 	text-align: center;
 	display: inline-block;
-	width: 100%;
-	margin-bottom: -2px
+	margin-bottom: -2px;
+	width:100%;
 }
+
+
 section{
 	border: 1.7px solid #CCC;
 	background: whiteSmoke;

@@ -1,11 +1,10 @@
 {% extends "homepage/index.html" %}
 
-{% block head %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/homepage/historia.css">{% endblock %}
+{% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/homepage/historia.css">{% endblock %}
 
 {% block content %}
 	<form class="historia" method="POST" action="." >
 		{% csrf_token %}
-          <div class="fondo"></div>
           	<div class="Item" id="titulo"> 
             	<div class="pregunta" id="subt">
             	Salsas y condimentos</div>
@@ -64,6 +63,6 @@
   				<div class="tamano">{{ formulario.t7 }}	</div>              
             </div>            
    
-         <div class="boton"><input type='submit' value='Enviar'></div>
+         <div class="enviar"><input type='submit' value='Enviar'></div>
 	</form>
 {% endblock %}
