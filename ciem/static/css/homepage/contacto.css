@@ -1,21 +1,21 @@
-div#wrapper{
+#wrapper{
 	text-align: center;
 	display: inline-block;
-	width: 100%;
-	margin-bottom: -2px
+	margin-bottom: -2px;
 }
+
+
 section{
 	border: 1.7px solid #CCC;
 	background: whiteSmoke;
 	padding: 10px;
 	width: 350px;
+	height: 480px;
 	border-top-left-radius: 1em;
 	border-top-right-radius: 1em; 
 	position: relative;
 	left: 10px;
-	margin:0;
-	margin-top: 25px;
-
+	margin:0px;
 }
 
 iframe{

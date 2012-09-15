@@ -6,24 +6,24 @@ Página principal
 
 {% block navi %}
 	<ul>
-		<li><a href="{% url homepage_index %}">Inicio</a></li>
-		<li>
+		<div><a href="{% url homepage_index %}">Inicio</a></div>
+		<div>
 			{% if user.is_authenticated %}
 				<a href="{% url account_profile %}">Usuarios</a> 
 			{% else %}
 				<a href="{% url account_login %}">Usuarios</a>
 			{% endif %}
-		</li>
-		<li><a id="linkAbout" href="{% url homepage_about %}">CIEM</a></li>
-		<li><a href="{% url homepage_contact %}">Contacto</a></li>
-		<li><a href="{% url homepage_historia %}">Historia</a></li>
-		<li>
+		</div>
+		<div><a id="linkAbout" href="{% url homepage_about %}">CIEM</a></div>
+		<div><a href="{% url homepage_contact %}">Contacto</a></div>
+		<div><a href="{% url homepage_historia %}">Historia</a></div>
+		<div>
 			{% if user.is_authenticated %}
 				<a href="{% url account_logout %}">Logout</a>
 			{% else %}
 				<a href="{% url account_register %}">Register</a>
 			{% endif %}
-		</li>
+		</div>
 
 	</ul>
 {% endblock %}
@@ -33,6 +33,25 @@ Página principal
 
 {% block content %}
 
+<<<<<<< HEAD
+=======
+	{% if user.is_authenticated %}
+	{{ user.get_group_permissions }}
+	{% endif %}
+	<span class="frase">En calidad de vida, un paso más</span>
+	<div id="botones">
+			<div class="boton2">
+				HISTORIA NUTRICIONA
+				<img src="http://www.armonio.net/Historial.JPG" alt="historial">
+			</div>
+			<a class="calculadoraA" href="{% url homepage_calculadora %}">
+			<div id="calculadoraDiv" class="boton">
+				CALCULADORA DE CALORIAS
+				<img src="http://docs.autodesk.com/ACDLT/2013/ESP/images/GUID-132C3F4D-124A-49CB-91CA-615C2C79FC0F-low.png" alt="dibujo">
+			</div>
+		</a>
+	</div>
+>>>>>>> 59373225acd3947e446fea871a6e102390c3ccc1
 
 {% endblock%}
 

@@ -11,13 +11,15 @@
 {% endblock %}
 </head>
 <body>
-	<header>
-		<img src="{{ MEDIA_URL }}img/ciemlogo.png" alt="Logo del ciem">
-		<nav>{% block navi %} {% endblock%}</nav>
-	</header>	
-	<div id="wrapper">
-		<section>{% block content %} {% endblock%}</section>
-		<aside>{% block clear %} {% endblock %}</aside>
+	<div id="Base">
+		<header>
+			<img src="{{ MEDIA_URL }}img/ciemlogo.png" alt="Logo del ciem">
+			<nav>{% block navi %} {% endblock%}</nav>
+		</header>	
+		<div id="wrapper">
+			<section>{% block content %} {% endblock%}</section>
+			<aside>{% block clear %} {% endblock %}</aside>
+		</div>
 	</div>
 	<footer class="pie">{% block footer %} {% endblock%}</footer>
 </body>
