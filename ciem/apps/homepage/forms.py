@@ -21,7 +21,7 @@ class contactForm(forms.Form):
 			raise forms.ValidationError("*")
 		return texto
 		
-class ipaqForm(forms.Form):
+'''class ipaqForm(forms.Form):
 	dias = (
 	('1','1 dia'),
 	('2','2 dias'),
@@ -50,8 +50,8 @@ class ipaqForm(forms.Form):
 	p6b_trabajo = forms.BooleanFiel()
 	p7a_trabajo = forms.ChoiceField(choices = dias)
 	p7b_trabajo = forms.FloatField(default = 0)
-	
-	class historiaForm(forms.Form):
+	'''
+class historiaForm(forms.Form):
 	frecuencia = (
 		('0','Nunca'),
 		('1','1 vez al mes'),

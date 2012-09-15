@@ -6,7 +6,7 @@ from ciem.apps.homepage.forms import *
 from django.template import RequestContext
 from django.core.mail import send_mail
 from ciem.apps.homepage.forms import historiaForm
-from ciem.apps.homepage.forms import ipaqForm
+
 
 def index(request):
 	ctx = {}
