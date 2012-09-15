@@ -5,7 +5,6 @@ Página principal
 {% endblock%}
 
 {% block navi %}
-	<ul>
 		<div><a href="{% url homepage_index %}">Inicio</a></div>
 		<div>
 			{% if user.is_authenticated %}
@@ -14,7 +13,7 @@ Página principal
 				<a href="{% url account_login %}">Usuarios</a>
 			{% endif %}
 		</div>
-		<div><a id="linkAbout" href="{% url homepage_about %}">CIEM</a></div>
+		<div><a id="linkAbout" href="{% url homepage_about %}">Nostros</a></div>
 		<div><a href="{% url homepage_contact %}">Contacto</a></div>
 		<div><a href="{% url homepage_historia %}">Historia</a></div>
 		<div>
@@ -24,15 +23,12 @@ Página principal
 				<a href="{% url account_register %}">Register</a>
 			{% endif %}
 		</div>
-
-	</ul>
 {% endblock %}
 
-{% block clear %}
-{% endblock%}
+{% block clear %}{% endblock%}
 
 {% block content %}
-	<div id="histo">
+	<div id="historiaNutricional">
 			<div id="subtitulo">HISTORIA NUTRICIONAL</div>
 			<div id="flecha"></div>			
 	</div>
