@@ -4,23 +4,8 @@ body
 	color: white;
 	font-family: Helvetica, Arial;
 	font-size: 16px;
-	background: #efefef;
+	background: #3A6B1C;
 	text-align: center;
-}
-
-#Base{
-	max-width: 1600px;
-	margin: 0px auto; 
-	background-image: url('fondopagina.jpg');
-	background-repeat:no-repeat;
-	background-attachment:fixed;
-	background-position:top;
-}
-
-#wrapper{
-	margin: 0px;
-	border: 0;
-	width: 100%;
 }
 
 form{
@@ -29,7 +14,6 @@ form{
 
 footer{
 	clear: both; 
-	
 	text-align: center;
 	position: relative;
 	background:#efefef;
@@ -38,21 +22,18 @@ footer{
 	text-shadow:0px 1px 1px #fff;
 	width:100%;
 	height: 80px;
+	position: absolute;
+	bottom: 0;
 }
 
 header{
 	padding-top: 25px;
 	display: block;
 	width: 100%;
-	height: 80px;
+	height: 10%;
 
 }
 
-header img{
-	position: absolute;
-	top:0;
-	left:50px;
-}
 
 nav {
 	float: right;
@@ -64,7 +45,7 @@ nav {
 
 nav a{
 	text-decoration: none;
-	color: #2E2E2E;
+	color: white;
 }
 
 nav a:hover{
@@ -74,7 +55,7 @@ nav a:hover{
 nav ul {
 	width: 600px;
 	list-style: none;
-	border-bottom: 3px solid #2E2E2E;
+	border-bottom: 3px solid white;
 	height: 28px;
 	font: 1em Helvetica,sans-serif,Arial;
 	font-weight: bold;
@@ -88,7 +69,6 @@ nav div{
 
 section{
 	position: relative;
-	bottom: -84px;
 	background: #04B404;
 	background: rgba(120, 180, 44, 0.6);
 	border-top: 1px solid #2E2E2E;
@@ -99,13 +79,13 @@ section{
 	padding: 10px 10px;
 	margin: 0 auto;
 	width: 940px;
-	height: 420px;
+	height: 450px;
 	color: black;
 	text-align: center;
 }
 
 .frase{
-	font-size: 4em;
+	font-size: 2em;
 	font-weight: bold;
 
 }
@@ -182,4 +162,44 @@ section{
 .boton2:hover{
 	background: #FF0000;
 	color:black;
+}
+
+#Base{
+	max-width: 960px;
+	margin: 0px auto; 
+	/*background-image: url('fondopagina.jpg');
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	background-position:top;*/
+}
+
+#histo{
+
+}
+
+#wrapper{
+	margin: 0px;
+	border: 0;
+	width: 100%;
+}
+
+#subtitulo{
+	font-size: 2em;
+	font-weight: bold;
+	padding:0px;
+	margin: 0px; 
+	width: 400px;
+	display: inline-block;
+	position: relative;
+	bottom: 35px;
+	z-index:1;
+}
+
+#flecha{
+	display: inline-block;
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: 50px 0 50px 86.6px;
+	border-color: transparent transparent transparent #308df0;
 }
