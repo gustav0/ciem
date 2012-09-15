@@ -10,13 +10,11 @@
 	<br>
 	Peso: {{ p.peso }}
 	Talla: {{ p.talla }}
-
-
 	<br><br>
 	{% endfor %}
 
 {% endfor %}
 {% else %}
-
+<a href="{% url nutricionista_perfilUsuarios %}">Regresar</a>
 {% endif %}
 {% endblock %}
