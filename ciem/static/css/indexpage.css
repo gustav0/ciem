@@ -15,23 +15,17 @@ form{
 footer{
 	clear: both; 
 	text-align: center;
-	position: relative;
-	background:#efefef;
+	background: rgba(105, 200, 90, 1);
+	color: black;
 	border-top:1px solid #ccc;
-	color:#999;
-	text-shadow:0px 1px 1px #fff;
-	width:100%;
+	width:960px;
 	height: 80px;
-	position: absolute;
-	bottom: 0;
 }
 
 header{
-	padding-top: 25px;
 	display: block;
 	width: 100%;
-	height: 10%;
-
+	height: 200px;
 }
 
 
@@ -46,10 +40,21 @@ nav {
 nav a{
 	text-decoration: none;
 	color: white;
+	font-size: 1em;
+
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	-o-transition: all .5s;
+	transition: all .5s;
 }
 
 nav a:hover{
-	color:white;
+	color:#81F7F3;
+	font-size: 1.1em;
+	-webkit-transition: all .1s;
+	-moz-transition: all .1s;
+	-o-transition: all .1s;
+	transition: all .1s;
 }
 
 nav ul {
@@ -68,20 +73,15 @@ nav div{
 }
 
 section{
-	position: relative;
-	background: #04B404;
-	background: rgba(120, 180, 44, 0.6);
-	border-top: 1px solid #2E2E2E;
-	border-left: 1px solid #2E2E2E;
-	border-right: 1px solid #2E2E2E;
-	border-top-left-radius: 0.5em;
-	border-top-right-radius: 0.5em;
+	background:#efefef;
+	color:#999;
+	text-shadow:0px 1px 1px #fff;
 	padding: 10px 10px;
 	margin: 0 auto;
 	width: 940px;
-	height: 450px;
-	color: black;
+	height: 400px;
 	text-align: center;
+	position: relative;
 }
 
 .frase{
@@ -122,38 +122,6 @@ section{
 	left: 20px;
 }
 
-.boton2{
-	color:white;
-	background: #8A0808;
-	width: 250px;
-	height: 30px;
-	/*border-radius: 0.5em; */
-	display:inline-block;
-	text-decoration:none;
-	margin:1em;
-	padding:2em;
-	/* box-shadow: 5px 5px 2px rgba(0,0,0,0.7); */
-	border: 1px solid #20538D;
-	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
-	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
-    -webkit-transition-duration: 0.2s;
-    -moz-transition-duration: 0.2s;
-    transition-duration: 0.2s;
-    -webkit-user-select:none;
-    -moz-user-select:none;
-    -ms-user-select:none;
-    user-select:none;
-}
-
-.boton2 img{
-	width: 32px;
-	height: 32px;
-	position: relative;
-	left: 20px;
-}
-
 .boton:hover{
 	background: #81F7F3;
 	color:black;
@@ -173,9 +141,48 @@ section{
 	background-position:top;*/
 }
 
+#banner{
+	width: 800px;
+	height: 100px;
+	border-top-left-radius: 10em;
+	border-top-right-radius: 10em; 
+	background-image: url(banner.png);
+	position: relative;
+	bottom: 50%;
+	left: 10%;
+}
+
 #histo{
+	width: 550px;
+	position: relative;
+	top: -40px;
+	left: 40%;
+	-webkit-transform : scale(1);
+	-moz-transform : scale(1);
+	-o-transform : scale(1);
+	transform : scale(1);
+
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	-o-transition: all .5s;
+	transition: all .5s;
 
 }
+
+#histo:hover, #flecha{
+	cursor:pointer;
+	color:black;
+	-webkit-transform : scale(1.1);
+	-moz-transform : scale(1.1);
+	-o-transform : scale(1.1);
+	transform : scale(1.1);
+
+	-webkit-transition: all .2s;
+	-moz-transition: all .2s;
+	-o-transition: all .2s;
+	transition: all .2s;
+}
+
 
 #wrapper{
 	margin: 0px;
@@ -194,6 +201,15 @@ section{
 	bottom: 35px;
 	z-index:1;
 }
+
+#logo{
+	position: relative;
+	top: 60px;
+	z-index: 1;
+	width: 200px;
+	height: 200px;
+}
+
 
 #flecha{
 	display: inline-block;
