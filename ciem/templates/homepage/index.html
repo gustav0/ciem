@@ -5,47 +5,38 @@ Página principal
 {% endblock%}
 
 {% block navi %}
-	<ul>
 		<div><a href="{% url homepage_index %}">Inicio</a></div>
 		<div>
 			{% if user.is_authenticated %}
-				<a href="{% url account_profile %}">Usuarios</a> 
+				<a href="{% url account_profile %}">Mi Perfil</a> 
 			{% else %}
-				<a href="{% url account_login %}">Usuarios</a>
+				<a href="{% url account_login %}">Ingresar</a>
 			{% endif %}
 		</div>
-		<div><a id="linkAbout" href="{% url homepage_about %}">CIEM</a></div>
+		<div><a id="linkAbout" href="{% url homepage_about %}">Nosotros</a></div>
 		<div><a href="{% url homepage_contact %}">Contacto</a></div>
-		<div><a href="{% url homepage_historia %}">Historia</a></div>
 		<div>
 			{% if user.is_authenticated %}
-				<a href="{% url account_logout %}">Logout</a>
+				<a href="{% url account_logout %}">Cerrar Sesión</a>
 			{% else %}
-				<a href="{% url account_register %}">Register</a>
+				<a href="{% url account_register %}">Registrarme</a>
 			{% endif %}
 		</div>
-
-	</ul>
 {% endblock %}
 
-{% block clear %}
-{% endblock%}
+{% block clear %}{% endblock%}
 
 {% block content %}
-	<div id="histo">
-			<div id="subtitulo">HISTORIA NUTRICIONAL</div>
-			<div id="flecha"></div>			
-	</div>
 	<div id="botones">
-			<a class="calculadoraA" href="{% url homepage_calculadora %}">
-			<div id="calculadoraDiv" class="boton">
-				CALCULADORA DE CALORIAS
-				<img src="http://docs.autodesk.com/ACDLT/2013/ESP/images/GUID-132C3F4D-124A-49CB-91CA-615C2C79FC0F-low.png" alt="dibujo">
-			</div>
+		<a href="{% url homepage_calculadora %}">
+			<div class="boton">CALCULADORA DE CALORIAS</div>
+		</a>
+		<a href="/historia/">
+			<div class="boton2">HISTORIA NUTRICIONAL</div>
 		</a>
 	</div>
 {% endblock%}
 
 {% block footer %}
-Desarrollo para optar por el titulo de ing en informatica 2012 COPYRIGHT 
+2012 COPYRIGHT ©
 {% endblock%}
