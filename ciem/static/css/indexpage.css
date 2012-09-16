@@ -43,11 +43,9 @@ header{
 	text-align: center;
 	overflow: hidden;
 }
-
-
 #barraNavegacion a{
 	text-decoration: none;
-	color: #D5D5D5;
+	color: #ECECEC;
 	font-size: 13px;
 	font-weight: bold;
 	-webkit-transition: all .1s;
@@ -72,7 +70,7 @@ header{
 	-webkit-border-radius: 14px;border-radius: 14px;
 }
 #barraNavegacion div:hover {
-	background-color: #0B356B;
+	background-color: #05386F;
 	transition: all .3s;-webkit-transition: all .3s;-moz-transition: all .3s;-o-transition: all .3s;
 }
 
