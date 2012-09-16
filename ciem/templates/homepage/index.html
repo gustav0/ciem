@@ -5,23 +5,21 @@ Página principal
 {% endblock%}
 
 {% block navi %}
-		<div><a href="{% url homepage_index %}">Inicio</a></div>
-		<div>
+		<a href="{% url homepage_index %}"><div>Inicio</div></a>
+
 			{% if user.is_authenticated %}
-				<a href="{% url account_profile %}">Mi Perfil</a> 
+				<a href="{% url account_profile %}"><div>Mi Perfil</div></a> 
 			{% else %}
-				<a href="{% url account_login %}">Ingresar</a>
+				<a href="{% url account_login %}"><div>Ingresar</div></a>
 			{% endif %}
-		</div>
-		<div><a id="linkAbout" href="{% url homepage_about %}">Nosotros</a></div>
-		<div><a href="{% url homepage_contact %}">Contacto</a></div>
-		<div>
+		
+		<a id="linkAbout" href="{% url homepage_about %}"><div>Nosotros</div></a>
+		<a href="{% url homepage_contact %}"><div>Contacto</div></a>
 			{% if user.is_authenticated %}
-				<a href="{% url account_logout %}">Cerrar Sesión</a>
+				<a href="{% url account_logout %}"><div>Cerrar Sesión</div></a>
 			{% else %}
-				<a href="{% url account_register %}">Registrarme</a>
+				<a href="{% url account_register %}"><div>Registrarme</div></a>
 			{% endif %}
-		</div>
 {% endblock %}
 
 {% block clear %}{% endblock%}
@@ -38,5 +36,5 @@ Página principal
 {% endblock%}
 
 {% block footer %}
-2012 COPYRIGHT ©
+Centro de Investigaciones Endocrino-Metabolicas. © Copyright 2012. Todos los Derechos Reservados.  
 {% endblock%}

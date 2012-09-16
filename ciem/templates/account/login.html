@@ -7,29 +7,33 @@
 			{% csrf_token %}
 			<div id="usernameForm" class="campoLogin" >
 				<div id="usernameFormTag" class="formTag {% if form.username.errors %}errorLogin">
-					Username *:
+					Username:
+				</div>
+				<div id="usernameFormField" class="errorLogin">
 				{% else %}">
 					Username:
+				</div>
+				<div id="usernameFormField"> 
 				{% endif %}
-				</div>
-				<div id="usernameFormField"> {{ form.username }}
-				</div>
+				{{ form.username }}</div>
 			</div>
 			<div id="passwordForm" class="campoLogin">
 				<div id="passwordFormTag" class="formTag {% if form.password.errors %}errorLogin">
-					Contraseña *:
+					Contraseña:
+				</div>
+				<div id="passwordFormField" class="errorLogin">
 				{% else %}">
 					Contraseña:
+				</div>
+				<div id="passwordFormField">
 				{% endif %}
-				</div>
-				<div id="passwordFormField"> {{ form.password }}
-				</div>
+				{{ form.password }}</div>
 			</div>
 			<div id="loginError" class="errorLogin">
 				{% if form.non_field_errors %}
 					Usuario y/o contraseña incorrectos.
 				{% elif form.username.errors or form.password.errors %}
-					Campos obligatorios *.
+					Campos obligatorios.
 				{% else %}
 				<br>
 				{% endif %}

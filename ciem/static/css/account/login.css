@@ -6,6 +6,9 @@ input, input:focus{
 .errorLogin{
 	color: #CE0D0D;
 }
+.errorLogin input{
+	border: 1px solid #CE0D0D;
+}
 #alinearLoginForm{
 	height: auto;
 	width: 240px;
