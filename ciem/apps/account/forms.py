@@ -48,7 +48,10 @@ class ipaqForm(forms.Form):
 	('10','Mas de 6 horas'),	
 	)	
 	p2a_trabajo = forms.ChoiceField(choices = dias)
-	p2b_trabajo = forms.BooleanField()
+	p2b_trabajo = boolfield = forms.TypedChoiceField(coerce=lambda x: bool(int(x)),
+                   choices=((0, 'Si'), (1, 'No')),
+                   widget=forms.RadioSelect
+                )
 	p3a_trabajo = forms.ChoiceField(choices = horas)
 	p3b_trabajo = forms.FloatField()
 	p4a_trabajo = forms.ChoiceField(choices = dias)

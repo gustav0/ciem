@@ -4,12 +4,13 @@
 <form action="" id='formulario' method='post' enctype='multipart/form-data'>
 	{% csrf_token %}
     <p><center>Actividad fisica en el trabajo</center></p>
-	<div class="pregunta"> ( 1 ) ¿Cuantos dias realizó usted actividades físicas vigorosas como levantar objetos pesados, excavar, construcción pesada, o subir escaleras como parte de su trabajo? </div>
-     		<div class="rpta"> Ningun dia {{form.p2b_trabajo}}</div>       
-     		<div class="rpta"> Dias por semana {{form.p2a_trabajo}}</div>
-    		<div class="pregunta">¿Cuanto tiempo le toma usualmente realizar estas actividades físicas vigorosas en su trabajo?
+    <div>
+	<div class="pregunta"> ( 1 ) ¿Realiza usted actividades físicas vigorosas como levantar objetos pesados, excavar, construcción pesada, o subir escaleras como parte de su trabajo? </div>
+     		<div class="rpta">{{form.p2b_trabajo}}</div>       
+     		<div class="rpta"> Cuantos dias por semana realiza usted actividades físicas vigorosas {{form.p2a_trabajo}}</div>
+    		<div class="pre">¿Cuanto tiempo le toma usualmente realizar estas actividades físicas vigorosas en su trabajo?
      		<div class="rpta"> Horas por semana {{form.p3a_trabajo}}</div>     
-     		<div class="rpta"> Minutos por semana {{form.p3b_trabajo}}</div>  
+     		<div class="rpta"> Minutos por semana {{form.p3b_trabajo}}</div> 
             
 	<div class="pregunta"> ( 2 ) ¿Cuantos días realizó usted actividades físicas moderadas como cargar cosas ligeras como parte de su trabajo? Por favor no incluya caminar </div>
      		<div class="rpta"> Ningun dia {{form.p4b_trabajo}}</div>       
@@ -23,7 +24,8 @@
      		<div class="rpta"> Dias por semana {{form.p6a_trabajo}}</div>
     		<div class="pregunta">¿Cuanto tiempo le toma usualmente realizar estas actividades físicas moderadas en su trabajo?
      		<div class="rpta"> Horas por semana {{form.p7a_trabajo}}</div>     
-     		<div class="rpta"> Minutos por semana {{form.p7b_trabajo}}</div>            
+     		<div class="rpta"> Minutos por semana {{form.p7b_trabajo}}</div>       
+     </div>     
             
     </form>
     
