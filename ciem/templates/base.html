@@ -2,6 +2,8 @@
 <html>
 <head>{% block head %} {% endblock%}
 <title>{% block title %} {% endblock%}</title>
+{% block js %}
+{% endblock %}
 <link rel="stylesheet" href=" {{ MEDIA_URL }}css/indexpage.css">
 {% block css %}
 {% endblock %}
@@ -14,7 +16,6 @@
 				<div id="imagenCabecera"></div>
 				<div id="alinearBarraNavegacion">
 				<div id="barraNavegacion" class="colorCabecera">
-				
 				{% block navi %} {% endblock%}
 				</div>
 				</div>

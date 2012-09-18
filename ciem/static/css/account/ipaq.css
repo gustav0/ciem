@@ -1,0 +1,21 @@
+.seleccion, .seleccion li{
+	float: left;
+}
+.seleccion ul{
+	list-style: none;
+	margin: 0;
+}
+#pregunta1{
+	float: left;
+}
+#subpregunta1{
+	float: left;
+	clear: both;
+	margin-top:10px;
+}
+.pregunta{
+	float:left;
+}
+.noDiplayDiv{
+	display:none;
+}
