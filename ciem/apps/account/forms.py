@@ -27,3 +27,35 @@ class registerForm(UserCreationForm):
 class antropometricosForm(ModelForm):
 	class Meta:
 		model = datosAntropometricos
+		
+class ipaqForm(forms.Form):
+	dias = (
+	('1','1 dia'),
+	('2','2 dias'),
+	('3','3 dias'),
+	('4','4 dias'),
+	('5','5 dias'),
+	)
+	
+	horas = (
+	('0','Menos de 1 hora'),
+	('1','1 hora'),
+	('2','2 horas'),
+	('3','3 horas'),
+	('4','4 horas'),
+	('5','5 horas'),
+	('6','6 horas'),
+	('10','Mas de 6 horas'),	
+	)	
+	p2a_trabajo = forms.ChoiceField(choices = dias)
+	p2b_trabajo = forms.BooleanField()
+	p3a_trabajo = forms.ChoiceField(choices = horas)
+	p3b_trabajo = forms.FloatField()
+	p4a_trabajo = forms.ChoiceField(choices = dias)
+	p4b_trabajo = forms.BooleanField()
+	p5a_trabajo = forms.ChoiceField(choices = dias)
+	p5b_trabajo = forms.FloatField()	
+	p6a_trabajo = forms.ChoiceField(choices = dias)
+	p6b_trabajo = forms.BooleanField()
+	p7a_trabajo = forms.ChoiceField(choices = dias)
+	p7b_trabajo = forms.FloatField()

@@ -5,7 +5,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
-from ciem.apps.account.forms import antropometricosForm, registerForm
+from ciem.apps.account.forms import antropometricosForm, registerForm, ipaqForm
 from ciem.apps.account.managers import antropometricosManager
 from ciem.apps.account.models import datosAntropometricos
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -51,3 +51,12 @@ def antropometricos(request):
 def nutricionistas(request):
 	ctx= {}	
 	return render_to_response('account/nutricionistas.html', ctx, context_instance=RequestContext(request))
+	
+def ipaq(request):
+	form = ipaqForm(request.POST or None)
+	if form.is_valid():
+		form.save()
+	ctx= {'form':form, 'id':request.user.id, }
+	return render_to_response('account/ipaq.html', ctx, context_instance=RequestContext(request))
+
+	
