@@ -22,7 +22,7 @@ header{
 	height: 145px;
 }
 .colorCabecera{
-	background-color: #339933;
+background-color:#070B2E;
 }
 #cabeceraLinea{
 	width: 960px;
@@ -45,9 +45,8 @@ header{
 }
 #barraNavegacion a{
 	text-decoration: none;
-	color: #ECECEC;
+	color:white;
 	font-size: 13px;
-	font-weight: bold;
 	-webkit-transition: all .1s;
 	-moz-transition: all .1s;
 	-o-transition: all .1s;
@@ -61,17 +60,15 @@ header{
 	transition: all .1s;
 }
 #barraNavegacion div{
-	margin-top: 3px;
-	margin-bottom: 3px;
-	height: 24px;
 	line-height: 24px;
 	float: left;
-	width: 120px;
-	-webkit-border-radius: 14px;border-radius: 14px;
+	height:33px;
+	width:120px;
+	background:url(/ciem/static/img/fondomenu.png) -0px -0px no-repeat;	
 }
 #barraNavegacion div:hover {
-	background-color: #05386F;
-	transition: all .3s;-webkit-transition: all .3s;-moz-transition: all .3s;-o-transition: all .3s;
+	background:url(/ciem/static/img/fondomenu.png) -0px -33px no-repeat;	
+
 }
 
 #logoCiem{
