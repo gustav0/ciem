@@ -6,7 +6,7 @@ Centro de investigaciones Endocrino-Metabólicas
 
 {% block navi %}
 
-		<a href="{% url homepage_index %}"><div style=margin-left:115px;>Inicio</div></a>
+		<a href="{% url homepage_index %}"><div>Inicio</div></a>
 			{% if user.is_authenticated %}
 				<a href="{% url account_profile %}"><div>Mi Perfil</div></a> 
 			{% else %}

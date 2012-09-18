@@ -19,10 +19,11 @@ footer{
 }
 header{
 	width: 960px;
-	height: 145px;
+	height: 200px;
 }
 .colorCabecera{
-background-color:#070B2E;
+background-color:#102368;
+
 }
 #cabeceraLinea{
 	width: 960px;
@@ -31,8 +32,8 @@ background-color:#070B2E;
 #imagenCabecera{
 	float: left;
 	width: 960px;
-	height: 100px;
-	background-color: black;
+	height: 160px;
+	background:url(/ciem/static/img/imaCabecera.png)
 }
 #alinearBarraNavegacion{
 	float: left;
@@ -67,19 +68,9 @@ background-color:#070B2E;
 	background:url(/ciem/static/img/fondomenu.png) -0px -0px no-repeat;	
 }
 #barraNavegacion div:hover {
-	background:url(/ciem/static/img/fondomenu.png) -0px -33px no-repeat;	
-
+	background-position:-0px -32px
 }
 
-#logoCiem{
-	width: 117px;
-	height: 110px;
-	background: url(../img/ciemlogo.png) no-repeat;
-	position: relative;
-	top: -12px;
-	left: 54px;
-	z-index: 1;
-}
 section{
 	background:#efefef;
 	color:#797979;
