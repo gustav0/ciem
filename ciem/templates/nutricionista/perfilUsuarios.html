@@ -2,7 +2,7 @@
 {% load custom_filters %}
 {% block content %}
 {% if usuario %}
-{% for u in usuario %}
+	{% for u in usuario %}
 	<a href="?user={{ u.user_id }}">{{ u.user }}</a>
 	<br>
 	{% for p in perfil %}
@@ -12,9 +12,10 @@
 	Talla: {{ p.talla }}
 	<br><br>
 	{% endfor %}
-
 {% endfor %}
+{% if usuario.count < 2 %}
+<a href="{% url nutricionista_perfilUsuarios %}">regresar</a>
+{% endif %}
 {% else %}
-<a href="{% url nutricionista_perfilUsuarios %}">Regresar</a>
 {% endif %}
 {% endblock %}
