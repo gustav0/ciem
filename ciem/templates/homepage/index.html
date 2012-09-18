@@ -5,12 +5,8 @@ Centro de investigaciones Endocrino-Metabólicas
 {% endblock%}
 
 {% block navi %}
-<<<<<<< HEAD
-		<a href="{% url homepage_index %}"><div style="margin-left:80px;">Inicio</div></a>
-=======
-		<a href="{% url homepage_index %}"><div style=margin-left:115px;>Inicio</div></a>
->>>>>>> 8cfe4466e2fdab467c9f88d417f174cedf70ee01
 
+		<a href="{% url homepage_index %}"><div style=margin-left:115px;>Inicio</div></a>
 			{% if user.is_authenticated %}
 				<a href="{% url account_profile %}"><div>Mi Perfil</div></a> 
 			{% else %}
