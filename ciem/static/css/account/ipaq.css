@@ -5,11 +5,17 @@ select:focus{
 	float: left;
 }
 .seleccion ul{
-	list-style: none;
+	height: 20px;
+	width: 100px;
+	padding: 0;
 	margin: 0;
+	list-style: none;
 }
 .siNo{
+	height: 20px;
+	width: 100px;
 	clear: both;
+	float: left;
 }
 .preguntaCompleta{
 	margin-bottom: 40px;
