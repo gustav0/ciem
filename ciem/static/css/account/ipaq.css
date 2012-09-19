@@ -1,3 +1,6 @@
+select:focus{
+    outline: none;
+}
 .seleccion, .seleccion li{
 	float: left;
 }
@@ -15,6 +18,25 @@
 }
 .pregunta{
 	float:left;
+	clear: both;
+}
+.respuesta{
+	float:left;
+}
+.seleccionarDias{
+	float:left;
+	margin-left: 6px;
+	margin-right: 6px;
+}
+.seleccionarHoras{
+	float:left;
+	margin-left: 6px;
+	margin-right: 6px;
+}
+.seleccionarMinutos{
+	float:left;
+	margin-left: 6px;
+	margin-right: 6px;
 }
 .noDiplayDiv{
 	display:none;

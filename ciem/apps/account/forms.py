@@ -30,32 +30,41 @@ class antropometricosForm(ModelForm):
 		
 class ipaqForm(forms.Form):
 	dias = (
-	('1','1 dia'),
-	('2','2 dias'),
-	('3','3 dias'),
-	('4','4 dias'),
-	('5','5 dias'),
+	('0','1'),
+	('1','2'),
+	('2','3'),
+	('3','4'),
+	('4','5'),
+	('5','6'),
+	('6','7'),
 	)
 	
 	horas = (
-	('0','Menos de 1 hora'),
-	('1','1 hora'),
-	('2','2 horas'),
-	('3','3 horas'),
-	('4','4 horas'),
-	('5','5 horas'),
-	('6','6 horas'),
-	('10','Mas de 6 horas'),	
-	)	
+	('0','-'),
+	('1','1'),
+	('2','2'),
+	('3','3'),
+	('4','4'),
+	('5','5'),
+	('6','6'),
+	('10','7+'),	
+	)
+	minutos = (
+	('0','5'),
+	('1','10'),
+	('2','15'),
+	('3','30'),
+	('4','45'),
+	)		
 	p2a_trabajo = forms.ChoiceField(choices = dias)
 	p2b_trabajo = forms.TypedChoiceField(choices=((0, 'Si'), (1, 'No')), widget=forms.RadioSelect)
 	p3a_trabajo = forms.ChoiceField(choices = horas)
-	p3b_trabajo = forms.FloatField()
+	p3b_trabajo = forms.ChoiceField(choices = minutos)
 	p4a_trabajo = forms.ChoiceField(choices = dias)
-	p4b_trabajo = forms.BooleanField()
+	p4b_trabajo = forms.TypedChoiceField(choices=((0, 'Si'), (1, 'No')), widget=forms.RadioSelect)
 	p5a_trabajo = forms.ChoiceField(choices = dias)
-	p5b_trabajo = forms.FloatField()	
+	p5b_trabajo = forms.TypedChoiceField(choices=((0, 'Si'), (1, 'No')), widget=forms.RadioSelect)	
 	p6a_trabajo = forms.ChoiceField(choices = dias)
-	p6b_trabajo = forms.BooleanField()
+	p6b_trabajo = forms.TypedChoiceField(choices=((0, 'Si'), (1, 'No')), widget=forms.RadioSelect)
 	p7a_trabajo = forms.ChoiceField(choices = dias)
-	p7b_trabajo = forms.FloatField()
+	p7b_trabajo = forms.TypedChoiceField(choices=((0, 'Si'), (1, 'No')), widget=forms.RadioSelect)
