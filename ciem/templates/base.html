@@ -9,25 +9,22 @@
 {% endblock %}
 </head>
 <body>
-	<div id="contenedor">
-		<header>
-			<div id="alinearCabecera">
-				<div id="cabeceraLinea"></div>
-				<div id="imagenCabecera"></div>
-				<div id="alinearBarraNavegacion">
-				<div id="barraNavegacion" class="colorCabecera">
-				{% block navi %} {% endblock%}
-				</div>
-				</div>
-				<div id="logoCiem"></div>
+	<header>
+		<div id="alinearCabecera">
+			<div id="cabeceraLinea"></div>
+			<div id="imagenCabecera"></div>
+			<div id="alinearBarraNavegacion">
+			<div id="barraNavegacion" class="colorCabecera">
+			{% block navi %} {% endblock%}
 			</div>
-		</header>
-		<div id="contenido">
-			<section>{% block content %} {% endblock%}</section>
-			<aside>{% block clear %} {% endblock %}</aside>
+			</div>
+			<div id="logoCiem"></div>
 		</div>
-		<footer class="pie">{% block footer %} {% endblock%}</footer>
+	</header>
+	<div id="contenido">
+		{% block content %} {% endblock%}
+		{% block clear %} {% endblock %}
 	</div>
-
+	<footer class="pie">{% block footer %} {% endblock%}</footer>
 </body>
 </html>
