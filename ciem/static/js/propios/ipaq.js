@@ -1,12 +1,24 @@
 $(document).ready(function(){
 
     $("#id_p2b_trabajo_0").click(function(){
-       $('#subpregunta1').removeClass("noDiplayDiv");
+       $('#sp1').removeClass("noDiplayDiv");
     });
     $("#id_p2b_trabajo_1").click(function(){
-       $('#subpregunta1').addClass("noDiplayDiv");
+       $('#sp1').addClass("noDiplayDiv");
     });
-
-
+    $("#id_p4b_trabajo_0").click(function(){
+       $('#sp2').removeClass("noDiplayDiv");
+    });
+    $("#id_p4b_trabajo_1").click(function(){
+       $('#sp2').addClass("noDiplayDiv");
+    });
+    $("#id_p6b_trabajo_0").click(function(){
+       $('#sp3').removeClass("noDiplayDiv");
+    });
+    $("#id_p6b_trabajo_1").click(function(){
+       $('#sp3').addClass("noDiplayDiv");
+    });
     $("#id_p2b_trabajo_1").click();
+    $("#id_p4b_trabajo_1").click();
+    $("#id_p6b_trabajo_1").click();
 });

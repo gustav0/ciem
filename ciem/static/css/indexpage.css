@@ -1,33 +1,26 @@
-#contenedor{
-	max-width: 960px;
+#alinearCuerpo{
+	width: 960px;
+	margin: auto;
+	padding: 0;
+}
+#contenido{
+	width: 960px;
 	margin: auto; 
+	clear: both;
 }
-body{
-	margin: 0px;
-	font-family: Helvetica, Arial;
-	font-size: 16px;
-}
-form{
-	text-align: left;
-}
-footer{
+#pie{
 	font-size:10px;
 	text-align: center;
 	color: #797979;
 	width:960px;
-	height: 80px;
+	clear: both;
+	margin: auto;
 }
-header{
+#cabecera{
 	width: 960px;
-	height: 200px;
 }
 .colorCabecera{
-background-color:#102368;
-
-}
-#cabeceraLinea{
-	width: 960px;
-	height: 15px;
+	background-color:#102368;
 }
 #imagenCabecera{
 	float: left;
@@ -35,14 +28,11 @@ background-color:#102368;
 	height: 160px;
 	background:url(/ciem/static/img/imaCabecera.png)
 }
-#alinearBarraNavegacion{
-	float: left;
-	width: 960px;
-	height: 30px;
-}
 #barraNavegacion {
+	width: 960px;
 	text-align: center;
 	overflow: hidden;
+	float: left;
 }
 #barraNavegacion a{
 	text-decoration: none;
@@ -71,16 +61,15 @@ background-color:#102368;
 	background-position:-0px -32px
 }
 
-section{
+.contenido{
+	margin-top: -8px;
+	font-family: Helvetica, Arial;
+	font-size: 16px;
 	background:#efefef;
 	color:#797979;
-	text-shadow:0px 1px 1px #fff;
-	padding: 10px 10px;
 	margin: 0 auto;
-	width: 940px;
-	height: 400px;
-	text-align: center;
-	position: relative;
+	width: 960px;
+	height: 300px;
 }
 .boton{
 	float: left;

@@ -1,3 +1,6 @@
+select:focus{
+    outline: none;
+}
 .seleccion, .seleccion li{
 	float: left;
 }
@@ -5,16 +8,39 @@
 	list-style: none;
 	margin: 0;
 }
-#pregunta1{
-	float: left;
+.siNo{
+	clear: both;
 }
-#subpregunta1{
+.preguntaCompleta{
+	margin-bottom: 40px;
+}
+.subpregunta{
 	float: left;
 	clear: both;
-	margin-top:10px;
+	margin-top:2px;
+	margin-bottom: 20px;
 }
 .pregunta{
 	float:left;
+	clear: both;
+}
+.respuesta{
+	float:left;
+}
+.seleccionarDias{
+	float:left;
+	margin-left: 6px;
+	margin-right: 6px;
+}
+.seleccionarHoras{
+	float:left;
+	margin-left: 6px;
+	margin-right: 6px;
+}
+.seleccionarMinutos{
+	float:left;
+	margin-left: 6px;
+	margin-right: 6px;
 }
 .noDiplayDiv{
 	display:none;

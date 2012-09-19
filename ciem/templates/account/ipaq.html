@@ -8,40 +8,56 @@
 {% block content %}
 <form action="" id='formulario' method='post' enctype='multipart/form-data'>
 	{% csrf_token %}
-    <p><center>Actividad fisica en el trabajo</center></p>
-	<div id="pregunta1">
-        <div class="pregunta">
-            ( 1 ) ¿Realiza usted actividades físicas vigorosas como levantar objetos pesados, excavar, construcción pesada, o subir escaleras como parte de su trabajo? 
-        </div>
+    Actividad fisica en el trabajo
+	<div class="preguntaCompleta" id="p1">
+        <div class="pregunta">1. ¿Realiza usted actividades físicas vigorosas como levantar objetos pesados, excavar, construcción pesada, o subir escaleras como parte de su trabajo?</div>
      	<div class="siNo">
-            <div class="seleccion">
-                {{form.p2b_trabajo}}
-            </div>
+            <div class="seleccion">{{form.p2b_trabajo}}</div>
         </div>
-        <div id="subpregunta1">    
-     		<div class="rpta"> Cuantos dias por semana realiza usted actividades físicas vigorosas {{form.p2a_trabajo}}</div>
-    		<div class="pre">¿Cuanto tiempo le toma usualmente realizar estas actividades físicas vigorosas en su trabajo?
-     		<div class="rpta"> Horas por dia {{form.p3a_trabajo}}</div>     
-     		<div class="rpta"> Minutos por dia {{form.p3b_trabajo}}</div> 
+        <div class="subpregunta" id="sp1">    
+     		<div class="pregunta">¿Cuántos dias por semana?</div>
+            <div class="seleccionarDias">{{ form.p2a_trabajo }}</div>
+    		<div class="pregunta">¿Cuánto tiempo le toma realizar estas actividades?</div>
+     		<div class="respuesta">
+                <div class="seleccionarHoras">{{form.p3a_trabajo}}</div>
+                <p style="float:left;margin:0;">horas y</p>
+     		    <div class="seleccionarMinutos">{{form.p3b_trabajo}}</div> minutos por dia.
             </div>
         </div>
     </div>
 
-	<div class="pregunta"> ( 2 ) ¿Cuantos días realizó usted actividades físicas moderadas como cargar cosas ligeras como parte de su trabajo? Por favor no incluya caminar </div>
-     		<div class="rpta"> Ningun dia {{form.p4b_trabajo}}</div>       
-     		<div class="rpta"> Dias por semana {{form.p4a_trabajo}}</div>
-    		<div class="pregunta">¿Cuanto tiempo le toma usualmente realizar estas actividades físicas moderadas en su trabajo?
-     		<div class="rpta"> Horas por semana {{form.p5a_trabajo}}</div>     
-     		<div class="rpta"> Minutos por semana {{form.p5b_trabajo}}</div>  
-            
-	<div class="pregunta"> ( 3 ) ¿Cuantos días caminó usted por los menos 10 min continuos como parte de su trabajo? No incluya ninguna caminata que usted hizo para desplazarse a su trabajo </div>
-     		<div class="rpta"> Ningun dia {{form.p6b_trabajo}}</div>       
-     		<div class="rpta"> Dias por semana {{form.p6a_trabajo}}</div>
-    		<div class="pregunta">¿Cuanto tiempo le toma usualmente realizar estas actividades físicas moderadas en su trabajo?
-     		<div class="rpta"> Horas por semana {{form.p7a_trabajo}}</div>     
-     		<div class="rpta"> Minutos por semana {{form.p7b_trabajo}}</div>       
-     </div>     
-            
-    </form>
-    
-    {% endblock %}
+    <div class="preguntaCompleta" id="p2">
+        <div class="pregunta">2. ¿Realiza usted actividades físicas moderadas como cargar cosas ligeras como parte de su trabajo?. No incluye caminar.</div>
+        <div class="siNo">
+            <div class="seleccion">{{form.p4b_trabajo}}</div>
+        </div>
+        <div class="subpregunta" id="sp2">    
+            <div class="pregunta">¿Cuántos dias por semana?</div>
+            <div class="seleccionarDias">{{ form.p4a_trabajo }}</div>
+            <div class="pregunta">¿Cuánto tiempo le toma realizar estas actividades?</div>
+            <div class="respuesta">
+                <div class="seleccionarHoras">{{form.p5a_trabajo}}</div>
+                <p style="float:left;margin:0;">horas y</p>
+                <div class="seleccionarMinutos">{{form.p5b_trabajo}}</div> minutos por dia.
+            </div>
+        </div>
+    </div>
+
+    <div class="preguntaCompleta" id="p3">
+        <div class="pregunta">3. ¿Camina usted por los menos 10 minutos continuos como parte de su trabajo? No incluya ninguna caminata que usted hizo para desplazarse a su trabajo.</div>
+        <div class="siNo">
+            <div class="seleccion">{{form.p6b_trabajo}}</div>
+        </div>
+        <div class="subpregunta" id="sp3">    
+            <div class="pregunta">¿Cuántos dias por semana?</div>
+            <div class="seleccionarDias">{{ form.p6a_trabajo }}</div>
+            <div class="pregunta">¿Cuánto tiempo le toma realizar estas actividades?</div>
+            <div class="respuesta">
+                <div class="seleccionarHoras">{{form.p7a_trabajo}}</div>
+                <p style="float:left;margin:0;">horas y</p>
+                <div class="seleccionarMinutos">{{form.p7b_trabajo}}</div> minutos por dia.
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}
