@@ -25,6 +25,8 @@ select:focus{
 	clear: both;
 	margin-top:2px;
 	margin-bottom: 20px;
+	background-color:#E6E6E6;
+	width:100%
 }
 .pregunta{
 	float:left;
@@ -51,3 +53,6 @@ select:focus{
 .noDiplayDiv{
 	display:none;
 }
+
+.seccion{
+	font-weight:bold;}
