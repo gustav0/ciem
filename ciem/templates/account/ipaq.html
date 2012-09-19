@@ -6,7 +6,6 @@
 {% block css %}<link rel="stylesheet" href=" {{ MEDIA_URL }}css/account/ipaq.css">{% endblock %}
 
 {% block content %}
-<div id="formularioIPAQ1">
 <form action="" id='formulario' method='post' enctype='multipart/form-data'>
 	{% csrf_token %}
     Actividad fisica en el trabajo
@@ -61,5 +60,4 @@
         </div>
     </div>
 </form>
-</div>
 {% endblock %}

@@ -8,14 +8,17 @@ select:focus{
 	list-style: none;
 	margin: 0;
 }
+.siNo{
+	clear: both;
+}
 .preguntaCompleta{
-	float: left;
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 }
 .subpregunta{
 	float: left;
 	clear: both;
 	margin-top:2px;
+	margin-bottom: 20px;
 }
 .pregunta{
 	float:left;
