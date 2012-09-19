@@ -26,7 +26,8 @@ select:focus{
 	margin-top:2px;
 	margin-bottom: 20px;
 	background-color:#E6E6E6;
-	width:100%
+	-webkit-transition: height 0.5s;
+	-webkit-transition-timing-function: linear;
 }
 .pregunta{
 	float:left;
@@ -55,4 +56,10 @@ select:focus{
 }
 
 .seccion{
-	font-weight:bold;}
+	clear: both;
+	float: left;
+	font-weight: bold;
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+}
