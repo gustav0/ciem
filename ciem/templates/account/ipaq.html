@@ -8,7 +8,8 @@
 {% block content %}
 <form action="" id='formulario' method='post' enctype='multipart/form-data'>
 	{% csrf_token %}
-    Actividad fisica en el trabajo
+    <div class="seccion" >Actividad fisica relacionada con en el trabajo</div></br>
+	
 	<div class="preguntaCompleta" id="p1">
         <div class="pregunta">1. ¿Realiza usted actividades físicas vigorosas como levantar objetos pesados, excavar, construcción pesada, o subir escaleras como parte de su trabajo?</div>
      	<div class="siNo">
@@ -17,7 +18,7 @@
         <div class="subpregunta" id="sp1">    
      		<div class="pregunta">¿Cuántos dias por semana?</div>
             <div class="seleccionarDias">{{ form.p2a_trabajo }}</div>
-    		<div class="pregunta">¿Cuánto tiempo le toma realizar estas actividades?</div>
+    		<div class="pregunta">¿Cuánto tiempo le toma realizar estas actividades diariamente?</div>
      		<div class="respuesta">
                 <div class="seleccionarHoras">{{form.p3a_trabajo}}</div>
                 <p style="float:left;margin:0;">horas y</p>
@@ -34,7 +35,7 @@
         <div class="subpregunta" id="sp2">    
             <div class="pregunta">¿Cuántos dias por semana?</div>
             <div class="seleccionarDias">{{ form.p4a_trabajo }}</div>
-            <div class="pregunta">¿Cuánto tiempo le toma realizar estas actividades?</div>
+            <div class="pregunta">¿Cuánto tiempo le toma realizar estas actividades diariamente?</div>
             <div class="respuesta">
                 <div class="seleccionarHoras">{{form.p5a_trabajo}}</div>
                 <p style="float:left;margin:0;">horas y</p>
@@ -51,7 +52,7 @@
         <div class="subpregunta" id="sp3">    
             <div class="pregunta">¿Cuántos dias por semana?</div>
             <div class="seleccionarDias">{{ form.p6a_trabajo }}</div>
-            <div class="pregunta">¿Cuánto tiempo le toma realizar estas actividades?</div>
+            <div class="pregunta">¿Cuánto tiempo le toma realizar estas actividades diariamente?</div>
             <div class="respuesta">
                 <div class="seleccionarHoras">{{form.p7a_trabajo}}</div>
                 <p style="float:left;margin:0;">horas y</p>
@@ -59,5 +60,171 @@
             </div>
         </div>
     </div>
+
+	<div class="seccion"> Actividad fisica  relacionada con el transporte  </div>
+	<p>Estas preguntas se refieren a la forma como usted se desplazó de un lugar a otro, incluyendo lugares </p>
+	<div class="preguntaCompleta" id="p4">
+        <div class="pregunta">4. Durante los últimos 7 dias, ¿Ha viajado usted en un vehículo de motor como un tren, bus, automóvil, o tranvía?</div>
+        <div class="siNo">
+            <div class="seleccion">{{form.p8b_transporte}}</div>
+        </div>
+        <div class="subpregunta" id="sp4">    
+            <div class="pregunta">¿Cuántos dias por semana?</div>
+            <div class="seleccionarDias">{{ form.p8a_transporte }}</div>
+            <div class="pregunta">¿Cuánto tiempo gastó usted en uno de esos dias viajando en un vehiculo de motor?</div>
+            <div class="respuesta">
+                <div class="seleccionarHoras">{{form.p9a_transporte}}</div>
+                <p style="float:left;margin:0;">horas y</p>
+                <div class="seleccionarMinutos">{{form.p9b_transporte}}</div> minutos por dia.
+            </div>
+        </div>
+    </div>	
+
+	<div class="preguntaCompleta" id="p5">
+        <div class="pregunta">5. Durante los últimos 7 dias, ¿Ha montado usted bicicleta por al menos 10 minutos continuos para ir de un lugar a otro?</div>
+        <div class="siNo">
+            <div class="seleccion">{{form.p10b_transporte}}</div>
+        </div>
+        <div class="subpregunta" id="sp5">    
+            <div class="pregunta">¿Cuántos dias por semana?</div>
+            <div class="seleccionarDias">{{ form.p10a_transporte }}</div>
+            <div class="pregunta">¿Cuánto tiempo gastó usted en uno de esos dias montando bicicleta de un lugar a otro?</div>
+            <div class="respuesta">
+                <div class="seleccionarHoras">{{form.p11a_transporte}}</div>
+                <p style="float:left;margin:0;">horas y</p>
+                <div class="seleccionarMinutos">{{form.p11b_transporte}}</div> minutos por dia.
+            </div>
+        </div>
+    </div>	
+
+	<div class="preguntaCompleta" id="p6">
+        <div class="pregunta">6. Durante los últimos 7 dias, ¿Ha caminado por al menos 10 minutos continuos para ir de un lugar a otro ?</div>
+        <div class="siNo">
+            <div class="seleccion">{{form.p12b_transporte}}</div>
+        </div>
+        <div class="subpregunta" id="sp6">    
+            <div class="pregunta">¿Cuántos dias por semana?</div>
+            <div class="seleccionarDias">{{ form.p12a_transporte }}</div>
+            <div class="pregunta">¿Cuánto tiempo gastó usted en uno de esos dias caminando de un lugar a otro?</div>
+            <div class="respuesta">
+                <div class="seleccionarHoras">{{form.p13a_transporte}}</div>
+                <p style="float:left;margin:0;">horas y</p>
+                <div class="seleccionarMinutos">{{form.p13b_transporte}}</div> minutos por dia.
+            </div>
+        </div>
+    </div>	
+
+	<div class="seccion"> Actividad fisica  relacionada con el trabajo en la casa y su mantenimiento y el cuidado de la familia  </div>
+	<p>Esta sección se refiere a algunas actividades físicas que hizo en los últimos 7 días en por lo menos diez minutos continuos y alrededor de su casa, como arreglo de su casa, jardinerías trabajo en el césped, entre otros</p>
+	<div class="preguntaCompleta" id="p7">
+        <div class="pregunta">7. Durante los últimos 7 dias,¿Ha realizado usted actividades físicas vigorosas tal como levantar objetos pesados, cortar madera, palear nieve o arena, o excavar en el jatdín o patio?</div>
+        <div class="siNo">
+            <div class="seleccion">{{form.p14b_hogar}}</div>
+        </div>
+        <div class="subpregunta" id="sp7">    
+            <div class="pregunta">¿Cuántos dias por semana?</div>
+            <div class="seleccionarDias">{{ form.p14a_hogar }}</div>
+            <div class="pregunta">¿Cuánto tiempo gastó usted en uno de esos dias haciendo actividades físicas vigorosas en el jardín o patio?</div>
+            <div class="respuesta">
+                <div class="seleccionarHoras">{{form.p15a_hogar}}</div>
+                <p style="float:left;margin:0;">horas y</p>
+                <div class="seleccionarMinutos">{{form.p15b_hogar}}</div> minutos por dia.
+            </div>
+        </div>
+    </div>	
+	
+	<div class="preguntaCompleta" id="p8">
+        <div class="pregunta">8. Durante los últimos 7 dias,¿Ha realizado usted actividades físicas moderadas en el jardín o patio tal como cargar objetos livianos, barrer, lavar ventanas, y rastrillar?</div>
+        <div class="siNo">
+            <div class="seleccion">{{form.p16b_hogar}}</div>
+        </div>
+        <div class="subpregunta" id="sp8">    
+            <div class="pregunta">¿Cuántos dias por semana?</div>
+            <div class="seleccionarDias">{{ form.p16a_hogar }}</div>
+            <div class="pregunta">¿Cuánto tiempo gastó usted en uno de esos dias haciendo actividades físicas moderadas?</div>
+            <div class="respuesta">
+                <div class="seleccionarHoras">{{form.p17a_hogar}}</div>
+                <p style="float:left;margin:0;">horas y</p>
+                <div class="seleccionarMinutos">{{form.p17b_hogar}}</div> minutos por dia.
+            </div>
+        </div>
+    </div>	
+
+
+	
+	<div class="preguntaCompleta" id="p9">
+        <div class="pregunta">9. Durante los últimos 7 dias,¿Ha realizado usted actividades físicas moderadas dentro de su casa tal como cargar objetos livianos, lavar ventanas, restregar pisos y barrer dentro de su casa ?</div>
+        <div class="siNo">
+            <div class="seleccion">{{form.p18b_hogar}}</div>
+        </div>
+        <div class="subpregunta" id="sp9">    
+            <div class="pregunta">¿Cuántos dias por semana?</div>
+            <div class="seleccionarDias">{{ form.p18a_hogar }}</div>
+            <div class="pregunta">¿Cuánto tiempo gastó usted en uno de esos dias haciendo actividades físicas moderadas dentro de su casa?</div>
+            <div class="respuesta">
+                <div class="seleccionarHoras">{{form.p19a_hogar}}</div>
+                <p style="float:left;margin:0;">horas y</p>
+                <div class="seleccionarMinutos">{{form.p19b_hogar}}</div> minutos por dia.
+            </div>
+        </div>
+    </div>		
+	
+	<div class="seccion"> Actividades fisicas de recreación, deporte y tiempo libre</div>
+	<p>Esta sección se refiere a todas aquellas actividades físicas que usted hizo en los últimos 7 días únicamente por recreación, deporte, ejercicio o placer. Por favor no incluya ninguna de las actividades que ya haya incluido.</p>
+	
+	<div class="preguntaCompleta" id="p10">
+        <div class="pregunta">10. Sin contar cualquier caminata que ya haya usted mencionado. Durante los últimos 7 dias,¿Ha caminado usted por lo menos 10 minutos continuos en su tiempo libre?</div>
+        <div class="siNo">
+            <div class="seleccion">{{form.p20b_recreacion}}</div>
+        </div>
+        <div class="subpregunta" id="sp10">    
+            <div class="pregunta">¿Cuántos dias por semana?</div>
+            <div class="seleccionarDias">{{ form.p20a_recreacion }}</div>
+            <div class="pregunta">¿Cuánto tiempo gastó usted en uno de esos dias caminando en su tiempo libre?</div>
+            <div class="respuesta">
+                <div class="seleccionarHoras">{{form.p21a_recreacion}}</div>
+                <p style="float:left;margin:0;">horas y</p>
+                <div class="seleccionarMinutos">{{form.p21b_recreacion}}</div> minutos por dia.
+            </div>
+        </div>
+    </div>
+	
+	<div class="preguntaCompleta" id="p11">
+        <div class="pregunta">11. Durante los últimos 7 dias,¿Ha realizado usted actividades físicas vigorosas en su tiempo libre tal como aeróbicos, correr, pedalear rápido en bicicleta, o nadar rápido?</div>
+        <div class="siNo">
+            <div class="seleccion">{{form.p22b_recreacion}}</div>
+        </div>
+        <div class="subpregunta" id="sp11">    
+            <div class="pregunta">¿Cuántos dias por semana?</div>
+            <div class="seleccionarDias">{{ form.p22a_recreacion }}</div>
+            <div class="pregunta">¿Cuánto tiempo dedica usted en uno de esos días haciendo actividades físicas vigorosas en su tiempo libre?</div>
+            <div class="respuesta">
+                <div class="seleccionarHoras">{{form.p23a_recreacion}}</div>
+                <p style="float:left;margin:0;">horas y</p>
+                <div class="seleccionarMinutos">{{form.p23b_recreacion}}</div> minutos por dia.
+            </div>
+        </div>
+    </div>	
+
+	<div class="preguntaCompleta" id="p12">
+        <div class="pregunta">11. Durante los últimos 7 dias,¿Ha realizado usted actividades físicas moderadas en su tiempo libre tal como padalear?</div> en bicicleta a paso regular, nada a paso regular, jugar dobles de tenis? 
+        <div class="siNo">
+            <div class="seleccion">{{form.p24b_recreacion}}</div>
+        </div>
+        <div class="subpregunta" id="sp12">    
+            <div class="pregunta">¿Cuántos dias por semana?</div>
+            <div class="seleccionarDias">{{ form.p24a_recreacion }}</div>
+            <div class="pregunta">¿Cuánto tiempo dedica usted en uno de esos días haciendo actividades físicas vigorosas en su tiempo libre?</div>
+            <div class="respuesta">
+                <div class="seleccionarHoras">{{form.p25a_recreacion}}</div>
+                <p style="float:left;margin:0;">horas y</p>
+                <div class="seleccionarMinutos">{{form.p25b_recreacion}}</div> minutos por dia.
+            </div>
+        </div>
+    </div>	
+
+	<div class="seccion"> Tiempo dedicado a estar sentado </div>
+	<p> Esta sección se refiere al tiempo que usted permanece sentado(a) en el trabajo, la casa, estudiando, y en su tiempo libre. Esto incluye tiempo sentado(a) en un escritorio, visitando amigos(as), leyendo o permanecer sentado(a) o acostado(a) mirando televisión. No incluya el tiempo que permanece sentado(a) en un vehículo de motor que ya haya mencionado anteriormente.</p>
+	
 </form>
 {% endblock %}
