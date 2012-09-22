@@ -233,12 +233,14 @@
             </div>
         </div>
     </div>
-		<div class="noDisplay">
-		<select name="user" id="id_user">
-			<option value="{{ id }}">0</option>
-		</select>
+    <div style="width:100px;height:22px;float:left;">
+        {{ form.user }}
 	</div>
-	
+	<div style="width:100px;height:22px;float:left;">
+        <select name="user" id="id_user">
+            <option value="{{ id }}"></option>
+        </select>
+    </div>
 
 	<div class="boton"><input type="submit" value="Enviar" /></div>
 </form>
