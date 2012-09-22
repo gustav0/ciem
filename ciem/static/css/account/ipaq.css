@@ -62,5 +62,8 @@ select:focus{
 	font-weight: bold;
 	margin-top: 10px;
 	margin-bottom: 10px;
+}
 
+.boton{
+	position:relative;
 }
