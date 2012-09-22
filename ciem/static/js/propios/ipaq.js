@@ -2,8 +2,9 @@ $(document).ready(function(){
 
     $("#id_p2b_trabajo_0").click(function(){
        $('#sp1').removeClass("noDiplayDiv");
-       $('#sp1').css("height","4");
-       $('#sp1').css("height","+=40");
+       if($('#sp1').height()<40){
+       $('#sp1').css("height","+=44");
+       }
     });
     $("#id_p2b_trabajo_1").click(function(){
       $('#sp1').css("height","-=44");

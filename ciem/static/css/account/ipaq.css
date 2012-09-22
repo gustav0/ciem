@@ -21,6 +21,7 @@ select:focus{
 	margin-bottom: 40px;
 }
 .subpregunta{
+	overflow: hidden;
 	float: left;
 	clear: both;
 	margin-top:2px;
