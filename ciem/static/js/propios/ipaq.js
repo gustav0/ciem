@@ -76,12 +76,7 @@ $(document).ready(function(){
     $("#id_p24b_recreacion_1").click(function(){
        $('#sp12').addClass("noDiplayDiv");
     });		
-    $("#id_p26b_sentado_0").click(function(){
-       $('#sp13').removeClass("noDiplayDiv");
-    });		
-    $("#id_p26b_sentado_1").click(function(){
-       $('#sp13').addClass("noDiplayDiv");
-    });		
+	
     $("#id_p2b_trabajo_1").click();
     $("#id_p4b_trabajo_1").click();
     $("#id_p6b_trabajo_1").click();
@@ -94,5 +89,4 @@ $(document).ready(function(){
     $("#id_p20b_recreacion_1").click();
     $("#id_p22b_recreacion_1").click();
     $("#id_p24b_recreacion_1").click();
-    $("#id_p26b_sentado_1").click();
 });

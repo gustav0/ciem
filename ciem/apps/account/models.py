@@ -93,7 +93,7 @@ class ipaq(models.Model):
 	p25a_recreacion = models.CharField(max_length=1, choices=horas, default='0')
 	p25b_recreacion = models.CharField(max_length=1, choices=minutos, default='0')
 	
-	p26a_sentado = models.CharField(max_length=1, choices=dias, default='0')
-	p26b_sentado = models.BooleanField(default=True)
+	p26a_sentado = models.CharField(max_length=1, choices=horas, default='0')
+	p26b_sentado = models.CharField(max_length=1, choices=minutos, default='0')
 	p27a_sentado = models.CharField(max_length=1, choices=horas, default='0')
 	p27b_sentado = models.CharField(max_length=1, choices=minutos, default='0')
