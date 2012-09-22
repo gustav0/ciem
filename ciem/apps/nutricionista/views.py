@@ -9,7 +9,6 @@ from ciem.apps.account.models import datosAntropometricos,userProfile
 @login_required(login_url='/login')
 def perfilUsuarios(request):
 	get_user = request.GET.get('user',1)
-	print get_user
 	try:
 		if get_user > 1:
 			if not userProfile.objects.filter(user_id=get_user):
