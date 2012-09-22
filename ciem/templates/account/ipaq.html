@@ -218,6 +218,7 @@
             </div>
         </div>
     </div>	
+	<div class="seccion"> Tiempo dedicado a estar sentado </div></br>
 	<div class="preguntaCompleta" id="p13">
         <div class="pregunta">13. Durante los últimos 7 dias,¿Cúanto tiempo permanició sentado(a) en un día en la semana?</div>
         <div class="subpregunta" id="sp13">    
@@ -232,8 +233,13 @@
             </div>
         </div>
     </div>
+		<div class="noDisplay">
+		<select name="user" id="id_user">
+			<option value="{{ id }}">0</option>
+		</select>
+	</div>
 	
-	<div class="seccion"> Tiempo dedicado a estar sentado </div></br>
+
 	<div class="boton"><input type="submit" value="Enviar" /></div>
 </form>
 {% endblock %}

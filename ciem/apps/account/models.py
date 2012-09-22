@@ -28,6 +28,7 @@ class datosAntropometricos(models.Model):
 	objects = antropometricosManager()
 
 class ipaq(models.Model):
+	user = models.ForeignKey(User)
 	dias = ( ('0','1'),('1','2'),('2','3'),('3','4'),('4','5'),('5','6'),('6','7'), )
 	horas = ( ('0','-'),('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),('6','6'),('10','7+'), )
 	minutos = ( ('0','-'),('1','5'),('2','10'),('3','15'),('4','30'),('5','45'), )

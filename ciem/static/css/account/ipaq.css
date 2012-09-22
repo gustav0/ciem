@@ -67,3 +67,6 @@ select:focus{
 .boton{
 	position:relative;
 }
+
+.noDisplay{
+	display:none;
