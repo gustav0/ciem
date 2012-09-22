@@ -2,12 +2,12 @@ $(document).ready(function(){
 
     $("#id_p2b_trabajo_0").click(function(){
        $('#sp1').removeClass("noDiplayDiv");
-       if($('#sp1').height()<40){
-       $('#sp1').css("height","+=44");
+       if($('#sp1').height()<1){
+       $('#sp1').css("height","+=46");
        }
     });
     $("#id_p2b_trabajo_1").click(function(){
-      $('#sp1').css("height","-=44");
+      $('#sp1').css("height","0");
       $('#sp1').addClass("noDiplayDiv");
     });
     $("#id_p4b_trabajo_0").click(function(){
