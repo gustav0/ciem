@@ -1,8 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.forms import ModelForm
-from ciem.apps.account.models import userProfile
-from ciem.apps.account.models import datosAntropometricos, ipaq
+from ciem.apps.account.models import userProfile, datosAntropometricos, ipaq, ipaqResultado
 from django.contrib.auth.models import User
 
 class registerForm(UserCreationForm):
@@ -44,3 +43,9 @@ class ipaqForm(ModelForm):
 
 	class Meta:
 		model = ipaq
+	def calcular_resultado1(self):
+		return 10.2
+	def save(self):
+		ipaq = super(ipaqForm,self).save()
+		ipaqResultado.objects.create(ipaq=ipaq,resultado1=self.calcular_resultado1())
+		return ipaq

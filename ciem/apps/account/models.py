@@ -31,7 +31,7 @@ class ipaq(models.Model):
 	user = models.ForeignKey(User)
 	dias = ( ('0','1'),('1','2'),('2','3'),('3','4'),('4','5'),('5','6'),('6','7'), )
 	horas = ( ('0','-'),('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),('6','6'),('10','7+'), )
-	minutos = ( ('0','-'),('1','5'),('2','10'),('3','15'),('4','30'),('5','45'), )
+	minutos = ( ('0','-'),('1','5'),('2','10'),('3','15'),('4','30'),('5',''), )
 
 	p2a_trabajo = models.CharField(max_length=1, choices=dias, default='0')
 	p2b_trabajo = models.BooleanField(default=True)
@@ -98,3 +98,7 @@ class ipaq(models.Model):
 	p26b_sentado = models.CharField(max_length=1, choices=minutos, default='0')
 	p27a_sentado = models.CharField(max_length=1, choices=horas, default='0')
 	p27b_sentado = models.CharField(max_length=1, choices=minutos, default='0')
+
+class ipaqResultado(models.Model):
+	ipaq = models.ForeignKey(ipaq)
+	resultado1 = models.FloatField(default=0,)
