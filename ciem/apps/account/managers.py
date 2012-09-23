@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class antropometricosManager(models.Manager):
 	def getAll(self):
 		return self.model.objects.all()

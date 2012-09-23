@@ -1,5 +1,5 @@
 {% extends "homepage/index.html" %}
-
+{% load article_tags %}
 {% block title %}
 Publicaciones de articulos
 {% endblock%}
@@ -9,18 +9,19 @@ Publicaciones de articulos
 {% block content %}		
 		<section id="listadepublicaciones">
 		<h2>Lista de articulos</h2>
-			{% for a in lista %}
-			<h3>{{a.title}}</h3>
-					<article>
-						{{a.body}}
-					</article>
-					<section id="info">
-						Autor: {{a.author}}
-						Fecha: {{a.publish_date}}
-						Categoría: {{a.category}}
-						Etiquetas: {{a.tags}}
-					</section>	
-			{% endfor %}
+		{% get_articles 10 as arti %}
+		{% for a in arti %}
+		<h3>{{a.title}}</h3>
+				<article>
+					{{a.body}}
+				</article>
+				<section id="info">
+					Autor: {{a.author}}
+					Fecha: {{a.publish_date}}
+					Categoría: {{a.category}}
+					Etiquetas: {{a.tags}}
+				</section>	
+		{% endfor %}
 		</section>
 {% endblock%}
 

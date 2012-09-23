@@ -13,7 +13,6 @@ class ciemSitemap(Sitemap):
 	def location(self, obj):
 		return '/'
 
-
 class siteSitemap(Sitemap):
 	def __init__(self, names):
 		self.names = names
@@ -23,6 +22,7 @@ class siteSitemap(Sitemap):
 
 	def lastmod(self, obj):
 		return datetime.now()
+		
 	def location(self, obj):
 		return reverse(obj)
 
