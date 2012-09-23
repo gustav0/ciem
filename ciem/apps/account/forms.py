@@ -43,9 +43,36 @@ class ipaqForm(ModelForm):
 
 	class Meta:
 		model = ipaq
-	def calcular_resultado1(self):
-		return 10.2
+	def cal_metTrabajo(self):
+	    # v= vigorosa, m=moderada, a=andar
+		vDias= float(self.cleaned_data["p2a_trabajo"])
+		vSino= self.cleaned_data["p2b_trabajo"]
+		vHoras= float(self.cleaned_data["p3a_trabajo"])
+		vMin= float(self.cleaned_data["p3b_trabajo"])
+		mDias= float(self.cleaned_data["p4a_trabajo"])
+		mSino= self.cleaned_data["p4b_trabajo"]
+		mHoras= float(self.cleaned_data["p5a_trabajo"])
+		mMin= float(self.cleaned_data["p5b_trabajo"])
+		aDias= float(self.cleaned_data["p6a_trabajo"])
+		aSino= self.cleaned_data["p6b_trabajo"]
+		aHoras= float(self.cleaned_data["p7a_trabajo"])
+		aMin= float(self.cleaned_data["p7b_trabajo"])
+		
+		#Calculo los minutos totales
+		if(Sino==1): vMinutos = vMin + (vHoras * 60.0)
+		else: vMinutos = 0
+		if(mSino==1): mMinutos = mMin + (mHoras * 60.0)
+		else: mMinutos = 0
+		if(Sino==1): aMinutos = aMin + (aHoras * 60.0)
+		else: aMinutos = 0
+		#Calculo mets para vigoroso, moderado, andar en Trabajo
+		metVigoroso =8.0 * vMinutos * vDias
+		metModerado = 4.0 * mMinutos * mDias
+		metAndar = 3.3 * aMinutos * aDias
+		#Calculo Total mets en Trabajo
+		return (metVigoroso + metModerado + metAndar)
 	def save(self):
 		ipaq = super(ipaqForm,self).save()
-		ipaqResultado.objects.create(ipaq=ipaq,resultado1=self.calcular_resultado1())
+		ipaqResultado.objects.create(ipaq=ipaq,metTrabajo=self.cal_metTrabajo())
 		return ipaq
+		
