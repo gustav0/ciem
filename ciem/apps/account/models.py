@@ -31,11 +31,7 @@ class ipaq(models.Model):
 	user = models.ForeignKey(User)
 	dias = ( ('0','1'),('1','2'),('2','3'),('3','4'),('4','5'),('5','6'),('6','7'), )
 	horas = ( ('0','-'),('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),('6','6'),('10','7+'), )
-<<<<<<< HEAD
-	minutos = ( ('0','-'),('1','5'),('2','10'),('3','15'),('4','30'),('5',''), )
-=======
 	minutos = ( ('0','-'),('1','10'),('2','15'),('3','20'),('4','30'),('5','40'),('5','45') )
->>>>>>> 2e955604c98c0af6d4a25287bbcc66b184dea955
 
 	p2a_trabajo = models.CharField(max_length=1, choices=dias, default='0')
 	p2b_trabajo = models.BooleanField(default=True)
