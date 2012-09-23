@@ -21,6 +21,7 @@ select:focus{
 	margin-bottom: 40px;
 }
 .subpregunta{
+	overflow: hidden;
 	float: left;
 	clear: both;
 	margin-top:2px;
@@ -61,5 +62,12 @@ select:focus{
 	font-weight: bold;
 	margin-top: 10px;
 	margin-bottom: 10px;
+}
 
+.boton{
+	position:relative;
+}
+
+.noDisplay{
+	display:none;
 }

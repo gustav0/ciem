@@ -55,7 +55,10 @@ def nutricionistas(request):
 def ipaq(request):
 	form = ipaqForm(request.POST or None)
 	if form.is_valid():
+		print "formulario valido"
 		form.save()
+	else:
+		print form.errors
 	ctx= {'form':form, 'id':request.user.id, }
 	return render_to_response('account/ipaq.html', ctx, context_instance=RequestContext(request))
 

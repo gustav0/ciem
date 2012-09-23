@@ -2,11 +2,12 @@ $(document).ready(function(){
 
     $("#id_p2b_trabajo_0").click(function(){
        $('#sp1').removeClass("noDiplayDiv");
-       $('#sp1').css("height","4");
-       $('#sp1').css("height","+=40");
+       if($('#sp1').height()<1){
+       $('#sp1').css("height","+=46");
+       }
     });
     $("#id_p2b_trabajo_1").click(function(){
-      $('#sp1').css("height","-=44");
+      $('#sp1').css("height","0");
       $('#sp1').addClass("noDiplayDiv");
     });
     $("#id_p4b_trabajo_0").click(function(){
@@ -75,12 +76,7 @@ $(document).ready(function(){
     $("#id_p24b_recreacion_1").click(function(){
        $('#sp12').addClass("noDiplayDiv");
     });		
-    $("#id_p26b_sentado_0").click(function(){
-       $('#sp13').removeClass("noDiplayDiv");
-    });		
-    $("#id_p26b_sentado_1").click(function(){
-       $('#sp13').addClass("noDiplayDiv");
-    });		
+	
     $("#id_p2b_trabajo_1").click();
     $("#id_p4b_trabajo_1").click();
     $("#id_p6b_trabajo_1").click();
@@ -93,5 +89,4 @@ $(document).ready(function(){
     $("#id_p20b_recreacion_1").click();
     $("#id_p22b_recreacion_1").click();
     $("#id_p24b_recreacion_1").click();
-    $("#id_p26b_sentado_1").click();
 });

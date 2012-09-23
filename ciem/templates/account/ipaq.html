@@ -218,8 +218,30 @@
             </div>
         </div>
     </div>	
-
 	<div class="seccion"> Tiempo dedicado a estar sentado </div></br>
-	
+	<div class="preguntaCompleta" id="p13">
+        <div class="pregunta">13. Durante los últimos 7 dias,¿Cúanto tiempo permanició sentado(a) en un día en la semana?</div>
+        <div class="subpregunta" id="sp13">    
+                <div class="seleccionarHoras">{{form.p26a_sentado}}</div>
+                <p style="float:left;margin:0;">horas y</p>
+                <div class="seleccionarMinutos">{{form.p26b_sentado}}</div> minutos por dia.
+		<div><p>  Durante los últimos 7 dias,¿Cúanto tiempo permanició sentado(a) en un día de fin de semana? </p> </div>
+            <div class="respuesta"> 
+                <div class="seleccionarHoras">{{form.p27a_sentado}}</div>
+                <p style="float:left;margin:0;">horas y</p>
+                <div class="seleccionarMinutos">{{form.p27b_sentado}}</div> minutos por dia.
+            </div>
+        </div>
+    </div>
+    <div style="width:100px;height:22px;float:left;">
+        {{ form.user }}
+	</div>
+	<div style="width:100px;height:22px;float:left;">
+        <select name="user" id="id_user">
+            <option value="{{ id }}"></option>
+        </select>
+    </div>
+
+	<div class="boton"><input type="submit" value="Enviar" /></div>
 </form>
 {% endblock %}
