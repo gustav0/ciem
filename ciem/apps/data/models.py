@@ -11,7 +11,6 @@ class Entry(models.Model):
     publicado = models.BooleanField(db_index=True, default=True)
 
     objects = EntryManager()
-
     def __unicode__(self):
         return u"%s - %s" % (self.titulo, self.fecha_creacion) 
 
