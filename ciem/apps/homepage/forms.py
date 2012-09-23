@@ -52,3 +52,4 @@ class historiaForm(forms.Form):
 	t5 = forms.ChoiceField(choices = tamano)
 	t6 = forms.ChoiceField(choices = tamano)
 	t7 = forms.ChoiceField(choices = tamano)	
+

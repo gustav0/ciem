@@ -2,6 +2,7 @@ from django.db import models
 from ciem.apps.data.managers import EntryManager
 from ciem.apps.data.managers import alimentoManager
 
+
 class Entry(models.Model):
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     fecha_actualizacion = models.DateTimeField(auto_now=True)

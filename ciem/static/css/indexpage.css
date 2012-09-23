@@ -1,27 +1,45 @@
+article{
+	background: #E0FFB8;
+	border: 1px solid #94DA3A;
+	border-width: 1px 0;
+	margin: 1em 0;
+	padding: .3em .4em;
+	overflow: auto;
+}
+
 #alinearCuerpo{
 	width: 960px;
 	margin: auto;
 	padding: 0;
 }
+
+#alimentoT{
+	display: inline;
+	width: 100px;
+}
+
 #contenido{
 	width: 960px;
 	margin: auto; 
 	clear: both;
 }
 #pie{
+	line-height:40px;
 	font-size:10px;
 	text-align: center;
 	color: #797979;
+	font-size: 1.1em;
 	width:960px;
+	height: 40px;
 	clear: both;
 	margin: auto;
+	background: #EFEFEF;
+	border-top: 1px solid #CDCDCD;
 }
 #cabecera{
 	width: 960px;
 }
-.colorCabecera{
-	background-color:#102368;
-}
+
 #imagenCabecera{
 	float: left;
 	width: 960px;
@@ -61,6 +79,56 @@
 	background-position:-0px -32px
 }
 
+#botones a{
+	text-decoration: none;
+	color: white;
+}
+
+#usernameForm span{
+	font-size: 0;
+}
+#usernameForm input, select{
+	position: relative;
+	border: 1px solid #AAA;
+	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+#usernameForm #id_last_name, #id_first_name{left: 150px;}
+#usernameForm input#id_username{left: 94px;}
+#usernameForm #id_password1{left: 143px;}
+#usernameForm #id_password2{left: 51px;}
+#usernameForm #id_genero{ left: 165px}
+#usernameForm #id_cedula{ left: 166px;}
+#usernameForm #id_fecha_nacimiento{ left: 105px}
+#usernameForm #id_email{left: 178px;}
+#usernameForm p{
+	background: #F7F7F7;
+	border: 1px solid #D7D7D7;
+	box-shadow: 0 0 1em #EEE;
+	border-radius: .3em;
+	margin: 1em 1.75em;
+	padding: .25em;
+	overflow: auto;
+}
+
+
+input[type="submit"]{
+	position: relative;
+	left: 160px;
+	bottom: 10px;
+	text-decoration: none;.
+	border: 1px solid #006;
+    background-color: #E9F6F5;
+	border-color: #A9CAC6;
+}
+
+
+
+.colorCabecera{
+	background-color:#102368;
+}
+
 .contenido{
 	margin-top: -8px;
 	font-family: Helvetica, Arial;
@@ -86,11 +154,85 @@
 	width: 270px;height: 30px;
 	line-height: 30px;border: 1px solid #20538D;text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);-webkit-transition-duration: 0.2s;-moz-transition-duration: 0.2s;transition-duration: 0.2s;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
 }
+
+
 .boton2:hover{
 	background: #FF0000;
 	color:black;
 }
-#botones a{
+
+/* Css de calculadora */
+	
+.alimentoItem{
+	text-align: left;
+}
+
+#calculadoraDiv{
+	float: left;
+	background-color: #E29D9D;
+	width: 130px;
+	margin-left: 400px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+}
+#calculadoraDiv:hover{
+	background-color: #42C929;
+}
+
+.calculadoraA{
 	text-decoration: none;
-	color: white;
+}
+#selCombo{
+	width: 150px;
+	float: left;
+}
+#calorias{
+	float:left;
+	margin-left: 20px;
+}
+#fondo1{
+	width: 600px;
+	height: 500px;
+}
+#addAlimento{
+	float: left;
+	text-decoration: none;
+	width: 36px;
+	margin-left: 20px;
+}
+
+#tablaCalc{
+	float: left;
+	width: 340px;
+	background-color: white;
+	margin-top: 40px;
+	clear: both;
+	outline: thin solid black;
+}
+
+.caloriasT{
+	float: right;
+	width: 120px;
+	height: 20px;
+	border-left: thin solid black;
+}
+.alimentosT{
+	height: 20px;
+	width: 340px;
+	border-bottom: thin solid black;
+}
+#caloriaT{
+	float: right;
+	width: 120px;
+	height: 20px;
+	outline: thin solid black;
+}
+#alimentoT{
+	height: 20px;
+	width: 340px;
+	outline: thin solid black;
+}
+
+.helptext{
+	display: none;
 }
