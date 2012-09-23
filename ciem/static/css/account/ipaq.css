@@ -73,6 +73,6 @@ select:focus{
 	position:relative;
 }
 
-.noDisplay{
+.noDisplayDiv{
 	display:none;
 }

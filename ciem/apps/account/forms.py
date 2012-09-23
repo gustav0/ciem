@@ -59,11 +59,11 @@ class ipaqForm(ModelForm):
 		aMin= float(self.cleaned_data["p7b_trabajo"])
 		
 		#Calculo los minutos totales
-		if(Sino==1): vMinutos = vMin + (vHoras * 60.0)
+		if(vSino==1): vMinutos = vMin + (vHoras * 60.0)
 		else: vMinutos = 0
 		if(mSino==1): mMinutos = mMin + (mHoras * 60.0)
 		else: mMinutos = 0
-		if(Sino==1): aMinutos = aMin + (aHoras * 60.0)
+		if(aSino==1): aMinutos = aMin + (aHoras * 60.0)
 		else: aMinutos = 0
 		#Calculo mets para vigoroso, moderado, andar en Trabajo
 		metVigoroso =8.0 * vMinutos * vDias
