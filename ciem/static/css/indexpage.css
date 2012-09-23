@@ -113,7 +113,7 @@ article{
 }
 
 
-input[type="submit"]{
+input#botonregistro[type="submit"]{
 	position: relative;
 	left: 160px;
 	bottom: 10px;
