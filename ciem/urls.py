@@ -12,9 +12,11 @@ sitemaps = {
 	'pages' : siteSitemap(['homepage_contact', 'homepage_index'])
 }
 urlpatterns = patterns('',
+  (r'^admin/', include(admin.site.urls)),
 	(r'^', include('ciem.apps.homepage.urls')),
   (r'^', include('ciem.apps.account.urls')),
   (r'^', include('ciem.apps.nutricionista.urls')),
+  (r'', include('ciem.apps.articles.urls')),
 	(r'^sitemap\.xml', 'django.contrib.sitemaps.views.sitemap', {'sitemaps':sitemaps}),
     # Examples:
     # url(r'^$', 'ciem.views.home', name='home'),
@@ -24,6 +26,6 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-   	 (r'^admin/', include(admin.site.urls)),
+   	 
    	 (r'static/(?P<path>.*)$', 'django.views.static.serve', {'document_root':settings.MEDIA_ROOT} ),
 )

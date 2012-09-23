@@ -5,7 +5,7 @@
 }
 
 
-section{
+#contenido{
 	border: 1.7px solid #CCC;
 	background: whiteSmoke;
 	padding: 10px;
@@ -15,7 +15,14 @@ section{
 	border-top-right-radius: 1em; 
 	position: relative;
 	left: 10px;
-	margin:0px;
+	margin:0px;	
+}
+
+#contenido input, textarea{
+	border: 1px solid #AAA;
+	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 iframe{
@@ -24,3 +31,4 @@ iframe{
 	left: 500px;
 	margin: 0;
 }
+
