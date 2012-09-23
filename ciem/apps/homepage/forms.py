@@ -3,8 +3,8 @@
 from django import forms
 
 class contactForm(forms.Form):
-	email = forms.EmailField()
-	asunto = forms.CharField()
+	email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': ' nick@email.com'}))
+	asunto = forms.CharField(widget=forms.TextInput(attrs={'placeholder': ' Escriba el motivo'}))
 	texto = forms.CharField( widget=forms.Textarea )
 
 	def clean_asunto(self):

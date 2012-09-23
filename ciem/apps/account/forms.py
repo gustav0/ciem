@@ -6,11 +6,11 @@ from django.contrib.auth.models import User
 
 class registerForm(UserCreationForm):
 	genero = forms.ChoiceField(choices=userProfile.GENERO)
-	cedula = forms.FloatField()
-	fecha_nacimiento = forms.DateField(input_formats=['%Y-%m-%d'])
-	first_name = forms.CharField(max_length=30)
-	last_name = forms.CharField(max_length=30)
-	email = forms.EmailField(max_length=75)
+	cedula = forms.FloatField(widget=forms.TextInput(attrs={'placeholder': '9999999'}))
+	fecha_nacimiento = forms.DateField(input_formats=['%Y-%m-%d'], widget=forms.TextInput(attrs={'placeholder': 'aaaa-mm-dd'}))
+	first_name = forms.CharField(max_length=30, widget=forms.TextInput(attrs={'placeholder': 'Primer nombre'}))
+	last_name = forms.CharField(max_length=30, widget=forms.TextInput(attrs={'placeholder': 'Apellido'}))
+	email = forms.EmailField(max_length=75, widget=forms.TextInput(attrs={'placeholder': 'nick@email.com'}))
 	class Meta:
 		model = User
 		fields = ("first_name", "last_name", "email",)
