@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+{% extends "homepage/index.html" %}
+
+{% block title %}
+Publicaciones de articulos
+{% endblock%}
+
+{% block clear %}{% endblock%}
+
+{% block content %}	
+	<section id="informacionarticulo">
+				
+					<h2>{{article.title}}</h2>
+					<article>
+						{{article.body}}
+					</article>
+					<section id="info">
+						Autor: {{article.author}}
+						Fecha: {{article.publish_date}}
+						Categoría: {{article.category}}
+						Etiquetas: {{article.tags}}
+					</section>	
+	</section>
+{% endblock%}
+
+{% block footer %}
+Centro de Investigaciones Endocrino-Metabolicas. © Copyright 2012. Todos los Derechos Reservados.  
+{% endblock%}
