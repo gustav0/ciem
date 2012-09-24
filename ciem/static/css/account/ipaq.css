@@ -67,6 +67,7 @@ select:focus{
 	font-weight: bold;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	width: 960px;
 }
 
 .boton{
@@ -75,4 +76,36 @@ select:focus{
 
 .noDisplayDiv{
 	display:none;
+}
+
+
+
+.seleccionarHorast2{
+	float:left;
+}
+.seleccionarMinutost2{
+	float:left;
+}
+.preguntaCompletat2{
+	float: left;
+	width: 390px;
+	margin-right: 20px
+}
+.subpreguntat2{
+	float: left;
+	width: 550px;
+}
+.selecciont2{
+	width: 90px;
+	height: 20px;
+}
+.selecciont2 ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.selecciont2 li{
+	float: left;
+	width: 45px;
+	height: 20px;
 }
