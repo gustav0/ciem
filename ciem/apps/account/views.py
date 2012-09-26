@@ -52,6 +52,7 @@ def nutricionistas(request):
 	ctx= {}	
 	return render_to_response('account/nutricionistas.html', ctx, context_instance=RequestContext(request))
 	
+@login_required(login_url='/login')
 def ipaq(request):
 	form = ipaqForm(request.POST or None)
 	if form.is_valid():
