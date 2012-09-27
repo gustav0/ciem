@@ -9,14 +9,11 @@ from ciem.apps.account.models import datosAntropometricos,userProfile
 @login_required(login_url='/login')
 def perfilUsuarios(request):
 	if request.user.has_perm('data.add_alimento') and request.user.has_perm('data.change_alimento'):
-		get_user = request.GET.get('user')
-		get_tipo=request.GET.get('tipo')
+		get_user = request.GET.get('user',1)
 		try:
 			if get_user > 1:
 				if not userProfile.objects.filter(user_id=get_user):
 					return HttpResponseRedirect("/perfiles/")
-				if get_tipo > 1:
-					print "hola"
 				usuario = userProfile.objects.filter(user_id=get_user)
 				perfil = datosAntropometricos.objects.getById(int(get_user))
 			else:
