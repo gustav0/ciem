@@ -6,7 +6,7 @@
 			Peso: {{ form.peso }}
 	</div>
 	<div id="tallaForm" class="campoForm">
-			Talla: {{ form.talla }}
+			Talla (Estatura): {{ form.estatura }}
 	</div>
 	<div id="circunferenciaCinturaForm" class="campoForm">
 			Circunferencia cintura: {{ form.circunferencia_cintura }}
@@ -15,14 +15,17 @@
 			Circunferencia cadera: {{ form.circunferencia_cadera }}
 	</div>
 	<div id="patologia1Form" class="campoForm">
-			Patologia1: {{ form.patologia1 }}
+			Hipertencion: {{ form.hipertencion }}
 	</div>
 	<div id="patologia1Form" class="campoForm">
-			Patologia2: {{ form.patologia2 }}
+			Diabetes: {{ form.diabetes }}
 	</div>
 	<div id="patologia1Form" class="campoForm">
-			Patologia3: {{ form.patologia3 }}
+			Cancer: {{ form.cancer }}
 	</div>
+	<div id="patologia1Form" class="campoForm">
+			Colesterol: {{ form.colesterol }}
+	</div>	
 	<div id="userForm" class="campoForm noDisplay">
 		<select name="user" id="id_user">
 			<option value="{{ id }}">0</option>

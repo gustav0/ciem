@@ -15,18 +15,26 @@ class userProfile(models.Model):
 	user = models.ForeignKey(User)
 
 class datosAntropometricos(models.Model):
-	peso=models.FloatField(default=0, verbose_name='Peso')
-	circunferencia_cintura= models.FloatField(default=0, verbose_name='Circunferencia de Cintura')
-	circunferencia_cadera= models.FloatField(default=0, verbose_name='Circunferencia de Cadera')
-	talla= models.FloatField(default=0, verbose_name='Talla')
-	patologia1 = models.BooleanField(verbose_name="Patologia 1")
-	patologia2 = models.BooleanField(verbose_name="Patologia 2")
-	patologia3 = models.BooleanField(verbose_name="Patologia 3")
+	peso=models.FloatField(default=0)
+	circunferencia_cintura= models.FloatField(default=0)
+	circunferencia_cadera= models.FloatField(default=0)
+	estatura = models.FloatField(default=0)
+	hipertencion = models.BooleanField()
+	diabetes = models.BooleanField()
+	cancer = models.BooleanField()
+	colesterol = models.BooleanField()
+	trigliceridos = models.BooleanField()
 	user = models.ForeignKey(User)
 	fecha_creacion = models.DateField(auto_now_add=True)
 
 	objects = antropometricosManager()
 
+class antropometricosResultado(models.Model):
+	datosAntropometricos = models.ForeignKey(datosAntropometricos)
+	metabolismoBasal = models.FloatField(default = 0)
+	obesidad = models.FloatField(default = 0)
+	indiceAdiposidad = models.FloatField(default = 0)
+	
 class ipaq(models.Model):
 	user = models.ForeignKey(User)
 	dias = ( ('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),('6','6'),('7','7'), )

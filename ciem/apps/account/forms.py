@@ -1,8 +1,9 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.forms import ModelForm
-from ciem.apps.account.models import userProfile, datosAntropometricos, ipaq, ipaqResultado
+from ciem.apps.account.models import userProfile, datosAntropometricos, ipaq, ipaqResultado, antropometricosResultado
 from django.contrib.auth.models import User
+import math
 
 class registerForm(UserCreationForm):
 	genero = forms.ChoiceField(choices=userProfile.GENERO)
@@ -26,6 +27,33 @@ class registerForm(UserCreationForm):
 class antropometricosForm(ModelForm):
 	class Meta:
 		model = datosAntropometricos
+	def cal_metabolismoBasal(self, request):
+		id = request.user.id
+		#falta edad
+		edad = 0
+		genero= userProfile.objects.get(user=id).genero
+		peso = float(self.cleaned_data["peso"])
+		estatura = float(self.cleaned_data["estatura"])	
+		if(genero == 'f'):
+			MB = 655.1 + (9.6 * peso) + (1.850 * estatura) - (4.676 * edad)
+		return MB
+	
+	def cal_obesidad(self):
+		peso = float(self.cleaned_data["peso"])
+		estatura = float(self.cleaned_data["estatura"])	
+		obesidad = (peso)/(math.pow(estatura,2))
+		print obesidad
+		return obesidad
+		
+	def cal_indiceAdiposidad(self):
+		circunferencia_cadera = float(self.cleaned_data["circunferencia_cadera"])
+		estatura = float(self.cleaned_data["estatura"])
+		
+	def save(self,request):
+		print ("kjjh")
+		datosAntropometricos = super(antropometricosForm,self).save()
+		antropometricosResultado.objects.create(datosAntropometricos=datosAntropometricos,metabolismoBasal =self.cal_metabolismoBasal(request), obesidad = self.cal_obesidad())
+		return datosAntropometricos			
 		
 class ipaqForm(ModelForm):
 	p2b_trabajo = forms.TypedChoiceField(choices=((0, 'Si'), (1, 'No')), widget=forms.RadioSelect)
@@ -43,6 +71,7 @@ class ipaqForm(ModelForm):
 
 	class Meta:
 		model = ipaq
+		
 	def cal_metTrabajo(self):
 	    # v= vigorosa, m=moderada, a=andar
 		vDias= float(self.cleaned_data["p2a_trabajo"])
@@ -59,12 +88,14 @@ class ipaqForm(ModelForm):
 		aMin= float(self.cleaned_data["p7b_trabajo"])
 		
 		#Calculo los minutos totales
-		if(vSino==1): vMinutos = vMin + (vHoras * 60.0)
-		else: vMinutos = 0
-		if(mSino==1): mMinutos = mMin + (mHoras * 60.0)
+		if(mSino == '0'): mMinutos = mMin + (mHoras * 60.0)
 		else: mMinutos = 0
-		if(aSino==1): aMinutos = aMin + (aHoras * 60.0)
+		if(aSino== '0'): aMinutos = aMin + (aHoras * 60.0)
 		else: aMinutos = 0
+		if(vSino== '0'): 
+			vMinutos = vMin + (vHoras * 60.0)
+		else: 
+			vMinutos = 0		
 		#Calculo mets para vigoroso, moderado, andar en Trabajo
 		metVigoroso =8.0 * vMinutos * vDias
 		metModerado = 4.0 * mMinutos * mDias
@@ -74,35 +105,91 @@ class ipaqForm(ModelForm):
 		
 	def cal_metTransporte(self):
 	    # v= vigorosa, m=moderada, a=andar
-		vDias= float(self.cleaned_data["p8a_Transporte"])
-		vSino= self.cleaned_data["p8b_Transporte"]
-		vHoras= float(self.cleaned_data["p9a_Transporte"])
-		vMin= float(self.cleaned_data["p9b_Transporte"])
-		mDias= float(self.cleaned_data["p10a_Transporte"])
-		mSino= self.cleaned_data["p10b_Transporte"]
-		mHoras= float(self.cleaned_data["p11a_Transporte"])
-		mMin= float(self.cleaned_data["p11b_Transporte"])
-		aDias= float(self.cleaned_data["p12a_Transporte"])
-		aSino= self.cleaned_data["p12b_Transporte"]
-		aHoras= float(self.cleaned_data["p13a_Transporte"])
-		aMin= float(self.cleaned_data["p13b_Transporte"])
+		mDias= float(self.cleaned_data["p10a_transporte"])
+		mSino= self.cleaned_data["p10b_transporte"]
+		mHoras= float(self.cleaned_data["p11a_transporte"])
+		mMin= float(self.cleaned_data["p11b_transporte"])
+		aDias= float(self.cleaned_data["p12a_transporte"])
+		aSino= self.cleaned_data["p12b_transporte"]
+		aHoras= float(self.cleaned_data["p13a_transporte"])
+		aMin= float(self.cleaned_data["p13b_transporte"])
 		
-		#Calculo de los minutos totales
-		if(vSino==1): vMinutos = vMin + (vHoras * 60.0)
+		# Caalculo de los minutos totales
+		if(mSino == '0'):
+			mMinutos = mMin + (mHoras * 60.0)
+		else: 
+			mMinutos = 0
+		if(aSino== '0'): aMinutos = aMin + (aHoras * 60.0)
+		else: aMinutos = 0
+		#Caalculo mets para vigoroso, moderado, andar en Trabajo
+		metModerado = 6.0 * mMinutos * mDias
+		metAndar = 3.3 * aMinutos * aDias
+		#Calculo Total mets en Trabajo
+		total = metModerado + metAndar
+		return total
+		
+	def cal_metHogar(self):
+	    # v= vigorosa, m=moderada, a=andar
+		vDias= float(self.cleaned_data["p14a_hogar"])
+		vSino= self.cleaned_data["p14b_hogar"]
+		vHoras= float(self.cleaned_data["p15a_hogar"])
+		vMin= float(self.cleaned_data["p15b_hogar"])
+		mDias= float(self.cleaned_data["p16a_hogar"])
+		mSino= self.cleaned_data["p16b_hogar"]
+		mHoras= float(self.cleaned_data["p17a_hogar"])
+		mMin= float(self.cleaned_data["p17b_hogar"])
+		aDias= float(self.cleaned_data["p18a_hogar"])
+		aSino= self.cleaned_data["p18b_hogar"]
+		aHoras= float(self.cleaned_data["p19a_hogar"])
+		aMin= float(self.cleaned_data["p19b_hogar"])
+		
+		#Calculo los minutos totales
+		if(vSino== '0'): vMinutos = vMin + (vHoras * 60.0)
 		else: vMinutos = 0
-		if(mSino==1): mMinutos = mMin + (mHoras * 60.0)
+		if(mSino== '0'): mMinutos = mMin + (mHoras * 60.0)
 		else: mMinutos = 0
-		if(aSino==1): aMinutos = aMin + (aHoras * 60.0)
+		if(aSino== '0'): aMinutos = aMin + (aHoras * 60.0)
+		else: aMinutos = 0
+		#Calculo mets para vigoroso, moderado, andar en Trabajo
+		metVigoroso =5.5 * vMinutos * vDias
+		metModerado = 4.0 * mMinutos * mDias
+		metAndar = 3.0 * aMinutos * aDias
+		#Calculo Total mets en Trabajo
+		return (metVigoroso + metModerado + metAndar)	
+
+	def cal_metRecreacion(self):
+	    # v= vigorosa, m=moderada, a=andar
+		aDias= float(self.cleaned_data["p20a_recreacion"])
+		aSino= self.cleaned_data["p20b_recreacion"]
+		aHoras= float(self.cleaned_data["p21a_recreacion"])
+		aMin= float(self.cleaned_data["p21b_recreacion"])
+		vDias= float(self.cleaned_data["p22a_recreacion"])
+		vSino= self.cleaned_data["p22b_recreacion"]
+		vHoras= float(self.cleaned_data["p23a_recreacion"])
+		vMin= float(self.cleaned_data["p23b_recreacion"])
+		mDias= float(self.cleaned_data["p24a_recreacion"])
+		mSino= self.cleaned_data["p24b_recreacion"]
+		mHoras= float(self.cleaned_data["p25a_recreacion"])
+		mMin= float(self.cleaned_data["p25b_recreacion"])
+		
+		#Calculo los minutos totales
+		if(vSino== '0'): vMinutos = vMin + (vHoras * 60.0)
+		else: vMinutos = 0
+		if(mSino== '0'): mMinutos = mMin + (mHoras * 60.0)
+		else: mMinutos = 0
+		if(aSino== '0'): aMinutos = aMin + (aHoras * 60.0)
 		else: aMinutos = 0
 		#Calculo mets para vigoroso, moderado, andar en Trabajo
 		metVigoroso =8.0 * vMinutos * vDias
-		metModerado = 4.0 * mMinutos * mDias
-		metAndar = 3.3 * aMinutos * aDias
+		metModerado= 4.0 * mMinutos * mDias
+		metAndar = 3.0 * aMinutos * aDias
+		print metAndar
 		#Calculo Total mets en Trabajo
 		return (metVigoroso + metModerado + metAndar)	
 		
+		
 	def save(self):
 		ipaq = super(ipaqForm,self).save()
-		ipaqResultado.objects.create(ipaq=ipaq,metTrabajo=self.cal_metTrabajo())
+		ipaqResultado.objects.create(ipaq=ipaq,metTrabajo=self.cal_metTrabajo(),metTransporte=self.cal_metTransporte(),metHogar=self.cal_metHogar(), metRecreacion=self.cal_metRecreacion() )
 		return ipaq
 		
