@@ -2,11 +2,12 @@
 {% load custom_filters %}
 {% block content %}
 {% if nombre %}
+	{% if nombre.count > 2 %}
 	{% for usuario in nombre %}
 		<a href="?user={{ usuario.id }}">{{ usuario.get_full_name }}</a><br>
 	{% endfor %}
 
-	{% if nombre.count < 2 %}
+	{% else %}
 		{% if tipo|get_int == 0 %}
 			{% for usuario in nombre %}
 				<a href="?user={{ usuario.id }}&p=1"><div class="opcionResultado" style="float:left;margin-left:5px;width:40px;height:40px;outline:1px solid black;">1</div></a>
