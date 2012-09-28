@@ -5,23 +5,36 @@ from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.core.paginator import EmptyPage, PageNotAnInteger
 from ciem.apps.account.models import datosAntropometricos,userProfile
+from django.contrib.auth.models import User
 
 @login_required(login_url='/login')
 def perfilUsuarios(request):
 	if request.user.has_perm('data.add_alimento') and request.user.has_perm('data.change_alimento'):
-		get_user = request.GET.get('user',1)
+		getUser = request.GET.get('user',1)
+		tipoPerfil = request.GET.get('p',0)
+		nombre = None
 		try:
-			if get_user > 1:
-				if not userProfile.objects.filter(user_id=get_user):
+			if getUser > 1:
+				if not User.objects.filter(id=getUser):
 					return HttpResponseRedirect("/perfiles/")
-				usuario = userProfile.objects.filter(user_id=get_user)
-				perfil = datosAntropometricos.objects.getById(int(get_user))
+				if int(tipoPerfil)==1:
+					perfil = datosAntropometricos.objects.getById(int(getUser))
+				elif int(tipoPerfil)==2:
+					perfil = datosAntropometricos.objects.getById(int(getUser))
+				elif int(tipoPerfil)==3:
+					perfil = datosAntropometricos.objects.getById(int(getUser))
+				else:
+					perfil = None
+					tipoPerfil = 0
+				nombre = User.objects.filter(id=getUser)
+				usuario = userProfile.objects.filter(user=getUser)
 			else:
-				usuario = userProfile.objects.all()
+				nombre = User.objects.all()
+				usuario = None
 				perfil = None
 		except ValueError:
 			return HttpResponseRedirect("/perfiles/")
-		ctx= {'usuario':usuario, 'perfil':perfil,}	
+		ctx= {'nombre':nombre,'usuario':usuario,'perfil':perfil,'tipo':tipoPerfil, }	
 		return render_to_response('nutricionista/perfilUsuarios.html', ctx, context_instance=RequestContext(request))
 	else:
 		return HttpResponseRedirect("/profile/")

@@ -8,6 +8,7 @@ from django.template import RequestContext
 from ciem.apps.account.forms import antropometricosForm, registerForm, ipaqForm
 from ciem.apps.account.managers import antropometricosManager
 from ciem.apps.account.models import datosAntropometricos
+from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def register(request):
@@ -22,7 +23,8 @@ def register(request):
 
 @login_required(login_url='/login')
 def profile(request):
-	ctx={'profile':request.user.get_profile(),'usuario':request.user,}
+	
+	ctx={'profile':request.user.get_profile(),'usuario':request.user.get_full_name,}
 	return render_to_response('account/profile.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')

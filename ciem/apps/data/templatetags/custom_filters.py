@@ -14,7 +14,9 @@ def get_index(value,list):
 @register.filter#DEVUELVE LISTA DEL 0 AL NUMERO INDICADO
 def sumame_uno(value):
 	return int(value)+1
-
+@register.filter#DEVUELVE LISTA DEL 0 AL NUMERO INDICADO
+def get_int(value):
+	return int(value)
 @register.filter#OBTIENE RANGO PARA UN CICLO FOR
 def get_range(value):
 	return range(value)

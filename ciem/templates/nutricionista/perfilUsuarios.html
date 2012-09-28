@@ -1,21 +1,36 @@
 {% extends 'homepage/index.html' %}
 {% load custom_filters %}
 {% block content %}
-{% if usuario %}
-	{% for u in usuario %}
-	<a href="?user={{ u.user_id }}">{{ u.user }}</a>
-	<br>
-	{% for p in perfil %}
-	Prueba N°{{ p|get_index:perfil }}
-	<br>
-	Peso: {{ p.peso }}
-	Talla: {{ p.talla }}
-	<br><br>
+{% if nombre %}
+	{% for usuario in nombre %}
+		<a href="?user={{ usuario.id }}">{{ usuario.get_full_name }}</a><br>
 	{% endfor %}
-{% endfor %}
-{% if usuario.count < 2 %}
-<a href="{% url nutricionista_perfilUsuarios %}">regresar</a>
-{% endif %}
+
+	{% if nombre.count < 2 %}
+		{% if tipo|get_int == 0 %}
+			{% for usuario in nombre %}
+				<a href="?user={{ usuario.id }}&p=1"><div class="opcionResultado" style="float:left;margin-left:5px;width:40px;height:40px;outline:1px solid black;">1</div></a>
+				<a href="?user={{ usuario.id }}&p=2"><div class="opcionResultado" style="float:left;margin-left:5px;width:40px;height:40px;outline:1px solid black;">2</div></a>
+				<a href="?user={{ usuario.id }}&p=3"><div class="opcionResultado" style="float:left;margin-left:5px;width:40px;height:40px;outline:1px solid black;">3</div></a>
+			{% endfor %}
+		{% elif tipo|get_int == 1 %}
+			{% for usuario in nombre %}
+			<div>{{ usuario.id }} antropometrico</div>
+			{% endfor %}
+
+		{% elif tipo|get_int == 2 %}
+			{% for usuario in nombre %}
+			<div>{{ usuario.id }} ipaq</div>
+			{% endfor %}
+		{% else %}
+			{% for usuario in nombre %}
+			<div>{{ usuario.id }} frecuencia de consumo</div>
+			{% endfor %}
+		{% endif %}
+		<br><br>
+			<a href="{% url nutricionista_perfilUsuarios %}">LISTA DE USUARIOS</a>
+	{% endif %}
 {% else %}
+error.
 {% endif %}
 {% endblock %}
