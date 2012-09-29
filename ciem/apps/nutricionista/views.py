@@ -4,7 +4,7 @@ from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.core.paginator import EmptyPage, PageNotAnInteger
-from ciem.apps.account.models import datosAntropometricos,userProfile
+from ciem.apps.account.models import datosAntropometricos,userProfile,ipaq
 from django.contrib.auth.models import User
 
 @login_required(login_url='/login')
@@ -20,7 +20,7 @@ def perfilUsuarios(request):
 				if int(tipoPerfil)==1:
 					perfil = datosAntropometricos.objects.getById(int(getUser))
 				elif int(tipoPerfil)==2:
-					perfil = datosAntropometricos.objects.getById(int(getUser))
+					perfil = ipaq.objects.getById(int(getUser))
 				elif int(tipoPerfil)==3:
 					perfil = datosAntropometricos.objects.getById(int(getUser))
 				else:
@@ -30,7 +30,7 @@ def perfilUsuarios(request):
 				usuario = userProfile.objects.filter(user=getUser)
 			else:
 				nombre = User.objects.all()
-				usuario = None
+				usuario = userProfile.objects.all()
 				perfil = None
 		except ValueError:
 			return HttpResponseRedirect("/perfiles/")

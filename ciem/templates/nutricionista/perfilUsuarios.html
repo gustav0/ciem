@@ -1,31 +1,54 @@
 {% extends 'homepage/index.html' %}
 {% load custom_filters %}
+{% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/nutricionista/perfilUsuarios.css">{% endblock %}
 {% block content %}
 {% if nombre %}
 	{% if nombre.count > 2 %}
-	{% for usuario in nombre %}
-		<a href="?user={{ usuario.id }}">{{ usuario.get_full_name }}</a><br>
+		<div class="linea">
+			<div class="nombrePaciente">Nombre</div>
+			<div class="edadPaciente">Edad</div>
+			<div class="generoPaciente">Género</div>
+		</div>
+	{% for n in nombre %}
+	<div class="linea">
+		<div class="nombrePaciente">
+			<a href="?user={{ n.id }}">{{ n.get_full_name }}</a>
+		</div>
+		<div class="edadPaciente"> {{ usuario|au_getFechaNaciemiento:n.id|calculate_age }} </div>
+		<div class="generoPaciente">
+			{% if usuario|au_getGenero:n.id == "m" %}
+			Masculino
+			{% elif usuario|au_getGenero:n.id == "f" %}
+			Femenino
+			{% else %}
+			Otro
+			{% endif %}
+		</div>
+	</div>
 	{% endfor %}
 
 	{% else %}
 		{% if tipo|get_int == 0 %}
-			{% for usuario in nombre %}
-				<a href="?user={{ usuario.id }}&p=1"><div class="opcionResultado" style="float:left;margin-left:5px;width:40px;height:40px;outline:1px solid black;">1</div></a>
-				<a href="?user={{ usuario.id }}&p=2"><div class="opcionResultado" style="float:left;margin-left:5px;width:40px;height:40px;outline:1px solid black;">2</div></a>
-				<a href="?user={{ usuario.id }}&p=3"><div class="opcionResultado" style="float:left;margin-left:5px;width:40px;height:40px;outline:1px solid black;">3</div></a>
+			{% for n in nombre %}
+				<a href="?user={{ n.id }}&p=1"><div class="opcionResultado" style="float:left;margin-left:5px;width:40px;height:40px;outline:1px solid black;">1</div></a>
+				<a href="?user={{ n.id }}&p=2"><div class="opcionResultado" style="float:left;margin-left:5px;width:40px;height:40px;outline:1px solid black;">2</div></a>
+				<a href="?user={{ n.id }}&p=3"><div class="opcionResultado" style="float:left;margin-left:5px;width:40px;height:40px;outline:1px solid black;">3</div></a>
 			{% endfor %}
 		{% elif tipo|get_int == 1 %}
-			{% for usuario in nombre %}
-			<div>{{ usuario.id }} antropometrico</div>
+			{% for n in nombre %}
+			<div>{{ n.id }} antropometrico</div>
+				{% for p in perfil %}
+					{{ p }}
+				{% endfor %}
 			{% endfor %}
 
 		{% elif tipo|get_int == 2 %}
-			{% for usuario in nombre %}
-			<div>{{ usuario.id }} ipaq</div>
+			{% for n in nombre %}
+			<div>{{ n.id }} ipaq</div>
 			{% endfor %}
 		{% else %}
-			{% for usuario in nombre %}
-			<div>{{ usuario.id }} frecuencia de consumo</div>
+			{% for n in nombre %}
+			<div>{{ n.id }} frecuencia de consumo</div>
 			{% endfor %}
 		{% endif %}
 		<br><br>

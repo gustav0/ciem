@@ -1,0 +1,21 @@
+.nombrePaciente{
+	width: 120px;
+	height:20px;
+	float: left;
+}
+.edadPaciente{
+	width: 60px;
+	height:20px;
+	float: left;
+	text-align: center;
+}
+.generoPaciente{
+	width: 62px;
+	height:20px;
+	float: left;
+	text-align: center;
+}
+.linea{
+	float: left;
+	clear: both;
+}

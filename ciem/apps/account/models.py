@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 import datetime
-from ciem.apps.account.managers import antropometricosManager
+from ciem.apps.account.managers import antropometricosManager,ipaqManager
 #from ciem.apps.account.managers import userManager
 
 class userProfile(models.Model):
@@ -106,6 +106,8 @@ class ipaq(models.Model):
 	p26b_sentado = models.CharField(max_length=2, choices=minutos, default='0')
 	p27a_sentado = models.CharField(max_length=2, choices=horas, default='0')
 	p27b_sentado = models.CharField(max_length=2, choices=minutos, default='0')
+
+	objects = ipaqManager()
 
 class ipaqResultado(models.Model):
 	ipaq = models.ForeignKey(ipaq)
