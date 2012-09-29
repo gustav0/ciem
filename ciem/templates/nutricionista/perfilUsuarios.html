@@ -4,10 +4,10 @@
 {% block content %}
 {% if nombre %}
 	{% if nombre.count > 2 %}
-		<div class="linea">
-			<div class="nombrePaciente">Nombre</div>
-			<div class="edadPaciente">Edad</div>
-			<div class="generoPaciente">Género</div>
+		<div class="linea" style="margin-top:5px;outline:1px solid lightgray;">
+			<div class="nombrePaciente" style="outline:1px solid lightgray;">Nombre</div>
+			<div class="edadPaciente" style="outline:1px solid lightgray;">Edad</div>
+			<div class="generoPaciente" style="outline:1px solid lightgray;">Género</div>
 		</div>
 	{% for n in nombre %}
 	<div class="linea">
@@ -30,13 +30,13 @@
 	{% else %}
 		{% if tipo|get_int == 0 %}
 			{% for n in nombre %}
-				<a href="?user={{ n.id }}&p=1"><div class="opcionResultado" style="float:left;margin-left:5px;width:40px;height:40px;outline:1px solid black;">1</div></a>
-				<a href="?user={{ n.id }}&p=2"><div class="opcionResultado" style="float:left;margin-left:5px;width:40px;height:40px;outline:1px solid black;">2</div></a>
-				<a href="?user={{ n.id }}&p=3"><div class="opcionResultado" style="float:left;margin-left:5px;width:40px;height:40px;outline:1px solid black;">3</div></a>
+				<a href="?user={{ n.id }}&p=1"><div class="opcionResultado" style="float:left;margin-left:5px;width:40px;height:40px;outline:1px solid black;">Antro</div></a>
+				<a href="?user={{ n.id }}&p=2"><div class="opcionResultado" style="float:left;margin-left:5px;width:40px;height:40px;outline:1px solid black;">IPAQ</div></a>
+				<a href="?user={{ n.id }}&p=3"><div class="opcionResultado" style="float:left;margin-left:5px;width:40px;height:40px;outline:1px solid black;">Frec</div></a>
 			{% endfor %}
 		{% elif tipo|get_int == 1 %}
 			{% for n in nombre %}
-			<div>{{ n.id }} antropometrico</div>
+			<div>antropometrico</div>
 				{% for p in perfil %}
 					{{ p }}
 				{% endfor %}
@@ -44,11 +44,11 @@
 
 		{% elif tipo|get_int == 2 %}
 			{% for n in nombre %}
-			<div>{{ n.id }} ipaq</div>
+			<div>ipaq</div>
 			{% endfor %}
 		{% else %}
 			{% for n in nombre %}
-			<div>{{ n.id }} frecuencia de consumo</div>
+			<div>frecuencia de consumo</div>
 			{% endfor %}
 		{% endif %}
 		<br><br>
