@@ -52,6 +52,9 @@ class antropometricosForm(ModelForm):
 		return datosAntropometricos			
 		
 class ipaqForm(ModelForm):
+	global minAndandoTotal
+	global minVigorosoTotal
+	global minModeradoTotal
 	p2b_trabajo = forms.TypedChoiceField(choices=((0, 'Si'), (1, 'No')), widget=forms.RadioSelect)
 	p4b_trabajo = forms.TypedChoiceField(choices=((0, 'Si'), (1, 'No')), widget=forms.RadioSelect)
 	p6b_trabajo = forms.TypedChoiceField(choices=((0, 'Si'), (1, 'No')), widget=forms.RadioSelect)
@@ -69,6 +72,7 @@ class ipaqForm(ModelForm):
 		model = ipaq
 		
 	def cal_metTrabajo(self):
+		global minAndandoTotal, minVigorosoTotal, minModeradoTotal
 	    # v= vigorosa, m=moderada, a=andar
 		vDias= float(self.cleaned_data["p2a_trabajo"])
 		vSino= self.cleaned_data["p2b_trabajo"]
@@ -82,24 +86,37 @@ class ipaqForm(ModelForm):
 		aSino= self.cleaned_data["p6b_trabajo"]
 		aHoras= float(self.cleaned_data["p7a_trabajo"])
 		aMin= float(self.cleaned_data["p7b_trabajo"])
-		
 		#Calculo los minutos totales
-		if(mSino == '0'): mMinutos = mMin + (mHoras * 60.0)
-		else: mMinutos = 0
-		if(aSino== '0'): aMinutos = aMin + (aHoras * 60.0)
-		else: aMinutos = 0
-		if(vSino== '0'): 
-			vMinutos = vMin + (vHoras * 60.0)
+		print vSino
+		if(mSino == '1'):
+			mMinutos = mMin + (mHoras * 60.0)
+			minModeradoTotal = mMinutos
+		else:
+			mMinutos = 0
+			minModeradoTotal = mMinutos
+		
+		if(aSino== '1'):
+			aMinutos = aMin + (aHoras * 60.0)
+			minAndandoTotal = aMinutos
 		else: 
-			vMinutos = 0		
+			aMinutos = 0
+			minAndandoTotal = aMinutos
+		if(vSino== '1'): 
+			vMinutos = vMin + (vHoras * 60.0)
+			minVigorosoTotal = vMinutos
+		else: 
+			vMinutos = 0
+			minVigorosoTotal = vMinutos
 		#Calculo mets para vigoroso, moderado, andar en Trabajo
 		metVigoroso =8.0 * vMinutos * vDias
 		metModerado = 4.0 * mMinutos * mDias
 		metAndar = 3.3 * aMinutos * aDias
+		
 		#Calculo Total mets en Trabajo
 		return (metVigoroso + metModerado + metAndar)
 		
 	def cal_metTransporte(self):
+		global minAndandoTotal, minVigorosoTotal, minModeradoTotal
 	    # v= vigorosa, m=moderada, a=andar
 		mDias= float(self.cleaned_data["p10a_transporte"])
 		mSino= self.cleaned_data["p10b_transporte"]
@@ -111,12 +128,18 @@ class ipaqForm(ModelForm):
 		aMin= float(self.cleaned_data["p13b_transporte"])
 		
 		# Caalculo de los minutos totales
-		if(mSino == '0'):
+		if(mSino == '1'):
 			mMinutos = mMin + (mHoras * 60.0)
-		else: 
+			minModeradoTotal += mMinutos
+		else:
 			mMinutos = 0
-		if(aSino== '0'): aMinutos = aMin + (aHoras * 60.0)
-		else: aMinutos = 0
+			minModeradoTotal += mMinutos
+		if(aSino== '1'):
+			aMinutos = aMin + (aHoras * 60.0)
+			minAndandoTotal += aMinutos
+		else: 
+			aMinutos = 0
+			minAndandoTotal += aMinutos
 		#Caalculo mets para vigoroso, moderado, andar en Trabajo
 		metModerado = 6.0 * mMinutos * mDias
 		metAndar = 3.3 * aMinutos * aDias
@@ -125,6 +148,7 @@ class ipaqForm(ModelForm):
 		return total
 		
 	def cal_metHogar(self):
+		global minAndandoTotal, minVigorosoTotal, minModeradoTotal
 	    # v= vigorosa, m=moderada, a=andar
 		vDias= float(self.cleaned_data["p14a_hogar"])
 		vSino= self.cleaned_data["p14b_hogar"]
@@ -140,12 +164,24 @@ class ipaqForm(ModelForm):
 		aMin= float(self.cleaned_data["p19b_hogar"])
 		
 		#Calculo los minutos totales
-		if(vSino== '0'): vMinutos = vMin + (vHoras * 60.0)
-		else: vMinutos = 0
-		if(mSino== '0'): mMinutos = mMin + (mHoras * 60.0)
-		else: mMinutos = 0
-		if(aSino== '0'): aMinutos = aMin + (aHoras * 60.0)
-		else: aMinutos = 0
+		if(mSino == '1'):
+			mMinutos = mMin + (mHoras * 60.0)
+			minModeradoTotal += mMinutos
+		else:
+			mMinutos = 0
+			minModeradoTotal += mMinutos
+		if(aSino== '1'):
+			aMinutos = aMin + (aHoras * 60.0)
+			minAndandoTotal += aMinutos
+		else: 
+			aMinutos = 0
+			minAndandoTotal += aMinutos
+		if(vSino== '1'): 
+			vMinutos = vMin + (vHoras * 60.0)
+			minVigorosoTotal += vMinutos
+		else: 
+			vMinutos = 0
+			minVigorosoTotal += vMinutos
 		#Calculo mets para vigoroso, moderado, andar en Trabajo
 		metVigoroso =5.5 * vMinutos * vDias
 		metModerado = 4.0 * mMinutos * mDias
@@ -154,6 +190,7 @@ class ipaqForm(ModelForm):
 		return (metVigoroso + metModerado + metAndar)	
 
 	def cal_metRecreacion(self):
+		global minAndandoTotal, minVigorosoTotal, minModeradoTotal
 	    # v= vigorosa, m=moderada, a=andar
 		aDias= float(self.cleaned_data["p20a_recreacion"])
 		aSino= self.cleaned_data["p20b_recreacion"]
@@ -169,23 +206,38 @@ class ipaqForm(ModelForm):
 		mMin= float(self.cleaned_data["p25b_recreacion"])
 		
 		#Calculo los minutos totales
-		if(vSino== '0'): vMinutos = vMin + (vHoras * 60.0)
-		else: vMinutos = 0
-		if(mSino== '0'): mMinutos = mMin + (mHoras * 60.0)
-		else: mMinutos = 0
-		if(aSino== '0'): aMinutos = aMin + (aHoras * 60.0)
-		else: aMinutos = 0
+		if(mSino == '1'):
+			mMinutos = mMin + (mHoras * 60.0)
+			minModeradoTotal += mMinutos
+		else:
+			mMinutos = 0
+			minModeradoTotal += mMinutos
+		if(aSino== '1'):
+			aMinutos = aMin + (aHoras * 60.0)
+			minAndandoTotal += aMinutos
+		else: 
+			aMinutos = float(0)
+			minAndandoTotal += aMinutos
+		if(vSino== '1'): 
+			vMinutos = vMin + (vHoras * 60.0)
+			minVigorosoTotal += vMinutos
+			print "si"
+		else: 
+			print "no"
+			vMinutos = float(0)
+			minVigorosoTotal += vMinutos
 		#Calculo mets para vigoroso, moderado, andar en Trabajo
 		metVigoroso =8.0 * vMinutos * vDias
+		print vMinutos
 		metModerado= 4.0 * mMinutos * mDias
 		metAndar = 3.0 * aMinutos * aDias
-		print metAndar
 		#Calculo Total mets en Trabajo
 		return (metVigoroso + metModerado + metAndar)	
 		
 		
 	def save(self):
+		global minAndandoTotal, minVigorosoTotal, minModeradoTotal
 		ipaq = super(ipaqForm,self).save()
-		ipaqResultado.objects.create(ipaq=ipaq,metTrabajo=self.cal_metTrabajo(),metTransporte=self.cal_metTransporte(),metHogar=self.cal_metHogar(), metRecreacion=self.cal_metRecreacion() )
+		ipaqResultado.objects.create(ipaq=ipaq,metTrabajo=self.cal_metTrabajo(),metTransporte=self.cal_metTransporte(),metHogar=self.cal_metHogar(), metRecreacion=self.cal_metRecreacion(),tiempoAndar = minAndandoTotal, tiempoVigoroso = minVigorosoTotal, tiempoModerado = minModeradoTotal )
 		return ipaq
 		
