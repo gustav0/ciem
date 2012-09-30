@@ -32,9 +32,9 @@ class datosAntropometricos(models.Model):
 class antropometricosResultado(models.Model):
 	datosAntropometricos = models.ForeignKey(datosAntropometricos)
 	metabolismoBasal = models.FloatField(default = 0)
-	requerimientoCaloricoDiario = models.FloatField( default = 0)
+	requerimientoCaloricoDiario = models.FloatField(default = 0)
 	indiceAdiposidad = models.FloatField(default = 0)
-
+	obesidad = models.FloatField(default = 0)
 	objects = antropometricosResultadoManager()
 
 class ipaq(models.Model):

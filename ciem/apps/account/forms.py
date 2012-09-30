@@ -40,11 +40,18 @@ class antropometricosForm(ModelForm):
 
 	def calcular_requerimientoCaloricoDiario(self):
 		return 0
+	
+	def calcular_obesidad(self):
+		peso = float(self.cleaned_data["peso"])
+		estatura = float(self.cleaned_data["estatura"])	
+		obesidad = peso / (math.pow(estatura,2))
+		return obesidad	
 
 	def calcular_indiceAdiposidad(self):
 		circunferencia_cadera = float(self.cleaned_data["circunferencia_cadera"])
 		estatura = float(self.cleaned_data["estatura"])
-		ia= (circunferencia_cadera/estatura * math.sqrt(estatura))-18
+		ia= (circunferencia_cadera/(estatura * math.sqrt(estatura)))-18
+		print ia
 		return ia
 
 	def calculate_age(self,born):
@@ -61,7 +68,7 @@ class antropometricosForm(ModelForm):
 
 	def save(self,request):
 		datosAntropometricos = super(antropometricosForm,self).save()
-		antropometricosResultado.objects.create(datosAntropometricos=datosAntropometricos,metabolismoBasal=self.calcular_metabolismoBasal(request),requerimientoCaloricoDiario=self.calcular_requerimientoCaloricoDiario(),indiceAdiposidad=self.calcular_indiceAdiposidad(),)
+		antropometricosResultado.objects.create(datosAntropometricos=datosAntropometricos,metabolismoBasal=self.calcular_metabolismoBasal(request),requerimientoCaloricoDiario=self.calcular_requerimientoCaloricoDiario(),indiceAdiposidad=self.calcular_indiceAdiposidad(),obesidad = self.calcular_obesidad())
 		return datosAntropometricos			
 		
 class ipaqForm(ModelForm):
