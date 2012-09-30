@@ -9,24 +9,23 @@
 			<div class="edadPaciente" style="outline:1px solid lightgray;">Edad</div>
 			<div class="generoPaciente" style="outline:1px solid lightgray;">Género</div>
 		</div>
-	{% for n in nombre %}
-	<div class="linea">
-		<div class="nombrePaciente">
-			<a href="?user={{ n.id }}">{{ n.get_full_name }}</a>
+		{% for n in nombre %}
+		<div class="linea">
+			<div class="nombrePaciente">
+				<a href="?user={{ n.id }}">{{ n.get_full_name }}</a>
+			</div>
+			<div class="edadPaciente"> {{ usuario|au_getFechaNaciemiento:n.id|calculate_age }} </div>
+			<div class="generoPaciente">
+				{% if usuario|au_getGenero:n.id == "m" %}
+				Masculino
+				{% elif usuario|au_getGenero:n.id == "f" %}
+				Femenino
+				{% else %}
+				Otro
+				{% endif %}
+			</div>
 		</div>
-		<div class="edadPaciente"> {{ usuario|au_getFechaNaciemiento:n.id|calculate_age }} </div>
-		<div class="generoPaciente">
-			{% if usuario|au_getGenero:n.id == "m" %}
-			Masculino
-			{% elif usuario|au_getGenero:n.id == "f" %}
-			Femenino
-			{% else %}
-			Otro
-			{% endif %}
-		</div>
-	</div>
-	{% endfor %}
-
+		{% endfor %}
 	{% else %}
 		{% if tipo|get_int == 0 %}
 			{% for n in nombre %}
@@ -36,12 +35,12 @@
 			{% endfor %}
 		{% elif tipo|get_int == 1 %}
 			{% for n in nombre %}
-			<div>antropometrico</div>
+			<div class="perfilDe">Perfil antropométrico de {{n.get_full_name|cap}}</div>
 				{% for p in perfil %}
-					{{ p }}
+					<div class="perfilN">Perfil del {{ p.fecha_creacion|date:"d/m/Y" }}:</div>
+					<div class="informacionPerfilN"> {{ p.metabolismoBasal }} </div>
 				{% endfor %}
 			{% endfor %}
-
 		{% elif tipo|get_int == 2 %}
 			{% for n in nombre %}
 			<div>ipaq</div>

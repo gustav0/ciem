@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 import datetime
-from ciem.apps.account.managers import antropometricosManager,ipaqManager
+from ciem.apps.account.managers import antropometricosManager,antropometricosResultadoManager,ipaqManager
 #from ciem.apps.account.managers import userManager
 
 class userProfile(models.Model):
@@ -32,9 +32,11 @@ class datosAntropometricos(models.Model):
 class antropometricosResultado(models.Model):
 	datosAntropometricos = models.ForeignKey(datosAntropometricos)
 	metabolismoBasal = models.FloatField(default = 0)
-	obesidad = models.FloatField(default = 0)
+	requerimientoCaloricoDiario = models.FloatField( default = 0)
 	indiceAdiposidad = models.FloatField(default = 0)
-	
+
+	objects = antropometricosResultadoManager()
+
 class ipaq(models.Model):
 	user = models.ForeignKey(User)
 	dias = ( ('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),('6','6'),('7','7'), )

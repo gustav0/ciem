@@ -4,6 +4,7 @@ from django.forms import ModelForm
 from ciem.apps.account.models import userProfile, datosAntropometricos, ipaq, ipaqResultado, antropometricosResultado
 from django.contrib.auth.models import User
 import math
+from datetime import date
 
 class registerForm(UserCreationForm):
 	genero = forms.ChoiceField(choices=userProfile.GENERO)
@@ -23,32 +24,44 @@ class registerForm(UserCreationForm):
 class antropometricosForm(ModelForm):
 	class Meta:
 		model = datosAntropometricos
-	def cal_metabolismoBasal(self, request):
-		id = request.user.id
-		#falta edad
-		edad = 0
-		genero= userProfile.objects.get(user=id).genero
+
+	def calcular_metabolismoBasal(self, request):
+		edad = self.calculate_age(userProfile.objects.get(user_id=request.user.id).fecha_nacimiento)
+		genero= userProfile.objects.get(user_id=request.user.id).genero
 		peso = float(self.cleaned_data["peso"])
 		estatura = float(self.cleaned_data["estatura"])	
-		if(genero == 'f'):
-			MB = 655.1 + (9.6 * peso) + (1.850 * estatura) - (4.676 * edad)
-		return MB
-	
-	def cal_obesidad(self):
-		peso = float(self.cleaned_data["peso"])
-		estatura = float(self.cleaned_data["estatura"])	
-		obesidad = (peso)/(math.pow(estatura,2))
-		print obesidad
-		return obesidad
-		
-	def cal_indiceAdiposidad(self):
+		if genero == 'f':
+			mb = 655.1 + (9.6 * peso) + (1.850 * estatura) - (4.676 * edad)
+		elif genero == 'm':
+			mb = 66.4 + (13.75 * peso) + (5.003 * estatura) - (6.775 * edad)
+		else:
+			mb = 0
+		return mb
+
+	def calcular_requerimientoCaloricoDiario(self):
+		return 0
+
+	def calcular_indiceAdiposidad(self):
 		circunferencia_cadera = float(self.cleaned_data["circunferencia_cadera"])
 		estatura = float(self.cleaned_data["estatura"])
-		
+		ia= (circunferencia_cadera/estatura * math.sqrt(estatura))-18
+		return ia
+
+	def calculate_age(self,born):
+	    today = date.today()
+	    try: # raised when birth date is February 29 and the current year is not a leap year
+	        birthday = born.replace(year=today.year)
+	    except ValueError:
+	        birthday = born.replace(year=today.year, day=born.day-1)
+	    if birthday > today:
+	        return today.year - born.year - 1
+	    else:
+	        return today.year - born.year
+	
+
 	def save(self,request):
-		print ("kjjh")
 		datosAntropometricos = super(antropometricosForm,self).save()
-		antropometricosResultado.objects.create(datosAntropometricos=datosAntropometricos,metabolismoBasal =self.cal_metabolismoBasal(request), obesidad = self.cal_obesidad())
+		antropometricosResultado.objects.create(datosAntropometricos=datosAntropometricos,metabolismoBasal=self.calcular_metabolismoBasal(request),requerimientoCaloricoDiario=self.calcular_requerimientoCaloricoDiario(),indiceAdiposidad=self.calcular_indiceAdiposidad(),)
 		return datosAntropometricos			
 		
 class ipaqForm(ModelForm):

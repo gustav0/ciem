@@ -4,7 +4,7 @@ from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.core.paginator import EmptyPage, PageNotAnInteger
-from ciem.apps.account.models import datosAntropometricos,userProfile,ipaq
+from ciem.apps.account.models import datosAntropometricos,antropometricosResultado,userProfile,ipaq
 from django.contrib.auth.models import User
 
 @login_required(login_url='/login')
@@ -18,7 +18,7 @@ def perfilUsuarios(request):
 				if not User.objects.filter(id=getUser):
 					return HttpResponseRedirect("/perfiles/")
 				if int(tipoPerfil)==1:
-					perfil = datosAntropometricos.objects.getById(int(getUser))
+					perfil = datosAntropometricos.objects.getByIdJoin(int(getUser))
 				elif int(tipoPerfil)==2:
 					perfil = ipaq.objects.getById(int(getUser))
 				elif int(tipoPerfil)==3:

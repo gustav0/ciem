@@ -18,4 +18,6 @@
 .linea{
 	float: left;
 	clear: both;
+	border: 1px solid lightgray;
+	border-top: 0;
 }
