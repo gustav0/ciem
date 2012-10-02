@@ -4,9 +4,9 @@ Tagging components for Django's form library.
 from django import forms
 from django.utils.translation import ugettext as _
 
-from tagging import settings
-from tagging.models import Tag
-from tagging.utils import parse_tag_input
+from ciem.apps.tagging import settings
+from ciem.apps.tagging.models import Tag
+from ciem.apps.tagging.utils import parse_tag_input
 
 class TagAdminForm(forms.ModelForm):
     class Meta:

@@ -4,12 +4,12 @@ import os
 from django import forms
 from django.db.models import Q
 from django.test import TestCase
-from tagging.forms import TagField
-from tagging import settings
-from tagging.models import Tag, TaggedItem
-from tagging.tests.models import Article, Link, Perch, Parrot, FormTest
-from tagging.utils import calculate_cloud, edit_string_for_tags, get_tag_list, get_tag, parse_tag_input
-from tagging.utils import LINEAR
+from ciem.apps.tagging.forms import TagField
+from ciem.apps.tagging import settings
+from ciem.apps.tagging.models import Tag, TaggedItem
+from ciem.apps.tagging.tests.models import Article, Link, Perch, Parrot, FormTest
+from ciem.apps.tagging.utils import calculate_cloud, edit_string_for_tags, get_tag_list, get_tag, parse_tag_input
+from ciem.apps.tagging.utils import LINEAR
 
 #############
 # Utilities #

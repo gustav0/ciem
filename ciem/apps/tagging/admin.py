@@ -1,6 +1,6 @@
 from django.contrib import admin
-from tagging.models import Tag, TaggedItem
-from tagging.forms import TagAdminForm
+from ciem.apps.tagging.models import Tag, TaggedItem
+from ciem.apps.tagging.forms import TagAdminForm
 
 class TagAdmin(admin.ModelAdmin):
     form = TagAdminForm
