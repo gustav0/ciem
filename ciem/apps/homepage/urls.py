@@ -7,8 +7,7 @@ urlpatterns = patterns('ciem.apps.homepage.views',
  url(r'^about/$', 'about', name="homepage_about"),
  url(r'^contact/$', 'contact', name="homepage_contact"),
  url(r'^calculadora/$', 'calculadora', name="homepage_calculadora"),
- url(r'^historia/$', 'historia', name="homepage_historia"),
- )
+  )
 
 urlpatterns += patterns('',
 	(r'^feed/archive/$', archiveFeed()),
