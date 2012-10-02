@@ -47,68 +47,54 @@ class ipaq(models.Model):
 	p2b_trabajo = models.BooleanField(default=False)
 	p3a_trabajo = models.CharField(max_length=2, choices=horas, default='0')
 	p3b_trabajo = models.CharField(max_length=2, choices=minutos, default='0')
-
-
 	p4a_trabajo = models.CharField(max_length=1, choices=dias, default='0')
 	p4b_trabajo = models.BooleanField(default=False)
 	p5a_trabajo = models.CharField(max_length=2, choices=horas, default='0')
 	p5b_trabajo = models.CharField(max_length=2, choices=minutos, default='0')	
-
 	p6a_trabajo = models.CharField(max_length=1, choices=dias, default='0')
 	p6b_trabajo = models.BooleanField(default=False)
 	p7a_trabajo = models.CharField(max_length=2, choices=horas, default='0')
 	p7b_trabajo = models.CharField(max_length=2, choices=minutos, default='0')
-	
 	p8a_transporte = models.CharField(max_length=1, choices=dias, default='0')
 	p8b_transporte = models.BooleanField(default=False)
 	p9a_transporte = models.CharField(max_length=2, choices=horas, default='0')
 	p9b_transporte = models.CharField(max_length=2, choices=minutos, default='0')
-
 	p10a_transporte = models.CharField(max_length=1, choices=dias, default='0')
 	p10b_transporte =models.BooleanField(default=False)
 	p11a_transporte = models.CharField(max_length=2, choices=horas, default='0')
 	p11b_transporte = models.CharField(max_length=2, choices=minutos, default='0')
-	
 	p12a_transporte = models.CharField(max_length=1, choices=dias, default='0')
 	p12b_transporte = models.BooleanField(default=False)
 	p13a_transporte = models.CharField(max_length=2, choices=horas, default='0')
 	p13b_transporte = models.CharField(max_length=2, choices=minutos, default='0')
-	
 	p14a_hogar = models.CharField(max_length=1, choices=dias, default='0')
 	p14b_hogar =models.BooleanField(default=False)
 	p15a_hogar = models.CharField(max_length=2, choices=horas, default='0')
 	p15b_hogar = models.CharField(max_length=2, choices=minutos, default='0')
-	
 	p16a_hogar = models.CharField(max_length=1, choices=dias, default='0')
 	p16b_hogar = models.BooleanField(default=False)
 	p17a_hogar = models.CharField(max_length=2, choices=horas, default='0')
 	p17b_hogar = models.CharField(max_length=2, choices=minutos, default='0')
-	
 	p18a_hogar = models.CharField(max_length=1, choices=dias, default='0')
 	p18b_hogar = models.BooleanField(default=False)
 	p19a_hogar = models.CharField(max_length=2, choices=horas, default='0')
 	p19b_hogar = models.CharField(max_length=2, choices=minutos, default='0')
-	
 	p20a_recreacion = models.CharField(max_length=1, choices=dias, default='0')
 	p20b_recreacion = models.BooleanField(default=False)
 	p21a_recreacion = models.CharField(max_length=2, choices=horas, default='0')
 	p21b_recreacion = models.CharField(max_length=2, choices=minutos, default='0')
-	
 	p22a_recreacion = models.CharField(max_length=1, choices=dias, default='0')
 	p22b_recreacion = models.BooleanField(default=False)
 	p23a_recreacion = models.CharField(max_length=2, choices=horas, default='0')
 	p23b_recreacion = models.CharField(max_length=2, choices=minutos, default='0')
-	
 	p24a_recreacion = models.CharField(max_length=1, choices=dias, default='0')
 	p24b_recreacion = models.BooleanField(default=False)
 	p25a_recreacion = models.CharField(max_length=2, choices=horas, default='0')
 	p25b_recreacion = models.CharField(max_length=2, choices=minutos, default='0')
-	
 	p26a_sentado = models.CharField(max_length=2, choices=horas, default='0')
 	p26b_sentado = models.CharField(max_length=2, choices=minutos, default='0')
 	p27a_sentado = models.CharField(max_length=2, choices=horas, default='0')
 	p27b_sentado = models.CharField(max_length=2, choices=minutos, default='0')
-
 	objects = ipaqManager()
 
 class ipaqResultado(models.Model):
@@ -126,4 +112,21 @@ class ipaqResultado(models.Model):
 	tiempoSentado = models.FloatField(default=0)
 	MediaSentado = models.FloatField(default=0)
 	
+
+class frecuenciaConsumo(models.Model):
+	user = models.ForeignKey(User)
+	fecha_creacion = models.DateField(auto_now_add=True)
+
+class nombreSeccionFrecuenciaConsumo(models.Model):
+	descripcion = models.CharField(max_length=100,)
+
+class alimentoFrecuencia(models.Model):
+	seccionNombre = models.ForeignKey(nombreSeccionFrecuenciaConsumo)
+	descripcion = models.CharField(max_length=100,)
 	
+class dataFrecuenciaConsumo(models.Model):
+	FRECUENCIA = (('0','Nunca'),('1','1 vez al mes'),('2','2 - 3 veces al mes'),('3','1 por semana'),('4','2 por semana'),('5','3 - 4 por semana'),('6','5 - 6 por semana'),('7','1 vez por dia'),('8','2 o mas por dia'))
+	seccion = models.ForeignKey(nombreSeccionFrecuenciaConsumo)
+	alimento = models.ForeignKey(alimentoFrecuencia)
+	porcion = models.CharField(max_length=1, default='m')
+	frecuencia = models.CharField(max_length=1, choices=FRECUENCIA, default='0')

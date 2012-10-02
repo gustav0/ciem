@@ -5,8 +5,6 @@ from ciem.apps.data.models import *
 from ciem.apps.homepage.forms import *
 from django.template import RequestContext
 from django.core.mail import send_mail
-from ciem.apps.homepage.forms import historiaForm
-
 
 def index(request):
 	ctx = {}
@@ -40,14 +38,4 @@ def calculadora(request):
 	alimentos = alimento.objects.all().order_by('nombre')
 	ctx={ 'alimentos':alimentos }
 	return render_to_response('homepage/calculadora.html', ctx, context_instance=RequestContext(request))
-
-def historia(request):
-	if request.method =='POST':
-		formulario = historiaForm(request.POST, request.FILES)
-		if formulario.is_valid():
-			formulario.save()
-	else:
-		formulario=historiaForm()
-	ctx= {'formulario':formulario,}
-	return render_to_response('homepage/historia.html', ctx, context_instance=RequestContext(request))
 	
