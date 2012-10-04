@@ -14,3 +14,15 @@ class ipaqManager(models.Manager):
 class antropometricosResultadoManager(models.Manager):
 	def getById(self,id):
 		return self.model.objects.raw(datosAntropometricos_id=id).order_by('-datosAntropometricos')
+
+class frecuenciaConsumoManager(models.Manager):
+	def getById(self,id):
+		return self.model.objects.filter(user_id=id).order_by('-fecha_creacion')
+
+class dataFrecuenciaConsumoManager(models.Manager):
+	def getByIdAndSeccion(self,id,seccion):
+		return self.model.objects.filter(user_id=id).filter(seccion=id).order_by('-fecha_creacion')
+
+class alimentoFrecuenciaManager(models.Manager):
+	def getById(self,idSeccion):
+		return self.model.objects.filter(seccionNombre=idSeccion)

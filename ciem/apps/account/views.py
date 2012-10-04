@@ -3,11 +3,11 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
-from django.shortcuts import render_to_response, redirect
+from django.shortcuts import render_to_response,redirect
 from django.template import RequestContext
-from ciem.apps.account.forms import antropometricosForm, registerForm, ipaqForm
-from ciem.apps.account.managers import antropometricosManager
-from ciem.apps.account.models import datosAntropometricos
+from ciem.apps.account.forms import antropometricosForm,registerForm,ipaqForm,frecuenciaForm
+from ciem.apps.account.managers import antropometricosManager,frecuenciaConsumoManager,dataFrecuenciaConsumoManager,alimentoFrecuenciaManager
+from ciem.apps.account.models import datosAntropometricos,frecuenciaConsumo,dataFrecuenciaConsumo,alimentoFrecuencia
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -23,7 +23,6 @@ def register(request):
 
 @login_required(login_url='/login')
 def profile(request):
-	
 	ctx={'profile':request.user.get_profile(),'usuario':request.user.get_full_name,}
 	return render_to_response('account/profile.html', ctx, context_instance=RequestContext(request))
 
@@ -62,4 +61,31 @@ def ipaq(request):
 	ctx= {'form':form, 'id':request.user.id, }
 	return render_to_response('account/ipaq.html', ctx, context_instance=RequestContext(request))
 
-	
+@login_required(login_url='/login')
+def frecuencia(request):
+	perfilFrecuencia = frecuenciaConsumo.objects.getById(request.user.id)
+	alimento = ()
+	preguntas = ()
+	if perfilFrecuencia.exists():
+		for p in perfilFrecuencia:
+			progreso = p.progreso
+		if progreso=='1':
+			print "progreso 1"
+			preguntas = frecuenciaForm(request.POST or None)
+			print preguntas.errors
+			if preguntas.is_valid():
+				print "entre"
+				preguntas.save()
+			else:
+				print "no entre"
+				alimento =	alimentoFrecuencia.objects.getById(1) 
+		elif progreso=='2':
+			print "seccion 2"
+	else:
+		if request.method == "POST":
+			frecuenciaConsumo.objects.create(user=request.user,progreso='1')
+			progreso = '1'
+		else:
+			progreso = None
+	ctx={'progreso':progreso,'alimento':alimento,'preguntas':preguntas,'perfilFrecuencia':perfilFrecuencia}
+	return render_to_response('account/frecuenciaConsumo.html', ctx, context_instance=RequestContext(request))

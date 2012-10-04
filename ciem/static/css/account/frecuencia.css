@@ -1,0 +1,35 @@
+.frecuencia{
+	float:left;
+	width: 136px;
+}
+.porcion{
+	float:left;
+	width: 65px;
+}
+.media{
+	float:left;
+	width: 100px;
+	text-align:center;
+}
+.porcion ul{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	width: 100px;
+}
+.porcion li{
+	float: left;
+	width: 20px;
+}
+.pregunta{
+	width: 810px;
+	height: 40px;
+}
+.noDisplayDiv{
+	display:none;
+}
+.textoPregunta{
+	float: left;
+	width: 490px;
+	height: 40px;
+}

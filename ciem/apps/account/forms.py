@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.forms import ModelForm
-from ciem.apps.account.models import userProfile, datosAntropometricos, ipaq, ipaqResultado, antropometricosResultado, dataFrecuenciaConsumo
+from ciem.apps.account.models import *
 from django.contrib.auth.models import User
 import math
 from datetime import date
@@ -280,6 +280,12 @@ class ipaqForm(ModelForm):
 		return ipaq
 		
 class frecuenciaForm(forms.Form):
-	porcion = forms.TypedChoiceField(choices=((0, 'P'), (1, 'M'), (2, 'G')), widget=forms.RadioSelect)
+	porcion = forms.TypedChoiceField(choices=((0, ''), (1, ''), (2, '')), widget=forms.RadioSelect)
+	frecuencia = forms.ChoiceField(choices=dataFrecuenciaConsumo.FRECUENCIA)
+	alimento = forms.ChoiceField()
+	frecuenciaConsumo = forms.ChoiceField()
+
 	class Meta:
 		model = dataFrecuenciaConsumo
+
+	

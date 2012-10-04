@@ -1,0 +1,36 @@
+{% extends "homepage/index.html" %}
+{% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/account/frecuencia.css">{% endblock %}
+{% block js %} <script src="{{ MEDIA_URL }}js/adquiridos/jquery.min.js"></script>
+<script src="{{ MEDIA_URL }}js/propios/frecuencia.js"></script>{% endblock %}
+{% block content %}
+	{% if progreso %} 
+		<div>Sección: {{progreso}}   </div>
+		{%for a in alimento%}
+		<form action="." method="POST" id="pregunta{{ a.id }}">
+			{% csrf_token %}
+			<div class ="pregunta">
+			<select class="noDisplayDiv"name="alimento" id="id_alimento"><option value="{{ a.id }}">0</option></select>
+			<select class="noDisplayDiv"name="frecuenciaConsumo" id="id_frecuenciaConsumo"><option value="{{ perfilFrecuencia.0.id }}">0</option></select>
+			<div class="textoPregunta">{{ a.descripcion }}</div>
+			<div class="frecuencia">{{ preguntas.frecuencia }}</div>
+			<div class="media">{{ a.media }}</div>
+			<div class="porcion">{{ preguntas.porcion }}</div>
+			</div>
+			<div class="errores">{{ preguntas.non_field_errors }}
+				{{ preguntas.frecuencia.errors }}
+				{{ preguntas.porcion.errors }}
+				{{ preguntas.frecuenciaConsumo.errors }}
+				{{preguntas.alimento.errors}}
+			<input value="Iniciar" type="submit" style="float:left;clear:both;">
+		</form>
+		{%endfor%}
+		<div id="enviarS1" style="height:50px;width:50px;background-color:black;cursor:pointer;"></div>
+	{% else %}
+
+		<div>Presione iniciar para iniciar a llenar su formulario de frecuencia de consumo alimenticio.</div>
+		<form action="" id='botonInicioFrecuencia' method='post'>
+			{% csrf_token %}
+		<input value="Iniciar" type="submit" style="float:left;clear:both;">
+		</form>
+	{% endif %}
+{% endblock %}
