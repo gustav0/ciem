@@ -1,7 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 import datetime
-from ciem.apps.account.managers import antropometricosManager,antropometricosResultadoManager,ipaqManager, userProfileManager
+from ciem.apps.account.managers import *
+
 #from ciem.apps.account.managers import userManager
 
 class userProfile(models.Model):
@@ -115,8 +116,12 @@ class ipaqResultado(models.Model):
 	
 
 class frecuenciaConsumo(models.Model):
-	user = models.ForeignKey(User)
+	user = models.ForeignKey(User,unique=True)
 	fecha_creacion = models.DateField(auto_now_add=True)
+	progreso = models.CharField(max_length=1,default='0')
+
+	objects = frecuenciaConsumoManager()
+
 
 class nombreSeccionFrecuenciaConsumo(models.Model):
 	descripcion = models.CharField(max_length=100,)
@@ -124,10 +129,14 @@ class nombreSeccionFrecuenciaConsumo(models.Model):
 class alimentoFrecuencia(models.Model):
 	seccionNombre = models.ForeignKey(nombreSeccionFrecuenciaConsumo)
 	descripcion = models.CharField(max_length=100,)
+	media = models.CharField(max_length=40,)
+	objects = alimentoFrecuenciaManager()
 	
 class dataFrecuenciaConsumo(models.Model):
 	FRECUENCIA = (('0','Nunca'),('1','1 vez al mes'),('2','2 - 3 veces al mes'),('3','1 por semana'),('4','2 por semana'),('5','3 - 4 por semana'),('6','5 - 6 por semana'),('7','1 vez por dia'),('8','2 o mas por dia'))
-	seccion = models.ForeignKey(nombreSeccionFrecuenciaConsumo)
+	frecuenciaConsumo = models.ForeignKey(frecuenciaConsumo)
 	alimento = models.ForeignKey(alimentoFrecuencia)
 	porcion = models.CharField(max_length=1, default='m')
 	frecuencia = models.CharField(max_length=1, choices=FRECUENCIA, default='0')
+
+	objects = dataFrecuenciaConsumoManager()
