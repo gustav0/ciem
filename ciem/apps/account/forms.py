@@ -1,5 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
+from django.forms.formsets import formset_factory
 from django.forms import ModelForm
 from ciem.apps.account.models import *
 from django.contrib.auth.models import User
@@ -282,10 +283,6 @@ class ipaqForm(ModelForm):
 class frecuenciaForm(forms.Form):
 	porcion = forms.TypedChoiceField(choices=((0, ''), (1, ''), (2, '')), widget=forms.RadioSelect)
 	frecuencia = forms.ChoiceField(choices=dataFrecuenciaConsumo.FRECUENCIA)
-	alimento = forms.ChoiceField()
-	frecuenciaConsumo = forms.ChoiceField()
 
 	class Meta:
 		model = dataFrecuenciaConsumo
-
-	

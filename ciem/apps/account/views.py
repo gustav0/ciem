@@ -10,6 +10,8 @@ from ciem.apps.account.managers import antropometricosManager,frecuenciaConsumoM
 from ciem.apps.account.models import datosAntropometricos,frecuenciaConsumo,dataFrecuenciaConsumo,alimentoFrecuencia
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.forms.models import modelformset_factory
+
 
 def register(request):
 	form = registerForm(request.POST or None)
@@ -66,13 +68,14 @@ def frecuencia(request):
 	perfilFrecuencia = frecuenciaConsumo.objects.getById(request.user.id)
 	alimento = ()
 	preguntas = ()
+	preguntasFormSet = modelformset_factory(dataFrecuenciaConsumo)
 	if perfilFrecuencia.exists():
 		for p in perfilFrecuencia:
 			progreso = p.progreso
 		if progreso=='1':
 			print "progreso 1"
-			preguntas = frecuenciaForm(request.POST or None)
-			print preguntas.errors
+			preguntas = preguntasFormSet(request.POST or None)
+			print preguntasFormSet
 			if preguntas.is_valid():
 				print "entre"
 				preguntas.save()
