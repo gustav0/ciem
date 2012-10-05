@@ -35,3 +35,4 @@ class dataFrecuenciaConsumoManager(models.Manager):
 class alimentoFrecuenciaManager(models.Manager):
 	def getById(self,idSeccion):
 		return self.model.objects.filter(seccionNombre=idSeccion)
+
