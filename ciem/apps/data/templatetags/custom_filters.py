@@ -85,3 +85,9 @@ def au_getGenero(list,mid):
 		if list[i].id == mid:
 			return list[i].genero
 	return None
+@register.filter	
+def au_getCedula(list,mid):
+	for i in range(list.count()):
+		if list[i].id == mid:
+			return list[i].cedula
+	return None

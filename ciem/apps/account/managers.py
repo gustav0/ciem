@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class antropometricosManager(models.Manager):
 	def getById(self,id):
@@ -7,6 +8,14 @@ class antropometricosManager(models.Manager):
 		query='SELECT * FROM account_datosantropometricos as data INNER JOIN account_antropometricosresultado as resultado ON data.id=resultado.datosantropometricos_id where data.user_id='+str(id)+';'
 		return self.model.objects.raw(query)
 
+class userProfileManager(models.Manager):
+	def getUserJoin(self,id):
+		query='SELECT * FROM auth_user as u INNER JOIN account_userprofile as p ON u.id=p.user_id WHERE u.id='+str(id)+';'
+		return self.model.objects.raw(query)
+	def getAllUser(self):
+		query2='SELECT * FROM auth_user as u INNER JOIN account_userprofile as p ON u.id=p.user_id;'
+		return self.model.objects.raw(query2)				
+			
 class ipaqManager(models.Manager):
 	def getById(self,id):
 		return self.model.objects.filter(user_id=id).order_by('-fecha_creacion')

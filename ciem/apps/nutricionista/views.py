@@ -28,12 +28,16 @@ def perfilUsuarios(request):
 					tipoPerfil = 0
 				nombre = User.objects.filter(id=getUser)
 				usuario = userProfile.objects.filter(user=getUser)
+				#usuario = userProfile.objects.getUserJoin(int(getUser))
 			else:
 				nombre = User.objects.all()
 				usuario = userProfile.objects.all()
+				#usuario = userProfile.objects.getAllUser()
 				perfil = None
+		
 		except ValueError:
 			return HttpResponseRedirect("/perfiles/")
+		#ctx= {'usuario':usuario,'perfil':perfil,'tipo':tipoPerfil, }	
 		ctx= {'nombre':nombre,'usuario':usuario,'perfil':perfil,'tipo':tipoPerfil, }	
 		return render_to_response('nutricionista/perfilUsuarios.html', ctx, context_instance=RequestContext(request))
 	else:
