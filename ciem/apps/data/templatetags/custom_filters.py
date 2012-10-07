@@ -1,5 +1,6 @@
 from django.template import Library
 from django.db.models import Count
+from django.utils.safestring import mark_safe
 from datetime import date
 
 
@@ -85,9 +86,29 @@ def au_getGenero(list,mid):
 		if list[i].id == mid:
 			return list[i].genero
 	return None
-@register.filter	
+@register.filter    
 def au_getCedula(list,mid):
-	for i in range(list.count()):
-		if list[i].id == mid:
-			return list[i].cedula
-	return None
+    for i in range(list.count()):
+        if list[i].id == mid:
+            return list[i].cedula
+    return None
+
+#|||||||||||||||||||||||||||||||||||||||#
+#|FILTROS PARA LA FRECUENCIA DE CONSUMO|#
+#|||||||||||||||||||||||||||||||||||||||#
+@register.filter#DEVUELVE HTML PARA EL SELECT DEL ALIMENTO EN CADA FORM
+def get_select_alimento(loop,list):
+    return mark_safe('<select name="form-'+str(loop)+'-alimento" id="id_form-'+str(loop)+'-alimento"><option value="'+str(list[loop].id)+'"></option></select>')
+
+@register.filter#DEVUELVE HTML PARA EL SELECT DEl PERFIL DEL USUARIO EN CADA FORM
+def get_select_frecuencia(loop,list):
+    return mark_safe('<select name="form-'+str(loop)+'-frecuenciaConsumo" id="id_form-'+str(loop)+'-frecuenciaConsumo"><option value="'+str(list[0].id)+'"></option></select>')
+
+@register.filter#DEVUELVE DESCRIPCION DEL ALIMENTO PARA CADA PREGUNTA
+def get_descripcion(loop,list):
+    return list[loop].descripcion
+
+@register.filter#DEVUELVE LA MEDIA DEL ALIMENTO PARA CADA PREGUNTA
+def get_media(loop,list):
+    return list[loop].media       
+    #return mark_safe('<div class="noDisplayDiv"><select name="form-'+str(loop)+'-alimento" id="id_form-'+str(loop)+'-alimento"><option value="{{alimento.'+str(loop)+'.id}}">{{alimento.'+str(loop)+'.id}}</option></select><select name="form-'+str(loop)+'-frecuenciaConsumo" id="id_form-'+str(loop)+'-frecuenciaConsumo"><option value="{{perfilFrecuencia.0.id}}">{{perfilFrecuencia.0.id}}</option></select></div>')

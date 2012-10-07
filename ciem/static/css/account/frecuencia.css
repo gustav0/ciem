@@ -11,6 +11,10 @@
 	width: 100px;
 	text-align:center;
 }
+.texto{
+	float: left;
+	width: 500px;
+}
 .porcion ul{
 	padding: 0;
 	margin: 0;

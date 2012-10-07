@@ -1,31 +1,34 @@
 {% extends "homepage/index.html" %}
+{% load custom_filters%}
 {% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/account/frecuencia.css">{% endblock %}
 {% block js %} <script src="{{ MEDIA_URL }}js/adquiridos/jquery.min.js"></script>
 <script src="{{ MEDIA_URL }}js/propios/frecuencia.js"></script>{% endblock %}
 {% block content %}
 	{% if progreso %} 
 		<div>Sección: {{progreso}}   </div>
-		{%for a in alimento%}
-		<form action="." method="POST" id="pregunta{{ a.id }}">
+		<form action="." method="POST" id="seccion1">
 			{% csrf_token %}
-			{{ pregunta.management_form }}
-			{% for pregunta in preguntas %}
-			<div class ="pregunta">
-			<div class="textoPregunta">{{ pregunta.alimento }}</div>
-			<div class="frecuencia">{{ pregunta.frecuencia }}</div>
-			<div class="media">{{ a.media }}</div>
-			<div class="porcion">{{ pregunta.porcion }}</div>
+			{{preguntas.management_form}}
+			<div class="pregunta">
+				<div class="texto">Alimento</div>
+				<div class="frecuencia">Frecuencia de consumo</div>
+				<div class="media">Media</div>
+				<div class="porcion">Tamaño de porcion</div>
 			</div>
-			{%endfor%}
-			<div class="errores">{{ pregunta.non_field_errors }}
-				{{ pregunta.frecuencia.errors }}
-				{{ pregunta.porcion.errors }}
-				{{ pregunta.frecuenciaConsumo.errors }}
-				{{pregunta.alimento.errors}}
-
-			<input value="Iniciar" type="submit" style="float:left;clear:both;">
+			{% for pregunta in preguntas %}
+			<div class="noDisplayDiv">
+				{{forloop.counter0|get_select_alimento:alimento}}
+				{{forloop.counter0|get_select_frecuencia:perfilFrecuencia}}
+			</div>
+			<div class="pregunta">
+				<div class="texto">{{forloop.counter}}. {{forloop.counter0|get_descripcion:alimento}}</div>
+				<div class="frecuencia">{{pregunta.frecuencia}}</div>
+				<div class="media">{{forloop.counter0|get_media:alimento}}</div>
+				<div class="porcion">{{pregunta.porcion}}</div>
+			</div>
+			{% endfor %}
+			<input value="Guardar" type="submit" style="float:left;clear:both;">
 		</form>
-		{%endfor%}
 		<div id="enviarS1" style="height:50px;width:50px;background-color:black;cursor:pointer;"></div>
 	{% else %}
 
