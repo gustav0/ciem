@@ -55,15 +55,15 @@ article{
 #barraNavegacion a{
 	text-decoration: none;
 	color:#000062;
-	font-family:Tahoma, Geneva, sans-serif;
-	font-size: 13px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 12px;
 	-webkit-transition: all .1s;
 	-moz-transition: all .1s;
 	-o-transition: all .1s;
 	transition: all .1s;
 }
 #barraNavegacion a:hover{
-	color:#164E21;
+	color:#4A821E;
 	-webkit-transition: all .1s;
 	-moz-transition: all .1s;
 	-o-transition: all .1s;
@@ -129,6 +129,7 @@ input#botonregistro[type="submit"]{
 
 .colorCabecera{
 	background-color:#102368;
+	height: 33px;
 }
 
 .contenido{
