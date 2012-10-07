@@ -73,10 +73,11 @@ class antropometricosForm(ModelForm):
 		return datosAntropometricos			
 		
 class ipaqForm(ModelForm):
-	global minAndandoTotal
-	global minVigorosoTotal
-	global minModeradoTotal
-	global metTotal
+	global minAndandoTotal,minVigorosoTotal, minModeradoTotal, metTotal,metTotalVigoroso,metTotalModerado, metTotalAndar
+	metTotal = 0.0
+	metTotalVigoroso=0.0
+	metTotalModerado=0.0
+	metTotalAndar=0.0
 	p2b_trabajo = forms.TypedChoiceField(choices=((0, 'Si'), (1, 'No')), widget=forms.RadioSelect)
 	p4b_trabajo = forms.TypedChoiceField(choices=((0, 'Si'), (1, 'No')), widget=forms.RadioSelect)
 	p6b_trabajo = forms.TypedChoiceField(choices=((0, 'Si'), (1, 'No')), widget=forms.RadioSelect)
@@ -94,9 +95,9 @@ class ipaqForm(ModelForm):
 		model = ipaq
 		
 	def cal_metTrabajo(self):
-		global minAndandoTotal, minVigorosoTotal, minModeradoTotal, metTotal
+		global minAndandoTotal, minVigorosoTotal, minModeradoTotal, metTotal, metTotalVigoroso, metTotalModerado, metTotalAndar, diasTotalVigoroso, diasTotalAndar, diasTotalModerado
 		#Inicializar total
-		metTotal = 0.0
+		trabaja = 0
 	    # v= vigorosa, m=moderada, a=andar
 		vDias= float(self.cleaned_data["p2a_trabajo"])
 		vSino= int(self.cleaned_data["p2b_trabajo"])
@@ -113,37 +114,53 @@ class ipaqForm(ModelForm):
 		#Calculo los minutos totales
 		if(mSino == 0):
 			mMinutos = mMin + (mHoras * 60.0)
-			minModeradoTotal = (mMinutos * mDias) 
+			minModerado = (mMinutos * mDias) 
+			minModeradoTotal = minModerado 
+			trabaja = 1
+			diasTotalModerado = mDias
 		else:
 			mMinutos = 0
 			minModeradoTotal = mMinutos
+			minModerado = 0
+			diasTotalModerado = 0
 		
 		if(aSino== 0):
+			trabaja = 1
 			aMinutos = aMin + (aHoras * 60.0)
-			minAndandoTotal = (aMinutos * aDias)
-			
+			minAndar = (aMinutos * aDias)
+			minAndandoTotal = minAndar	
+			diasTotalAndar = aDias
 		else: 
 			aMinutos = 0
 			minAndandoTotal = aMinutos
-		if(vSino== 0): 
+			minAndar = 0
+			diasTotalAndar = 0
+		if(vSino== 0):
+			trabaja = 1 
 			vMinutos = vMin + (vHoras * 60.0)
-			minVigorosoTotal = (vMinutos * vDias)
+			minVigoroso = (vMinutos * vDias) 
+			minVigorosoTotal = minVigoroso
+			diasTotalVigoroso = vDias
 		else: 
 			vMinutos = 0
 			minVigorosoTotal = vMinutos
+			minVigoroso = 0
+			diasTotalVigoroso = 0
 		#Calculo mets para vigoroso, moderado, andar en Trabajo
 		metVigoroso =8.0 * vMinutos * vDias
+		metTotalVigoroso = metVigoroso
 		metModerado = 4.0 * mMinutos * mDias
+		metTotalModerado = metModerado
 		metAndar = 3.3 * aMinutos * aDias
-		
+		metTotalAndar = metAndar
 		#Calculo Total mets en Trabajo
 		metTrabajo = metVigoroso + metModerado + metAndar
 		metTotal = metTrabajo
-		return (metTrabajo)
+		trabajo = {"trabaja":float(trabaja), "metTrabajo":metTrabajo,"minModerado":minModerado,"minVigoroso":minVigoroso, "minAndar":minAndar, "metVigoroso":metVigoroso,"metModerado":metModerado,"metAndar":metAndar}
+		return trabajo
 		
 	def cal_metTransporte(self):
-		global minAndandoTotal, minVigorosoTotal, minModeradoTotal, metTotal
-	    # v= vigorosa, m=moderada, a=andar
+		global minAndandoTotal, minModeradoTotal, metTotal, metTotalModerado, metTotalAndar, diasTotalAndar, diasTotalModerado
 		mDias= float(self.cleaned_data["p10a_transporte"])
 		mSino= int(self.cleaned_data["p10b_transporte"])
 		mHoras= float(self.cleaned_data["p11a_transporte"])
@@ -156,26 +173,36 @@ class ipaqForm(ModelForm):
 		# Caalculo de los minutos totales
 		if(mSino == 0):
 			mMinutos = mMin + (mHoras * 60.0)
-			minModeradoTotal += (mMinutos *mDias)
+			minModerado = (mMinutos *mDias)
+			minModeradoTotal += minModerado
+			diasTotalModerado += mDias
 		else:
 			mMinutos = 0
 			minModeradoTotal += mMinutos
+			minModerado = 0
 		if(aSino== 0):
 			aMinutos = aMin + (aHoras * 60.0)
-			minAndandoTotal += (aMinutos * aDias)
+			minAndar = (aMinutos * aDias)
+			minAndandoTotal += minAndar
+			diasTotalAndar += aDias
 		else: 
 			aMinutos = 0
 			minAndandoTotal += aMinutos
+			minAndar = 0
 		#Caalculo mets para vigoroso, moderado, andar en Trabajo
 		metModerado = 6.0 * mMinutos * mDias
+		metTotalModerado += metModerado
 		metAndar = 3.3 * aMinutos * aDias
+		metTotalAndar += metAndar
 		#Calculo Total mets en transporte
 		metTransporte = metModerado + metAndar
 		metTotal +=metTransporte
-		return metTransporte
+		transporte = {"metTransporte":metTransporte,"minModerado":minModerado,"minAndar":minAndar,"metModerado":metModerado,"metAndar":metAndar}
+		return transporte
 		
 	def cal_metHogar(self):
-		global minAndandoTotal, minVigorosoTotal, minModeradoTotal, metTotal
+		global minAndandoTotal, minVigorosoTotal, minModeradoTotal, metTotal, metTotalVigoroso, metTotalModerado, metTotalAndar, diasTotalVigoroso, diasTotalAndar, diasTotalModerado
+		#Inicializar total
 	    # v= vigorosa, m=moderada, a=andar
 		vDias= float(self.cleaned_data["p14a_hogar"])
 		vSino= int(self.cleaned_data["p14b_hogar"])
@@ -185,41 +212,53 @@ class ipaqForm(ModelForm):
 		mSino= int(self.cleaned_data["p16b_hogar"])
 		mHoras= float(self.cleaned_data["p17a_hogar"])
 		mMin= float(self.cleaned_data["p17b_hogar"])
-		aDias= float(self.cleaned_data["p18a_hogar"])
-		aSino= int(self.cleaned_data["p18b_hogar"])
-		aHoras= float(self.cleaned_data["p19a_hogar"])
-		aMin= float(self.cleaned_data["p19b_hogar"])
+		mjDias= float(self.cleaned_data["p18a_hogar"])
+		mjSino= int(self.cleaned_data["p18b_hogar"])
+		mjHoras= float(self.cleaned_data["p19a_hogar"])
+		mjMin= float(self.cleaned_data["p19b_hogar"])
 		
 		#Calculo los minutos totales
 		if(mSino == 0):
 			mMinutos = mMin + (mHoras * 60.0)
-			minModeradoTotal += (mMinutos * mDias)
+			minModerado = (mMinutos * mDias)
+			minModeradoTotal += minModerado
+			diasTotalModerado += mDias
 		else:
 			mMinutos = 0
 			minModeradoTotal += mMinutos
-		if(aSino== 0):
-			aMinutos = aMin + (aHoras * 60.0)
-			minAndandoTotal += (aMinutos * aDias)
-		else: 
-			aMinutos = 0
-			minAndandoTotal += aMinutos
-		if(vSino== 0): 
+			minModerado = 0
+		if(vSino== 0):
 			vMinutos = vMin + (vHoras * 60.0)
-			minVigorosoTotal += (vMinutos * vDias)
+			minVigoroso =  (vMinutos * vDias)
+			minVigorosoTotal += minVigoroso
+			diasTotalVigoroso += vDias
 		else: 
 			vMinutos = 0
 			minVigorosoTotal += vMinutos
+			minVigoroso = 0
+		if(mjSino== 0): 
+			mjMinutos = mjMin + (mjHoras * 60.0)
+			minModeradoJ = (mjMinutos * mjDias)
+			minModeradoTotal += minModeradoJ
+			diasTotalModerado += mjDias
+		else: 
+			mjMinutos = 0
+			minModeradoTotal += mjMinutos
+			minModeradoJ = 0
 		#Calculo mets para vigoroso, moderado, andar en Trabajo
-		metVigoroso =5.5 * vMinutos * vDias
+		metModeradoJ =5.5 * mjMinutos * mjDias
 		metModerado = 4.0 * mMinutos * mDias
-		metAndar = 3.0 * aMinutos * aDias
+		metTotalModerado += (metModerado + metModeradoJ)
+		metVigoroso = 3.0 * vMinutos * vDias
+		metTotalVigoroso += metVigoroso
 		#Calculo Total mets en Hogar
-		metHogar = metVigoroso + metModerado + metAndar
+		metHogar = metModeradoJ + metModerado + metVigoroso
 		metTotal += metHogar
-		return (metHogar)	
-
+		hogar = {"metHogar":metHogar,"minModerado":minModerado,"minModeradoJ":minModeradoJ, "minVigoroso":minVigoroso, "metModeradoJ":metModeradoJ,"metModerado":metModerado,"metVigoroso":metVigoroso}
+		return hogar
 	def cal_metRecreacion(self):
-		global minAndandoTotal, minVigorosoTotal, minModeradoTotal, metTotal
+		global minAndandoTotal, minVigorosoTotal, minModeradoTotal, metTotal, metTotalVigoroso, metTotalModerado, metTotalAndar, diasTotalVigoroso, diasTotalAndar, diasTotalModerado
+		#Inicializar total
 	    # v= vigorosa, m=moderada, a=andar
 		aDias= float(self.cleaned_data["p20a_recreacion"])
 		aSino= int(self.cleaned_data["p20b_recreacion"])
@@ -237,30 +276,44 @@ class ipaqForm(ModelForm):
 		#Calculo los minutos totales
 		if(mSino == 0):
 			mMinutos = mMin + (mHoras * 60.0)
-			minModeradoTotal += (mMinutos * mDias)
+			minModerado = (mMinutos * mDias)
+			minModeradoTotal += minModerado
+			diasTotalModerado += mDias
 		else:
 			mMinutos = 0
 			minModeradoTotal += mMinutos
+			minModerado = 0
 		if(aSino== 0):
 			aMinutos = aMin + (aHoras * 60.0)
-			minAndandoTotal += (aMinutos * aDias)
+			minAndar = (aMinutos * aDias)
+			minAndandoTotal += minAndar
+			diasTotalAndar += aDias
 		else: 
 			aMinutos = float(0)
 			minAndandoTotal += aMinutos
+			minAndar = 0
 		if(vSino== 0): 
 			vMinutos = vMin + (vHoras * 60.0)
-			minVigorosoTotal += (vMinutos * vDias)
+			minVigoroso = (vMinutos * vDias)
+			minVigorosoTotal += minVigoroso
+			diasTotalVigoroso += vDias
 		else: 
 			vMinutos = float(0)
 			minVigorosoTotal += vMinutos
+			minVigoroso = 0
 		#Calculo mets para vigoroso, moderado, andar en Trabajo
 		metVigoroso =8.0 * vMinutos * vDias
+		metTotalVigoroso += metVigoroso
 		metModerado= 4.0 * mMinutos * mDias
+		metTotalModerado += metModerado
 		metAndar = 3.0 * aMinutos * aDias
+		metTotalAndar += metAndar
 		#Calculo Total mets en recreacion
 		metRecreacion = metVigoroso + metModerado + metAndar
 		metTotal += metRecreacion
-		return (metRecreacion)	
+		recreacion = {"metRecreacion":metRecreacion,"minModerado":minModerado,"minVigoroso":minVigoroso, "minAndar":minAndar, "metVigoroso":metVigoroso,"metModerado":metModerado,"metAndar":metAndar}
+		return recreacion	
+
 		
 	def cal_sentadoTotal(self):
 		minutosSemana = float(self.cleaned_data["p26b_sentado"])
@@ -272,12 +325,39 @@ class ipaqForm(ModelForm):
 		sentado = (minSemanaTotal *5) + (minFinSemanaTotal*2)
 		return sentado
 
+	def cal_tiempoVehiculo(self):
+		vSino= int(self.cleaned_data["p8b_transporte"])
+		vDias= float(self.cleaned_data["p8a_transporte"])
+		vHoras= float(self.cleaned_data["p9a_transporte"])
+		vMin= float(self.cleaned_data["p9b_transporte"])
+		if(vSino== 0): 
+			vMinutos = float((vMin + (vHoras * 60.0)) * vDias)
+		else: 
+			vMinutos = float(0)
+		return vMinutos
 		
 	def save(self):
-		global minAndandoTotal, minVigorosoTotal, minModeradoTotal
+		global minAndandoTotal, minVigorosoTotal, minModeradoTotal, diasTotalModerado, diasTotalAndar, diasTotalVigoroso
 		mediaSentado=(self.cal_sentadoTotal()/7)
 		ipaq = super(ipaqForm,self).save()
-		ipaqResultado.objects.create(ipaq=ipaq,metTrabajo=self.cal_metTrabajo(),metTransporte=self.cal_metTransporte(),metHogar=self.cal_metHogar(), metRecreacion=self.cal_metRecreacion(),tiempoAndar = minAndandoTotal, tiempoVigoroso = minVigorosoTotal, tiempoModerado = minModeradoTotal, metTotal = metTotal, tiempoSentado=self.cal_sentadoTotal(),MediaSentado = mediaSentado)
+		trabajo = self.cal_metTrabajo()
+		transporte = self.cal_metTransporte()
+		hogar = self.cal_metHogar()
+		recreacion = self.cal_metRecreacion()
+		ipaqResultado.objects.create(ipaq=ipaq,metTrabajo=trabajo["metTrabajo"], metTransporte=transporte["metTransporte"], \
+			metHogar=hogar["metHogar"], metRecreacion=recreacion["metRecreacion"],tiempoAndar = minAndandoTotal, tiempoVigoroso = minVigorosoTotal, \
+			tiempoModerado = minModeradoTotal, metTotal = metTotal, tiempoSentado=self.cal_sentadoTotal(),MediaSentado = mediaSentado,\
+			metTotalAndar = metTotalAndar, metTotalModerado = metTotalModerado, metTotalVigoroso = metTotalVigoroso, minVigorosoTrabajo = trabajo["minVigoroso"],\
+			minAndarTrabajo=trabajo["minAndar"] , minModeradoTrabajo= trabajo["minModerado"], minModeradoTransporte= transporte["minModerado"], \
+			minAndarTransporte=transporte["minAndar"], minModeradoJHogar=hogar["minModeradoJ"],minModeradoHogar=hogar["minModerado"],minVigorosoHogar=hogar["minVigoroso"],\
+			minVigorosoRecre=recreacion["minVigoroso"],minModeradoRecre=recreacion["minModerado"], minAndarRecre=recreacion["minAndar"], metAndarTrabajo =trabajo["metAndar"],\
+			metAndarRecreacion = recreacion["metAndar"], metVigorosoTrabajo = trabajo["metVigoroso"],metVigorosoHogar = hogar["metVigoroso"],\
+			metVigorosoRecreacion = recreacion["metVigoroso"], metModeradoHogar = hogar["metModerado"], metModeradoJHogar = hogar["metModeradoJ"],\
+			metModeradoTrabajo = trabajo["metModerado"], metModeradoTransporte = transporte["metModerado"], metModeradoRecreacion = recreacion["metModerado"],\
+			diasTotalModerado = diasTotalModerado, diasTotalAndar = diasTotalAndar, diasTotalVigoroso = diasTotalVigoroso, \
+			diasTotal = float(diasTotalVigoroso+diasTotalAndar+diasTotalModerado), \
+			trabaja= trabajo["trabaja"], \
+			minVehiculo = float(self.cal_tiempoVehiculo()))
 		return ipaq
 		
 class frecuenciaForm(forms.Form):

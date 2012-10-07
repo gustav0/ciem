@@ -82,6 +82,7 @@
 		{% elif tipo|get_int == 2 %}
 			{% for n in nombre %}
 			<div>ipaq</div>
+			<a href="?user={{ n.id }}&d=1"> Descargar como documento Excel </a>
 			{% endfor %}
 		{% else %}
 			{% for n in nombre %}
