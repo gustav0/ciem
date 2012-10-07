@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 import datetime
 from ciem.apps.account.managers import *
+
 #from ciem.apps.account.managers import userManager
 
 class userProfile(models.Model):
@@ -13,6 +14,7 @@ class userProfile(models.Model):
 	cedula = models.FloatField(default=1)
 	fecha_nacimiento = models.DateField()
 	user = models.ForeignKey(User)
+	objects = userProfileManager()
 
 class datosAntropometricos(models.Model):
 	peso=models.FloatField(default=0)

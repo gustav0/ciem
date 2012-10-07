@@ -86,6 +86,7 @@ def au_getGenero(list,mid):
 		if list[i].id == mid:
 			return list[i].genero
 	return None
+<<<<<<< HEAD
 
 
 #|||||||||||||||||||||||||||||||||||||||#
@@ -110,3 +111,11 @@ def get_media(loop,list):
 
 
 
+=======
+@register.filter	
+def au_getCedula(list,mid):
+	for i in range(list.count()):
+		if list[i].id == mid:
+			return list[i].cedula
+	return None
+>>>>>>> ec379d0951f90fde0a06752ea8d713b5b72a593c

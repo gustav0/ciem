@@ -2,12 +2,12 @@
 {% load custom_filters %}
 {% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/nutricionista/perfilUsuarios.css">{% endblock %}
 {% block content %}
-{% if nombre %}
+{% if usuario %}
 	{% if nombre.count > 2 %}
 		<div class="linea" style="margin-top:5px;outline:1px solid lightgray;">
 			<div class="nombrePaciente" style="outline:1px solid lightgray;">Nombre</div>
 			<div class="edadPaciente" style="outline:1px solid lightgray;">Edad</div>
-			<div class="generoPaciente" style="outline:1px solid lightgray;">Género</div>
+			<div class="generoPaciente" style="outline:1px solid lightgray;">GÃ©nero</div>
 		</div>
 		{% for n in nombre %}
 		<div class="linea">
@@ -29,16 +29,54 @@
 	{% else %}
 		{% if tipo|get_int == 0 %}
 			{% for n in nombre %}
-				<a href="?user={{ n.id }}&p=1"><div class="opcionResultado" style="float:left;margin-left:5px;width:40px;height:40px;outline:1px solid black;">Antro</div></a>
-				<a href="?user={{ n.id }}&p=2"><div class="opcionResultado" style="float:left;margin-left:5px;width:40px;height:40px;outline:1px solid black;">IPAQ</div></a>
-				<a href="?user={{ n.id }}&p=3"><div class="opcionResultado" style="float:left;margin-left:5px;width:40px;height:40px;outline:1px solid black;">Frec</div></a>
+            <div id="titulo"> Datos generales del paciente </div>
+            <div class = "cuadrar">
+            <br />
+            	<div class= "cuadro_paciente">  
+                     	<div class="dato" >Nombre: {{n.get_full_name|cap }} </div>
+                     	<div class="dato" >Edad: {{ usuario|au_getFechaNaciemiento:n.id|calculate_age }} </div>
+                     	<div class="dato" >Cedula:{{ usuario|au_getCedula:n.id}} </div>
+                     	<div class="dato" >Género: 
+                        		{% if usuario|au_getGenero:n.id == "m" %}
+									Masculino
+								{% elif usuario|au_getGenero:n.id == "f" %}
+									Femenino
+								{% else %}
+									Otro
+								{% endif %}
+                        </div>                                    
+                </div>
+            </div>
+            <div class="opcionResultado">Resultados del paciente</div>
+               <ul class="resultados"> 
+				<li><a href="?user={{ n.id }}&p=1"><div class="opcionResultado">Antropométricos</div></a></li>
+				<li><a href="?user={{ n.id }}&p=2"><div class="opcionResultado">IPAQ</div></a></li>
+				<li><a href="?user={{ n.id }}&p=3"><div class="opcionResultado">Frecuencia de consumo</div></a></li></ul>
 			{% endfor %}
 		{% elif tipo|get_int == 1 %}
 			{% for n in nombre %}
-			<div class="perfilDe">Perfil antropométrico de {{n.get_full_name|cap}}</div>
+			<div class="perfilDe">Perfil antropometrico de {{n.get_full_name|cap}}</div>
 				{% for p in perfil %}
 					<div class="perfilN">Perfil del {{ p.fecha_creacion|date:"d/m/Y" }}:</div>
-					<div class="informacionPerfilN"> {{ p.metabolismoBasal }} </div>
+                             <div class="valor" > Calculo</div>
+                        	<div class="informacionPerfilN"> &nbsp;Valor </div>
+                            <div class ="rango">Apreciacion </div>
+                    	<div class="fila">
+                        	<div class="valor" > Metabolismo Basal</div>
+                        	<div class="informacionPerfilN"> {{ p.metabolismoBasal }} </div>
+                            <div class ="rango"> Normal </div>
+                        </div>
+                    	<div class="fila">
+                        	<div class="valor" > Indice de Adiposidad</div>
+                        	<div class="informacionPerfilN">{{ p.indiceAdiposidad }} </div>
+                            <div class ="rango"> Normal </div>
+                        </div>
+                    	<div class="fila">
+                        	<div class="valor" > Obesidad</div>
+                        	<div class="informacionPerfilN"> {{ p.obesidad }} </div>
+                            <div class ="rango"> Normal </div>
+
+                   
 				{% endfor %}
 			{% endfor %}
 		{% elif tipo|get_int == 2 %}

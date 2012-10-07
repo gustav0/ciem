@@ -21,3 +21,58 @@
 	border: 1px solid lightgray;
 	border-top: 0;
 }
+
+.cuadro_paciente{
+	display:block;
+	text-align:left;
+  	width:50%;
+	margin-left:23%;
+	}
+#titulo{
+	height:25px;}
+.resultados{
+	list-style:none;
+    text-align:left;
+	}
+.resultados li a{
+	text-decoration:none;
+	display:block;
+	padding:10px;
+	margin-left:19%;
+
+	}
+.fila{
+   position: relative;
+   float: left;
+   width: 60%;
+   height:17px;
+   left:10px;
+   margin-bottom: 10px;
+   padding-top:6px;
+   border:solid 1px;
+	 }
+.valor{
+   position: relative;
+   float: left;
+   left:10px;
+   width: 150px;
+   height: 45px;
+   text-align:left;
+   
+
+	}
+.informacionPerfilN{
+   position: relative;
+   left:80px;
+   float: left;
+   width: 120px;
+   height: 45px;
+   }
+.rango{
+  position: relative;
+   left:155px;
+   float: left;
+   width: 120px;
+   height: 45px;
+  
+	}
