@@ -86,8 +86,12 @@ def au_getGenero(list,mid):
 		if list[i].id == mid:
 			return list[i].genero
 	return None
-<<<<<<< HEAD
-
+@register.filter    
+def au_getCedula(list,mid):
+    for i in range(list.count()):
+        if list[i].id == mid:
+            return list[i].cedula
+    return None
 
 #|||||||||||||||||||||||||||||||||||||||#
 #|FILTROS PARA LA FRECUENCIA DE CONSUMO|#
@@ -108,14 +112,3 @@ def get_descripcion(loop,list):
 def get_media(loop,list):
     return list[loop].media       
     #return mark_safe('<div class="noDisplayDiv"><select name="form-'+str(loop)+'-alimento" id="id_form-'+str(loop)+'-alimento"><option value="{{alimento.'+str(loop)+'.id}}">{{alimento.'+str(loop)+'.id}}</option></select><select name="form-'+str(loop)+'-frecuenciaConsumo" id="id_form-'+str(loop)+'-frecuenciaConsumo"><option value="{{perfilFrecuencia.0.id}}">{{perfilFrecuencia.0.id}}</option></select></div>')
-
-
-
-=======
-@register.filter	
-def au_getCedula(list,mid):
-	for i in range(list.count()):
-		if list[i].id == mid:
-			return list[i].cedula
-	return None
->>>>>>> ec379d0951f90fde0a06752ea8d713b5b72a593c
