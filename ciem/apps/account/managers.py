@@ -19,6 +19,11 @@ class userProfileManager(models.Manager):
 class ipaqManager(models.Manager):
 	def getById(self,id):
 		return self.model.objects.filter(user_id=id).order_by('-fecha_creacion')
+
+class ipaqResultadoManager(models.Manager):
+	def getResultados(self,id):
+		query='SELECT * FROM account_ipaq as u INNER JOIN account_ipaqresultado as p ON u.id=p.ipaq_id WHERE u.user_id='+str(id)+';'
+		return self.model.objects.raw(query)
 	
 class antropometricosResultadoManager(models.Manager):
 	def getById(self,id):
