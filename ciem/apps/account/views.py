@@ -97,7 +97,7 @@ def frecuencia(request):
 				if preguntas.is_valid():
 					print "validado"
 					preguntas.save()
-					perfilFrecuencia = frecuenciaConsumo.objects.upgradeProgreso(request.user.id,2)
+					perfilFrecuencia = frecuenciaConsumo.objects.upgradeProgreso(request.user.id,3)
 					return HttpResponseRedirect("/profile/")
 				else:
 					print "no entre"
