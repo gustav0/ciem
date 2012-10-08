@@ -181,3 +181,5 @@ LOGIN_URL = '/login/'
 
 AUTHENTICATION_BACKENDS = ('ciem.apps.account.auth.backends.loginBackend',)
 AUTH_PROFILE_MODULE ='account.userProfile'
+
+FIXTURE_DIRs = 'apps/data/fixtures/'
