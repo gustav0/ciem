@@ -78,29 +78,22 @@ def frecuencia(request):
 			if request.method == 'POST':
 				preguntas = preguntasFormSet(request.POST)
 				if preguntas.is_valid():
-					print "validado"
 					preguntas.save()
 					perfilFrecuencia = frecuenciaConsumo.objects.upgradeProgreso(request.user.id,2)
 					return HttpResponseRedirect("/profile/")
-				else:
-					print "no entre"
 			else:
 				preguntas = preguntasFormSet(queryset=dataFrecuenciaConsumo.objects.none())
-				print "no es post"
+
 		elif progreso=='2':
-			print "progreso 2"
 			preguntasFormSet = modelformset_factory(dataFrecuenciaConsumo,extra=17,max_num=17)
 			alimento =	alimentoFrecuencia.objects.getById(2) 
 			if request.method == 'POST':
 				preguntas = preguntasFormSet(request.POST)
-				print "cambiar seccion a 3 y redirigir a completado"
 				if preguntas.is_valid():
 					print "validado"
 					preguntas.save()
 					perfilFrecuencia = frecuenciaConsumo.objects.upgradeProgreso(request.user.id,3)
 					return HttpResponseRedirect("/profile/")
-				else:
-					print "no entre"
 			else:
 				preguntas = preguntasFormSet(queryset=dataFrecuenciaConsumo.objects.none())
 	else:
