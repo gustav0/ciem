@@ -96,10 +96,21 @@ def frecuencia(request):
 					return HttpResponseRedirect("/profile/")
 			else:
 				preguntas = preguntasFormSet(queryset=dataFrecuenciaConsumo.objects.none())
+		elif progreso=='3':
+			preguntasFormSet = modelformset_factory(dataFrecuenciaConsumo,extra=25,max_num=25)
+			alimento =	alimentoFrecuencia.objects.getById(3) 
+			if request.method == 'POST':
+				preguntas = preguntasFormSet(request.POST)
+				if preguntas.is_valid():
+					preguntas.save()
+					perfilFrecuencia = frecuenciaConsumo.objects.upgradeProgreso(request.user.id,4)
+					return HttpResponseRedirect("/profile/")
+			else:
+				preguntas = preguntasFormSet(queryset=dataFrecuenciaConsumo.objects.none())
 	else:
 		if request.method == "POST":
 			frecuenciaConsumo.objects.create(user=request.user,progreso='1')
-			progreso = '1'
+			return HttpResponseRedirect("/profile/")
 		else:
 			progreso = None
 	ctx={'progreso':progreso,'alimento':alimento,'preguntas':preguntas,'perfilFrecuencia':perfilFrecuencia}

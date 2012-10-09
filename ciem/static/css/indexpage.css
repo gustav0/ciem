@@ -76,6 +76,10 @@ article{
 	height:33px;
 	width:120px;
 	background:url(/ciem/static/img/fondomenu.png) -0px -0px no-repeat;	
+	-webkit-transition: all .1s;
+	-moz-transition: all .1s;
+	-o-transition: all .1s;
+	transition: all .1s;
 }
 #barraNavegacion div:hover {
 	background-position:-0px -32px
