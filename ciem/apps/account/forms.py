@@ -13,7 +13,7 @@ class registerForm(UserCreationForm):
 	fecha_nacimiento = forms.DateField(input_formats=['%d-%m-%Y'], widget=forms.TextInput(attrs={'placeholder': 'dd-mm-aaaa'}))
 	first_name = forms.CharField(max_length=30, label='Nombre', widget=forms.TextInput(attrs={'placeholder': 'Nombre'}))
 	last_name = forms.CharField(max_length=30, label='Apellido', widget=forms.TextInput(attrs={'placeholder': 'Apellido'}))
-	email = forms.EmailField(label='email')
+	email = forms.EmailField(max_length=75, label='Email',widget=forms.TextInput(attrs={'placeholder': 'nick@email.com'}))
 
 	def save(self, *arg, **kwargs):
 		user = super(registerForm, self).save(*arg, **kwargs)
