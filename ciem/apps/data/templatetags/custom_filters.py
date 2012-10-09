@@ -111,4 +111,8 @@ def get_descripcion(loop,list):
 @register.filter#DEVUELVE LA MEDIA DEL ALIMENTO PARA CADA PREGUNTA
 def get_media(loop,list):
     return list[loop].media       
-    #return mark_safe('<div class="noDisplayDiv"><select name="form-'+str(loop)+'-alimento" id="id_form-'+str(loop)+'-alimento"><option value="{{alimento.'+str(loop)+'.id}}">{{alimento.'+str(loop)+'.id}}</option></select><select name="form-'+str(loop)+'-frecuenciaConsumo" id="id_form-'+str(loop)+'-frecuenciaConsumo"><option value="{{perfilFrecuencia.0.id}}">{{perfilFrecuencia.0.id}}</option></select></div>')
+
+@register.filter#DEVUELVE LA MEDIA DEL ALIMENTO PARA CADA PREGUNTA
+def get_radio_porcion(loop):
+    return  mark_safe('<ul><li><input type="radio" id="id_form-'+str(loop)+'-porcion_p" value="p" name="form-'+str(loop)+'-porcion"></label></li><li><input type="radio" id="id_form-'+str(loop)+'-porcion_m" value="m" name="form-'+str(loop)+'-porcion"></li><li><input type="radio" id="id_form-'+str(loop)+'-porcion_g" value="g" name="form-'+str(loop)+'-porcion"></li></ul>')
+

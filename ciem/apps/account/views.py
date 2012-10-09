@@ -5,7 +5,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response,redirect
 from django.template import RequestContext
-from ciem.apps.account.forms import antropometricosForm,registerForm,ipaqForm,frecuenciaForm
+from ciem.apps.account.forms import antropometricosForm,registerForm,ipaqForm
 from ciem.apps.account.managers import antropometricosManager,frecuenciaConsumoManager,dataFrecuenciaConsumoManager,alimentoFrecuenciaManager
 from ciem.apps.account.models import datosAntropometricos,frecuenciaConsumo,dataFrecuenciaConsumo,alimentoFrecuencia
 from django.contrib.auth.models import User
@@ -80,7 +80,7 @@ def frecuencia(request):
 				if preguntas.is_valid():
 					preguntas.save()
 					perfilFrecuencia = frecuenciaConsumo.objects.upgradeProgreso(request.user.id,2)
-					return HttpResponseRedirect("/profile/")
+					return HttpResponseRedirect("/frecuencia/")
 			else:
 				preguntas = preguntasFormSet(queryset=dataFrecuenciaConsumo.objects.none())
 
@@ -93,7 +93,7 @@ def frecuencia(request):
 					print "validado"
 					preguntas.save()
 					perfilFrecuencia = frecuenciaConsumo.objects.upgradeProgreso(request.user.id,3)
-					return HttpResponseRedirect("/profile/")
+					return HttpResponseRedirect("/frecuencia/")
 			else:
 				preguntas = preguntasFormSet(queryset=dataFrecuenciaConsumo.objects.none())
 		elif progreso=='3':
@@ -104,7 +104,62 @@ def frecuencia(request):
 				if preguntas.is_valid():
 					preguntas.save()
 					perfilFrecuencia = frecuenciaConsumo.objects.upgradeProgreso(request.user.id,4)
-					return HttpResponseRedirect("/profile/")
+					return HttpResponseRedirect("/frecuencia/")
+			else:
+				preguntas = preguntasFormSet(queryset=dataFrecuenciaConsumo.objects.none())
+		elif progreso=='4':
+			alimento =	alimentoFrecuencia.objects.getById(4) 
+			preguntasFormSet = modelformset_factory(dataFrecuenciaConsumo,extra=8,max_num=8)
+			if request.method == 'POST':
+				preguntas = preguntasFormSet(request.POST)
+				if preguntas.is_valid():
+					preguntas.save()
+					perfilFrecuencia = frecuenciaConsumo.objects.upgradeProgreso(request.user.id,5)
+					return HttpResponseRedirect("/frecuencia/")
+			else:
+				preguntas = preguntasFormSet(queryset=dataFrecuenciaConsumo.objects.none())
+		elif progreso=='5':
+			alimento =	alimentoFrecuencia.objects.getById(5) 
+			preguntasFormSet = modelformset_factory(dataFrecuenciaConsumo,extra=27,max_num=27)
+			if request.method == 'POST':
+				preguntas = preguntasFormSet(request.POST)
+				if preguntas.is_valid():
+					preguntas.save()
+					perfilFrecuencia = frecuenciaConsumo.objects.upgradeProgreso(request.user.id,6)
+					return HttpResponseRedirect("/frecuencia/")
+			else:
+				preguntas = preguntasFormSet(queryset=dataFrecuenciaConsumo.objects.none())
+		elif progreso=='6':
+			alimento =	alimentoFrecuencia.objects.getById(6) 
+			preguntasFormSet = modelformset_factory(dataFrecuenciaConsumo,extra=7,max_num=7)
+			if request.method == 'POST':
+				preguntas = preguntasFormSet(request.POST)
+				if preguntas.is_valid():
+					preguntas.save()
+					perfilFrecuencia = frecuenciaConsumo.objects.upgradeProgreso(request.user.id,7)
+					return HttpResponseRedirect("/frecuencia/")
+			else:
+				preguntas = preguntasFormSet(queryset=dataFrecuenciaConsumo.objects.none())
+		elif progreso=='7':
+			alimento =	alimentoFrecuencia.objects.getById(7) 
+			preguntasFormSet = modelformset_factory(dataFrecuenciaConsumo,extra=20,max_num=20)
+			if request.method == 'POST':
+				preguntas = preguntasFormSet(request.POST)
+				if preguntas.is_valid():
+					preguntas.save()
+					perfilFrecuencia = frecuenciaConsumo.objects.upgradeProgreso(request.user.id,8)
+					return HttpResponseRedirect("/frecuencia/")
+			else:
+				preguntas = preguntasFormSet(queryset=dataFrecuenciaConsumo.objects.none())
+		elif progreso=='8':
+			alimento =	alimentoFrecuencia.objects.getById(8) 
+			preguntasFormSet = modelformset_factory(dataFrecuenciaConsumo,extra=7,max_num=7)
+			if request.method == 'POST':
+				preguntas = preguntasFormSet(request.POST)
+				if preguntas.is_valid():
+					preguntas.save()
+					perfilFrecuencia = frecuenciaConsumo.objects.upgradeProgreso(request.user.id,9)
+					return HttpResponseRedirect("/frecuencia/")
 			else:
 				preguntas = preguntasFormSet(queryset=dataFrecuenciaConsumo.objects.none())
 	else:

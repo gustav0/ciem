@@ -360,10 +360,3 @@ class ipaqForm(ModelForm):
 			trabaja= trabajo["trabaja"], \
 			minVehiculo = float(self.cal_tiempoVehiculo()))
 		return ipaq
-		
-class frecuenciaForm(forms.Form):
-	porcion = forms.TypedChoiceField(choices=((0, ''), (1, ''), (2, '')), widget=forms.RadioSelect)
-	frecuencia = forms.ChoiceField(choices=dataFrecuenciaConsumo.FRECUENCIA)
-
-	class Meta:
-		model = dataFrecuenciaConsumo
