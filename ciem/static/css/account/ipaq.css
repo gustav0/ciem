@@ -55,6 +55,8 @@ select:focus{
 	font-weight: bold;
 	line-height: 35px;
 	margin-right: 20px;
+	font-family: "arial narrow";
+	font-weight: normal;
 }
 .identificadorPregunta{
 	text-indent: 14px;
@@ -69,11 +71,12 @@ select:focus{
 .respuesta{
 	margin-top: 10px;
 	float:left;
+	width: 290px;
 }
 .spregunta1{
 	margin-top: 10px;
 	float: left;
-	margin-left: 290px;
+	margin-left: 250px;
 }
 .spregunta2{
 	width: 460px;
@@ -85,8 +88,7 @@ select:focus{
 .seleccionarDias{
 	margin-top: 10px;
 	float:left;
-	margin-left: 6px;
-	margin-right: 6px;
+	margin-left: 48px;
 }
 .seleccionarHoras{
 	float:left;
