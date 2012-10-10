@@ -22,6 +22,7 @@ article{
 	width: 960px;
 	margin: auto; 
 	clear: both;
+	color:#303030;
 }
 #pie{
 	line-height:40px;
@@ -117,8 +118,6 @@ article{
 	padding: .25em;
 	overflow: auto;
 }
-
-
 input#botonregistro[type="submit"]{
 	position: relative;
 	left: 160px;
@@ -128,14 +127,10 @@ input#botonregistro[type="submit"]{
     background-color: #E9F6F5;
 	border-color: #A9CAC6;
 }
-
-
-
 .colorCabecera{
 	background-color:#102368;
 	height: 33px;
 }
-
 .contenido{
 	margin-top: -8px;
 	font-family: Helvetica, Arial;
@@ -161,8 +156,6 @@ input#botonregistro[type="submit"]{
 	width: 270px;height: 30px;
 	line-height: 30px;border: 1px solid #20538D;text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);-webkit-transition-duration: 0.2s;-moz-transition-duration: 0.2s;transition-duration: 0.2s;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
 }
-
-
 .boton2:hover{
 	background: #FF0000;
 	color:black;

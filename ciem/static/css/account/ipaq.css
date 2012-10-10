@@ -1,5 +1,5 @@
 
-form#formulario{
+form #formulario{
 	height: 920px;
 }
 
@@ -7,42 +7,83 @@ select:focus{
     outline: none;
 }
 .seleccion, .seleccion li{
+	margin-left: 20px;
 	float: left;
+
 }
 .seleccion ul{
 	height: 20px;
-	width: 100px;
+	width: 150px;
 	padding: 0;
 	margin: 0;
 	list-style: none;
+	margin-left: 300px;
 }
 .siNo{
-	height: 20px;
-	width: 100px;
+	height: 24px;
+	width: 870px;
 	clear: both;
 	float: left;
+	background-color: #E1F2EC;
 }
 .preguntaCompleta{
-	margin-bottom: 40px;
+	clear:both;
+	font-size: 17px;
+	text-align: justify;
+	margin-bottom: 30px;
+	width: 860px;
+	height: 81px;
+	margin-left: 30px;
 }
 .subpregunta{
 	overflow: hidden;
+	width: 870px;
+	height: 75px;
 	float: left;
 	clear: both;
-	margin-top:2px;
 	margin-bottom: 20px;
 	background-color:#E6E6E6;
 	-webkit-transition: height 0.5s;
 	-webkit-transition-timing-function: linear;
 }
+.identificadorPregunta,.identificadorPregunta2{
+	float: left;
+	background: url(../../img/identificadorIpaq.png) -0px -0px no-repeat;
+	width: 38px;
+	height: 38px;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 35px;
+	margin-right: 20px;
+}
+.identificadorPregunta{
+	text-indent: 14px;
+}
+.identificadorPregunta2{
+	text-indent: 9px;
+}
 .pregunta{
-	float:left;
-	clear: both;
+	height: 40px;
+	margin-bottom: 15px;
 }
 .respuesta{
+	margin-top: 10px;
 	float:left;
 }
+.spregunta1{
+	margin-top: 10px;
+	float: left;
+	margin-left: 290px;
+}
+.spregunta2{
+	width: 460px;
+	height: 40px;
+	margin-top: 10px;
+	margin-left: 10px;
+	float: left;
+}
 .seleccionarDias{
+	margin-top: 10px;
 	float:left;
 	margin-left: 6px;
 	margin-right: 6px;
@@ -69,44 +110,10 @@ select:focus{
 	margin-bottom: 10px;
 	width: 960px;
 }
-
 .boton{
 	position:relative;
 }
 
 .noDisplayDiv{
 	display:none;
-}
-
-
-
-.seleccionarHorast2{
-	float:left;
-}
-.seleccionarMinutost2{
-	float:left;
-}
-.preguntaCompletat2{
-	float: left;
-	width: 390px;
-	margin-right: 20px
-}
-.subpreguntat2{
-	float: left;
-	width: 550px;
-	background-color: #E6E6E6;
-}
-.selecciont2{
-	width: 90px;
-	height: 20px;
-}
-.selecciont2 ul{
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-.selecciont2 li{
-	float: left;
-	width: 45px;
-	height: 20px;
 }
