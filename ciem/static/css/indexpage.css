@@ -6,7 +6,9 @@ article{
 	padding: .3em .4em;
 	overflow: auto;
 }
-
+.errorlist{
+	color: red;
+}
 #alinearCuerpo{
 	width: 960px;
 	margin: auto;

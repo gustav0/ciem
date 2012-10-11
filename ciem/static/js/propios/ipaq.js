@@ -2,15 +2,15 @@ $(document).ready(function(){
 
     $("#id_p2b_trabajo_0").click(function(){
        $('#sp1').removeClass("noDiplayDiv");
-       //if($('#sp1').height()<1) $('#sp1').css("height","+=75");
+       if($('#sp1').height()<1) $('#sp1').css("height","+=92");
     });
     $("#id_p2b_trabajo_1").click(function(){
-      //$('#sp1').css("height","0");
+      $('#sp1').css("height","0");
       $('#sp1').addClass("noDiplayDiv");
     });
     $("#id_p4b_trabajo_0").click(function(){
        $('#sp2').removeClass("noDiplayDiv");
-       if($('#sp2').height()<1) $('#sp2').css("height","+=75");
+       if($('#sp2').height()<1) $('#sp2').css("height","+=92");
     });
     $("#id_p4b_trabajo_1").click(function(){
       $('#sp2').css("height","0");
@@ -18,7 +18,7 @@ $(document).ready(function(){
     });
     $("#id_p6b_trabajo_0").click(function(){
        $('#sp3').removeClass("noDiplayDiv");
-       if($('#sp3').height()<1) $('#sp3').css("height","+=75");
+       if($('#sp3').height()<1) $('#sp3').css("height","+=92");
     });
     $("#id_p6b_trabajo_1").click(function(){
       $('#sp3').css("height","0");
@@ -26,7 +26,7 @@ $(document).ready(function(){
     });
     $("#id_p8b_transporte_0").click(function(){
        $('#sp4').removeClass("noDiplayDiv");
-       if($('#sp4').height()<1) $('#sp4').css("height","+=75");
+       if($('#sp4').height()<1) $('#sp4').css("height","+=92");
     });	
     $("#id_p8b_transporte_1").click(function(){
       $('#sp4').css("height","0");

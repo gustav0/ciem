@@ -71,7 +71,7 @@ select:focus{
 .respuesta{
 	margin-top: 10px;
 	float:left;
-	width: 290px;
+	width: 320px;
 }
 .spregunta1{
 	margin-top: 10px;
@@ -79,7 +79,7 @@ select:focus{
 	margin-left: 250px;
 }
 .spregunta2{
-	width: 460px;
+	width: 420px;
 	height: 40px;
 	margin-top: 10px;
 	margin-left: 10px;
@@ -92,7 +92,7 @@ select:focus{
 }
 .seleccionarHoras{
 	float:left;
-	margin-left: 6px;
+	margin-left: 46px;
 	margin-right: 6px;
 }
 .seleccionarMinutos{
