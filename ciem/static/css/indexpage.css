@@ -87,7 +87,12 @@ article{
 #barraNavegacion div:hover {
 	background-position:-0px -32px
 }
-
+.imagenHistoria{
+ 	background:url(/ciem/static/img/bannerhistoria.png) -0px -0px no-repeat;	
+ 	width:400px;
+ 	height: 300px;
+ 	float:left;
+}
 #botones a{
 	text-decoration: none;
 	color: white;
