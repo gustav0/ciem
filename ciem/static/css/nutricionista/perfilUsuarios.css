@@ -25,54 +25,82 @@
 .cuadro_paciente{
 	display:block;
 	text-align:left;
-  	width:50%;
+	width:50%;
 	margin-left:23%;
-	}
+}
+
 #titulo{
-	height:25px;}
+	height:25px;
+}
+
 .resultados{
 	list-style:none;
-    text-align:left;
+	text-align:left;
 	}
 .resultados li a{
 	text-decoration:none;
 	display:block;
 	padding:10px;
 	margin-left:19%;
-
-	}
-.fila{
-   position: relative;
-   float: left;
-   width: 60%;
-   height:17px;
-   left:10px;
-   margin-bottom: 10px;
-   padding-top:6px;
-   border:solid 1px;
-	 }
+}
+.fila {
+	float: left;
+	width: 450px;
+	height: 25px;
+	line-height: 25px;
+	margin-bottom: 1px;
+	outline: solid 1px;
+	margin-left: 25%;
+}
 .valor{
-   position: relative;
    float: left;
-   left:10px;
    width: 150px;
-   height: 45px;
+   text-indent: 10px;
    text-align:left;
-   
+}
 
-	}
-.informacionPerfilN{
-   position: relative;
-   left:80px;
-   float: left;
-   width: 120px;
-   height: 45px;
-   }
+.divbold{
+	font-weight: bold;	
+}
+
+.contenedorPerfil{
+	float:left;	
+	margin-top: 15px;
+}
+
+.calculoValor{
+	float: left;
+	width: 150px;
+	text-align: center;
+}
 .rango{
-  position: relative;
-   left:155px;
    float: left;
-   width: 120px;
-   height: 45px;
-  
-	}
+   width: 150px;
+   text-align: center;
+ }
+
+
+.masinfo {
+	float:right;
+	border: 1px solid #DDD;
+	background: whiteSmoke;
+	box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-weight: bold;
+	text-indent: 5px;
+	width: 25px;
+	height: 25px;
+	margin-right: 220px;
+}	
+
+a#anterior {
+	text-decoration: none;
+	color: #444;
+    font-size: 5em;
+}
+    a#anterior:hover {
+        color: black;
+    }
