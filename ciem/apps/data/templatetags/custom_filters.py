@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 from django.template import Library
 from django.db.models import Count
 from django.utils.safestring import mark_safe
@@ -116,3 +117,28 @@ def get_media(loop,list):
 def get_radio_porcion(loop):
     return  mark_safe('<ul><li><input type="radio" id="id_form-'+str(loop)+'-porcion_p" value="p" name="form-'+str(loop)+'-porcion"></label></li><li><input type="radio" id="id_form-'+str(loop)+'-porcion_m" value="m" name="form-'+str(loop)+'-porcion" CHECKED ></li><li><input type="radio" id="id_form-'+str(loop)+'-porcion_g" value="g" name="form-'+str(loop)+'-porcion"></li></ul>')
 
+#|||||||||||||||||||||||||||||||||||||||||||||||||||||||||#
+#|FILTROS PARA LA FRECUENCIA DE CONSUMO DE NUTRICIONISTAS|#
+#|||||||||||||||||||||||||||||||||||||||||||||||||||||||||#
+
+@register.filter#DEVUELVE EL STRING DE LA FRECUENCIA
+def parse_frecuencia(frecuencia):
+    if int(frecuencia) == 0:    resultado = 'Nunca'
+    elif int(frecuencia) == 1:  resultado = '1 vez al mes'
+    elif int(frecuencia) == 2:  resultado = '2 - 3 al mes'
+    elif int(frecuencia) == 3:  resultado = '1 por semana'
+    elif int(frecuencia) == 4:  resultado = '2 por semana'
+    elif int(frecuencia) == 5:  resultado = '3 - 4 por semana'
+    elif int(frecuencia) == 6:  resultado = '5 - 6 por semana'
+    elif int(frecuencia) == 6:  resultado = '1 vez por dia'
+    elif int(frecuencia) == 6:  resultado = '2 o mas por dia'
+    else:   resultado = 'error'
+    return resultado
+
+@register.filter#DEVUELVE EL STRING DE LA FRECUENCIA
+def parse_porcion(porcion):
+    if porcion =='p':   resultado = 'Pequeña'
+    elif porcion =='m': resultado = 'Mediana'
+    elif porcion =='g': resultado = 'Grande'
+    else:   resultado = 'Grande'
+    return resultado

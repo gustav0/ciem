@@ -78,8 +78,6 @@
    width: 150px;
    text-align: center;
  }
-
-
 .masinfo {
 	float:left;
 	border: 1px solid #DDD;
@@ -96,12 +94,43 @@
 	margin-left: 40px;
 	margin-top: -40px;
 }	
-
 a#anterior {
 	text-decoration: none;
 	color: #444;
     font-size: 5em;
 }
-    a#anterior:hover {
-        color: black;
-    }
+a#anterior:hover {
+	color: black;
+}
+
+/* FRECUENCIA DE CONSUMO*/
+.lineaFrecuencia{
+	float: left;
+	height: 32px;
+	border: 1px solid gray;
+	line-height: 28px;
+	text-indent: 4px;
+}
+.tablaFrecuencia{
+	float: left;
+	width: 960px;
+}
+.nombreAlimento{
+	float: left;
+	width: 450px;
+}
+.frecuenciaAlimento{
+	float: left;
+	width: 120px;
+}
+.porcionAlimento{
+	text-align: center;
+	float: left;
+	width: 74px;
+}
+.mediaAlimento{
+	text-align: center;
+	float: left;
+	width: 100px;
+}
+

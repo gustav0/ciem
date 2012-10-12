@@ -56,12 +56,12 @@
 			{% endfor %}
 		{% elif tipo|get_int == 1 %}
 			{% for n in nombre %}
-			<div class="perfilDe divbold">Perfil antropometrico de {{n.get_full_name|cap}}</div>
+			<div class="perfilDe divbold">Perfil antropométrico de {{n.get_full_name|cap}}</div>
 				{% for p in perfil %}
 					<div class="contenedorPerfil">
-						<div class="perfilN">Perfil del {{ p.fecha_creacion|date:"d/m/Y" }}:</div>
+						<div class="perfilN">Creado el {{ p.fecha_creacion|date:"d/m/Y" }}:</div>
 						<div class="fila">
-							<div class="valor divbold" >Calculo</div>
+							<div class="valor divbold" >Cálculo</div>
 							<div class="calculoValor divbold">Valor </div>
 							<div class ="rango divbold">Apreciación </div>
 						</div>
@@ -93,7 +93,19 @@
 			{% endfor %}
 		{% elif tipo|get_int == 3 %}
 			{% for n in nombre %}
-			<div>frecuencia de consumo</div>
+				{{perfil.0.progreso}}
+				<div class="perfilDe divbold">Frecuencia de consumo de {{n.get_full_name|cap}}</div>
+				<div class="tablaFrecuencia">
+					{% for p in perfil %}
+						<div class="lineaFrecuencia">
+							<div class="nombreAlimento">{{ p.descripcion }}</div>
+							<div class="frecuenciaAlimento">{{ p.frecuencia|parse_frecuencia }}</div>
+							<div class="porcionAlimento">{{ p.porcion|parse_porcion }}</div>
+							<div class="mediaAlimento">{{ p.media }}</div>
+						</div>
+					{% endfor %}
+					</div>
+				</div>
 			{% endfor %}
 		{% else %}
 		24horas

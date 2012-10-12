@@ -33,7 +33,8 @@ class frecuenciaConsumoManager(models.Manager):
 	def getById(self,id):
 		return self.model.objects.filter(user_id=id).order_by('-fecha_creacion')
 	def getDataById(self,id):
-		query='SELECT * FROM account_frecuenciaconsumo as a left join account_datafrecuenciaconsumo as b on a.id=b.frecuenciaconsumo_id where a.user_id='+str(id)+';'
+		query='SELECT c.id,a.progreso,b.porcion,b.frecuencia,c.seccionnombre_id,c.descripcion,c.media FROM (account_frecuenciaconsumo as a left join account_datafrecuenciaconsumo as b on a.id=b.frecuenciaconsumo_id) left join account_alimentofrecuencia as c on b.alimento_id=c.id  where a.user_id='+str(id)+';'
+		return self.model.objects.raw(query)
 
 	def upgradeProgreso(self,id,progreso):
 		query = self.model.objects.get(user_id=id)
