@@ -1,6 +1,8 @@
 {% extends 'homepage/index.html' %}
 {% load custom_filters %}
 {% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/nutricionista/perfilUsuarios.css">{% endblock %}
+{% block js %}<script src="{{ MEDIA_URL }}js/adquiridos/jquery-1.8.1.min.js" type="text/javascript"></script>
+<script src="{{ MEDIA_URL }}js/propios/tamanoLetra.js"></script>{% endblock %}
 {% block content %}
 {% if usuario %}
 	{% if nombre.count > 2 %}
@@ -93,10 +95,15 @@
 			{% endfor %}
 		{% elif tipo|get_int == 3 %}
 			{% for n in nombre %}
-				<div id="contenedorBarra">Barra de progreso: <progress id="bar" value="{{perfil.0.progreso}}" max="8"><span>{{perfil.0.progreso}}/8 secciones</span></progress></div>
-
-				<div class="perfilDe divbold">Frecuencia de consumo de {{n.get_full_name|cap}}</div>
-				<div class="tablaFrecuencia">
+				<div class="perfilDe divbold">Frecuencia de consumo de {{n.get_full_name|cap}}
+					<div id="contenedorBarra">Barra de progreso: <progress id="bar" value="{{perfil.0.progreso}}" max="8"><span>{{perfil.0.progreso}}/8 secciones</span></progress></div>
+				</div>
+				<div class="tamanoLetra">
+					<div class="increaseFont botonFont">A</div>
+					<div class="decreaseFont botonFont">D</div>
+					<div class="resetFont botonFont">R</div>
+				</div>
+				<div class="tablaFrecuencia ajustarFont">
 					{% for p in perfil %}
 						<div class="lineaFrecuencia">
 							<div class="nombreAlimento">{{ p.descripcion }}</div>

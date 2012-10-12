@@ -106,16 +106,41 @@ a#anterior:hover {
 }
 
 /* FRECUENCIA DE CONSUMO*/
+.botonFont{
+	float:left;
+	border: 1px solid #DDD;
+	background: whiteSmoke;
+	box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-weight: bold;
+	width: 25px;
+	height: 25px;
+	text-indent: 8px;
+	line-height: 23px;
+}
+.tamanoLetra{
+	position: fixed;
+	left: 85%;
+}
 .lineaFrecuencia{
 	float: left;
 	height: 32px;
 	border: 1px solid gray;
 	line-height: 28px;
 	text-indent: 4px;
+	overflow: hidden;
 }
 .tablaFrecuencia{
 	float: left;
-	width: 960px;
+	width: 750px;
+	margin-top: 30px;
+	margin-right: 10%;
+	margin-left: 10%;
+	font-family: "arial narrow";
+	font-size: 103%;
 }
 .nombreAlimento{
 	float: left;
@@ -135,10 +160,9 @@ a#anterior:hover {
 	float: left;
 	width: 100px;
 }
-
-
 #contenedorBarra{
 	float: right;
+	margin-right: 65px;
 }
 
 #contenedorConsumoFrecuencia{
