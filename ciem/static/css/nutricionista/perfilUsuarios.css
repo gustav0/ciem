@@ -81,7 +81,7 @@
 
 
 .masinfo {
-	float:right;
+	float:left;
 	border: 1px solid #DDD;
 	background: whiteSmoke;
 	box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
@@ -93,7 +93,8 @@
 	text-indent: 5px;
 	width: 25px;
 	height: 25px;
-	margin-right: 220px;
+	margin-left: 40px;
+	margin-top: -40px;
 }	
 
 a#anterior {
