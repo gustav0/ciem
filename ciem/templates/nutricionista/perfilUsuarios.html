@@ -93,6 +93,7 @@
 			{% endfor %}
 		{% elif tipo|get_int == 3 %}
 			{% for n in nombre %}
+<<<<<<< HEAD
 				{{perfil.0.progreso}}
 				<div class="perfilDe divbold">Frecuencia de consumo de {{n.get_full_name|cap}}</div>
 				<div class="tablaFrecuencia">
@@ -106,6 +107,17 @@
 					{% endfor %}
 					</div>
 				</div>
+=======
+			<div>frecuencia de consumo</div>
+			<div class="perfilDe divbold">Frecuencia de consumo de {{n.get_full_name|cap}}
+			<div id="contenedorBarra">Barra de progreso: <progress id="bar" value="{{perfil|get_progreso}}" max="8"><span>{{perfil|get_progreso}}/8 secciones</span></progress></div>
+			</div>
+			
+
+			{% for p in perfil %}
+				{{forloop.counter}}
+			{% endfor %}
+>>>>>>> 253861d72471ff78fc2ee479ad995fd0cdc61702
 			{% endfor %}
 		{% else %}
 		24horas
