@@ -27,50 +27,50 @@ def get_range_from1(value):
 	return range(1,value)
 @register.filter#REGRESA LA LISTA EN EL INDEX INDICADO
 def get_at_index(list, index):
-   	return list[index]
+	return list[index]
 @register.filter#DIVIDIR UN STR
 def split(str,splitter):
-    return str.split(splitter)
+	return str.split(splitter)
 @register.filter#PRIMERA LETRA MAYUS
 def cap(value):
-    namelist = value.split(' ')
-    fixed = ''
-    for name in namelist:
-        name = name.lower()
-        # fixes mcdunnough
-        if name.startswith('mc'):
-            sub = name.split('mc')
-            name = "Mc" + sub[1].capitalize()
-        # fixes "o'neill"
-        elif name.startswith('o\''): 
-            sub = name.split('o\'')
-            name = "O'" + sub[1].capitalize()
+	namelist = value.split(' ')
+	fixed = ''
+	for name in namelist:
+		name = name.lower()
+		# fixes mcdunnough
+		if name.startswith('mc'):
+			sub = name.split('mc')
+			name = "Mc" + sub[1].capitalize()
+		# fixes "o'neill"
+		elif name.startswith('o\''): 
+			sub = name.split('o\'')
+			name = "O'" + sub[1].capitalize()
 
-        else: name = name.capitalize()
-        
-        nlist = name.split('-')
-        for n in nlist:
-            if len(n) > 1:
-                up = n[0].upper()
-                old = "-%s" % (n[0],)
-                new = "-%s" % (up,)
-                name = name.replace(old,new)
+		else: name = name.capitalize()
+		
+		nlist = name.split('-')
+		for n in nlist:
+			if len(n) > 1:
+				up = n[0].upper()
+				old = "-%s" % (n[0],)
+				new = "-%s" % (up,)
+				name = name.replace(old,new)
 
-        fixed = fixed + " " + name
-    return fixed
+		fixed = fixed + " " + name
+	return fixed
 
 
 @register.filter#calcular edad
 def calculate_age(born):
-    today = date.today()
-    try: # raised when birth date is February 29 and the current year is not a leap year
-        birthday = born.replace(year=today.year)
-    except ValueError:
-        birthday = born.replace(year=today.year, day=born.day-1)
-    if birthday > today:
-        return today.year - born.year - 1
-    else:
-        return today.year - born.year
+	today = date.today()
+	try: # raised when birth date is February 29 and the current year is not a leap year
+		birthday = born.replace(year=today.year)
+	except ValueError:
+		birthday = born.replace(year=today.year, day=born.day-1)
+	if birthday > today:
+		return today.year - born.year - 1
+	else:
+		return today.year - born.year
 
 # AU= AUTH_USER, AU = ACCOUNT_USERPROFILE
 # FILTROS ESPECIFICOS PARA AU
@@ -88,31 +88,42 @@ def au_getGenero(list,mid):
 	return None
 @register.filter    
 def au_getCedula(list,mid):
-    for i in range(list.count()):
-        if list[i].id == mid:
-            return list[i].cedula
-    return None
+	for i in range(list.count()):
+		if list[i].id == mid:
+			return list[i].cedula
+	return None
 
 #|||||||||||||||||||||||||||||||||||||||#
 #|FILTROS PARA LA FRECUENCIA DE CONSUMO|#
 #|||||||||||||||||||||||||||||||||||||||#
 @register.filter#DEVUELVE HTML PARA EL SELECT DEL ALIMENTO EN CADA FORM
 def get_select_alimento(loop,list):
-    return mark_safe('<select name="form-'+str(loop)+'-alimento" id="id_form-'+str(loop)+'-alimento"><option value="'+str(list[loop].id)+'"></option></select>')
+	return mark_safe('<select name="form-'+str(loop)+'-alimento" id="id_form-'+str(loop)+'-alimento"><option value="'+str(list[loop].id)+'"></option></select>')
 
 @register.filter#DEVUELVE HTML PARA EL SELECT DEl PERFIL DEL USUARIO EN CADA FORM
 def get_select_frecuencia(loop,list):
-    return mark_safe('<select name="form-'+str(loop)+'-frecuenciaConsumo" id="id_form-'+str(loop)+'-frecuenciaConsumo"><option value="'+str(list[0].id)+'"></option></select>')
+	return mark_safe('<select name="form-'+str(loop)+'-frecuenciaConsumo" id="id_form-'+str(loop)+'-frecuenciaConsumo"><option value="'+str(list[0].id)+'"></option></select>')
 
 @register.filter#DEVUELVE DESCRIPCION DEL ALIMENTO PARA CADA PREGUNTA
 def get_descripcion(loop,list):
-    return list[loop].descripcion
+	return list[loop].descripcion
 
 @register.filter#DEVUELVE LA MEDIA DEL ALIMENTO PARA CADA PREGUNTA
 def get_media(loop,list):
-    return list[loop].media       
+	return list[loop].media       
 
 @register.filter#DEVUELVE LA MEDIA DEL ALIMENTO PARA CADA PREGUNTA
 def get_radio_porcion(loop):
-    return  mark_safe('<ul><li><input type="radio" id="id_form-'+str(loop)+'-porcion_p" value="p" name="form-'+str(loop)+'-porcion"></label></li><li><input type="radio" id="id_form-'+str(loop)+'-porcion_m" value="m" name="form-'+str(loop)+'-porcion" CHECKED ></li><li><input type="radio" id="id_form-'+str(loop)+'-porcion_g" value="g" name="form-'+str(loop)+'-porcion"></li></ul>')
+	return  mark_safe('<ul><li><input type="radio" id="id_form-'+str(loop)+'-porcion_p" value="p" name="form-'+str(loop)+'-porcion"></label></li><li><input type="radio" id="id_form-'+str(loop)+'-porcion_m" value="m" name="form-'+str(loop)+'-porcion" CHECKED ></li><li><input type="radio" id="id_form-'+str(loop)+'-porcion_g" value="g" name="form-'+str(loop)+'-porcion"></li></ul>')
 
+#|||||||||||||||||||||||||||||||||||||||||||||||||||||||||#
+#|FILTROS PARA LA FRECUENCIA DE CONSUMO DE NUTRICIONISTAS|#
+#|||||||||||||||||||||||||||||||||||||||||||||||||||||||||#
+
+@register.filter#DEVUELVE EL PROGRESO ACTUAL DE LA FRECUENCIA DE CONSUMO
+def get_progreso(var):
+	progreso = 0
+	for i in range(len(list(var))):
+		if progreso < var[i].seccionnombre_id:
+			progreso = var[i].seccionnombre_id
+	return progreso

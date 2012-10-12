@@ -101,7 +101,33 @@ a#anterior {
 	text-decoration: none;
 	color: #444;
     font-size: 5em;
+    float: left;
 }
     a#anterior:hover {
         color: black;
     }
+
+#contenedorBarra{
+	float: right;
+}
+
+#contenedorConsumoFrecuencia{
+
+}
+
+/* Chrome, Safari - value portion of progress bar */
+progress#bar::progress-value {
+	background-color: #E0FFB8;
+	float: right;
+}
+
+/* All other attributes */
+progress#bar {
+	float: right;
+	background-color: #E0FFB8;
+	border: solid #808080 1px;
+	padding: 3px;
+	width: 400px;
+	height: 20px;
+	margin-top: -20px;
+}
