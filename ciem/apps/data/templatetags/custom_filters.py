@@ -121,11 +121,6 @@ def get_radio_porcion(loop):
 #|FILTROS PARA LA FRECUENCIA DE CONSUMO DE NUTRICIONISTAS|#
 #|||||||||||||||||||||||||||||||||||||||||||||||||||||||||#
 
-<<<<<<< HEAD
-#|||||||||||||||||||||||||||||||||||||||||||||||||||||||||#
-#|FILTROS PARA LA FRECUENCIA DE CONSUMO DE NUTRICIONISTAS|#
-#|||||||||||||||||||||||||||||||||||||||||||||||||||||||||#
-
 @register.filter#DEVUELVE EL STRING DE LA FRECUENCIA
 def parse_frecuencia(frecuencia):
     if int(frecuencia) == 0:    resultado = 'Nunca'
@@ -147,12 +142,3 @@ def parse_porcion(porcion):
     elif porcion =='g': resultado = 'Grande'
     else:   resultado = 'Grande'
     return resultado
-=======
-@register.filter#DEVUELVE EL PROGRESO ACTUAL DE LA FRECUENCIA DE CONSUMO
-def get_progreso(var):
-	progreso = 0
-	for i in range(len(list(var))):
-		if progreso < var[i].seccionnombre_id:
-			progreso = var[i].seccionnombre_id
-	return progreso
->>>>>>> 253861d72471ff78fc2ee479ad995fd0cdc61702
