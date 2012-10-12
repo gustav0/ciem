@@ -93,7 +93,7 @@
 			{% endfor %}
 		{% elif tipo|get_int == 3 %}
 			{% for n in nombre %}
-				<div id="contenedorBarra">Barra de progreso: <progress id="bar" value="{{perfil|get_progreso}}" max="8"><span>{{perfil|get_progreso}}/8 secciones</span></progress></div>
+				<div id="contenedorBarra">Barra de progreso: <progress id="bar" value="{{perfil.0.progreso}}" max="8"><span>{{perfil.0.progreso}}/8 secciones</span></progress></div>
 
 				<div class="perfilDe divbold">Frecuencia de consumo de {{n.get_full_name|cap}}</div>
 				<div class="tablaFrecuencia">
