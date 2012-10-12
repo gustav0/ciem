@@ -91,10 +91,12 @@
 			<div>ipaq</div>
 			<a href="?user={{ n.id }}&d=1"> Descargar como documento Excel </a>
 			{% endfor %}
-		{% else %}
+		{% elif tipo|get_int == 3 %}
 			{% for n in nombre %}
 			<div>frecuencia de consumo</div>
 			{% endfor %}
+		{% else %}
+		24horas
 		{% endif %}
 			<a href="{% url nutricionista_perfilUsuarios %}" id="anterior">«</a>
 	{% endif %}

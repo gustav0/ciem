@@ -4,7 +4,7 @@ from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.core.paginator import EmptyPage, PageNotAnInteger
-from ciem.apps.account.models import datosAntropometricos,antropometricosResultado,userProfile, ipaqResultado, ipaq
+from ciem.apps.account.models import datosAntropometricos,antropometricosResultado,userProfile,ipaqResultado,ipaq,frecuenciaConsumo
 from django.contrib.auth.models import User
 
 @login_required(login_url='/login')
@@ -23,7 +23,9 @@ def perfilUsuarios(request):
 				elif int(tipoPerfil)==2:
 					perfil = ipaq.objects.getById(int(getUser))
 				elif int(tipoPerfil)==3:
-					perfil = datosAntropometricos.objects.getById(int(getUser))
+					perfil = frecuenciaConsumo.objects.getDataById(int(getUser))
+				elif int(tipoPerfil)==4:
+					perfil = None
 				elif int(descarga)>0:
 					from xlwt import *
 					wb = crear_excel(int(getUser))

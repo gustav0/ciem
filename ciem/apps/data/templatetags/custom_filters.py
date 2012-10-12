@@ -114,5 +114,5 @@ def get_media(loop,list):
 
 @register.filter#DEVUELVE LA MEDIA DEL ALIMENTO PARA CADA PREGUNTA
 def get_radio_porcion(loop):
-    return  mark_safe('<ul><li><input type="radio" id="id_form-'+str(loop)+'-porcion_p" value="p" name="form-'+str(loop)+'-porcion"></label></li><li><input type="radio" id="id_form-'+str(loop)+'-porcion_m" value="m" name="form-'+str(loop)+'-porcion"></li><li><input type="radio" id="id_form-'+str(loop)+'-porcion_g" value="g" name="form-'+str(loop)+'-porcion"></li></ul>')
+    return  mark_safe('<ul><li><input type="radio" id="id_form-'+str(loop)+'-porcion_p" value="p" name="form-'+str(loop)+'-porcion"></label></li><li><input type="radio" id="id_form-'+str(loop)+'-porcion_m" value="m" name="form-'+str(loop)+'-porcion" CHECKED ></li><li><input type="radio" id="id_form-'+str(loop)+'-porcion_g" value="g" name="form-'+str(loop)+'-porcion"></li></ul>')
 

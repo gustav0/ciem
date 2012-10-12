@@ -165,7 +165,7 @@ def frecuencia(request):
 	else:
 		if request.method == "POST":
 			frecuenciaConsumo.objects.create(user=request.user,progreso='1')
-			return HttpResponseRedirect("/profile/")
+			return HttpResponseRedirect("/frecuencia/")
 		else:
 			progreso = None
 	ctx={'progreso':progreso,'alimento':alimento,'preguntas':preguntas,'perfilFrecuencia':perfilFrecuencia}
