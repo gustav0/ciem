@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 
 @login_required(login_url='/login')
 def perfilUsuarios(request):
-	if request.user.has_perm('data.add_alimento') and request.user.has_perm('data.change_alimento'):
+	if request.user.has_perm('data.add_alimento') and request.user.has_perm('data.change_alimento'):#BUSCAR COMO VERIFICAR SI ES NUTRICIONISTA
 		getUser = request.GET.get('user',1)
 		tipoPerfil = request.GET.get('p',0)
 		descarga = request.GET.get('d',0)

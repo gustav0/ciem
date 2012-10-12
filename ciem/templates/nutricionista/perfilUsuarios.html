@@ -52,31 +52,31 @@
 				<li><a href="?user={{ n.id }}&p=1"><div class="opcionResultado">Antropométricos</div></a></li>
 				<li><a href="?user={{ n.id }}&p=2"><div class="opcionResultado">IPAQ</div></a></li>
 				<li><a href="?user={{ n.id }}&p=3"><div class="opcionResultado">Frecuencia de consumo</div></a></li></ul>
+				<li><a href="?user={{ n.id }}&p=4"><div class="opcionResultado">Recordatorio de 24 horas</div></a></li></ul>
 			{% endfor %}
 		{% elif tipo|get_int == 1 %}
 			{% for n in nombre %}
 			<div class="perfilDe">Perfil antropometrico de {{n.get_full_name|cap}}</div>
 				{% for p in perfil %}
 					<div class="perfilN">Perfil del {{ p.fecha_creacion|date:"d/m/Y" }}:</div>
-                             <div class="valor" > Calculo</div>
-                        	<div class="informacionPerfilN"> &nbsp;Valor </div>
+                            <div class="valor" > Calculo</div>
+                        	<div class="informacionPerfilN">Valor </div>
                             <div class ="rango">Apreciacion </div>
                     	<div class="fila">
                         	<div class="valor" > Metabolismo Basal</div>
-                        	<div class="informacionPerfilN"> {{ p.metabolismoBasal }} </div>
+                        	<div class="informacionPerfilN">{{ p.metabolismoBasal }}</div>
                             <div class ="rango"> Normal </div>
                         </div>
                     	<div class="fila">
                         	<div class="valor" > Indice de Adiposidad</div>
-                        	<div class="informacionPerfilN">{{ p.indiceAdiposidad }} </div>
+                        	<div class="informacionPerfilN">{{ p.indiceAdiposidad }}</div>
                             <div class ="rango"> Normal </div>
                         </div>
                     	<div class="fila">
                         	<div class="valor" > Obesidad</div>
-                        	<div class="informacionPerfilN"> {{ p.obesidad }} </div>
+                        	<div class="informacionPerfilN"> {{ p.obesidad }}</div>
                             <div class ="rango"> Normal </div>
-
-                   
+                        </div>
 				{% endfor %}
 			{% endfor %}
 		{% elif tipo|get_int == 2 %}
@@ -89,7 +89,6 @@
 			<div>frecuencia de consumo</div>
 			{% endfor %}
 		{% endif %}
-		<br><br>
 			<a href="{% url nutricionista_perfilUsuarios %}">LISTA DE USUARIOS</a>
 	{% endif %}
 {% else %}
