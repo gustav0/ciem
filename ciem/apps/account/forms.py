@@ -21,8 +21,7 @@ class registerForm(UserCreationForm):
 		user.first_name = self.cleaned_data["first_name"]
 		user.last_name = self.cleaned_data["last_name"]
 		user.email = self.cleaned_data["email"]
-		user.pais = self.cleaned_data.get['pais']
-		userProfile.objects.create(user=user, genero=self.cleaned_data['genero'], fecha_nacimiento=self.cleaned_data['fecha_nacimiento'], cedula=self.cleaned_data['cedula'],)
+		userProfile.objects.create(user=user, genero=self.cleaned_data['genero'], fecha_nacimiento=self.cleaned_data['fecha_nacimiento'], cedula=self.cleaned_data['cedula'], pais=self.cleaned_data['pais'])
 		return user
 
 class antropometricosForm(ModelForm):
