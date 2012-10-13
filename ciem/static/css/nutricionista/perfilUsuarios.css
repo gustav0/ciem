@@ -200,20 +200,11 @@ progress#bar {
 #pop {
 	position: fixed;
 	visibility: hidden;
-<<<<<<< HEAD
+	left: 40%;
+	top: 30%;
 	width: 500px;
 	height: 250px;
-	left: 20px;
-	top: 300px;
 	background-color: #EFFFDA;
-=======
-	width: 400px;
-	height: 400px;
-	left: 50%;
-	top: 50%;
-	margin:-200px 0 0 -200px; /* [-(height/2)px 0 0 -(width/2)px] */
-	background-color: #E0FFB8;
->>>>>>> 1c17269889a4058b3718289bd174bac830197db5
 	border: 1px solid #000;
 	padding: 10px;
 }
