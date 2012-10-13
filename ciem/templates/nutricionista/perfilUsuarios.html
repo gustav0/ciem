@@ -1,10 +1,15 @@
 {% extends 'homepage/index.html' %}
 {% load custom_filters %}
+{% load humanize %}
 {% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/nutricionista/perfilUsuarios.css">{% endblock %}
 {% block js %}
 <script language="javascript" type="text/javascript" src="{{ MEDIA_URL }}js/adquiridos/jquery-1.8.1.min.js"></script>
 <script type="text/javascript" src="{{ MEDIA_URL }}js/adquiridos/popup.js"></script>
 <script src="{{ MEDIA_URL }}js/propios/tamanoLetra.js"></script>
+<script src="{{ MEDIA_URL }}js/propios/fichaAntropometrico.js"></script>
+<script>
+
+</script>
 {% endblock %}
 {% block content %}
 {% if usuario %}
@@ -72,12 +77,12 @@
 						</div>
 						<div class="fila">
 							<div class="valor" >Metabolismo Basal</div>
-							<div class="calculoValor">{{ p.metabolismoBasal }}</div>
+							<div class="calculoValor">{{ p.metabolismobasal }}</div>
 							<div class ="rango">Normal </div>
 						</div>
 						<div class="fila">
 							<div class="valor" >Indice de Adiposidad</div>
-							<div class="calculoValor">{{ p.indiceAdiposidad }}</div>
+							<div class="calculoValor">{{ p.indiceadiposidad }}</div>
 							<div class ="rango">Normal </div>
 						</div>
 						<div class="fila">
@@ -85,7 +90,7 @@
 							<div class="calculoValor">{{ p.obesidad }}</div>
 							<div class ="rango">Normal </div>
 						</div>
-						<a id="plusinfo" href="#" onclick="setVisible('pop');return false" target="_self">
+<a id="plusinfo" href="#" onclick="cargarContenido('{{n.get_full_name|cap}}','{{p.fecha_creacion|date:"d/m/Y"}}','{{p.peso|floatformat:0|intcomma}}','{{p.circunferencia_cintura|floatformat:0|intcomma}}','{{p.circunferencia_cadera|floatformat:0|intcomma}}','{{p.estatura|floatformat:0|intcomma}}','{{p.hipertencion}}','{{p.diabetes}}','{{p.cancer}}','{{p.trigliceridos}}')">
 							<div id="masinfo">
 								+
 							</div>
