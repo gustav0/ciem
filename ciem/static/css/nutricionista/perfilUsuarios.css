@@ -85,8 +85,9 @@ a#plusinfo:visited{	text-decoration: none;}
 a#plusinfo:active{	text-decoration: none;}
 a#plusinfo{	color: black;}
 #masinfo {
+	color: #ADADAD;
 	float:left;
-	border: 1px solid #DDD;
+	border: 1px solid #C9C9C9;
 	background: whiteSmoke;
 	box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
 	-moz-border-radius: 5px;
@@ -94,7 +95,8 @@ a#plusinfo{	color: black;}
 	border-radius: 5px;
 	cursor: pointer;
 	font-weight: bold;
-	text-indent: 5px;
+	text-indent: 7px;
+	line-height: 24px;
 	width: 25px;
 	height: 25px;
 	margin-left: 40px;
@@ -115,8 +117,9 @@ a#anterior:hover {
 
 /* FRECUENCIA DE CONSUMO*/
 .botonFont{
+	color: #ADADAD;
 	float:left;
-	border: 1px solid #DDD;
+	border: 1px solid #C9C9C9;
 	background: whiteSmoke;
 	box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
 	-moz-border-radius: 5px;
@@ -197,11 +200,11 @@ progress#bar {
 #pop {
 	position: absolute;
 	visibility: hidden;
-	width: 400px;
-	height: 300px;
+	width: 500px;
+	height: 250px;
 	left: 20px;
 	top: 300px;
-	background-color: #E0FFB8;
+	background-color: #EFFFDA;
 	border: 1px solid #000;
 	padding: 10px;
 }
@@ -223,4 +226,23 @@ progress#bar {
    position:relative;
    margin-top:-1px;
    text-align:center;
+}
+
+
+/*VENTANA POP*/
+
+
+.variableMas{
+	color: #3F3F3F;
+	float: left;
+	width: 474px;
+	border-bottom: 1px solid darkGray;
+	margin-bottom: 5px;
+}
+.varLabel{
+	float: left;
+}
+.varContenido{
+	margin-left: 6px;
+	float: left;
 }
