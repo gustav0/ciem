@@ -66,7 +66,7 @@
 					<div class="contenedorPerfil">
 						<div class="perfilN">Perfil del {{ p.fecha_creacion|date:"d/m/Y" }}:</div>
 						<div class="fila">
-							<div class="valor divbold" >Calculo</div>
+							<div class="valor divbold" >Cálculo</div>
 							<div class="calculoValor divbold">Valor </div>
 							<div class ="rango divbold">Apreciación </div>
 						</div>
@@ -109,7 +109,6 @@
 			{% endfor %}
 		{% elif tipo|get_int == 3 %}
 			{% for n in nombre %}
-
 				<div class="perfilDe divbold">Frecuencia de consumo de {{n.get_full_name|cap}}
 					<div id="contenedorBarra">Barra de progreso: <progress id="bar" value="{{perfil.0.progreso}}" max="8"><span>{{perfil.0.progreso}}/8 secciones</span></progress></div>
 				</div>

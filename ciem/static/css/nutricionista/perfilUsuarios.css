@@ -195,12 +195,13 @@ progress#bar {
 
 
 #pop {
-	position: absolute;
+	position: fixed;
 	visibility: hidden;
 	width: 400px;
-	height: 300px;
-	left: 20px;
-	top: 300px;
+	height: 400px;
+	left: 50%;
+	top: 50%;
+	margin:-200px 0 0 -200px; /* [-(height/2)px 0 0 -(width/2)px] */
 	background-color: #E0FFB8;
 	border: 1px solid #000;
 	padding: 10px;
