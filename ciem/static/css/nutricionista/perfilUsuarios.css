@@ -78,7 +78,13 @@
    width: 150px;
    text-align: center;
  }
-.masinfo {
+
+
+a#plusinfo:hover{	text-decoration: none;}
+a#plusinfo:visited{	text-decoration: none;}
+a#plusinfo:active{	text-decoration: none;}
+a#plusinfo{	color: black;}
+#masinfo {
 	float:left;
 	border: 1px solid #DDD;
 	background: whiteSmoke;
@@ -93,7 +99,9 @@
 	height: 25px;
 	margin-left: 40px;
 	margin-top: -40px;
-}	
+	text-decoration: none;
+}
+
 a#anterior {
 	text-decoration: none;
 	color: #444;
@@ -161,3 +169,34 @@ progress#bar {
 	margin-top: -20px;
 }
 
+
+#pop {
+	position: absolute;
+	visibility: hidden;
+	width: 400px;
+	height: 300px;
+	left: 20px;
+	top: 300px;
+	background-color: #E0FFB8;
+	border: 1px solid #000;
+	padding: 10px;
+}
+
+#cerrar a:hover{	text-decoration: none;}
+#cerrar a:visited{	text-decoration: none;}
+#cerrar a:active{	text-decoration: none;}
+#cerrar a{color: white;}
+#cerrar {
+   float:right;
+   margin-right:5px;
+   cursor:pointer;
+   font:Verdana, Arial, Helvetica, sans-serif;
+   font-size:12px;
+   font-weight:bold;
+   color:#FFFFFF;
+   background-color:green;
+   width:12px;
+   position:relative;
+   margin-top:-1px;
+   text-align:center;
+}

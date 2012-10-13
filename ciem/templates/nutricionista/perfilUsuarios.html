@@ -1,6 +1,10 @@
 {% extends 'homepage/index.html' %}
 {% load custom_filters %}
 {% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/nutricionista/perfilUsuarios.css">{% endblock %}
+{% block js %}
+<script language="javascript" type="text/javascript" src="{{ MEDIA_URL }}js/adquiridos/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/adquiridos/popup.js"></script>
+{% endblock %}
 {% block content %}
 {% if usuario %}
 	{% if nombre.count > 2 %}
@@ -56,12 +60,12 @@
 			{% endfor %}
 		{% elif tipo|get_int == 1 %}
 			{% for n in nombre %}
-			<div class="perfilDe divbold">Perfil antropométrico de {{n.get_full_name|cap}}</div>
+			<div class="perfilDe divbold">Perfil antropometrico de {{n.get_full_name|cap}}</div>
 				{% for p in perfil %}
 					<div class="contenedorPerfil">
-						<div class="perfilN">Creado el {{ p.fecha_creacion|date:"d/m/Y" }}:</div>
+						<div class="perfilN">Perfil del {{ p.fecha_creacion|date:"d/m/Y" }}:</div>
 						<div class="fila">
-							<div class="valor divbold" >Cálculo</div>
+							<div class="valor divbold" >Calculo</div>
 							<div class="calculoValor divbold">Valor </div>
 							<div class ="rango divbold">Apreciación </div>
 						</div>
@@ -80,9 +84,20 @@
 							<div class="calculoValor">{{ p.obesidad }}</div>
 							<div class ="rango">Normal </div>
 						</div>
-						<div class="masinfo">
-							+
+						<a id="plusinfo" href="#" onclick="setVisible('pop');return false" target="_self">
+							<div id="masinfo">
+								+
+							</div>
+						</a>
+						<!--  POPUP para mayor información  -->
+						<div id="pop">
+							<div id="cerrar">
+								<a style="TEXT-DECORATION: none" href="javascript:setVisible('pop')">X</a></div>
+							<div id="info">
+								<p>Contenido: aquí</p>
+							</div>
 						</div>
+						<!-- fin POPUP -->						
 					</div>
 				{% endfor %}
 			{% endfor %}
@@ -93,20 +108,15 @@
 			{% endfor %}
 		{% elif tipo|get_int == 3 %}
 			{% for n in nombre %}
-				<div id="contenedorBarra">Barra de progreso: <progress id="bar" value="{{perfil.0.progreso}}" max="8"><span>{{perfil.0.progreso}}/8 secciones</span></progress></div>
-
-				<div class="perfilDe divbold">Frecuencia de consumo de {{n.get_full_name|cap}}</div>
-				<div class="tablaFrecuencia">
-					{% for p in perfil %}
-						<div class="lineaFrecuencia">
-							<div class="nombreAlimento">{{ p.descripcion }}</div>
-							<div class="frecuenciaAlimento">{{ p.frecuencia|parse_frecuencia }}</div>
-							<div class="porcionAlimento">{{ p.porcion|parse_porcion }}</div>
-							<div class="mediaAlimento">{{ p.media }}</div>
-						</div>
-					{% endfor %}
-					</div>
-				</div>
+			<div>frecuencia de consumo</div>
+			<div class="perfilDe divbold">Frecuencia de consumo de {{n.get_full_name|cap}}
+			<div id="contenedorBarra">Barra de progreso: <progress id="bar" value="{{perfil|get_progreso}}" max="8"><span>{{perfil|get_progreso}}/8 secciones</span></progress></div>
+			</div>
+			<div id="contenedorConsumoFrecuencia">
+			{% for p in perfil %}
+				{{forloop.counter}}
+			{% endfor %}
+			</div>
 			{% endfor %}
 		{% else %}
 		24horas
@@ -116,4 +126,5 @@
 {% else %}
 error.
 {% endif %}
+
 {% endblock %}

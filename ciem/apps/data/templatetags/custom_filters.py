@@ -118,7 +118,7 @@ def get_radio_porcion(loop):
 	return  mark_safe('<ul><li><input type="radio" id="id_form-'+str(loop)+'-porcion_p" value="p" name="form-'+str(loop)+'-porcion"></label></li><li><input type="radio" id="id_form-'+str(loop)+'-porcion_m" value="m" name="form-'+str(loop)+'-porcion" CHECKED ></li><li><input type="radio" id="id_form-'+str(loop)+'-porcion_g" value="g" name="form-'+str(loop)+'-porcion"></li></ul>')
 
 #|||||||||||||||||||||||||||||||||||||||||||||||||||||||||#
-#|FILTROS PARA LA FRECUENCIA DE CONSUMO DE NUTRICIONISTAS|#
+#|FILTROS PARA LA FRECUENCIA DE CONSUMO                  |#
 #|||||||||||||||||||||||||||||||||||||||||||||||||||||||||#
 
 @register.filter#DEVUELVE EL STRING DE LA FRECUENCIA
@@ -142,3 +142,15 @@ def parse_porcion(porcion):
     elif porcion =='g': resultado = 'Grande'
     else:   resultado = 'Grande'
     return resultado
+
+
+#|||||||||||||||||||||||||||||||||||||||||||||||||||||||||#
+#|FILTROS PARA LA FRECUENCIA DE CONSUMO DE NUTRICIONISTAS|#
+#|||||||||||||||||||||||||||||||||||||||||||||||||||||||||#
+@register.filter#DEVUELVE EL PROGRESO ACTUAL DE LA FRECUENCIA DE CONSUMO
+def get_progreso(var):
+	progreso = 0
+	for i in range(len(list(var))):
+		if progreso < var[i].seccionnombre_id:
+			progreso = var[i].seccionnombre_id
+	return progreso
