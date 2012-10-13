@@ -1412,7 +1412,7 @@
     </object>
     <object pk="VE" model="countries.country">
         <field type="CharField" name="name">VENEZUELA</field>
-        <field type="CharField" name="printable_name">Venezuela (Bolivarian Republic of Venezuela)</field>
+        <field type="CharField" name="printable_name">Venezuela (Republica Bolivariana de Venezuela)</field>
         <field type="CharField" name="iso3">VEN</field>
         <field type="PositiveSmallIntegerField" name="numcode">862</field>
     </object>

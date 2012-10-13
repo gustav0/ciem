@@ -27,6 +27,7 @@ article{
 	color:#303030;
 }
 #pie{
+
 	line-height:40px;
 	font-size:10px;
 	text-align: center;
@@ -36,11 +37,14 @@ article{
 	height: 40px;
 	clear: both;
 	margin: auto;
+	margin-top: 15px;
 	background: #EFEFEF;
 	border-top: 1px solid #CDCDCD;
 }
 #cabecera{
 	width: 960px;
+	float: left;
+	margin-bottom: 15px;
 }
 
 #imagenCabecera{
@@ -96,29 +100,6 @@ article{
 #botones a{
 	text-decoration: none;
 	color: white;
-}
-
-#usernameForm span{
-	font-size: 0;
-}
-#usernameForm input, select{
-	border: 1px solid #AAA;
-	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-		float: right;
-	margin-right: 300px;
-
-}
-
-#usernameForm p{
-	background: #F7F7F7;
-	border: 1px solid #D7D7D7;
-	box-shadow: 0 0 1em #EEE;
-	border-radius: .3em;
-	margin: 1em 1.75em;
-	padding: .25em;
-	overflow: auto;
 }
 
 input#botonregistro[type="submit"]{

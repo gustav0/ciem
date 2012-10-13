@@ -22,11 +22,6 @@ input{
 	margin-top: 10px;
 }
 
-#loginForm input#id_username{
-	border: 1px solid #AAA;
-	left: 0;
-}
-
 #loginForm{
 	position: relative;
 	top:1px;

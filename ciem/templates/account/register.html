@@ -1,4 +1,6 @@
 {% extends "homepage/index.html" %}
+{% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/account/registro.css">
+{% endblock %}
 {% block content %}
 	<form action="." method="POST">
 		{% csrf_token %}
