@@ -1,15 +1,11 @@
 {% extends 'homepage/index.html' %}
 {% load custom_filters %}
 {% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/nutricionista/perfilUsuarios.css">{% endblock %}
-<<<<<<< HEAD
 {% block js %}
 <script language="javascript" type="text/javascript" src="{{ MEDIA_URL }}js/adquiridos/jquery-1.8.1.min.js"></script>
 <script type="text/javascript" src="{{ MEDIA_URL }}js/adquiridos/popup.js"></script>
+<script src="{{ MEDIA_URL }}js/propios/tamanoLetra.js"></script>
 {% endblock %}
-=======
-{% block js %}<script src="{{ MEDIA_URL }}js/adquiridos/jquery-1.8.1.min.js" type="text/javascript"></script>
-<script src="{{ MEDIA_URL }}js/propios/tamanoLetra.js"></script>{% endblock %}
->>>>>>> 163502870321f1151150e468112817415fe87798
 {% block content %}
 {% if usuario %}
 	{% if nombre.count > 2 %}
@@ -113,17 +109,7 @@
 			{% endfor %}
 		{% elif tipo|get_int == 3 %}
 			{% for n in nombre %}
-<<<<<<< HEAD
-			<div>frecuencia de consumo</div>
-			<div class="perfilDe divbold">Frecuencia de consumo de {{n.get_full_name|cap}}
-			<div id="contenedorBarra">Barra de progreso: <progress id="bar" value="{{perfil|get_progreso}}" max="8"><span>{{perfil|get_progreso}}/8 secciones</span></progress></div>
-			</div>
-			<div id="contenedorConsumoFrecuencia">
-			{% for p in perfil %}
-				{{forloop.counter}}
-			{% endfor %}
-			</div>
-=======
+
 				<div class="perfilDe divbold">Frecuencia de consumo de {{n.get_full_name|cap}}
 					<div id="contenedorBarra">Barra de progreso: <progress id="bar" value="{{perfil.0.progreso}}" max="8"><span>{{perfil.0.progreso}}/8 secciones</span></progress></div>
 				</div>
@@ -141,9 +127,7 @@
 							<div class="mediaAlimento">{{ p.media }}</div>
 						</div>
 					{% endfor %}
-					</div>
 				</div>
->>>>>>> 163502870321f1151150e468112817415fe87798
 			{% endfor %}
 		{% else %}
 		24horas
