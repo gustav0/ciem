@@ -13,6 +13,7 @@ class userProfile(models.Model):
 	genero = models.CharField(max_length=1, choices=GENERO, default='m')
 	cedula = models.FloatField(default=1)
 	fecha_nacimiento = models.DateField()
+	pais = models.CharField(max_length=45)
 	user = models.ForeignKey(User)
 	objects = userProfileManager()
 

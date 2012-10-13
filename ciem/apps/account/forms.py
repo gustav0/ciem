@@ -3,6 +3,7 @@ from django import forms
 from django.forms.formsets import formset_factory
 from django.forms import ModelForm
 from ciem.apps.account.models import *
+from ciem.apps.countries.models import *
 from django.contrib.auth.models import User
 import math
 from datetime import date
@@ -14,12 +15,13 @@ class registerForm(UserCreationForm):
 	first_name = forms.CharField(max_length=30, label='Nombre', widget=forms.TextInput(attrs={'placeholder': 'Nombre'}))
 	last_name = forms.CharField(max_length=30, label='Apellido', widget=forms.TextInput(attrs={'placeholder': 'Apellido'}))
 	email = forms.EmailField(max_length=75, label='Email',widget=forms.TextInput(attrs={'placeholder': 'nick@email.com'}))
-
+	pais = forms.ModelChoiceField(label="Pais", queryset=Country.objects.all(), widget=forms.Select(attrs={'class':'selector'}))
 	def save(self, *arg, **kwargs):
 		user = super(registerForm, self).save(*arg, **kwargs)
 		user.first_name = self.cleaned_data["first_name"]
 		user.last_name = self.cleaned_data["last_name"]
 		user.email = self.cleaned_data["email"]
+		user.pais = self.cleaned_data.get['pais']
 		userProfile.objects.create(user=user, genero=self.cleaned_data['genero'], fecha_nacimiento=self.cleaned_data['fecha_nacimiento'], cedula=self.cleaned_data['cedula'],)
 		return user
 

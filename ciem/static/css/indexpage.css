@@ -102,20 +102,15 @@ article{
 	font-size: 0;
 }
 #usernameForm input, select{
-	position: relative;
 	border: 1px solid #AAA;
 	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+		float: right;
+	margin-right: 300px;
+
 }
-#usernameForm #id_last_name, #id_first_name{left: 150px;}
-#usernameForm input#id_username{left: 94px;}
-#usernameForm #id_password1{left: 143px;}
-#usernameForm #id_password2{left: 51px;}
-#usernameForm #id_genero{ left: 165px}
-#usernameForm #id_cedula{ left: 166px;}
-#usernameForm #id_fecha_nacimiento{ left: 105px}
-#usernameForm #id_email{left: 178px;}
+
 #usernameForm p{
 	background: #F7F7F7;
 	border: 1px solid #D7D7D7;
@@ -125,6 +120,7 @@ article{
 	padding: .25em;
 	overflow: auto;
 }
+
 input#botonregistro[type="submit"]{
 	position: relative;
 	left: 160px;
