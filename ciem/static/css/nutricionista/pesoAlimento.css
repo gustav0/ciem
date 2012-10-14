@@ -1,0 +1,31 @@
+.campo{
+	float:left;
+	font-weight: bold;
+}
+#nombre{
+	width: 250px;
+}
+.noDiplayDiv{
+	display:none;
+}
+#alimento{
+	color:green;
+	width: 250px;
+}
+#pesoTitulo{
+	color:green;
+	width: 130px;
+}
+#id_peso{
+	width: 60px;
+
+}
+#id_numMedida{
+	width: 60px;
+}
+#medidaTitulo{
+	color:green;
+}
+#peso{
+	margin-right: 50px;
+}
