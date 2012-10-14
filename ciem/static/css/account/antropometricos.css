@@ -1,15 +1,14 @@
 .noDiplayDiv{
 	display:none;
 }
-#formulario{
-	font-family: "arial narrow";
-}
 .medidaIndicar{
 	float: left;
 }
 .campoForm{
 	float: left;
 	width: 220px;
+	margin-left: 60px;
+	margin-top: 10px;
 }
 .labelCampo{
 	float: left;
@@ -18,5 +17,12 @@
 	margin-left: 25%;
 	float: left;
 	width: 430px;
-	height: 420px;
+	height: 300px;
+}
+#submit{
+	float: left;
+	margin: 0;
+	padding: 0;
+	margin-left: -100px;
+	margin-top: 50px;
 }

@@ -21,15 +21,14 @@ article{
 }
 
 #contenido{
+	font-family: "arial narrow";
 	width: 960px;
 	margin: auto; 
 	clear: both;
 	color:#303030;
 }
 #pie{
-
 	line-height:40px;
-	font-size:10px;
 	text-align: center;
 	color: #797979;
 	font-size: 1.1em;
