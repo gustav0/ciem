@@ -1,21 +1,22 @@
 {% extends "homepage/index.html" %}
+{% block js %}
+<script src="{{ MEDIA_URL }}js/adquiridos/jquery-1.8.1.min.js" type="text/javascript"></script>
+<script src="{{ MEDIA_URL }}js/propios/recordatorio24.js"></script>
+{% endblock%}
 {% block content %}
 	<form action="." method="POST">
 		{% csrf_token %}
 		<div id="recordatorioForm" class="campoForm">
 			{{ form.as_p }}
 			<div id="desayuno"><p>Desayuno</p>
-			<input list="alimentos" name="alimento">
+			<input list="alimentos" name="alimento" id="input1">
 			<datalist id="alimentos">
 				{% for a in alimentos%}
-				<OPTION value="{{ a.nombre }}" ></OPTION>
+				<OPTION value="{{a.nombre}}">{{a.id}}</OPTION>
 				{% endfor %}
 			</datalist>
-			<input type="button" value=">>" class="botonsito">
-			<input type="button" value="<<" class="botonsito">
-			<SELECT id="selCombo" NAME="selCombo" SIZE="5"> 
-					<OPTION value="{{a.calorias}}" ><p>{{ a.nombre }}</p></OPTION>
-			</SELECT>
+			<div class="botonsito" id="botonDer1" style="float:left;"> + </div>
+			<SELECT id="selCombo1" NAME="selCombo" SIZE="5" style="width: 150px;float: left;"></SELECT>
 			</div> 
 
 			<div id="merienda1"><p>Primera merienda</p>
