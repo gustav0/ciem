@@ -5,13 +5,13 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response,redirect
 from django.template import RequestContext
-from ciem.apps.account.forms import antropometricosForm,registerForm,ipaqForm
+from ciem.apps.account.forms import antropometricosForm,registerForm,ipaqForm, soyProfesionalForm
 from ciem.apps.account.managers import antropometricosManager,frecuenciaConsumoManager,dataFrecuenciaConsumoManager,alimentoFrecuenciaManager
 from ciem.apps.account.models import datosAntropometricos,frecuenciaConsumo,dataFrecuenciaConsumo,alimentoFrecuencia
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.forms.models import modelformset_factory
-
+from django.core.mail import send_mail
 
 def register(request):
 	form = registerForm(request.POST or None)
@@ -62,6 +62,20 @@ def ipaq(request):
 		form.save()
 	ctx= {'form':form, 'id':request.user.id, }
 	return render_to_response('account/ipaq.html', ctx, context_instance=RequestContext(request))
+
+@login_required(login_url='/login')
+def soyProfesional(request):
+	if (request.method == 'POST'):
+		form = soyProfesionalForm(request.POST, request.FILES)
+		print form.errors
+		if form.is_valid():
+			form.save()
+		return redirect(reverse('account_profile'))
+	else:
+		form = soyProfesionalForm
+		nombre = request.user.get_full_name
+		ctx = {'nombre':nombre,'form':form,'id':request.user.id}
+		return render_to_response('account/soyProfesional.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')
 def frecuencia(request):
