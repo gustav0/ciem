@@ -16,12 +16,13 @@ class registerForm(UserCreationForm):
 	last_name = forms.CharField(max_length=30, label='Apellido', widget=forms.TextInput(attrs={'placeholder': 'Apellido'}))
 	email = forms.EmailField(max_length=75, label='Email',widget=forms.TextInput(attrs={'placeholder': 'nick@email.com'}))
 	pais = forms.ModelChoiceField(label="Pais", queryset=Country.objects.all(), widget=forms.Select(attrs={'class':'selector'}))
+	venezuela = forms.ModelChoiceField(label='Municipio', queryset=VeState.objects.all(), widget=forms.Select(attrs={'class':'selector'}))
 	def save(self, *arg, **kwargs):
 		user = super(registerForm, self).save(*arg, **kwargs)
 		user.first_name = self.cleaned_data["first_name"]
 		user.last_name = self.cleaned_data["last_name"]
 		user.email = self.cleaned_data["email"]
-		userProfile.objects.create(user=user, genero=self.cleaned_data['genero'], fecha_nacimiento=self.cleaned_data['fecha_nacimiento'], cedula=self.cleaned_data['cedula'], pais=self.cleaned_data['pais'])
+		userProfile.objects.create(user=user, genero=self.cleaned_data['genero'], fecha_nacimiento=self.cleaned_data['fecha_nacimiento'], cedula=self.cleaned_data['cedula'], pais=self.cleaned_data['pais'], municipio=self.cleaned_data['municipio'])
 		return user
 
 class antropometricosForm(ModelForm):

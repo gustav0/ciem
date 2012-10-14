@@ -50,3 +50,7 @@ class alimentoFrecuenciaManager(models.Manager):
 	def getById(self,idSeccion):
 		return self.model.objects.filter(seccionNombre=idSeccion)
 
+class recordatorioManager(models.Manager):
+	"""Manejador del recordatorio de 24 horas"""
+	def getById(self,id):
+		return	self.model.objects.filter(user_id=id).order_by('-fecha_creacion')
