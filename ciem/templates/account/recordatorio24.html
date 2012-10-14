@@ -1,5 +1,6 @@
 {% extends "homepage/index.html" %}
 {% block js %}
+
 <script src="{{ MEDIA_URL }}js/adquiridos/jquery-1.8.1.min.js" type="text/javascript">
 </script>
 <script src="{{ MEDIA_URL }}js/propios/recordatorio24.js"></script>
@@ -7,6 +8,7 @@
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/account/recordatorio.css">
 {% endblock %}
+
 {% block content %}
 	<form action="." method="POST">
 		{% csrf_token %}

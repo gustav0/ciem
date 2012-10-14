@@ -10,13 +10,13 @@
 			<div class="labelCampo">Peso:{{ form.peso }}</div><div class="medidaIndicar" title="Kilogramos">Kg</div>
 		</div>
 		<div id="tallaForm" class="campoForm">
-			<div class="labelCampo">Talla (Estatura): {{ form.estatura }}</div><div class="medidaIndicar" title="Kilogramos">Kg</div>
+			<div class="labelCampo">Talla (Estatura): {{ form.estatura }}</div><div class="medidaIndicar" title="Centimetros">cm</div>
 		</div>
 		<div id="circunferenciaCinturaForm" class="campoForm">
-			<div class="labelCampo">Circunferencia cintura: {{ form.circunferencia_cintura }}</div><div class="medidaIndicar" title="Kilogramos">Kg</div>
+			<div class="labelCampo">Circunferencia cintura: {{ form.circunferencia_cintura }}</div><div class="medidaIndicar" title="Centimetros">cm</div>
 		</div>
 		<div id="circunferenciaCaderaForm" class="campoForm">
-			<div class="labelCampo">Circunferencia cadera: {{ form.circunferencia_cadera }}</div><div class="medidaIndicar" title="Kilogramos">Kg</div>
+			<div class="labelCampo">Circunferencia cadera: {{ form.circunferencia_cadera }}</div><div class="medidaIndicar" title="Centimetros">cm</div>
 		</div>
 		<div id="patologia1Form" class="campoForm">
 			<div class="labelCampo">Hipertencion: {{ form.hipertencion }}</div>
@@ -30,6 +30,6 @@
 		<div id="patologia1Form" class="campoForm">
 			<div class="labelCampo">Colesterol: {{ form.colesterol }}</div>
 		</div>	
-	<p><input type='submit' value='Confirmar'/></p>
+	<input id="submit" type='submit' value='Confirmar'/>
 	</form>
 {% endblock %}
