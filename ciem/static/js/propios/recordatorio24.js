@@ -4,7 +4,9 @@ $(function(){
     function(){
         $(this).val('');
     });
-
+  $("#form1").bind("keypress", function(e) {
+    if (e.keyCode == 13) return false;
+  });
  	$("#input1").enterKey(function () {
 	    if($('#input1').val() == ""){
 	  			alert("vacio");
