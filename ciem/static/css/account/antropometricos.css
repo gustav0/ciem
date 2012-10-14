@@ -1,0 +1,22 @@
+.noDiplayDiv{
+	display:none;
+}
+#formulario{
+	font-family: "arial narrow";
+}
+.medidaIndicar{
+	float: left;
+}
+.campoForm{
+	float: left;
+	width: 220px;
+}
+.labelCampo{
+	float: left;
+}
+.contenedorOpciones{
+	margin-left: 25%;
+	float: left;
+	width: 430px;
+	height: 420px;
+}
