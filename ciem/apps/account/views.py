@@ -1,3 +1,4 @@
+# coding: latin-1
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login
@@ -5,9 +6,10 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response,redirect
 from django.template import RequestContext
-from ciem.apps.account.forms import antropometricosForm,registerForm,ipaqForm, soyProfesionalForm
+from ciem.apps.account.forms import antropometricosForm,registerForm,ipaqForm, soyProfesionalForm, recordatorioForm
 from ciem.apps.account.managers import antropometricosManager,frecuenciaConsumoManager,dataFrecuenciaConsumoManager,alimentoFrecuenciaManager
-from ciem.apps.account.models import datosAntropometricos,frecuenciaConsumo,dataFrecuenciaConsumo,alimentoFrecuencia
+from ciem.apps.account.models import datosAntropometricos,frecuenciaConsumo,dataFrecuenciaConsumo,alimentoFrecuencia,userProfile,datosRecordatorio
+from ciem.apps.data.models import alimento
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.forms.models import modelformset_factory
@@ -47,6 +49,8 @@ def antropometricos(request):
 	form = antropometricosForm(request.POST or None)
 	if form.is_valid():
 		form.save(request)
+	else:
+		print "hola"
 	ctx= {'form':form, 'id':request.user.id, }
 	return render_to_response('account/datosAntropometricosForm.html', ctx, context_instance=RequestContext(request))
 
@@ -69,12 +73,19 @@ def soyProfesional(request):
 		form = soyProfesionalForm(request.POST, request.FILES)
 		print form.errors
 		if form.is_valid():
+			infouser = list(userProfile.objects.getUserJoin(request.user.id))
+			user = str(infouser[0].first_name)+" "+str(infouser[0].last_name)
+			url = "url"
+			send_mail("Solicitd de Profesional","Nombre del solicintante:%s \nVisite el siguiente enlace para revisar mejor la información: %s" % (user,url), 'ciem.luz.mail@gmail.com',['ciem.luz.mail@gmail.com'])
 			form.save()
-		return redirect(reverse('account_profile'))
+			return redirect(reverse('account_profile'))
+		else:
+			ctx = {'form':form,'id':request.user.id}
+			return render_to_response('account/soyProfesional.html', ctx, context_instance=RequestContext(request))
 	else:
 		form = soyProfesionalForm
 		nombre = request.user.get_full_name
-		ctx = {'nombre':nombre,'form':form,'id':request.user.id}
+		ctx = {'form':form,'id':request.user.id}
 		return render_to_response('account/soyProfesional.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')
@@ -184,3 +195,9 @@ def frecuencia(request):
 			progreso = None
 	ctx={'progreso':progreso,'alimento':alimento,'preguntas':preguntas,'perfilFrecuencia':perfilFrecuencia}
 	return render_to_response('account/frecuenciaConsumo.html', ctx, context_instance=RequestContext(request))
+
+@login_required(login_url='/login')
+def recordatorio(request):
+	alimentos = alimento.objects.all().order_by('nombre')
+	ctx = {'alimentos':alimentos}
+	return render_to_response('account/recordatorio24.html', ctx, context_instance=RequestContext(request))

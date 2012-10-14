@@ -9,6 +9,7 @@ urlpatterns = patterns('ciem.apps.account.views',
  url(r'^nutricionistas/$', 'nutricionistas', name="account_nutricionistas"),
  url(r'^ipaq/$', 'ipaq', name="account_ipaq"),
  url(r'^frecuencia/$', 'frecuencia', name="account_frecuencia"),
+ url(r'^recordatorio/$', 'recordatorio', name='account_recordatorio'),
  url(r'^profesional/$', 'soyProfesional', name="account_soyProfesional"),
 )
 

@@ -1,36 +1,35 @@
 {% extends "homepage/index.html" %}
+{% block css %}<link rel="stylesheet" href=" {{ MEDIA_URL }}css/account/antropometricos.css">{% endblock %}
+
 {% block content %}
 	<form action="/antropometricos/" id='formulario' method='post' enctype='multipart/form-data' action="">
 	{% csrf_token %}
-	<div id="pesoForm" class="campoForm">
-			Peso: {{ form.peso }}
-	</div>
-	<div id="tallaForm" class="campoForm">
-			Talla (Estatura): {{ form.estatura }}
-	</div>
-	<div id="circunferenciaCinturaForm" class="campoForm">
-			Circunferencia cintura: {{ form.circunferencia_cintura }}
-	</div>
-	<div id="circunferenciaCaderaForm" class="campoForm">
-			Circunferencia cadera: {{ form.circunferencia_cadera }}
-	</div>
-	<div id="patologia1Form" class="campoForm">
-			Hipertencion: {{ form.hipertencion }}
-	</div>
-	<div id="patologia1Form" class="campoForm">
-			Diabetes: {{ form.diabetes }}
-	</div>
-	<div id="patologia1Form" class="campoForm">
-			Cancer: {{ form.cancer }}
-	</div>
-	<div id="patologia1Form" class="campoForm">
-			Colesterol: {{ form.colesterol }}
-	</div>	
-	<div id="userForm" class="campoForm noDisplay">
-		<select name="user" id="id_user">
-			<option value="{{ id }}">0</option>
-		</select>
-	</div>
+	<div id="userForm" class="campoForm noDiplayDiv"><select name="user" id="id_user"><option value="{{ id }}">0</option></select></div>
+	<div class="contenedorOpciones">
+		<div id="pesoForm" class="campoForm">
+			<div class="labelCampo">Peso:{{ form.peso }}</div><div class="medidaIndicar" title="Kilogramos">Kg</div>
+		</div>
+		<div id="tallaForm" class="campoForm">
+			<div class="labelCampo">Talla (Estatura): {{ form.estatura }}</div><div class="medidaIndicar" title="Kilogramos">Kg</div>
+		</div>
+		<div id="circunferenciaCinturaForm" class="campoForm">
+			<div class="labelCampo">Circunferencia cintura: {{ form.circunferencia_cintura }}</div><div class="medidaIndicar" title="Kilogramos">Kg</div>
+		</div>
+		<div id="circunferenciaCaderaForm" class="campoForm">
+			<div class="labelCampo">Circunferencia cadera: {{ form.circunferencia_cadera }}</div><div class="medidaIndicar" title="Kilogramos">Kg</div>
+		</div>
+		<div id="patologia1Form" class="campoForm">
+			<div class="labelCampo">Hipertencion: {{ form.hipertencion }}</div>
+		</div>
+		<div id="patologia1Form" class="campoForm">
+			<div class="labelCampo">Diabetes: {{ form.diabetes }}</div>
+		</div>
+		<div id="patologia1Form" class="campoForm">
+			<div class="labelCampo">Cancer: {{ form.cancer }}</div>
+		</div>
+		<div id="patologia1Form" class="campoForm">
+			<div class="labelCampo">Colesterol: {{ form.colesterol }}</div>
+		</div>	
 	<p><input type='submit' value='Confirmar'/></p>
 	</form>
 {% endblock %}
