@@ -1,0 +1,128 @@
+
+div#desayuno{
+	font-weight: bold;
+	width: 450px;
+	display: inline-block;
+	margin-left: 25%;
+}
+div#merienda1{
+	font-weight: bold;
+	width: 450px;
+	display: inline-block;
+	margin-left: 25%;
+}
+div#almuerzo{
+	font-weight: bold;
+	width: 450px;
+	display: inline-block;
+	margin-left: 25%;
+}
+div#merienda2{
+	font-weight: bold;
+	width: 450px;
+	display: inline-block;
+	margin-left: 25%;
+}
+div#cena{
+	font-weight: bold;
+	width: 450px;
+	display: inline-block;
+	margin-left: 25%;
+}
+div#merienda3{
+	font-weight: bold;
+	width: 450px;
+	display: inline-block;
+	margin-left: 25%;
+}
+
+div.botonGroup{
+    text-align: center;
+}
+
+div#desayuno p{margin: 0;}
+div#merienda1 p{margin: 0;}
+div#almuerzo p {margin:0;}
+div#merienda2 p {margin:0;}
+div#cena p {margin: 0;}
+div#merienda3 p{margin: 0;}
+
+select#selCombo1{
+    width: 400px !important;
+}
+select#selCombo2{
+    width: 400px !important;
+}
+select#selCombo3{
+    width: 400px !important;
+}
+select#selCombo4{
+    width: 400px !important;
+}
+select#selCombo5{
+    width: 400px !important;
+}
+select#selCombo6{
+    width: 400px !important;
+}
+
+
+#input1 {
+	text-align: center;
+    width: 250px;
+    float: left;
+}
+#input2 {
+	text-align: center;
+    width: 250px;
+    float: left;
+}
+#input3 {
+	text-align: center;
+    width: 250px;
+    float: left;
+}
+#input4 {
+	text-align: center;
+    width: 250px;
+    float: left;
+}
+#input5 {
+	text-align: center;
+    width: 250px;
+    float: left;
+}
+#input6 {
+	text-align: center;
+    width: 250px;
+    float: left;
+}
+
+
+.porcion{
+	margin-left: 50px;
+}
+
+.botonVerde{
+	width: 30px;
+	height: 30px;
+	font-size: 1.3em;
+	line-height: 30px;border: 1px solid #20538D;text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);background: #009999;-webkit-transition-duration: 0.2s;-moz-transition-duration: 0.2s;transition-duration: 0.2s;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
+}
+
+.botonVerde:hover{
+	background: #81F7F3;
+	color:black;
+}
+
+.botonRojo{
+	color: white;
+	font-size: 1.3em;
+	background: #8A0808;
+	width: 30px;height: 30px;
+	line-height: 30px;border: 1px solid #20538D;text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);-webkit-transition-duration: 0.2s;-moz-transition-duration: 0.2s;transition-duration: 0.2s;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
+}
+.botonRojo:hover{
+	background: #FF0000;
+	color:black;
+}
