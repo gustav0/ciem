@@ -50,7 +50,7 @@ def antropometricos(request):
 	if form.is_valid():
 		form.save(request)
 	else:
-		print "hola"
+		print form.errors
 	ctx= {'form':form, 'id':request.user.id, }
 	return render_to_response('account/datosAntropometricosForm.html', ctx, context_instance=RequestContext(request))
 

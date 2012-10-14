@@ -1,8 +1,6 @@
-
 form #formulario{
 	height: 920px;
 }
-
 select:focus{
     outline: none;
 }
