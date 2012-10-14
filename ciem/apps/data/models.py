@@ -53,3 +53,6 @@ class pesoAlimento(models.Model):
 	numMedida= models.CharField(max_length=5, default='0')
 	medida = models.CharField(max_length=70, choices=MEDIDA, default='Taza')
 	peso = models.FloatField(default=0)	
+
+	def __unicode__(self):
+		return u"%s" % (self.alimento) 
