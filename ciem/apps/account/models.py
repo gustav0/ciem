@@ -186,4 +186,12 @@ class dataFrecuenciaConsumo(models.Model):
 
 class datosRecordatorio(models.Model):
 	"""Datos para almacenar del recordatori de 24 horas"""
+	SIONO = (('s','si'),('n','no'))
+	horaDesayuno = models.CharField(max_length=40)
+
+	horaMerienda1 = models.CharField(max_length=40)
+	horaAlmuerzo = models.CharField(max_length=40)
+	horaMerienda2 = models.CharField(max_length=40)
+	horaCena = models.CharField(max_length=40)
+	horaMerienda3 = models.CharField(max_length=40) 
 	objects = recordatorioManager()

@@ -25,6 +25,10 @@ class registerForm(UserCreationForm):
 		userProfile.objects.create(user=user, genero=self.cleaned_data['genero'], fecha_nacimiento=self.cleaned_data['fecha_nacimiento'], cedula=self.cleaned_data['cedula'], pais=self.cleaned_data['pais'], municipio=self.cleaned_data['municipio'])
 		return user
 
+class recordatorioForm(ModelForm):
+	class Meta:
+		model = datosRecordatorio
+
 class soyProfesionalForm(ModelForm):
 	class Meta:
 		model = profesional
