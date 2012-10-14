@@ -14,6 +14,7 @@ class Entry(models.Model):
     def __unicode__(self):
         return u"%s - %s" % (self.titulo, self.fecha_creacion) 
 
+
 class alimento(models.Model):
 	nombre = models.CharField(max_length=70)
 	calorias = models.FloatField()
@@ -45,3 +46,10 @@ class alimento(models.Model):
 
 	def __unicode__(self):
 		return u"%s - %s" % (self.nombre, self.calorias) 
+
+class pesoAlimento(models.Model):
+	alimento = models.ForeignKey(alimento)
+	MEDIDA =(('taza','taza'),('Cucharada','Cucharada'),('Cucharadita','Cucharadita'),('Unidad','Unidad'),('Rebanada','Rebanada'),('Casco','Casco'),('Porcion','Porcion'),('Onza','Onza'),('Trozo','Trozo'),('Chuleta','Chuleta'),('Bisteck','Bisteck'),('Rueda','Rueda'),('Filete','Filete'),('Lonja','Lonja') ) 
+	numMedida= models.CharField(max_length=20)
+	medida = models.CharField(max_length=70, choices=MEDIDA, default='Taza')
+	peso = models.FloatField(default = 20)	

@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 import datetime
 from ciem.apps.account.managers import *
+from ciem.apps.account.gestorDocumento import ContentTypeRestrictedFileField
 
 #from ciem.apps.account.managers import userManager
 
@@ -17,6 +18,15 @@ class userProfile(models.Model):
 	municipio = models.CharField(max_length=45)
 	user = models.ForeignKey(User)
 	objects = userProfileManager()
+
+class profesional(models.Model):
+	user = models.ForeignKey(User)
+	profesion =models.CharField(max_length=100)
+	universidad = models.CharField(max_length=200)
+	trabajo = models.CharField(max_length=200)
+	comentario = models.TextField()
+	telefono = models.CharField(max_length=30,help_text="ej:0261-7235420")
+	curriculum = ContentTypeRestrictedFileField(upload_to='curriculums', content_types=['application/pdf','application/zip','application/msword','word/document.xml','text/plain','application/vnd.oasis.opendocument.text'], max_upload_size=5242880)
 
 class datosAntropometricos(models.Model):
 	peso=models.FloatField(default=0)

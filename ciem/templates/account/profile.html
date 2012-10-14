@@ -3,7 +3,7 @@
 {% block content %}
 	<!-- {{ perms.data }} -->
 	{% if perms.data.add_alimento and perms.data.change_alimento %}
-		<div><a href="{% url nutricionista_perfilUsuarios %}">Eres nutricionista</a></div>
+		<div><a href="{% url nutricionista_perfilUsuarios %}">Ver lista de pacientes</a></div>
 	{% endif %}
 	Bienvenido {{ usuario }}
 	<div> Genero: {{ profile.get_genero_display }} </div>
@@ -16,4 +16,8 @@
 	<div id="calculadoraDiv">MI PERFIL ATROPOMETRICO</div></a>
 	<a href="{% url account_recordatorio %}">
 		<div id="calculadoraDiv">MI RECORDATORIO DE 24 HORAS</div></a>
+	<a href="{% url account_soyProfesional %}">
+	<div id="calculadoraDiv">soy profesional</div></a>
+	<a href="{% url data_pesoAlimento %}">
+	<div id="calculadoraDiv">Peso</div></a>
 {% endblock %}
