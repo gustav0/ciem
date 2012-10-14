@@ -10,16 +10,16 @@ from ciem.apps.data.models import *
 from django.forms.models import modelformset_factory
 
 @login_required(login_url='/login')
-def pesoAlimento(request):
-	pesosFormSet = modelformset_factory(pesoAlimento)	
+def pesoAlimentos(request):
+	pesosFormSet = modelformset_factory(pesoAlimento,extra=631,max_num=631)	
 	if request.method == 'POST':
 		pesos = pesosFormSet(request.POST)
 		if pesos.is_valid():
 			pesos.save()
 	else:
-		pesos = preguntasFormSet(queryset=pesoAlimento.objects.none())
+		pesos = pesosFormSet(queryset=alimento.objects.all())
 	aliment = alimento.objects.all()
-	ctx= {'form':pesos,'alimento':aliment}
+	ctx= {'pesos':pesos,'alimento':aliment}
 	return render_to_response('nutricionista/pesoAlimento.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')

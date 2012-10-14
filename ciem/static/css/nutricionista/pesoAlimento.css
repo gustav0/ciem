@@ -5,7 +5,7 @@
 #nombre{
 	width: 250px;
 }
-.noDiplayDiv{
+.noDisplayDiv{
 	display:none;
 }
 #alimento{
@@ -16,11 +16,14 @@
 	color:green;
 	width: 130px;
 }
-#id_peso{
-	width: 60px;
-
+#id_form-0-peso{
+	width
 }
-#id_numMedida{
+.campo input{
+	width: 60px;
+}: 60px;
+
+#id_form-0-numMedida{
 	width: 60px;
 }
 #medidaTitulo{
@@ -28,4 +31,7 @@
 }
 #peso{
 	margin-right: 50px;
+}
+.medida{
+	width: 200px;
 }

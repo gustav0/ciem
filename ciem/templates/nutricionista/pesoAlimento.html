@@ -1,4 +1,5 @@
 {% extends "homepage/index.html" %}
+{% load custom_filters%}
 {% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/nutricionista/pesoAlimento.css">{% endblock %}
 {% block tittle %}
 Ingrese El peso de acuerdo a la medida especificada, para los siguientes alimentos:
@@ -6,20 +7,21 @@ Ingrese El peso de acuerdo a la medida especificada, para los siguientes aliment
 {% block content %}
 <form action="" id='form' method='post' enctype='multipart/form-data'>
 	{% csrf_token %}
-	<div class="campo" id="alimento"> ALIMENTO </div>
-	<div class="campo" id="pesoTitulo"> PESO [ej. 20 g] </div> 
-	<div class="campo" id="medidaTitulo"> MEDIDA [ej. 1 taza]</div> </br>
-	{% for item in alimento  %}
-		<div class="campo" id="nombre"> {{ item.nombre|capfirst }}</div>
-		<div class="campo" id="peso">{{ form.peso }} <b>g</b></div>
-		<div class="campo"> {{ form.numMedida }}</div>
-		<div class="campo">{{ form.medida }}</div>
-		</br>
-    	<div class="noDisplayDiv">
-        	<select name="alimento" id="alimento_id">
-            	<option value="{{ item.id }}"></option>
-        	</select>	
-    	</div>	
-	{% endfor %}
-	<input type="submit" value="Guardar">
+		{{pesos.management_form}}
+		<div class="campo" id="alimento"> ALIMENTO </div>
+		<div class="campo" id="pesoTitulo"> PESO [ej. 20 g] </div> 
+		<div class="campo" id="medidaTitulo"> MEDIDA [ej. 1 taza]</div> </br></br>
+		{% for peso in pesos %}
+			<div class="campo" id="nombre">{{forloop.counter0|get_nombreAlimento:alimento}}</div>
+			<div class="campo" id="peso">{{ peso.peso }} <b>g</b></div>
+			<div class="campo"> {{ peso.numMedida }}</div>
+			<div>{{ peso.medida }}</div>
+			</br>
+    		<div class="noDisplayDiv">
+        		<select name="alimento" id="alimento_id">
+            		<option value="{{forloop.counter0|get_idAlimento:alimento}}"></option>
+        		</select>	
+    		</div>	
+    	{% endfor %}
+			<input type="submit" value="Guardar">
 {% endblock %}

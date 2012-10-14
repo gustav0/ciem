@@ -94,6 +94,14 @@ def au_getCedula(list,mid):
 			return list[i].cedula
 	return None
 
+# FILTRO PARA Modulo agregar peso
+@register.filter
+def get_nombreAlimento(loop,list):
+	return list[loop].nombre
+@register.filter
+def get_idAlimento(loop,list):
+	return list[loop].id
+
 #|||||||||||||||||||||||||||||||||||||||#
 #|FILTROS PARA LA FRECUENCIA DE CONSUMO|#
 #|||||||||||||||||||||||||||||||||||||||#
