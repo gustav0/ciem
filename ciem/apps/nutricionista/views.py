@@ -6,21 +6,6 @@ from django.http import HttpResponseRedirect
 from django.core.paginator import EmptyPage, PageNotAnInteger
 from ciem.apps.account.models import datosAntropometricos,antropometricosResultado,userProfile,ipaqResultado,ipaq,frecuenciaConsumo
 from django.contrib.auth.models import User
-from ciem.apps.data.models import *
-from django.forms.models import modelformset_factory
-
-@login_required(login_url='/login')
-def pesoAlimentos(request):
-	pesosFormSet = modelformset_factory(pesoAlimento,extra=631,max_num=631)	
-	if request.method == 'POST':
-		pesos = pesosFormSet(request.POST)
-		if pesos.is_valid():
-			pesos.save()
-	else:
-		pesos = pesosFormSet(queryset=alimento.objects.all())
-	aliment = alimento.objects.all()
-	ctx= {'pesos':pesos,'alimento':aliment}
-	return render_to_response('nutricionista/pesoAlimento.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')
 def perfilUsuarios(request):
