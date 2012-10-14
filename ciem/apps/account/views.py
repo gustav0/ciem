@@ -6,9 +6,14 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response,redirect
 from django.template import RequestContext
-from ciem.apps.account.forms import antropometricosForm,registerForm,ipaqForm, soyProfesionalForm
+from ciem.apps.account.forms import antropometricosForm,registerForm,ipaqForm, soyProfesionalForm, recordatorioForm
 from ciem.apps.account.managers import antropometricosManager,frecuenciaConsumoManager,dataFrecuenciaConsumoManager,alimentoFrecuenciaManager
+<<<<<<< HEAD
 from ciem.apps.account.models import datosAntropometricos,frecuenciaConsumo,dataFrecuenciaConsumo,alimentoFrecuencia,userProfile
+=======
+from ciem.apps.account.models import datosAntropometricos,frecuenciaConsumo,dataFrecuenciaConsumo,alimentoFrecuencia, datosRecordatorio
+from ciem.apps.data.models import alimento
+>>>>>>> 24d2a56d16df052073a0cac4866fe15fd60b4f52
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.forms.models import modelformset_factory
@@ -194,3 +199,9 @@ def frecuencia(request):
 			progreso = None
 	ctx={'progreso':progreso,'alimento':alimento,'preguntas':preguntas,'perfilFrecuencia':perfilFrecuencia}
 	return render_to_response('account/frecuenciaConsumo.html', ctx, context_instance=RequestContext(request))
+
+@login_required(login_url='/login')
+def recordatorio(request):
+	alimentos = alimento.objects.all().order_by('nombre')
+	ctx = {'alimentos':alimentos}
+	return render_to_response('account/recordatorio24.html', ctx, context_instance=RequestContext(request))

@@ -12,6 +12,7 @@ class userProfile(models.Model):
 	cedula = models.FloatField(default=1)
 	fecha_nacimiento = models.DateField()
 	pais = models.CharField(max_length=45)
+	municipio = models.CharField(max_length=45)
 	user = models.ForeignKey(User)
 	objects = userProfileManager()
 
@@ -181,3 +182,15 @@ class dataFrecuenciaConsumo(models.Model):
 	frecuencia = models.CharField(max_length=1, choices=FRECUENCIA, default='0')
 
 	objects = dataFrecuenciaConsumoManager()
+
+class datosRecordatorio(models.Model):
+	"""Datos para almacenar del recordatori de 24 horas"""
+	SIONO = (('s','si'),('n','no'))
+	horaDesayuno = models.CharField(max_length=40)
+
+	horaMerienda1 = models.CharField(max_length=40)
+	horaAlmuerzo = models.CharField(max_length=40)
+	horaMerienda2 = models.CharField(max_length=40)
+	horaCena = models.CharField(max_length=40)
+	horaMerienda3 = models.CharField(max_length=40) 
+	objects = recordatorioManager()
