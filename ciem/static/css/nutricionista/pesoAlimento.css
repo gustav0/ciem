@@ -5,7 +5,7 @@
 #nombre{
 	width: 250px;
 }
-.noDiplayDiv{
+.noDisplayDiv{
 	display:none;
 }
 #alimento{
@@ -17,9 +17,12 @@
 	width: 130px;
 }
 #id_form-0-peso{
-	width: 60px;
-
+	width
 }
+.campo input{
+	width: 60px;
+}: 60px;
+
 #id_form-0-numMedida{
 	width: 60px;
 }
@@ -28,4 +31,7 @@
 }
 #peso{
 	margin-right: 50px;
+}
+.medida{
+	width: 200px;
 }
