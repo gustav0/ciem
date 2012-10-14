@@ -50,6 +50,6 @@ class alimento(models.Model):
 class pesoAlimento(models.Model):
 	alimento = models.ForeignKey(alimento)
 	MEDIDA =(('taza','taza'),('Cucharada','Cucharada'),('Cucharadita','Cucharadita'),('Unidad','Unidad'),('Rebanada','Rebanada'),('Casco','Casco'),('Porcion','Porcion'),('Onza','Onza'),('Trozo','Trozo'),('Chuleta','Chuleta'),('Bisteck','Bisteck'),('Rueda','Rueda'),('Filete','Filete'),('Lonja','Lonja') ) 
-	numMedida= models.CharField(max_length=20)
+	numMedida= models.CharField(max_length=5, default='0')
 	medida = models.CharField(max_length=70, choices=MEDIDA, default='Taza')
-	peso = models.FloatField(default = 20)	
+	peso = models.FloatField(default=0)	
