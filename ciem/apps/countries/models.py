@@ -38,28 +38,22 @@ class Country(models.Model):
 		return self.printable_name
 
 
-class UsState(models.Model):
+class VeState(models.Model):
 	"""
-	United States Postal Service (USPS) State Abbreviations
-	
-	Note::
-		This model is fixed to the database table 'usstate' to be more general.
-		Change ``db_table`` if this cause conflicts with your database layout.
-		Or comment out the line for default django behaviour.
+	Municipios de estado
 	
 	"""
 	id = models.AutoField(primary_key=True)
-	name = models.CharField(_('State name'), max_length=50, null=False)
-	abbrev = models.CharField(_('Abbreviation'), max_length=2, null=False)
+	name = models.CharField(_('Nombre del estado'), max_length=50, null=False)
 
 	class Meta:
-		db_table = 'usstate'
-		verbose_name = _('US State')
-		verbose_name_plural = _('US States')
+		db_table = 'vestate'
+		verbose_name = _('VE State')
+		verbose_name_plural = _('VE States')
 		ordering = ('name',)
 
 	class Admin:
-		list_display = ('name', 'abbrev',)
+		list_display = ('name',)
 
 	def __unicode__(self):
 		return self.name
