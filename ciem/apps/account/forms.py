@@ -56,6 +56,7 @@ class antropometricosForm(ModelForm):
 	def calcular_obesidad(self):
 		peso = float(self.cleaned_data["peso"])
 		estatura = float(self.cleaned_data["estatura"])	
+		estaturaFinal = estatura/100
 		obesidad = peso / (math.pow(estatura,2))
 		return obesidad	
 
