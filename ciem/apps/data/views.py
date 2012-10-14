@@ -5,7 +5,6 @@ from ciem.apps.data.forms import *
 from ciem.apps.data.models import *
 
 
-@login_required(login_url='/login')
 def pesoAlimento(request):
 	form = pesoAlimentoForm(request.POST or None)
 	if form.is_valid():
