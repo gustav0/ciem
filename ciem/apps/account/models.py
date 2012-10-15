@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 import datetime
 from ciem.apps.account.managers import *
+from ciem.apps.data.models import alimento
 from ciem.apps.account.gestorDocumento import ContentTypeRestrictedFileField
 
 #from ciem.apps.account.managers import userManager
@@ -185,12 +186,22 @@ class dataFrecuenciaConsumo(models.Model):
 
 class datosRecordatorio(models.Model):
 	"""Datos para almacenar del recordatori de 24 horas"""
-	SIONO = (('s','si'),('n','no'))
-	horaDesayuno = models.CharField(max_length=40)
-
-	horaMerienda1 = models.CharField(max_length=40)
-	horaAlmuerzo = models.CharField(max_length=40)
-	horaMerienda2 = models.CharField(max_length=40)
-	horaCena = models.CharField(max_length=40)
-	horaMerienda3 = models.CharField(max_length=40) 
+	horaDesayuno = models.TimeField(max_length=40)
+	desayuna = models.BooleanField(default=False)
+	horaMerienda1 = models.TimeField(max_length=40)
+	merienda1 = models.BooleanField(default=False)
+	horaAlmuerzo = models.TimeField(max_length=40)
+	almuerza = models.BooleanField(default=False)
+	horaMerienda2 = models.TimeField(max_length=40)
+	horaCena = models.TimeField(max_length=40)
+	cena = models.BooleanField(default=False)
+	horaMerienda3 = models.TimeField(max_length=40) 
+	merienda3 = models.BooleanField(default=False)
 	objects = recordatorioManager()
+
+class datosRecordatorioResultado(models.Model):
+	recordatorio = models.ForeignKey(datosRecordatorio)
+
+class alimentoRecordatorio(models.Model):
+	alimento = models.ForeignKey(alimento)
+	datosRecordatorio = models.ForeignKey(datosRecordatorio)

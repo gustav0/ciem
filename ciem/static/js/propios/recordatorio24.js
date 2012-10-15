@@ -7,14 +7,7 @@ $(function(){
   $("#form1").bind("keypress", function(e) {
     if (e.keyCode == 13) return false;
   });
- 	$("#input1").enterKey(function () {
-	    if($('#input1').val() == ""){
-	  			alert("vacio");
-	  		}else{
-	  		$("#selCombo1").append('<option value="'+$('#input1').val()+'|'+$('input[name=porcion-desayuno]:checked').val()+'">'+$('#input1').val()+'</option>');
-			$('#input1').focus();
-			}
-	});
+
  	
 	/////////////////BOTON1///////////////////////
   	$('#botonDer1').click(function(){
@@ -31,6 +24,15 @@ $(function(){
 
   	$('#selCombo1').dblclick(function() {
   		$("#selCombo1 option:selected").remove();
+	});
+
+	 	$("#input1").enterKey(function () {
+	    if($('#input1').val() == ""){
+	  			alert("vacio");
+	  		}else{
+	  		$("#selCombo1").append('<option value="'+$('#input1').val()+'|'+$('input[name=porcion-desayuno]:checked').val()+'">'+$('#input1').val()+'</option>');
+			$('#input1').focus();
+			}
 	});
 
 
@@ -50,6 +52,15 @@ $(function(){
   	$('#selCombo2').dblclick(function() {
   		$("#selCombo2 option:selected").remove();
 	});
+
+	 	$("#input2").enterKey(function () {
+	    if($('#input2').val() == ""){
+	  			alert("vacio");
+	  		}else{
+	  		$("#selCombo2").append('<option value="'+$('#input2').val()+'|'+$('input[name=porcion-desayuno]:checked').val()+'">'+$('#input2').val()+'</option>');
+			$('#input2').focus();
+			}
+	});
   	///////////////////BOTON3////////////////
   	$('#botonDer3').click(function(){
   		if($('#input3').val() == ""){
@@ -65,6 +76,15 @@ $(function(){
 
   	$('#selCombo3').dblclick(function() {
   		$("#selCombo3 option:selected").remove();
+	});
+
+	 	$("#input3").enterKey(function () {
+	    if($('#input3').val() == ""){
+	  			alert("vacio");
+	  		}else{
+	  		$("#selCombo3").append('<option value="'+$('#input3').val()+'|'+$('input[name=porcion-desayuno]:checked').val()+'">'+$('#input3').val()+'</option>');
+			$('#input3').focus();
+			}
 	});
 
   	//////////////////BOTON4////////////////
@@ -85,6 +105,15 @@ $(function(){
   	$('#selCombo4').dblclick(function() {
   		$("#selCombo4 option:selected").remove();
 	});
+
+	 	$("#input4").enterKey(function () {
+	    if($('#input4').val() == ""){
+	  			alert("vacio");
+	  		}else{
+	  		$("#selCombo4").append('<option value="'+$('#input4').val()+'|'+$('input[name=porcion-desayuno]:checked').val()+'">'+$('#input4').val()+'</option>');
+			$('#input4').focus();
+			}
+	});
   	//////////////////BOTON5////////////////
   	$('#botonDer5').click(function(){
   		if($('#input5').val() == ""){
@@ -99,6 +128,16 @@ $(function(){
   	});
   	$('#selCombo5').dblclick(function() {
   		$("#selCombo5 option:selected").remove();
+	});
+
+
+	 	$("#input5").enterKey(function () {
+	    if($('#input5').val() == ""){
+	  			alert("vacio");
+	  		}else{
+	  		$("#selCombo5").append('<option value="'+$('#input5').val()+'|'+$('input[name=porcion-desayuno]:checked').val()+'">'+$('#input5').val()+'</option>');
+			$('#input5').focus();
+			}
 	});
   	  	//////////////////BOTON6////////////////
 
@@ -116,5 +155,14 @@ $(function(){
 
   	$('#selCombo6').dblclick(function() {
   		$("#selCombo6 option:selected").remove();
+	});
+
+	 	$("#input6").enterKey(function () {
+	    if($('#input6').val() == ""){
+	  			alert("vacio");
+	  		}else{
+	  		$("#selCombo6").append('<option value="'+$('#input6').val()+'|'+$('input[name=porcion-desayuno]:checked').val()+'">'+$('#input6').val()+'</option>');
+			$('#input6').focus();
+			}
 	});
 });
