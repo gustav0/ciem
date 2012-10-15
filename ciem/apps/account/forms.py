@@ -57,13 +57,14 @@ class antropometricosForm(ModelForm):
 		peso = float(self.cleaned_data["peso"])
 		estatura = float(self.cleaned_data["estatura"])	
 		estaturaFinal = estatura/100
-		obesidad = peso / (math.pow(estatura,2))
+		obesidad = peso / (math.pow(estaturaFinal,2))
 		return obesidad	
 
 	def calcular_indiceAdiposidad(self):
 		circunferencia_cadera = float(self.cleaned_data["circunferencia_cadera"])
 		estatura = float(self.cleaned_data["estatura"])
-		ia= (circunferencia_cadera/(estatura * math.sqrt(estatura)))-18
+		estaturaFinal = estatura/100
+		ia= (circunferencia_cadera/(estaturaFinal * math.sqrt(estaturaFinal)))-18
 		print ia
 		return ia
 
