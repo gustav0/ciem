@@ -1,23 +1,18 @@
 {% extends 'homepage/index.html' %}
 
 {% block content %}
-	 {{ profile.user }}
+	{% if data.count > 0%}
+	 {{ profile.user.get_full_name }}, usted ha completado el formulario de datos antropométricos {{data.count}} veces
 
-	{% for d in pagina.object_list %}
+	{% for d in data %}
 	<div>Perfil del {{ d.fecha_creacion|date:"d/m/y" }} </div>
 	<div>Peso: {{ d.peso }}</div>
 	<div>Talla: {{ d.talla }}</div>
 	<br>
-	<br>
 	{% endfor%}
-	{% if pagina.has_previous %}
-	<a href="?page={{ pagina.previous_page_number }} ">prev</a> |
-	{% endif %}
-	{{ pagina.number }}
-	{% if pagina.has_next %}
-	|<a href="?page={{ pagina.next_page_number }} "> next</a>
-	{% endif %}
-
+	{%else%}
+	no tiene registros.
+	{%endif%}
 <a class="Antro" href="{% url account_datosAntropometricos %}">
 	<div id="calculadoraDiv">LLENAR DATOS ATROPOMETRICOS</div></a>
 {% endblock %}

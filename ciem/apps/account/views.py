@@ -7,8 +7,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response,redirect
 from django.template import RequestContext
 from ciem.apps.account.forms import antropometricosForm,registerForm,ipaqForm, soyProfesionalForm, recordatorioForm, editRegisterForm
-from ciem.apps.account.managers import antropometricosManager,frecuenciaConsumoManager,dataFrecuenciaConsumoManager,alimentoFrecuenciaManager
-from ciem.apps.account.models import datosAntropometricos,frecuenciaConsumo,dataFrecuenciaConsumo,alimentoFrecuencia,userProfile,datosRecordatorio
+from ciem.apps.account.models import datosAntropometricos,frecuenciaConsumo,dataFrecuenciaConsumo,alimentoFrecuencia,userProfile,datosRecordatorio,ipaqResultado
 from ciem.apps.data.models import alimento
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -41,21 +40,17 @@ def editRegister(request):
 
 @login_required(login_url='/login')
 def profile(request):
-	ctx={'profile':request.user.get_profile(),'usuario':request.user.get_full_name,}
+	getUser = int(request.user.id)
+	perfilFrecuencia = frecuenciaConsumo.objects.getById(getUser)
+	#perfilIpaq = ipaq.objects.getById(getUser)
+	perfilAntropometrico = datosAntropometricos.objects.getByIdJoin(getUser)
+	ctx={'profile':request.user.get_profile(),'usuario':request.user.get_full_name,'perfilFrecuencia':perfilFrecuencia,'perfilAntropometrico':perfilAntropometrico,}
 	return render_to_response('account/profile.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')
 def perfilAntropometrico(request):
 	data = datosAntropometricos.objects.getById(request.user.id)
-	paginator = Paginator(data, 2)
-	numero_pagina = request.GET.get('page',1)
-	try:
-		pagina = paginator.page(numero_pagina)
-	except EmptyPage:
-		pagina = paginator.page(paginator.num_pages)
-	except PageNotAnInteger:
-		pagina = paginator.page(1)
-	ctx = {'profile':request.user.get_profile(), 'pagina':pagina, }
+	ctx = {'profile':request.user.get_profile(), 'data':data, }
 	return render_to_response('account/perfilAntropometrico.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')
@@ -101,7 +96,6 @@ def soyProfesional(request):
 			return render_to_response('account/soyProfesional.html', ctx, context_instance=RequestContext(request))
 	else:
 		form = soyProfesionalForm
-		nombre = request.user.get_full_name
 		ctx = {'form':form,'id':request.user.id}
 		return render_to_response('account/soyProfesional.html', ctx, context_instance=RequestContext(request))
 
