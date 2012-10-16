@@ -29,10 +29,15 @@
 }
 
 /*VISTA PACIENTE*/
+table,th,td{
+	border: 1px solid black;
+	margin: 0;
+	border-collapse:collapse;
+}
 .fondo{
 	float: left;
 	margin-left: 150px;
-	width: 660px;
+	width: 720px;
 }
 .haLlenado{
 	float: left;
