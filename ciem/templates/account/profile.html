@@ -6,10 +6,18 @@
 		<div><a href="{% url nutricionista_perfilUsuarios %}">Ver lista de pacientes</a></div>
 	{% endif %}
 	Bienvenido {{ usuario }}
-	<div> Genero: {{ profile.get_genero_display }} </div>
-	<div> Cédula: {% load humanize %}
-	{{ profile.cedula|floatformat:0|intcomma }} </div>
-	<div> Fecha de nacimiento: {{ profile.fecha_nacimiento }} </div>
+	<div class="general"> 	
+		<div> Genero: {{ profile.get_genero_display }} </div>
+		<div> Cédula: {% load humanize %}
+		{{ profile.cedula|floatformat:0|intcomma }} </div>
+		<div> Fecha de nacimiento: {{ profile.fecha_nacimiento }} </div>
+		<div> Pais: {{profile.pais}} </div>
+		{% if profile.municipio %}
+			<div> Municipio: {{profile.municipio}} </div>
+		{% endif %}
+		<a href="{% url account_editRegister %}">Editar datos </a>
+	</div>
+
 	<a href="{% url account_frecuencia %}">
 	<div id="calculadoraDiv">MI FRECUENCIA DE CONSUMO</div></a>
 	<a href="{% url account_perfilAntropometrico %}">
@@ -18,4 +26,5 @@
 		<div id="calculadoraDiv">MI RECORDATORIO DE 24 HORAS</div></a>
 	<a href="{% url account_soyProfesional %}"> 
 	<div id="calculadoraDiv">Profesional</div></a>
+
 {% endblock %}

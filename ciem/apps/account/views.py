@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response,redirect
 from django.template import RequestContext
-from ciem.apps.account.forms import antropometricosForm,registerForm,ipaqForm, soyProfesionalForm, recordatorioForm
+from ciem.apps.account.forms import antropometricosForm,registerForm,ipaqForm, soyProfesionalForm, recordatorioForm, editRegisterForm
 from ciem.apps.account.managers import antropometricosManager,frecuenciaConsumoManager,dataFrecuenciaConsumoManager,alimentoFrecuenciaManager
 from ciem.apps.account.models import datosAntropometricos,frecuenciaConsumo,dataFrecuenciaConsumo,alimentoFrecuencia,userProfile,datosRecordatorio
 from ciem.apps.data.models import alimento
@@ -14,6 +14,8 @@ from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.forms.models import modelformset_factory
 from django.core.mail import send_mail
+from django.forms.models import model_to_dict
+from django.views.decorators.csrf import csrf_protect
 
 def register(request):
 	form = registerForm(request.POST or None)
@@ -24,6 +26,18 @@ def register(request):
 		return redirect(reverse('account_profile'))
 	ctx={'form': form,}
 	return render_to_response('account/register.html', ctx, context_instance=RequestContext(request))
+
+def editRegister(request):
+	if request.method == 'POST':
+		form = registerForm(request.POST or None)
+	else:
+		usuario = userProfile.objects.get(id=request.user.id)
+		dictionary = model_to_dict(usuario, fields=[], exclude=[])
+		form = editRegisterForm(dictionary) 
+	if form.is_valid():
+		form.save()
+	ctx={'form': form,}
+	return render_to_response('account/editRegister.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')
 def profile(request):
