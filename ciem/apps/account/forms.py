@@ -29,6 +29,7 @@ class registerForm(UserCreationForm):
 class editRegisterForm(ModelForm):
 	class Meta:
 		model = userProfile
+
 class recordatorioForm(ModelForm):
 	class Meta:
 		model = datosRecordatorio
@@ -83,17 +84,20 @@ class antropometricosForm(ModelForm):
 		estatura = float(self.cleaned_data["estatura"])
 		estaturaFinal = estatura/100
 		ia= (circunferencia_cadera/(estaturaFinal * math.sqrt(estaturaFinal)))-18
-		if genero == 'f':
+		if genero == 'f' or genero == 'o':
 			if ia > 35:
 				apreciacion_adiposidad = "Aumentado"
 			else: 
 				apreciacion_adiposidad = "Normal"
+			print "buena1 apreciacion adiposidad"
 		elif genero == 'm':
 			if ia > 25:
 				apreciacion_adiposidad = "Aumentado"
 			else: 
 				apreciacion_adiposidad = "Normal"
+			print "buena2 apreciacion adiposidad"
 		else:
+			print "mala apreciacion adiposidad"
 			apreciacion_adiposidad =""
 		adiposidad = {'indiceAdiposidad':ia, 'apreciacion_adiposidad':apreciacion_adiposidad}
 		return adiposidad
@@ -106,7 +110,7 @@ class antropometricosForm(ModelForm):
 				apreciacion_cintura = "Signo de Obesidad"
 			else: 
 				apreciacion_cintura = "Normal"
-		elif genero == 'm':
+		elif genero == 'm' or genero == 'o':
 			if cc >= 102:
 				apreciacion_cintura = "Signo de Obesidad"
 			else: 

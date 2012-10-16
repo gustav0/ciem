@@ -5,7 +5,7 @@ class antropometricosManager(models.Manager):
 	def getById(self,id):
 		return self.model.objects.filter(user_id=id).order_by('-fecha_creacion')
 	def getByIdJoin(self,id):
-		query='SELECT data.*,resultado.metabolismobasal,resultado.indiceadiposidad,resultado.obesidad,resultado.apreciacion_obesidad,resultado.apreciacion_cintura,resultado.apreciacion_adiposidad FROM account_datosantropometricos as data INNER JOIN account_antropometricosresultado as resultado ON data.id=resultado.datosantropometricos_id where data.user_id='+str(id)+';'
+		query='SELECT data.*,resultado.metabolismobasal,resultado.indiceAdiposidad,resultado.obesidad,resultado.apreciacion_obesidad,resultado.apreciacion_cintura,resultado.apreciacion_adiposidad FROM account_datosantropometricos as data INNER JOIN account_antropometricosresultado as resultado ON data.id=resultado.datosantropometricos_id where data.user_id='+str(id)+';'
 		return self.model.objects.raw(query)
 
 class userProfileManager(models.Manager):

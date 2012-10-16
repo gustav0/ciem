@@ -10,11 +10,11 @@
 	{% for d in data %}
 	<tr>
 		<td>{{ d.fecha_creacion|date:"d M, Y" }}</td>
-		<td>{{ d.peso }}</td>
-		<td>{{ d.estatura }}</td>
-		<td>{{ d.circunferencia_cintura }}</td>
-		<td>{{ d.circunferencia_cadera }}</td>
-		<td>{{ d.apreciacion_obesidad }}</td>
+		<td>{{ d.peso|floatformat:0 }}</td>
+		<td>{{ d.estatura|floatformat:0 }}</td>
+		<td>{{ d.circunferencia_cintura|floatformat:0 }}</td>
+		<td>{{ d.circunferencia_cadera|floatformat:0 }}</td>
+		<td>{% if d.apreciacion_obesidad == "Normopeso" %}Normal{%else%}{{ d.apreciacion_obesidad }}{%endif%}</td>
 		<td>{{ d.apreciacion_cintura }}</td>
 		<td>{{ d.apreciacion_adiposidad }}</td>
 		<td>{% if d.cancer %}Sí{% else %}No{% endif %}</td>
