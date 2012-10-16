@@ -201,6 +201,7 @@ def frecuencia(request):
 
 @login_required(login_url='/login')
 def recordatorio(request):
+	form = recordatorioForm(request.POST or None)
 	alimentos = alimento.objects.all().order_by('nombre')
-	ctx = {'alimentos':alimentos}
+	ctx = {'form':form,'alimentos':alimentos}
 	return render_to_response('account/recordatorio24.html', ctx, context_instance=RequestContext(request))
