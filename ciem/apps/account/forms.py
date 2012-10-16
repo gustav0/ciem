@@ -63,14 +63,57 @@ class antropometricosForm(ModelForm):
 		estaturaFinal = estatura/100
 		obesidad = peso / (math.pow(estaturaFinal,2))
 		return obesidad	
+	def calcular_apreciacion_obesidad(self):
+		ob = self.calcular_obesidad()
+		if( ob < 24.9):
+			apreciacion="Normopeso"
+		elif ( ob < 29.9):
+			apreciacion="Sobrepeso (Obesidad grado I)" 
+		elif ( ob < 34.9 ):
+			apreciacion="Obesidad grado II " 	
+		elif ( ob < 39.9 ):
+			apreciacion="Obesidad grado III " 	
+		else:
+			apreciacion="Obesidad grado IV" 				
+		return apreciacion
 
-	def calcular_indiceAdiposidad(self):
+	def calcular_indiceAdiposidad(self,request):
+		genero= userProfile.objects.get(user_id=request.user.id).genero
 		circunferencia_cadera = float(self.cleaned_data["circunferencia_cadera"])
 		estatura = float(self.cleaned_data["estatura"])
 		estaturaFinal = estatura/100
 		ia= (circunferencia_cadera/(estaturaFinal * math.sqrt(estaturaFinal)))-18
-		print ia
-		return ia
+		if genero == 'f':
+			if ia > 35:
+				apreciacion_adiposidad = "Aumentado"
+			else: 
+				apreciacion_adiposidad = "Normal"
+		elif genero == 'm':
+			if ia > 25:
+				apreciacion_adiposidad = "Aumentado"
+			else: 
+				apreciacion_adiposidad = "Normal"
+		else:
+			apreciacion_adiposidad =""
+		adiposidad = {'indiceAdiposidad':ia, 'apreciacion_adiposidad':apreciacion_adiposidad}
+		return adiposidad
+
+	def calcular_cintura(self,request):
+		genero= userProfile.objects.get(user_id=request.user.id).genero
+		cc = float(self.cleaned_data["circunferencia_cintura"])
+		if genero == 'f':
+			if cc >= 88:
+				apreciacion_cintura = "Signo de Obesidad"
+			else: 
+				apreciacion_cintura = "Normal"
+		elif genero == 'm':
+			if cc >= 102:
+				apreciacion_cintura = "Signo de Obesidad"
+			else: 
+				apreciacion_cintura  = "Normal"
+		else:
+			apreciacion_cintura  =""		
+		return apreciacion_cintura
 
 	def calculate_age(self,born):
 	    today = date.today()
@@ -86,7 +129,8 @@ class antropometricosForm(ModelForm):
 
 	def save(self,request):
 		datosAntropometricos = super(antropometricosForm,self).save()
-		antropometricosResultado.objects.create(datosAntropometricos=datosAntropometricos,metabolismoBasal=self.calcular_metabolismoBasal(request),requerimientoCaloricoDiario=self.calcular_requerimientoCaloricoDiario(),indiceAdiposidad=self.calcular_indiceAdiposidad(),obesidad = self.calcular_obesidad())
+		adiposidad = self.calcular_indiceAdiposidad(request)
+		antropometricosResultado.objects.create(datosAntropometricos=datosAntropometricos,metabolismoBasal=self.calcular_metabolismoBasal(request),requerimientoCaloricoDiario=self.calcular_requerimientoCaloricoDiario(),indiceAdiposidad=adiposidad['indiceAdiposidad'],obesidad = self.calcular_obesidad(),apreciacion_obesidad=self.calcular_apreciacion_obesidad(),apreciacion_adiposidad=adiposidad['apreciacion_adiposidad'],apreciacion_cintura=self.calcular_cintura(request))
 		return datosAntropometricos			
 		
 class ipaqForm(ModelForm):

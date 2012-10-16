@@ -48,9 +48,11 @@ class antropometricosResultado(models.Model):
 	metabolismoBasal = models.FloatField(default = 0)
 	requerimientoCaloricoDiario = models.FloatField(default = 0)
 	indiceAdiposidad = models.FloatField(default = 0)
+	apreciacion_adiposidad = models.CharField(max_length=40) 
 	obesidad = models.FloatField(default = 0)
+	apreciacion_obesidad = models.CharField(max_length=40) 
 	objects = antropometricosResultadoManager()
-
+	apreciacion_cintura = models.CharField(max_length=80) 
 class ipaq(models.Model):
 	user = models.ForeignKey(User)
 	dias = ( ('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),('6','6'),('7','7'), )
