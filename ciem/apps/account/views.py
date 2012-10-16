@@ -49,9 +49,12 @@ def antropometricos(request):
 	form = antropometricosForm(request.POST or None)
 	if form.is_valid():
 		form.save(request)
+		final = True
+		apreciacion = None
 	else:
-		print form.errors
-	ctx= {'form':form, 'id':request.user.id, }
+		final = False
+		apreciacion = None
+	ctx= {'form':form, 'id':request.user.id,'final':final,'apreciacion':apreciacion }
 	return render_to_response('account/datosAntropometricosForm.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')
