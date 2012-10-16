@@ -6,7 +6,7 @@
 	<div class="fondo">
 	{% if data|count_by_len > 0 %}<div class="haLlenado"><b>{{ profile.user.get_full_name|cap }}</b>, usted ha completado el formulario de datos antropométricos {{data|count_by_len}} {% if data|count_by_len == 1%}vez{%else%} veces{%endif%}</div>
 	<table id="tablaId">
-<tr><th scope="col">Fecha</th><th scope="col">Peso</th><th scope="col">Estatura</th><th scope="col">Circ. cintura</th><th scope="col">Circ. cadera</th><th scope="col">Obesidad</th><th scope="col">Cancer</th><th scope="col" title="trigliceridos">Trig.</th><th scope="col" title="Colesterol elevado">Colest.</th><th scope="col">Diabetes</th><th scope="col" title="Hipertencion">Hiper.</th></tr>
+<tr><th scope="col">Fecha</th><th scope="col">Peso</th><th scope="col">Estatura</th><th scope="col">Circ. cintura</th><th scope="col">Circ. cadera</th><th scope="col" title="Grado de obesidad">Obesidad</th><th scope="col"title="Apreciación de su cintura">Cintura</th><th scope="col"title="Apreciación de su índice de adiposidad">Adiposidad</th><th scope="col">Cancer</th><th scope="col" title="trigliceridos">Trig.</th><th scope="col" title="Colesterol elevado">Colest.</th><th scope="col">Diabetes</th><th scope="col" title="Hipertencion">Hiper.</th></tr>
 	{% for d in data %}
 	<tr>
 		<td>{{ d.fecha_creacion|date:"d M, Y" }}</td>
@@ -15,17 +15,14 @@
 		<td>{{ d.circunferencia_cintura }}</td>
 		<td>{{ d.circunferencia_cadera }}</td>
 		<td>{{ d.apreciacion_obesidad }}</td>
+		<td>{{ d.apreciacion_cintura }}</td>
+		<td>{{ d.apreciacion_adiposidad }}</td>
 		<td>{% if d.cancer %}Sí{% else %}No{% endif %}</td>
 		<td>{% if d.trigliceridos %}Sí{% else %}No{% endif %}</td>
 		<td>{% if d.colesterol %}Sí{% else %}No{% endif %}</td>
 		<td>{% if d.diabetes %}Sí{% else %}No{% endif %}</td>
 		<td>{% if d.hipertencion %}Sí{% else %}No{% endif %}</td>
 	</tr>
-			<!--{% if d.cancer %}<div>Cancer: Sí</div>{%endif%}
-			{% if d.trigliceridos %}<div>Triglicéridos: Sí</div>{%endif%}
-			{% if d.colesterol %}<div>Colesterol: Sí</div>{%endif%}
-			{% if d.diabetes %}<div>Diabetes: Sí</div>{%endif%}
-			{% if d.hipertencion %}<div>Hipertención: Sí</div>{%endif%}-->
 	{% endfor%}
 	</table>
 	{%else%}

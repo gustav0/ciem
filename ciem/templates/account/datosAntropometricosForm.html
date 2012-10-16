@@ -10,7 +10,7 @@
 {% else %}
 	<form action="/antropometricos/" id='formulario' method='post' enctype='multipart/form-data' action="">
 	{% csrf_token %}
-	<div id="userForm" class="campoForm noDiplayDiv"><select name="user" id="id_user"><option value="{{ id }}">0</option></select></div>
+	<div id="userForm" class="campoForm noDisplayDiv"><select name="user" id="id_user"><option value="{{ id }}">0</option></select></div>
 	<div class="contenedorOpciones">
 		<div id="pesoForm" class="campoForm">
 			<div class="labelCampo">Peso:{{ form.peso }}</div><div class="medidaIndicar" title="Kilogramos">Kg</div>
