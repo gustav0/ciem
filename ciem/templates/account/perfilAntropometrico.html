@@ -1,16 +1,31 @@
 {% extends 'homepage/index.html' %}
 {%load custom_filters%}
+{% block css %}<link rel="stylesheet" href=" {{ MEDIA_URL }}css/account/antropometricos.css">{% endblock %}
+
 {% block content %}
-	{% if data.count > 0%}<div class="haLlenado"><b>{{ profile.user.get_full_name|cap }}</b>, usted ha completado el formulario de datos antropométricos {{data.count}} veces</div>
+	<div class="fondo">
+	{% if data|count_by_len > 0 %}<div class="haLlenado"><b>{{ profile.user.get_full_name|cap }}</b>, usted ha completado el formulario de datos antropométricos {{data|count_by_len}} {% if data|count_by_len == 1%}vez{%else%} veces{%endif%}</div>
 	{% for d in data %}
-	<div>Perfil del {{ d.fecha_creacion|date:"d/m/y" }} </div>
-	<div>Peso: {{ d.peso }}</div>
-	<div>Talla: {{ d.talla }}</div>
-	<br>
+	<div class="perfilN">
+		<div style="margin-bottom:8px;">Perfil del {{ d.fecha_creacion|date:"d/m/y" }} </div>
+		<div class="masInformacion">
+			<div>Peso: {{ d.peso }}</div>
+			<div>Estatura: {{ d.estatura }}</div>
+			<div>Circunferencia de cintura: {{ d.circunferencia_cintura }}</div>
+			<div>Circunferencia de cadera: {{ d.circunferencia_cadera }}</div>
+			<div>Obesidad: {{ d.apreciacion_obesidad }}</div>
+			{% if d.cancer %}<div>Cancer: Sí</div>{%endif%}
+			{% if d.trigliceridos %}<div>Triglicéridos: Sí</div>{%endif%}
+			{% if d.colesterol %}<div>Colesterol: Sí</div>{%endif%}
+			{% if d.diabetes %}<div>Diabetes: Sí</div>{%endif%}
+			{% if d.hipertencion %}<div>Hipertención: Sí</div>{%endif%}
+		</div>
+	</div>
 	{% endfor%}
 	{%else%}
 	Para comenzar a llenar su información antropométrica presione el siguiente boton.
 	{%endif%}
+	</div>
 <a class="Antro" href="{% url account_datosAntropometricos %}">
 	<div id="calculadoraDiv">LLENAR DATOS ATROPOMETRICOS</div></a>
 {% endblock %}

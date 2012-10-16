@@ -41,15 +41,12 @@ def editRegister(request):
 @login_required(login_url='/login')
 def profile(request):
 	getUser = int(request.user.id)
-	perfilFrecuencia = frecuenciaConsumo.objects.getById(getUser)
-	#perfilIpaq = ipaq.objects.getById(getUser)
-	perfilAntropometrico = datosAntropometricos.objects.getByIdJoin(getUser)
-	ctx={'profile':request.user.get_profile(),'usuario':request.user.get_full_name,'perfilFrecuencia':perfilFrecuencia,'perfilAntropometrico':perfilAntropometrico,}
+	ctx={'profile':request.user.get_profile(),'usuario':request.user.get_full_name,}
 	return render_to_response('account/profile.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')
 def perfilAntropometrico(request):
-	data = datosAntropometricos.objects.getById(request.user.id)
+	data = datosAntropometricos.objects.getByIdJoin(request.user.id)
 	ctx = {'profile':request.user.get_profile(), 'data':data, }
 	return render_to_response('account/perfilAntropometrico.html', ctx, context_instance=RequestContext(request))
 

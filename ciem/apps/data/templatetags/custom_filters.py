@@ -59,7 +59,10 @@ def cap(value):
 
 		fixed = fixed + " " + name
 	return fixed
-
+@register.filter#DEVUELVE EL PROGRESO ACTUAL DE LA FRECUENCIA DE CONSUMO
+def count_by_len(var):
+	count = len(list(var))
+	return count
 
 @register.filter#calcular edad
 def calculate_age(born):
