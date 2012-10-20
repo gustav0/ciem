@@ -30,10 +30,6 @@ class editRegisterForm(ModelForm):
 	class Meta:
 		model = userProfile
 
-class recordatorioForm(ModelForm):
-	class Meta:
-		model = datosRecordatorio
-
 class soyProfesionalForm(ModelForm):
 	class Meta:
 		model = profesional
@@ -136,7 +132,18 @@ class antropometricosForm(ModelForm):
 		adiposidad = self.calcular_indiceAdiposidad(request)
 		antropometricosResultado.objects.create(datosAntropometricos=datosAntropometricos,metabolismoBasal=self.calcular_metabolismoBasal(request),requerimientoCaloricoDiario=self.calcular_requerimientoCaloricoDiario(),indiceAdiposidad=adiposidad['indiceAdiposidad'],obesidad = self.calcular_obesidad(),apreciacion_obesidad=self.calcular_apreciacion_obesidad(),apreciacion_adiposidad=adiposidad['apreciacion_adiposidad'],apreciacion_cintura=self.calcular_cintura(request))
 		return datosAntropometricos			
-		
+	
+
+class recordatorioForm(ModelForm):
+	desayuno = forms.TypedChoiceField(choices=((1, 'Si'), (0, 'No')), widget=forms.RadioSelect)
+	merienda0 = forms.TypedChoiceField(choices=((1, 'Si'), (0, 'No')), widget=forms.RadioSelect)
+	almuerzo = forms.TypedChoiceField(choices=((1, 'Si'), (0, 'No')), widget=forms.RadioSelect)
+	merienda2 = forms.TypedChoiceField(choices=((1, 'Si'), (0, 'No')), widget=forms.RadioSelect)
+	cena = forms.TypedChoiceField(choices=((1, 'Si'), (0, 'No')), widget=forms.RadioSelect)
+	merienda3 = forms.TypedChoiceField(choices=((1, 'Si'), (0, 'No')), widget=forms.RadioSelect)
+	class Meta:
+		model = datosRecordatorio
+
 class ipaqForm(ModelForm):
 	global minAndandoTotal,minVigorosoTotal, minModeradoTotal, metTotal,metTotalVigoroso,metTotalModerado, metTotalAndar
 	metTotal = 0.0

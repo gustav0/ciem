@@ -15,9 +15,27 @@
 	<form action="." method="GET" id="form1">
 		{% csrf_token %}
 		<div id="recordatorioForm" class="campoForm">
-			{{ form.as_p }}
-			<div id="desayuno"><p>Desayuno</p>
+			
+			<div id="desayuno"><h3>Desayuno</h3>
+			<div class="campoForm">
+				{{ form.horaDesayuno.errors }}
+				<label for="id_horaDesayuno">Hora del desayuno:</label>
+				{{ form.horaDesayuno }}
+			</div>
+			<div class="campoForm">
+				{{ form.desayuno.erros }}
+				<label for="id_desayuno">Usted desayuna todos los días:</label>
+				{{ form.desayuno }}
+			</div>
+			<div class="campoForm">
+				{{ form.diasDesayuno.errors }}
+				<label for="id_diasDesayuno">Especifique cuantos días</label>
+				{{ form.diasDesayuno }}
+			</div>
+			<div class="campoForm">
+			<label>Buscar alimentos:</label>
 			<input list="alimentos" name="alimento" id="input1">
+			</div>
 			<datalist id="alimentos">
 				{% for a in alimentos%}
 				<OPTION value="{{a.nombre}}">{{a.id}}</OPTION>
@@ -33,7 +51,7 @@
 				<input id="botonIzq1" type="button" value="-" class="botonRojo">
 			</div>
 			<p>Alimentos consumidos en el desayuno</p>
-			<SELECT id="selCombo1" NAME="selCombo" SIZE="5" style="width: 150px;float: left;">
+			<SELECT id="selCombo1" multiple="multiple" name="selCombo1" SIZE="5" >
 			</SELECT>
 			</div> 
 			<!-- SEPARACION -->
@@ -55,7 +73,7 @@
 				<input id="botonIzq2" type="button" value="-" class="botonRojo">
 			</div>
 			<p>Alimentos consumidos entre el desayuno y el almuerzo</p>
-			<SELECT id="selCombo2" NAME="selCombo" SIZE="5"></SELECT>
+			<SELECT id="selCombo2" name="selCombo2" SIZE="5"></SELECT>
 			</div> 
 			<!-- SEPARACION -->
 			<hr>
