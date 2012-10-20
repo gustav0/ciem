@@ -1,0 +1,117 @@
+.mensajeBienvenida{
+	float: left;
+	font-weight: bold;
+	font-size: 20px;
+	margin-left: 40px;
+	margin-bottom: 30px;
+}
+.divisorSeccion{
+	float: left;
+	width: 840px;
+	font-size: 13px;
+	height: 16px;
+	margin-bottom: 5px;
+}
+.lineaDivisorSeccion{
+	background-color: lightgray;
+	height: 2px;
+	float: left;
+	width: 600px;
+	margin-top: -8px;
+	margin-left: 150px;
+}
+.generalIzquierda{
+	float: left;
+	width: 350px;
+	height: 100px;
+	margin-top: 10px;
+}
+.generalDerecha{
+	float: left;
+	width: 350px;
+	height: 100px;
+	margin-top: 10px;
+}
+.fondoGeneral{
+	float: left;
+	width: 860px;
+	height: 150px;
+	margin-left: 100px;
+}
+.labelGeneral{
+	float: left;
+	font-size: 17px;
+	width: 140px;
+	color: #818D50;
+	text-align: right;
+	margin-right: 10px;
+}
+.contenidoGeneral{
+	float: left;
+	color: #525252;
+}
+.lineaGeneral{
+	float: left;
+	clear: both;
+	margin-bottom: 10px;
+}
+.fondoActividad{
+	float: left;
+	width: 860px;
+	margin-left: 100px;
+}
+.tituloActividad{
+	float: left;
+	margin-left: 10px;
+	margin-right: 10px;
+	font-size: 17px;
+	font-weight: bold;
+}
+.enlaceActividad{
+	float: left;
+	margin-top: 4px;
+	font-size: 10px;
+}
+.enlaceActividad a{
+	text-decoration: none;
+	color: #4B4B4B;
+}
+.enlaceActividad a:hover{
+	color: #8A3200;
+}
+.lineaTitulo{
+	width: 500px;
+	float: left;
+	margin-top: 50px;
+}
+.lineaActividad{
+	margin-top: 10px;
+	float: left;
+	clear: both;
+}
+.labelActividad{
+	float: left;
+	font-size: 17px;
+	width: 240px;
+	color: #818D50;
+	text-align: right;
+	margin-right: 20px;
+}
+
+/* BOTON */
+.botonLlenar{
+	float: left;
+	background-color: #CAEBCF;
+	width: 200px;
+	height: 40px;
+	margin-top: 70px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 1px 3px 2px 0px #B4B4B4;
+	box-shadow: 1px 3px 2px 0px #B4B4B4;
+}
+.textoBoton{
+	font-size: 13px;
+	text-indent: 6px;
+	line-height: 37px;
+}

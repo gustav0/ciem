@@ -1,22 +1,52 @@
 {% extends 'homepage/index.html' %}
-
+{% load humanize %}
+{% load custom_filters %}
+{% block css %}<link rel="stylesheet" href=" {{ MEDIA_URL }}css/account/perfil.css">{% endblock %}
 {% block content %}
-	<!-- {{ perms.data }} -->
-	{% if perms.data.add_alimento and perms.data.change_alimento %}
-		<div><a href="{% url nutricionista_perfilUsuarios %}">Ver lista de pacientes</a></div>
-	{% endif %}
-	Bienvenido {{ usuario }}
-	<div class="general"> 	
-		<div> Genero: {{ profile.get_genero_display }} </div>
-		<div> Cédula: {% load humanize %}
-		{{ profile.cedula|floatformat:0|intcomma }} </div>
-		<div> Fecha de nacimiento: {{ profile.fecha_nacimiento }} </div>
-		<div> Pais: {{profile.pais}} </div>
-		{% if profile.municipio %}
-		<div> Municipio: {{profile.municipio}} </div>
-		{% endif %}
-		<a href="{% url account_editRegister %}">Editar datos </a>
+	<div class="mensajeBienvenida">
+	Perfil de {{ user }}, Bienvenido 
 	</div>
+	
+	<div class="fondoGeneral"> 
+		<div class="divisorSeccion"> INFORMACIÓN GENERAL<div class="lineaDivisorSeccion"></div></div>
+		<div class="generalIzquierda">
+			<div class="lineaGeneral"><div class="labelGeneral">Nombre completo:</div><div class="contenidoGeneral">{{ user.get_full_name|cap }}</div></div>
+			<div class="lineaGeneral"><div class="labelGeneral">Género:</div><div class="contenidoGeneral">{{ profile.get_genero_display }}</div></div>
+			<div class="lineaGeneral"><div class="labelGeneral">Cédula:</div><div class="contenidoGeneral">{{ profile.cedula|floatformat:0|intcomma }}</div></div>
+		</div>
+		<div class="generalDerecha">
+			<div class="lineaGeneral"><div class="labelGeneral">Fecha de nacimiento:</div><div class="contenidoGeneral">{{ profile.fecha_nacimiento }}</div></div>
+			<div class="lineaGeneral"><div class="labelGeneral">Pais:</div><div class="contenidoGeneral">{{ profile.pais }}</div></div>
+			<div class="lineaGeneral"><div class="labelGeneral">Municipio:</div><div class="contenidoGeneral">{{ profile.municipio }}</div></div>
+		</div>
+	</div>
+	<div class="fondoActividad"> 
+		<div class="divisorSeccion"> ACTIVIDAD EN LA PÁGINA<div class="lineaDivisorSeccion"></div></div>
+		<div class="lineaTitulo"><div class="tituloActividad">Datos antropométricos</div><div class="enlaceActividad"><a href="{% url account_perfilAntropometrico %}">[ VER HISTORIAL COMPLETO ]</a></div>
+			<div class="lineaActividad"><div class="labelActividad">Veces que lo ha completado:</div><div class="contenidoGeneral">{% if antropometrico %}{{ antropometrico|count_by_len }}{% else %}0{% endif %}</div></div>
+			<div class="lineaActividad"><div class="labelActividad">Último resultado obtenido:</div><div class="contenidoGeneral">{% if antropometrico %}{{ antropometrico.0.apreciacion_obesidad }}{% else %}No hay resultados{% endif %}</div></div>
+		</div><div class="botonLlenar"> <div class="textoBoton">LLENAR DATOS ANTROPOMETRICOS</div></div>
+		<div class="lineaTitulo"><div class="tituloActividad">Frecuencia de consumo</div><div class="enlaceActividad">
+		{% if frecuencia %}{% if frecuencia.0.progreso|get_int == 9 %}[ COMPLETADO ]{% else %}<a href="{% url account_frecuencia %}">[ COMPLETAR ]</a>{% endif %}{% else %}<a href="{% url account_frecuencia %}">[ INICIAR ]</a>{% endif %}
+		</div>
+			<div class="lineaActividad"><div class="labelActividad">Progreso:</div><div class="contenidoGeneral">{% if frecuencia %}
+			{% if frecuencia.0.progreso|get_int == 9 %}100%{% else %}{{ frecuencia.0.progreso }}0%{% endif %}{% else %}0%{% endif %}</div></div>
+			<div class="lineaActividad"><div class="contenidoGeneral" style="margin-left:30px;"> *Le recomendamos completar su frecuencia nutricional </div></div>
+		</div><div class="botonLlenar"><div class="textoBoton">LLENAR FRECUENCIA DE CONSUMO</div></div>
+		
+		<div class="lineaTitulo" style="margin-bottom:50px;"><div class="tituloActividad">Cuestionario de actividad física (IPAQ)</div><div class="enlaceActividad"><a href="#">[ VER HISTORIAL COMPLETO ]</a></div>
+			<div class="lineaActividad"><div class="labelActividad">Veces que lo ha completado:</div><div class="contenidoGeneral"> NNN </div></div>
+			<div class="lineaActividad"><div class="labelActividad">Último resultado obtenido:</div><div class="contenidoGeneral"> Obesidad grado XX </div></div>
+		</div><div class="botonLlenar"> <div class="textoBoton">LLENAR IPAQ</div></div>
+	</div>
+
+
+
+
+
+<!--
+		<a href="{% url account_editRegister %}">Editar datos </a>
+	
 
 	<a href="{% url account_frecuencia %}">
 	<div id="calculadoraDiv">MI FRECUENCIA DE CONSUMO</div></a>
@@ -27,4 +57,9 @@
 	<a href="{% url account_soyProfesional %}"> 
 	<div id="calculadoraDiv">Profesional</div></a>
 
+	<!-- {{ perms.data }} 
+	{% if perms.data.add_alimento and perms.data.change_alimento %}
+		<div><a href="{% url nutricionista_perfilUsuarios %}">Ver lista de pacientes</a></div>
+	{% endif %}
+-->
 {% endblock %}
