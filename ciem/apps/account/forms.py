@@ -89,15 +89,12 @@ class antropometricosForm(ModelForm):
 				apreciacion_adiposidad = "Aumentado"
 			else: 
 				apreciacion_adiposidad = "Normal"
-			print "buena1 apreciacion adiposidad"
 		elif genero == 'm':
 			if ia > 25:
 				apreciacion_adiposidad = "Aumentado"
 			else: 
 				apreciacion_adiposidad = "Normal"
-			print "buena2 apreciacion adiposidad"
 		else:
-			print "mala apreciacion adiposidad"
 			apreciacion_adiposidad =""
 		adiposidad = {'indiceAdiposidad':ia, 'apreciacion_adiposidad':apreciacion_adiposidad}
 		return adiposidad

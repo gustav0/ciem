@@ -7,7 +7,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response,redirect
 from django.template import RequestContext
 from ciem.apps.account.forms import antropometricosForm,registerForm,ipaqForm, soyProfesionalForm, recordatorioForm, editRegisterForm
-from ciem.apps.account.models import datosAntropometricos,frecuenciaConsumo,dataFrecuenciaConsumo,alimentoFrecuencia,userProfile,datosRecordatorio,ipaqResultado
+from ciem.apps.account.models import datosAntropometricos,frecuenciaConsumo,dataFrecuenciaConsumo,alimentoFrecuencia,userProfile,datosRecordatorio,ipaqResultado,ipaq as myipaq
 from ciem.apps.data.models import alimento
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -40,8 +40,10 @@ def editRegister(request):
 
 @login_required(login_url='/login')
 def profile(request):
-	getUser = int(request.user.id)
-	ctx={'profile':request.user.get_profile(),'usuario':request.user.get_full_name,}
+	antropometrico = datosAntropometricos.objects.getForPerfil(request.user.id)
+	frecuencia = frecuenciaConsumo.objects.getById(request.user.id)
+	ipaqr = myipaq.objects.getById(request.user.id)
+	ctx={'profile':request.user.get_profile(),'antropometrico':antropometrico,'frecuencia':frecuencia}
 	return render_to_response('account/profile.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')
