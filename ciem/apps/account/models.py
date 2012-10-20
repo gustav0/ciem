@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.auth.models import User
 import datetime
 from ciem.apps.account.managers import *
@@ -189,16 +190,18 @@ class dataFrecuenciaConsumo(models.Model):
 class datosRecordatorio(models.Model):
 	"""Datos para almacenar del recordatori de 24 horas"""
 	horaDesayuno = models.TimeField(max_length=40)
-	desayuna = models.BooleanField(default=False)
+	desayuno = models.BooleanField(default=True)
+	diasDesayuno =  models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(5)])
 	horaMerienda1 = models.TimeField(max_length=40)
-	merienda1 = models.BooleanField(default=False)
+	merienda1 = models.BooleanField(default=True)
 	horaAlmuerzo = models.TimeField(max_length=40)
-	almuerza = models.BooleanField(default=False)
+	almuerza = models.BooleanField(default=True)
 	horaMerienda2 = models.TimeField(max_length=40)
+	merienda2 = models.BooleanField(default=True)
 	horaCena = models.TimeField(max_length=40)
-	cena = models.BooleanField(default=False)
+	cena = models.BooleanField(default=True)
 	horaMerienda3 = models.TimeField(max_length=40) 
-	merienda3 = models.BooleanField(default=False)
+	merienda3 = models.BooleanField(default=True)
 	objects = recordatorioManager()
 
 class datosRecordatorioResultado(models.Model):
