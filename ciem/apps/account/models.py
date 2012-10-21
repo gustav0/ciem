@@ -54,6 +54,7 @@ class antropometricosResultado(models.Model):
 	apreciacion_obesidad = models.CharField(max_length=40) 
 	objects = antropometricosResultadoManager()
 	apreciacion_cintura = models.CharField(max_length=80) 
+
 class ipaq(models.Model):
 	user = models.ForeignKey(User)
 	dias = ( ('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),('6','6'),('7','7'), )
@@ -188,25 +189,44 @@ class dataFrecuenciaConsumo(models.Model):
 	objects = dataFrecuenciaConsumoManager()
 
 class datosRecordatorio(models.Model):
-	"""Datos para almacenar del recordatori de 24 horas"""
+	"""Datos para almacenar del recordatorio de 24 horas"""
+	user = models.ForeignKey(User)
+	fecha_creacion = models.DateField(auto_now_add=True)
 	horaDesayuno = models.TimeField(max_length=40)
 	desayuno = models.BooleanField(default=True)
-	diasDesayuno =  models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(5)])
+	diasDesayuno =  models.IntegerField(default=7, validators=[MinValueValidator(0), MaxValueValidator(7)])
+	
 	horaMerienda1 = models.TimeField(max_length=40)
 	merienda1 = models.BooleanField(default=True)
+	diasMerienda1 =  models.IntegerField(default=7, validators=[MinValueValidator(0), MaxValueValidator(7)])
+	
 	horaAlmuerzo = models.TimeField(max_length=40)
-	almuerza = models.BooleanField(default=True)
+	almuerzo = models.BooleanField(default=True)
+	diasAlmuerzo =  models.IntegerField(default=7,validators=[MinValueValidator(0), MaxValueValidator(7)])
+	
 	horaMerienda2 = models.TimeField(max_length=40)
 	merienda2 = models.BooleanField(default=True)
+	diasMerienda2 =  models.IntegerField(default=7, validators=[MinValueValidator(0), MaxValueValidator(7)])
+	
 	horaCena = models.TimeField(max_length=40)
 	cena = models.BooleanField(default=True)
+	diasCena =  models.IntegerField(default=7, validators=[MinValueValidator(0), MaxValueValidator(7)])
+	
 	horaMerienda3 = models.TimeField(max_length=40) 
 	merienda3 = models.BooleanField(default=True)
+	diasMerienda3 =  models.IntegerField(default=7, validators=[MinValueValidator(0), MaxValueValidator(7)])
 	objects = recordatorioManager()
 
+
+class alimentoRecordatorio(models.Model):
+	datosRecordatorio = models.ForeignKey(datosRecordatorio)
+	namealimento = models.CharField(max_length=40)
+	tam = models.CharField(max_length=1)
+	#alimento = models.ForeignKey(alimento)
+
+
+	
 class datosRecordatorioResultado(models.Model):
 	recordatorio = models.ForeignKey(datosRecordatorio)
 
-class alimentoRecordatorio(models.Model):
-	alimento = models.ForeignKey(alimento)
-	datosRecordatorio = models.ForeignKey(datosRecordatorio)
+

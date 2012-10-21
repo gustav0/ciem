@@ -133,13 +133,19 @@ class antropometricosForm(ModelForm):
 
 class recordatorioForm(ModelForm):
 	desayuno = forms.TypedChoiceField(choices=((1, 'Si'), (0, 'No')), widget=forms.RadioSelect)
-	merienda0 = forms.TypedChoiceField(choices=((1, 'Si'), (0, 'No')), widget=forms.RadioSelect)
+	merienda1 = forms.TypedChoiceField(choices=((1, 'Si'), (0, 'No')), widget=forms.RadioSelect)
 	almuerzo = forms.TypedChoiceField(choices=((1, 'Si'), (0, 'No')), widget=forms.RadioSelect)
 	merienda2 = forms.TypedChoiceField(choices=((1, 'Si'), (0, 'No')), widget=forms.RadioSelect)
 	cena = forms.TypedChoiceField(choices=((1, 'Si'), (0, 'No')), widget=forms.RadioSelect)
 	merienda3 = forms.TypedChoiceField(choices=((1, 'Si'), (0, 'No')), widget=forms.RadioSelect)
 	class Meta:
 		model = datosRecordatorio
+
+class recordatorioAlimentos(ModelForm):
+	class Meta:
+		model = alimentoRecordatorio
+	
+
 
 class ipaqForm(ModelForm):
 	global minAndandoTotal,minVigorosoTotal, minModeradoTotal, metTotal,metTotalVigoroso,metTotalModerado, metTotalAndar
