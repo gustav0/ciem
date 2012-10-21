@@ -17,14 +17,22 @@ class registerForm(UserCreationForm):
 	email = forms.EmailField(max_length=75, label='Email',widget=forms.TextInput(attrs={'placeholder': 'nick@email.com'}))
 	pais = forms.ModelChoiceField(label="Pais", queryset=Country.objects.all(), widget=forms.Select(attrs={'class':'selector'}))
 	venezuela = forms.ModelChoiceField(label='Municipio', queryset=VeState.objects.all(), widget=forms.Select(attrs={'class':'selector'}))
+	preguntaSecreta = forms.ChoiceField(label="Pregunta secreta", choices=userProfile.PREGUNTA)
+	respuestaSecreta = forms.CharField(max_length=70, label='Respuesta Secreta', widget=forms.TextInput(attrs={'placeholder': 'Respuesta secreta'}))
 	def save(self, *arg, **kwargs):
 		user = super(registerForm, self).save(*arg, **kwargs)
-		if self.cleaned_data["first_name"] != null:
-			user.first_name = self.cleaned_data["first_name"]
-			user.last_name = self.cleaned_data["last_name"]
-			user.email = self.cleaned_data["email"]
-			userProfile.objects.create(user=user, genero=self.cleaned_data['genero'], fecha_nacimiento=self.cleaned_data['fecha_nacimiento'], cedula=self.cleaned_data['cedula'], pais=self.cleaned_data['pais'], municipio=self.cleaned_data['municipio'])
+		#if self.cleaned_data["first_name"] != null:
+		user.first_name = self.cleaned_data["first_name"]
+		user.last_name = self.cleaned_data["last_name"]
+		user.email = self.cleaned_data["email"]
+		userProfile.objects.create(user=user, genero=self.cleaned_data['genero'], fecha_nacimiento=self.cleaned_data['fecha_nacimiento'], cedula=self.cleaned_data['cedula'], pais=self.cleaned_data['pais'],\
+		municipio=self.cleaned_data['venezuela'],preguntaSecreta=self.cleaned_data['preguntaSecreta'],respuestaSecreta=self.cleaned_data['respuestaSecreta'])
 		return user
+
+class recuperarContrasenaForm(forms.Form):
+	username = forms.CharField(max_length=70)
+	cedula = forms.FloatField(widget=forms.TextInput(attrs={'placeholder': '9999999'}))
+	respuestaSecreta = forms.CharField(max_length=70, label='Respuesta Secreta', widget=forms.TextInput(attrs={'placeholder': 'Respuesta secreta'}))
 
 class editRegisterForm(ModelForm):
 	class Meta:
