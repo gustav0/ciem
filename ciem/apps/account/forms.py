@@ -145,8 +145,6 @@ class recordatorioAlimentos(ModelForm):
 	class Meta:
 		model = alimentoRecordatorio
 	
-
-
 class ipaqForm(ModelForm):
 	global minAndandoTotal,minVigorosoTotal, minModeradoTotal, metTotal,metTotalVigoroso,metTotalModerado, metTotalAndar
 	metTotal = 0.0

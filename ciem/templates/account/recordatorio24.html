@@ -38,7 +38,7 @@
 			<input list="alimentos" name="alimento" id="input1">
 			<datalist id="alimentos">
 				{% for a in alimentos%}
-				<OPTION value="{{a.nombre}}">{{a.id}}</OPTION>
+				<OPTION value="{{a.nombre}}|{{a.id}}">{{a.id}}</OPTION>
 				{% endfor %}
 			</datalist>
 			</div>			
