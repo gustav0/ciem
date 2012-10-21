@@ -13,6 +13,7 @@
 
 {% block content %}
 <h2>Recordatorio 24 horas</h2>
+<h4>La siguiente encuesta debe llenarse cuidadosamente, lo ideal es que coloque lo consumido habitaulmente en cada una de las comidas.</h4>
 	<form action="." method="POST" id="form1">
 		{% csrf_token %}
 		<input type="hidden" id="user_id" name="user" value="{{ id }}" />

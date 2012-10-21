@@ -150,7 +150,9 @@ margin-left: 50px;
 .campoForm input{
 	float: right;
 }
-
+.campoForm select{
+	float: right;
+}
 
 .botonVerde{
 	width: 30px;
