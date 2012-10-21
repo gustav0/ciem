@@ -12,140 +12,252 @@
 {% endblock %}
 
 {% block content %}
-	<form action="." method="GET" id="form1">
+<h2>Recordatorio 24 horas</h2>
+	<form action="." method="POST" id="form1">
 		{% csrf_token %}
+		<input type="hidden" id="user_id" name="user" value="{{ id }}" />
 		<div id="recordatorioForm" class="campoForm">
-			{{ form.as_p }}
-			<div id="desayuno"><p>Desayuno</p>
+			<div id="desayuno"><h3>Desayuno</h3>
+			<div class="campoForm">
+				{{ form.horaDesayuno.errors }}
+				<label for="id_horaDesayuno">Hora del desayuno:</label>
+				{{ form.horaDesayuno }}
+			</div>
+			<div class="campoForm">
+				{{ form.desayuno.erros }}
+				<label for="id_desayuno">Usted desayuna todos los días:</label>
+				{{ form.desayuno }}
+			</div>
+			<div class="campoForm">
+				{{ form.diasDesayuno.errors }}
+				<label for="id_diasDesayuno">Especifique cuantos días</label>
+				{{ form.diasDesayuno }}
+			</div>
+			<div class="campoForm">
+			<label>Buscar alimentos:</label>
 			<input list="alimentos" name="alimento" id="input1">
 			<datalist id="alimentos">
 				{% for a in alimentos%}
 				<OPTION value="{{a.nombre}}">{{a.id}}</OPTION>
 				{% endfor %}
 			</datalist>
+			</div>			
 			<div class="porcion">Porcion:  
 				P<input type="radio" value="p" name="porcion-desayuno">
 				M<input type="radio" value="m" name="porcion-desayuno" checked>
 				G<input type="radio" value="g" name="porcion-desayuno">
 			</div>
 			<div class="botonGroup">
-				<input id="botonDer1" type="button" value="+" class="botonVerde">
-				<input id="botonIzq1" type="button" value="-" class="botonRojo">
+				<input id="botonAgregar1" type="button" value="+" class="botonVerde">
+				<input id="botonRemover1" type="button" value="-" class="botonRojo">
 			</div>
-			<p>Alimentos consumidos en el desayuno</p>
-			<SELECT id="selCombo1" NAME="selCombo" SIZE="5" style="width: 150px;float: left;">
+			<label for="id_selCombo1">Alimentos consumidos en el desayuno</label>
+			<SELECT id="selCombo1" multiple="multiple" name="selCombo1" SIZE="5" >
 			</SELECT>
 			</div> 
 			<!-- SEPARACION -->
 			<hr>
-			<div id="merienda1"><p>Primera merienda</p>
-			<input id="input2" list="alimentos" name="alimento">
+			<div id="merienda1"><h3>Primera merienda</h3>
+			<div class="campoForm">
+				{{ form.horaMerienda1.errors }}
+				<label for="id_horaMerienda1">Hora de la primera merienda:</label>
+				{{ form.horaMerienda1 }}
+			</div>
+			<div class="campoForm">
+				{{ form.merienda1.erros }}
+				<label for="id_merienda1">Usted siempre merienda entre el desayuno y el almuerzo:</label>
+				{{ form.merienda1 }}
+			</div>
+			<div class="campoForm">
+				{{ form.diasMerienda1.errors }}
+				<label for="id_diasMerienda1">Especifique cuantos días</label>
+				{{ form.diasMerienda1 }}
+			</div>
+			<div class="campoForm">
+			<label>Buscar alimentos:</label>
+			<input list="alimentos" name="alimento" id="input2">
 			<datalist id="alimentos">
 				{% for a in alimentos%}
-				<OPTION value="{{ a.nombre }}" ></OPTION>
+				<OPTION value="{{a.nombre}}">{{a.id}}</OPTION>
 				{% endfor %}
 			</datalist>
+			</div>	
 			<div class="porcion">Porcion:  
 				P<input type="radio" value="p" name="porcion-merienda1">
 				M<input type="radio" value="m" name="porcion-merienda1" checked>
 				G<input type="radio" value="g" name="porcion-merienda1">
 			</div>
 			<div class="botonGroup">
-				<input id="botonDer2" type="button" value="+" class="botonVerde">
-				<input id="botonIzq2" type="button" value="-" class="botonRojo">
+				<input id="botonAgregar2" type="button" value="+" class="botonVerde">
+				<input id="botonRemover2" type="button" value="-" class="botonRojo">
 			</div>
 			<p>Alimentos consumidos entre el desayuno y el almuerzo</p>
-			<SELECT id="selCombo2" NAME="selCombo" SIZE="5"></SELECT>
+			<SELECT id="selCombo2" multiple="multiple" name="selCombo2" SIZE="5"></SELECT>
 			</div> 
 			<!-- SEPARACION -->
 			<hr>
-			<div id="almuerzo"><p>Almuerzo</p>
-			<input id="input3" list="alimentos" name="alimento">
+			<div id="almuerzo"><h3>Almuerzo</h3>
+			<div class="campoForm">
+				{{ form.horaAlmuerzo.errors }}
+				<label for="id_horaAlmuerzo">Hora del almuerzo:</label>
+				{{ form.horaAlmuerzo }}
+			</div>
+			<div class="campoForm">
+				{{ form.almuerzo.erros }}
+				<label for="id_almuerzo">Usted almuerza todos los días:</label>
+				{{ form.almuerzo }}
+			</div>
+			<div class="campoForm">
+				{{ form.diasAlmuerzo.errors }}
+				<label for="id_diasMerienda1">Especifique cuantos días</label>
+				{{ form.diasAlmuerzo }}
+			</div>
+
+			<div class="campoForm">
+			<label>Buscar alimentos:</label>
+			<input list="alimentos" name="alimento" id="input3">
 			<datalist id="alimentos">
 				{% for a in alimentos%}
-				<OPTION value="{{ a.nombre }}" ></OPTION>
+				<OPTION value="{{a.nombre}}">{{a.id}}</OPTION>
 				{% endfor %}
 			</datalist>
+			</div>	
 			<div class="porcion">Porcion:  
 				P<input type="radio" value="p" name="porcion-almuerzo">
 				M<input type="radio" value="m" name="porcion-almuerzo" checked>
 				G<input type="radio" value="g" name="porcion-almuerzo">
 			</div>
 			<div class="botonGroup">
-				<input id="botonDer3" type="button" value="+" class="botonVerde">
-				<input id="botonIzq3" type="button" value="-" class="botonRojo">
+				<input id="botonAgregar3" type="button" value="+" class="botonVerde">
+				<input id="botonRemover3" type="button" value="-" class="botonRojo">
 			</div>
 			<p>Alimentos consumidos en el almuerzo</p>
-			<SELECT id="selCombo3" NAME="selCombo" SIZE="5"> 
+			<SELECT id="selCombo3" multiple="multiple" NAME="selCombo3" SIZE="5"> 
 			</SELECT>
 			</div> 
 			<!-- SEPARACION -->
 			<hr>
-			<div id="merienda2"><p>Segunda merienda</p>
-			<input id="input4" list="alimentos" name="alimento">
+			<div id="merienda2"><h3>Segunda merienda</h3>
+			<div class="campoForm">
+				{{ form.horaMerienda2.errors }}
+				<label for="id_horaMerienda2">Hora de la segunda merienda:</label>
+				{{ form.horaMerienda2 }}
+			</div>
+			<div class="campoForm">
+				{{ form.merienda2.erros }}
+				<label for="id_merienda2">Usted siempre merienda entre el almuerzo y la cena:</label>
+				{{ form.merienda2 }}
+			</div>
+			<div class="campoForm">
+				{{ form.diasMerienda2.errors }}
+				<label for="id_diasMerienda2">Especifique cuantos días</label>
+				{{ form.diasMerienda2 }}
+			</div>
+			<div class="campoForm">
+			<label>Buscar alimentos:</label>
+			<input list="alimentos" name="alimento" id="input4">
 			<datalist id="alimentos">
 				{% for a in alimentos%}
-				<OPTION value="{{ a.nombre }}" ></OPTION>
+				<OPTION value="{{a.nombre}}">{{a.id}}</OPTION>
 				{% endfor %}
 			</datalist>
+			</div>	
 			<div class="porcion">Porcion:  
 				P<input type="radio" value="p" name="porcion-merienda2">
 				M<input type="radio" value="m" name="porcion-merienda2" checked>
 				G<input type="radio" value="g" name="porcion-merienda2">
 			</div>
 			<div class="botonGroup">
-				<input id="botonDer4" type="button" value="+" class="botonVerde">
-				<input id="botonIzq4" type="button" value="-" class="botonRojo">
+				<input id="botonAgregar4" type="button" value="+" class="botonVerde">
+				<input id="botonRemover4" type="button" value="-" class="botonRojo">
 			</div>
 			<p>Alimentos consumidos entre el almuerzo y la cena</p>
-			<SELECT id="selCombo4" NAME="selCombo" SIZE="5"> 
+			<SELECT id="selCombo4" multiple="multiple" NAME="selCombo4" SIZE="5"> 
 			</SELECT>
 			</div> 
 			<!-- SEPARACION -->
 			<hr>
-			<div id="cena"><p>Cena</p>
-			<input id="input5" list="alimentos" name="alimento">
+			<div id="cena"><h3>Cena</h3>
+			<div class="campoForm">
+				{{ form.horaCena.errors }}
+				<label for="id_horacena">Hora de la cena:</label>
+				{{ form.horaCena }}
+			</div>
+			<div class="campoForm">
+				{{ form.cena.erros }}
+				<label for="id_cena">Usted cena todos los días:</label>
+				{{ form.cena }}
+			</div>
+			<div class="campoForm">
+				{{ form.diasCena.errors }}
+				<label for="id_diascena">Especifique cuantos días</label>
+				{{ form.diasCena }}
+			</div>
+			<div class="campoForm">
+			<label>Buscar alimentos:</label>
+			<input list="alimentos" name="alimento" id="input5">
 			<datalist id="alimentos">
 				{% for a in alimentos%}
-				<OPTION value="{{ a.nombre }}" ></OPTION>
+				<OPTION value="{{a.nombre}}">{{a.id}}</OPTION>
 				{% endfor %}
 			</datalist>
+			</div>	
 			<div class="porcion">Porcion:  
 				P<input type="radio" value="p" name="porcion-cena">
 				M<input type="radio" value="m" name="porcion-cena" checked>
 				G<input type="radio" value="g" name="porcion-cena">
 			</div>
 			<div class="botonGroup">
-				<input id="botonDer5" type="button" value="+" class="botonVerde">
-				<input id="botonIzq5" type="button" value="-" class="botonRojo">
+				<input id="botonAgregar5" type="button" value="+" class="botonVerde">
+				<input id="botonRemover5" type="button" value="-" class="botonRojo">
 			</div>
 			<p>Alimentos consumidos en la cena</p>
-			<SELECT id="selCombo5" NAME="selCombo" SIZE="5"> 
+			<SELECT id="selCombo5" multiple="multiple" NAME="selCombo5" SIZE="5"> 
 			</SELECT>
 			</div> 
 			<!-- SEPARACION -->
 			<hr>
-			<div id="merienda3"><p>Tercera merienda</p>
-			<input id="input6" list="alimentos" name="alimento">
+			<div id="merienda3"><h3>Tercera merienda</h3>
+			<div class="campoForm">
+				{{ form.horaMerienda3.errors }}
+				<label for="id_horaMerienda3">Hora de la primera merienda:</label>
+				{{ form.horaMerienda3 }}
+			</div>
+			<div class="campoForm">
+				{{ form.merienda3.erros }}
+				<label for="id_merienda3">Usted merienda entre el desayuno y el almuerzo:</label>
+				{{ form.merienda3 }}
+			</div>
+			<div class="campoForm">
+				{{ form.diasMerienda3.errors }}
+				<label for="id_diasMerienda3">Especifique cuantos días</label>
+				{{ form.diasMerienda3 }}
+			</div>
+			<div class="campoForm">
+			<label>Buscar alimentos:</label>
+			<input list="alimentos" name="alimento" id="input6">
 			<datalist id="alimentos">
 				{% for a in alimentos%}
-				<OPTION value="{{ a.nombre }}" ></OPTION>
+				<OPTION value="{{a.nombre}}">{{a.id}}</OPTION>
 				{% endfor %}
 			</datalist>
+			</div>	
 			<div class="porcion">Porcion:  
 				P<input type="radio" value="p" name="porcion-merienda3">
 				M<input type="radio" value="m" name="porcion-merienda3" checked>
 				G<input type="radio" value="g" name="porcion-merienda3">
 			</div>
 			<div class="botonGroup">
-				<input id="botonDer6" type="button" value="+" class="botonVerde">
-				<input id="botonIzq6" type="button" value="-" class="botonRojo">
+				<input id="botonAgregar6" type="button" value="+" class="botonVerde">
+				<input id="botonRemover6" type="button" value="-" class="botonRojo">
 			</div>
 			<p>Alimentos consumidos después de la cena</p>
-			<SELECT id="selCombo6" NAME="selCombo" SIZE="5"> 
+			<SELECT id="selCombo6" multiple="multiple" NAME="selCombo6" SIZE="5"> 
 			</SELECT>
 			</div> 
 		</div>
+		{{ form.errors }}
+		{{ form.non_field_errors }}
 		<input type="submit" value="Cargar" id="botonRecordar">
 	</form>
 {% endblock %}

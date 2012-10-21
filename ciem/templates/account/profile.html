@@ -22,36 +22,37 @@
 	</div>
 	<div class="fondoActividad"> 
 		<div class="divisorSeccion"> ACTIVIDAD EN LA PÁGINA<div class="lineaDivisorSeccion"></div></div>
+		{% if frecuencia and antropometrico %}
 		<div class="lineaTitulo"><div class="tituloActividad">Datos antropométricos</div><div class="enlaceActividad"><a href="{% url account_perfilAntropometrico %}">[ VER HISTORIAL COMPLETO ]</a></div>
 			<div class="lineaActividad"><div class="labelActividad">Veces que lo ha completado:</div><div class="contenidoGeneral">{% if antropometrico %}{{ antropometrico|count_by_len }}{% else %}0{% endif %}</div></div>
 			<div class="lineaActividad"><div class="labelActividad">Último resultado obtenido:</div><div class="contenidoGeneral">{% if antropometrico %}{{ antropometrico.0.apreciacion_obesidad }}{% else %}No hay resultados{% endif %}</div></div>
-		</div><div class="botonLlenar"> <div class="textoBoton">LLENAR DATOS ANTROPOMETRICOS</div></div>
+		</div><a href="{% url account_datosAntropometricos %}"><div class="botonLlenar"> <div class="textoBoton">LLENAR DATOS ANTROPOMETRICOS</div></div></a>
+
 		<div class="lineaTitulo"><div class="tituloActividad">Frecuencia de consumo</div><div class="enlaceActividad">
 		{% if frecuencia %}{% if frecuencia.0.progreso|get_int == 9 %}[ COMPLETADO ]{% else %}<a href="{% url account_frecuencia %}">[ COMPLETAR ]</a>{% endif %}{% else %}<a href="{% url account_frecuencia %}">[ INICIAR ]</a>{% endif %}
 		</div>
 			<div class="lineaActividad"><div class="labelActividad">Progreso:</div><div class="contenidoGeneral">{% if frecuencia %}
 			{% if frecuencia.0.progreso|get_int == 9 %}100%{% else %}{{ frecuencia.0.progreso }}0%{% endif %}{% else %}0%{% endif %}</div></div>
 			<div class="lineaActividad"><div class="contenidoGeneral" style="margin-left:30px;"> *Le recomendamos completar su frecuencia nutricional </div></div>
-		</div><div class="botonLlenar"><div class="textoBoton">LLENAR FRECUENCIA DE CONSUMO</div></div>
+		</div><a href=""><div class="botonLlenar"><div class="textoBoton">LLENAR FRECUENCIA DE CONSUMO</div></div></a>
 		
-		<div class="lineaTitulo" style="margin-bottom:50px;"><div class="tituloActividad">Cuestionario de actividad física (IPAQ)</div><div class="enlaceActividad"><a href="#">[ VER HISTORIAL COMPLETO ]</a></div>
+		<div class="lineaTitulo"><div class="tituloActividad">Cuestionario de actividad física (IPAQ)</div><div class="enlaceActividad"><a href="#">[ VER HISTORIAL COMPLETO ]</a></div>
 			<div class="lineaActividad"><div class="labelActividad">Veces que lo ha completado:</div><div class="contenidoGeneral"> NNN </div></div>
 			<div class="lineaActividad"><div class="labelActividad">Último resultado obtenido:</div><div class="contenidoGeneral"> Obesidad grado XX </div></div>
-		</div><div class="botonLlenar"> <div class="textoBoton">LLENAR IPAQ</div></div>
-	</div>
+		</div><a href="{% url account_ipaq %}"><div class="botonLlenar"> <div class="textoBoton">LLENAR IPAQ</div></div></a>
+	
+		<div class="lineaTitulo lineaTituloUltimo"><div class="tituloActividad">Mi recordatorio de 24 horas</div><div class="enlaceActividad"><a href="{% url account_recordatorio %}">[Datos del recordatorio]</a></div>
+			<div class="lineaActividad"><div class="labelActividad">Veces que lo ha completado:</div><div class="contenidoGeneral"> NNN </div></div>
+		</div><a href="{% url account_recordatorio %}"><div class="botonLlenar"> <div class="textoBoton">LLENAR EL RECORDATORIO 24</div></div></a>
+		{% else %}
 
-
-
-
-
+			<div class="textoNo">No se han registrado actividades</div>
+ 			<a href="#"><div class="botonIniciar"><div class="textoIniciarA">COMENZAR</div><div class="textoIniciarB">EVALUACION NUTRICIONAL</div><div class="trianguloVerde"></div></div></a>
+		{% endif %}
+</div>
+		
 <!--
 		<a href="{% url account_editRegister %}">Editar datos </a>
-	
-
-	<a href="{% url account_frecuencia %}">
-	<div id="calculadoraDiv">MI FRECUENCIA DE CONSUMO</div></a>
-	<a href="{% url account_perfilAntropometrico %}">
-	<div id="calculadoraDiv">MI PERFIL ATROPOMETRICO</div></a>
 	<a href="{% url account_recordatorio %}">
 		<div id="calculadoraDiv">MI RECORDATORIO DE 24 HORAS</div></a>
 	<a href="{% url account_soyProfesional %}"> 

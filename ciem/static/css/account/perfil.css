@@ -84,6 +84,10 @@
 	float: left;
 	margin-top: 50px;
 }
+.lineaTituloUltimo{
+	margin-bottom:50px;
+}
+
 .lineaActividad{
 	margin-top: 10px;
 	float: left;
@@ -99,6 +103,12 @@
 }
 
 /* BOTON */
+.textoNo{
+	float: left;
+	font-size: 16px;
+	font-weight: bold;
+	color: #63634A;
+}
 .botonLlenar{
 	float: left;
 	background-color: #CAEBCF;
@@ -115,3 +125,46 @@
 	text-indent: 6px;
 	line-height: 37px;
 }
+a .botonLlenar{
+	color: #4B4B4B;
+}
+.botonIniciar{
+	float: left;
+	background-color: #2BAC3E;
+	width: 400px;
+	height: 40px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 1px 3px 2px 0px #B4B4B4;
+	box-shadow: 1px 3px 2px 0px #B4B4B4;
+	margin: 20px;
+}
+.textoIniciarA{
+	float: left;
+	font-size: 22px;
+	text-indent: 2px;
+	margin-left: 20px;
+	margin-top: 5px;
+	letter-spacing: 1px;
+	font-weight: bold;
+}
+.textoIniciarB{
+	float: left;
+	font-size: 15px;
+	text-indent: 2px;
+	margin-top: 10px;
+	margin-left: 10px;
+	letter-spacing: 2px;
+}
+.trianguloVerde{
+	width: 30px;
+	height: 30px;
+	background: url(../../img/flecha.png) -0px -0px no-repeat;
+	float: left;
+	margin-top: 6px;
+	margin-left: 9px;
+}
+a .textoIniciarA, a .textoIniciarB{
+	color: #FFF;
+}
+
