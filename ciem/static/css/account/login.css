@@ -32,6 +32,7 @@ input{
 	width: 280px;
 	background-color: #EEE;
 	border: 1.7px solid #CCC;
+	margin-bottom: 33px;
 }
 
 #usernameFormTag{
@@ -47,9 +48,9 @@ input{
 }
 
 #inputForm{
-	float: left;
     width: 50px;
     margin-bottom: 15px;
+    margin-left: 124px;
 }
 
 .campoLogin{

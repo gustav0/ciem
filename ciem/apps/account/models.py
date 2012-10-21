@@ -10,11 +10,14 @@ from ciem.apps.account.gestorDocumento import ContentTypeRestrictedFileField
 
 class userProfile(models.Model):
 	GENERO= (('m','Masculino'),('f','Femenino'),('o','Otro'),)
+	PREGUNTA = ((1,'Segundo nombre de la abuela por parte de madre'),(2,'Apellido de maestro favorito de primaria'),(3,'Nombre de la primera mascota'),(4,'Primo(a) favorito'), (5, 'Personaje historico favorito'), (6, 'Ocupacion del abuelo'))
 	genero = models.CharField(max_length=1, choices=GENERO, default='m')
 	cedula = models.FloatField(default=1)
 	fecha_nacimiento = models.DateField()
-	pais = models.CharField(max_length=45)
+	pais = models.CharField(max_length=80)
 	municipio = models.CharField(max_length=45)
+	preguntaSecreta = models.CharField(max_length=1,choices=PREGUNTA,default = 1)
+	respuestaSecreta = models.CharField(max_length=70)
 	user = models.ForeignKey(User)
 	objects = userProfileManager()
 
@@ -232,4 +235,7 @@ class alimentoRecordatorio(models.Model):
 class datosRecordatorioResultado(models.Model):
 	recordatorio = models.ForeignKey(datosRecordatorio)
 
+
+class preguntaSecreta(models.Model):
+	pregunta = models.CharField(max_length=100)
 

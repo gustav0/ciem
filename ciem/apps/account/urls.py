@@ -12,6 +12,7 @@ urlpatterns = patterns('ciem.apps.account.views',
  url(r'^recordatorio/$', 'recordatorio', name='account_recordatorio'),
  url(r'^profesional/$', 'soyProfesional', name="account_soyProfesional"),
  url(r'^edit/$', 'editRegister', name="account_editRegister"),
+ url(r'^recuperar/$', 'recuperarContrasena', name="account_recuperarContrasena"),
 )
 
 urlpatterns += patterns('',
