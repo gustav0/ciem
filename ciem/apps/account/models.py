@@ -196,36 +196,43 @@ class datosRecordatorio(models.Model):
 	user = models.ForeignKey(User)
 	fecha_creacion = models.DateField(auto_now_add=True)
 	horaDesayuno = models.TimeField(max_length=40)
-	desayuno = models.BooleanField(default=True)
+	desayuno = models.BooleanField(default=False)
 	diasDesayuno =  models.IntegerField(default=7, validators=[MinValueValidator(0), MaxValueValidator(7)])
 	
 	horaMerienda1 = models.TimeField(max_length=40)
-	merienda1 = models.BooleanField(default=True)
+	merienda1 = models.BooleanField(default=False)
 	diasMerienda1 =  models.IntegerField(default=7, validators=[MinValueValidator(0), MaxValueValidator(7)])
 	
 	horaAlmuerzo = models.TimeField(max_length=40)
-	almuerzo = models.BooleanField(default=True)
+	almuerzo = models.BooleanField(default=False)
 	diasAlmuerzo =  models.IntegerField(default=7,validators=[MinValueValidator(0), MaxValueValidator(7)])
 	
 	horaMerienda2 = models.TimeField(max_length=40)
-	merienda2 = models.BooleanField(default=True)
+	merienda2 = models.BooleanField(default=False)
 	diasMerienda2 =  models.IntegerField(default=7, validators=[MinValueValidator(0), MaxValueValidator(7)])
 	
 	horaCena = models.TimeField(max_length=40)
-	cena = models.BooleanField(default=True)
+	cena = models.BooleanField(default=False)
 	diasCena =  models.IntegerField(default=7, validators=[MinValueValidator(0), MaxValueValidator(7)])
 	
 	horaMerienda3 = models.TimeField(max_length=40) 
-	merienda3 = models.BooleanField(default=True)
+	merienda3 = models.BooleanField(default=False)
 	diasMerienda3 =  models.IntegerField(default=7, validators=[MinValueValidator(0), MaxValueValidator(7)])
 	objects = recordatorioManager()
 
 
 class alimentoRecordatorio(models.Model):
 	datosRecordatorio = models.ForeignKey(datosRecordatorio)
+	alimentoid = models.PositiveIntegerField()
 	namealimento = models.CharField(max_length=40)
 	tam = models.CharField(max_length=1)
 	#alimento = models.ForeignKey(alimento)
+	cuandoComio = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(6)])
+	#1-desayuno | 2-merienda1 | 3-almuerzo | 4-merienda2 | 5-cena | 6-merienda3
+	
+
+
+>>>>>>> e643128de30e09363860e0895271fbffcaf2f4e6
 	
 class datosRecordatorioResultado(models.Model):
 	recordatorio = models.ForeignKey(datosRecordatorio)
