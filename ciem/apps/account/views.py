@@ -6,8 +6,8 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response,redirect
 from django.template import RequestContext
-from ciem.apps.account.forms import antropometricosForm,registerForm,ipaqForm, soyProfesionalForm, recordatorioForm, editRegisterForm
-from ciem.apps.account.models import datosAntropometricos,frecuenciaConsumo,dataFrecuenciaConsumo,alimentoFrecuencia,userProfile,datosRecordatorio,ipaqResultado,ipaq as myipaq
+from ciem.apps.account.forms import antropometricosForm,registerForm,ipaqForm, soyProfesionalForm, recordatorioForm, editRegisterForm, recuperarContrasenaForm
+from ciem.apps.account.models import datosAntropometricos,frecuenciaConsumo,dataFrecuenciaConsumo,alimentoFrecuencia,userProfile,datosRecordatorio,ipaqResultado,ipaq as myipaq, preguntaSecreta
 from ciem.apps.data.models import alimento
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -35,15 +35,52 @@ def editRegister(request):
 		form = editRegisterForm(dictionary) 
 	if form.is_valid():
 		form.save()
+
 	ctx={'form': form,}
 	return render_to_response('account/editRegister.html', ctx, context_instance=RequestContext(request))
+
+def recuperarContrasena(request):
+	bandera = 0
+	pregunta = 'null'
+	error = 0
+	contrasena = 0
+	form = recuperarContrasenaForm(request.POST or None)
+	try:
+		respuesta = request.POST['respuestaSecreta']
+		cedula = request.POST['cedula']
+		try:
+			perfil = userProfile.objects.get(cedula=cedula, respuestaSecreta=respuesta)
+			contrasena = User.objects.get(id=perfil.user_id).password
+			bandera = 2
+		except:
+			pregunta = request.POST['pregunta']
+			error = 2		
+	except:
+		if request.method == 'GET':
+			bandera = 1
+		else:
+			try:
+				username = request.POST['username']
+				usuario = User.objects.get(username=username)
+				if (usuario):
+					perfil = userProfile.objects.get(user_id=usuario.id)
+					preg = preguntaSecreta.objects.get(id=perfil.preguntaSecreta)
+					pregunta = preg.pregunta
+			except User.DoesNotExist:
+				bandera = 1
+				error = 1
+
+		#verificarDatos()
+	ctx= {'form':form, 'bandera':bandera, 'pregunta':pregunta, 'error':error, 'contrasena':contrasena}
+	return render_to_response('account/recuperarContrasena.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')
 def profile(request):
 	antropometrico = datosAntropometricos.objects.getForPerfil(request.user.id)
 	frecuencia = frecuenciaConsumo.objects.getById(request.user.id)
 	ipaqr = myipaq.objects.getById(request.user.id)
-	ctx={'profile':request.user.get_profile(),'antropometrico':antropometrico,'frecuencia':frecuencia}
+	recordatorios = datosRecordatorio.objects.getById(request.user.id)
+	ctx={'profile':request.user.get_profile(),'antropometrico':antropometrico,'frecuencia':frecuencia, 'recordatorios':recordatorios}
 	return render_to_response('account/profile.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')
@@ -210,7 +247,63 @@ def frecuencia(request):
 def recordatorio(request):
 	form = recordatorioForm(request.POST or None)
 	if request.method == 'POST':
-		print request.POST
+		if form.is_valid():
+			comidaDesayuno = request.POST.getlist('selCombo1')
+			comidaMerienda1 = request.POST.getlist('selCombo2')
+			comidaAlmuerzo = request.POST.getlist('selCombo3')
+			comidaMerienda2 = request.POST.getlist('selCombo4')
+			comidaCena = request.POST.getlist('selCombo5')
+			comidaMerienda3 = request.POST.getlist('selCombo6')
+			intance = form.save()
+			print intance.pk
+			for comida in comidaDesayuno:
+					separado = comida.split('|')
+					print "intancepk"+str(intance.pk)+"<<|<<"+separado[0]+" >>|<< "+separado[1]
+					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=intance, namealimento=separado[0], tam=separado[1])
+					alimentoRecordar.save()
+
+			for comida1 in comidaMerienda1:
+				try:
+					separado = comida1.split('|')
+					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=intance, namealimento=separado[0], tam=separado[1])
+					alimentoRecordar.save()
+				except Exception, e:
+					print "ERROR"
+			for comida3 in comidaAlmuerzo:
+				try:
+					separado = comida3.split('|')
+					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=intance, namealimento=separado[0], tam=separado[1])
+					alimentoRecordar.save()
+				except Exception, e:
+					print "ERROR"
+			for comida4 in comidaMerienda1:
+				try:
+					separado = comida4.split('|')
+					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=intance, namealimento=separado[0], tam=separado[1])
+					alimentoRecordar.save()
+				except Exception, e:
+					print "ERROR"
+			for comida5 in comidaCena:
+				try:
+					separado = comida5.split('|')
+					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=intance, namealimento=separado[0], tam=separado[1])
+					alimentoRecordar.save()
+				except Exception, e:
+					print "ERROR"
+			for comida6 in comidaMerienda3:
+				try:
+					separado = comida6.split('|')
+					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=intance, namealimento=separado[0], tam=separado[1])
+					alimentoRecordar.save()
+				except Exception, e:
+					print "ERROR"
+				
 	alimentos = alimento.objects.all().order_by('nombre')
-	ctx = {'form':form,'alimentos':alimentos}
+	ctx = {'form':form,'alimentos':alimentos, 'id':request.user.id}
 	return render_to_response('account/recordatorio24.html', ctx, context_instance=RequestContext(request))
+
+#def verificarDatos():
+
+	#perfil = userProfile.objects.get(user_id=request.user.id)
+	#preg = preguntaSecreta.objects.get(id=perfil[0].preguntaSecreta)
+	#pregunta = preg[0].pregunta

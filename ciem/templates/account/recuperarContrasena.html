@@ -1,0 +1,35 @@
+{% extends "homepage/index.html" %}
+{% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/account/registro.css">
+{% endblock %}
+{% block content %}
+	{% if bandera = 1 %}
+		<form action="" method="post">
+			{% csrf_token %}
+			Username {{ form.username }}
+			<input type="submit" value="Enviar">
+		</form>
+		{% if error = 1 %}
+			<div class="error"> Ingrese un username válido </div>
+		{% endif %}
+	{% else %}
+		{% if bandera = 2 %}
+		<div> Su contraseña : {{ contrasena }}</div>
+		{% else %}
+			{% if error = 2 %}
+				<div class="error"> Datos inválidos </div>
+			{% endif %}
+			<form action="" method="post">
+				{% csrf_token %}
+				<div class="item">Cedula {{ form.cedula }}</div>
+				<div class ="item">Pregunta Secreta: {{ pregunta}} </div>
+				<div class = "item"> Respuesta {{ form.respuestaSecreta }}
+				<div class="noDisplayDiv">
+					<select name="pregunta">
+            			<option value="{{ pregunta }}"></option>
+            		</select>
+    			</div>
+				<input type="submit" value="Enviar">
+			</form>
+		{% endif %}
+	{% endif %}
+{% endblock %}
