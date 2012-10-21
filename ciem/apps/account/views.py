@@ -297,10 +297,14 @@ def recordatorio(request):
 					alimentoRecordar.save()
 				except Exception, e:
 					print "ERROR"
-				
+			return HttpResponseRedirect('/felicidades/')
 	alimentos = alimento.objects.all().order_by('nombre')
 	ctx = {'form':form,'alimentos':alimentos, 'id':request.user.id}
 	return render_to_response('account/recordatorio24.html', ctx, context_instance=RequestContext(request))
+
+def felicidades(request):
+	ctx = {}
+	return render_to_response('account/felicidades.html', ctx,  context_instance=RequestContext(request))
 
 #def verificarDatos():
 
