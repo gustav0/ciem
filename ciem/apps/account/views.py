@@ -43,7 +43,8 @@ def profile(request):
 	antropometrico = datosAntropometricos.objects.getForPerfil(request.user.id)
 	frecuencia = frecuenciaConsumo.objects.getById(request.user.id)
 	ipaqr = myipaq.objects.getById(request.user.id)
-	ctx={'profile':request.user.get_profile(),'antropometrico':antropometrico,'frecuencia':frecuencia}
+	recordatorios = datosRecordatorio.objects.getById(request.user.id)
+	ctx={'profile':request.user.get_profile(),'antropometrico':antropometrico,'frecuencia':frecuencia, 'recordatorios':recordatorios}
 	return render_to_response('account/profile.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')
