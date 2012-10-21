@@ -204,7 +204,7 @@ $(function(){
 			}
 	});
 
-		/////////////////////////POST ALL OPTIONS FROM SELECTS///////////////////////
+		/////////////////////////POST ALL OPTIONS FROM SELECTS and validations///////////////////////
 	$('#botonRecordar').click(function(){
 			$("#selCombo1").each(function(){
 						
@@ -226,4 +226,22 @@ $(function(){
 						$("#selCombo6 option").attr("selected","selected"); });
 			});
 
+			if($('#id_desayuno_0').attr("checked")=="checked"){
+				$('#id_diasDesayuno').val('7');
+			}
+			if($('#id_merienda1_0').attr("checked")=="checked"){
+				$('#id_diasMerienda1').val('7');
+			}
+			if($('#id_almuerzo_0').attr("checked")=="checked"){
+				$('#id_diasAlmuerzo').val('7');
+			}
+			if($('#id_merienda2_0').attr("checked")=="checked"){
+				$('#id_diasMerienda2').val('7');
+			}
+			if($('#id_cena_0').attr("checked")=="checked"){
+				$('#id_diasCena').val('7');
+			}
+			if($('#id_merienda3_0').attr("checked")=="checked"){
+				$('#id_diasMerienda3').val('7');
+			}
 });
