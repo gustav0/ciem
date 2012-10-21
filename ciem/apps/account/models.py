@@ -226,12 +226,9 @@ class alimentoRecordatorio(models.Model):
 	namealimento = models.CharField(max_length=40)
 	tam = models.CharField(max_length=1)
 	#alimento = models.ForeignKey(alimento)
-
-
 	
 class datosRecordatorioResultado(models.Model):
 	recordatorio = models.ForeignKey(datosRecordatorio)
-
 
 class preguntaSecreta(models.Model):
 	pregunta = models.CharField(max_length=100)
