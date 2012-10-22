@@ -231,9 +231,6 @@ class alimentoRecordatorio(models.Model):
 	#1-desayuno | 2-merienda1 | 3-almuerzo | 4-merienda2 | 5-cena | 6-merienda3
 	
 
-
->>>>>>> e643128de30e09363860e0895271fbffcaf2f4e6
-	
 class datosRecordatorioResultado(models.Model):
 	recordatorio = models.ForeignKey(datosRecordatorio)
 
