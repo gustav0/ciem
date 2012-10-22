@@ -226,15 +226,16 @@ class alimentoRecordatorio(models.Model):
 	alimentoid = models.PositiveIntegerField()
 	namealimento = models.CharField(max_length=40)
 	tam = models.CharField(max_length=1)
+	#alimento = models.ForeignKey(alimento)
 	cuandoComio = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(6)])
 	#1-desayuno | 2-merienda1 | 3-almuerzo | 4-merienda2 | 5-cena | 6-merienda3
 	
 
 
+>>>>>>> e643128de30e09363860e0895271fbffcaf2f4e6
 	
 class datosRecordatorioResultado(models.Model):
 	recordatorio = models.ForeignKey(datosRecordatorio)
-
 
 class preguntaSecreta(models.Model):
 	pregunta = models.CharField(max_length=100)
