@@ -101,6 +101,7 @@ article{
  	width:480px;
  	height: 333px;
  	float:left;
+ 	cursor: pointer;
  	z-index: 9;
 }
 
