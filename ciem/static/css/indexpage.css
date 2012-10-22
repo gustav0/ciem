@@ -97,21 +97,14 @@ article{
 	background-position:-0px -32px
 }
 #imagenHistoria{
- 	background:url(/ciem/static/img/vasos.jpg) -0px -0px no-repeat;	
+ 	background:url(/ciem/static/img/bannerhistoria.png) -0px -0px no-repeat;	
  	width:480px;
  	height: 333px;
  	float:left;
  	z-index: 9;
 }
 
-#imagenManzana{
-	background:url(/ciem/static/img/manzana.png) -0px -0px no-repeat;	
- 	width:350px;
- 	height: 333px;
- 	float:right;
- 	z-index: 9;
- 	margin-top: 50px;
-}
+
 
 #imagenHistoria.boton{
 	margin-left: 30px; 
@@ -125,15 +118,25 @@ article{
  	z-index: 10;
 }
 
+#imagenManzana{
+	background:url(/ciem/static/img/manzana.png) -0px -0px no-repeat;	
+ 	width:350px;
+ 	height: 250px;
+ 	float:right;
+ 	z-index: 9;
+ 	margin-top: 50px;
+}
+
 #eslogan{
 	z-index: 3;
+	float: right;
+	width: 450px;
 	text-indent: 10px;
 	text-align: center;
 	color: #2E2E2E;
-	font: 4em/105% 'BebasNeueRegular',Arial,Helvetica,sans-serif;
+	font: 2em/105% 'BebasNeueRegular',Arial,Helvetica,sans-serif;
 	font-weight: normal;
-	margin-top: 60px;
-	text-shadow: -2px -2px 0 rgba(255, 255, 255, 0.4);
+	text-shadow: -2px 2px 0 rgba(0, 0, 0, 0.2);
 }
 
 #botones a{
