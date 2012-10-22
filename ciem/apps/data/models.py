@@ -44,8 +44,6 @@ class alimento(models.Model):
 
 	objects = alimentoManager()
 
-	def __unicode__(self):
-		return u"%s - %s" % (self.nombre, self.calorias) 
 
 class pesoAlimento(models.Model):
 	alimento = models.ForeignKey(alimento)

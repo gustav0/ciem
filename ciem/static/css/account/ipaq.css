@@ -4,6 +4,10 @@ form #formulario{
 select:focus{
     outline: none;
 }
+p{
+	float:left;
+	margin:0;
+}
 .seleccion, .seleccion li{
 	margin-left: 20px;
 	float: left;

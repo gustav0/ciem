@@ -7,7 +7,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response,redirect
 from django.template import RequestContext
 from ciem.apps.account.forms import antropometricosForm,registerForm,ipaqForm, soyProfesionalForm, recordatorioForm, editRegisterForm, recuperarContrasenaForm
-from ciem.apps.account.models import datosAntropometricos,frecuenciaConsumo,dataFrecuenciaConsumo,alimentoFrecuencia,userProfile,datosRecordatorio,ipaqResultado,ipaq as myipaq, preguntaSecreta
+from ciem.apps.account.models import datosAntropometricos,frecuenciaConsumo,dataFrecuenciaConsumo,alimentoFrecuencia,userProfile,datosRecordatorio, alimentoRecordatorio,ipaqResultado,ipaq as myipaq, preguntaSecreta
 from ciem.apps.data.models import alimento
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -259,48 +259,52 @@ def recordatorio(request):
 			for comida in comidaDesayuno:
 					separado = comida.split('|')
 					print "intancepk"+str(intance.pk)+"<<|<<"+separado[0]+" >>|<< "+separado[1]
-					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=intance, namealimento=separado[0], tam=separado[1])
+					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=intance, alimentoid=separado[1], namealimento=separado[0], tam=separado[2], cuandoComio=separado[3])
 					alimentoRecordar.save()
 
-			for comida1 in comidaMerienda1:
+			for comida2 in comidaMerienda2:
 				try:
-					separado = comida1.split('|')
-					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=intance, namealimento=separado[0], tam=separado[1])
+					separado = comida2.split('|')
+					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=intance, alimentoid=separado[1], namealimento=separado[0], tam=separado[2], cuandoComio=separado[3])
 					alimentoRecordar.save()
 				except Exception, e:
 					print "ERROR"
 			for comida3 in comidaAlmuerzo:
 				try:
 					separado = comida3.split('|')
-					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=intance, namealimento=separado[0], tam=separado[1])
+					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=intance, alimentoid=separado[1], namealimento=separado[0], tam=separado[2], cuandoComio=separado[3])
 					alimentoRecordar.save()
 				except Exception, e:
 					print "ERROR"
-			for comida4 in comidaMerienda1:
+			for comida4 in comidaMerienda2:
 				try:
 					separado = comida4.split('|')
-					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=intance, namealimento=separado[0], tam=separado[1])
+					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=intance, alimentoid=separado[1], namealimento=separado[0], tam=separado[2], cuandoComio=separado[3])
 					alimentoRecordar.save()
 				except Exception, e:
 					print "ERROR"
 			for comida5 in comidaCena:
 				try:
 					separado = comida5.split('|')
-					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=intance, namealimento=separado[0], tam=separado[1])
+					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=intance, alimentoid=separado[1], namealimento=separado[0], tam=separado[2], cuandoComio=separado[3])
 					alimentoRecordar.save()
 				except Exception, e:
 					print "ERROR"
 			for comida6 in comidaMerienda3:
 				try:
 					separado = comida6.split('|')
-					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=intance, namealimento=separado[0], tam=separado[1])
+					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=intance, alimentoid=separado[1], namealimento=separado[0], tam=separado[2], cuandoComio=separado[3])
 					alimentoRecordar.save()
 				except Exception, e:
 					print "ERROR"
-				
+			return HttpResponseRedirect('/felicidades/')
 	alimentos = alimento.objects.all().order_by('nombre')
 	ctx = {'form':form,'alimentos':alimentos, 'id':request.user.id}
 	return render_to_response('account/recordatorio24.html', ctx, context_instance=RequestContext(request))
+
+def felicidades(request):
+	ctx = {}
+	return render_to_response('account/felicidades.html', ctx,  context_instance=RequestContext(request))
 
 #def verificarDatos():
 

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load article_tags %}
 {% block title %}
 Centro de investigaciones Endocrino-Metabólicas
 {% endblock%}
@@ -28,18 +28,40 @@ Centro de investigaciones Endocrino-Metabólicas
 {% block clear %}{% endblock%}
 
 {% block content %}
-	<div id="botones">
-		<a href="{% url homepage_calculadora %}">
-			<div class="boton">CALCULADORA DE CALORIAS</div>
-		</a>
-		<a href="/historia/">
-			<div class="boton2">HISTORIA NUTRICIONAL</div>
-		</a>
-		<a href="/articleall/">
-			<div class="boton">Publicaciones</div>
-		</a>
+
+	<div id="imagenHistoria">
+			
 	</div>
-	<div  onclick="location.href='/recordatorio/'" class="imagenHistoria" style="cursor:pointer;"></div>
+	<div id="imagenHistoria2">
+			<a href="{% url homepage_calculadora %}">
+				<div class="boton">CALCULADORA DE CALORIAS</div>
+			</a>
+			<a href="/articleall/">
+				<div class="boton">PUBLICACIONES</div>
+			</a>
+			<a href="{% url account_recordatorio %}">
+				<div class="boton">RECORDATORIO 24 HORAS</div>
+			</a>
+	</div>
+	<div id="barraContenido"></div>
+	<div id="cuadroPublicaciones">
+		<h2>Publicaciones</h2>
+		{% get_articles 5 as arti %}
+		{% for a in arti %}
+		<h3>{{a.title}}</h3>
+				<article>
+					{{a.body}}
+				</article>
+				<section id="info">
+					Autor: {{a.author}}
+					Fecha: {{a.publish_date}}
+					Categoría: {{a.category}}
+					Etiquetas: {{a.tags}}
+				</section>	
+		{% endfor %}
+	</div>
+	<div id="imagenManzana"></div>
+	<div id="eslogan">Que el alimento sea tu única medicina</div>
 {% endblock%}
 
 {% block footer %}

@@ -2,12 +2,13 @@
 # coding: latin-1
 from django.shortcuts import render_to_response
 from ciem.apps.data.models import *
+from ciem.apps.articles.models import *
 from ciem.apps.homepage.forms import *
 from django.template import RequestContext
 from django.core.mail import send_mail
 
 def index(request):
-	ctx = {}
+	ctx = {'lista':Article.objects.published()}
 	return render_to_response('homepage/index.html', ctx,  context_instance=RequestContext(request))
 
 def about(request):

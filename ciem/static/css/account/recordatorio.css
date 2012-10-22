@@ -1,4 +1,3 @@
-
 div#desayuno{
 	font-weight: bold;
 	width: 450px;
@@ -70,37 +69,89 @@ select#selCombo6{
 #input1 {
 	text-indent: 5px;
     width: 250px;
-    float: left;
 }
 #input2 {
 	text-indent: 5px;
     width: 250px;
-    float: left;
 }
 #input3 {
 	text-indent: 5px;
     width: 250px;
-    float: left;
 }
 #input4 {
 	text-indent: 5px;
     width: 250px;
-    float: left;
 }
 #input5 {
 	text-indent: 5px;
     width: 250px;
-    float: left;
 }
 #input6 {
 	text-indent: 5px;
     width: 250px;
-    float: left;
+}
+
+#selCombo1{
+	margin-top: 20px;
+}
+#selCombo2{
+	margin-top: 20px;
+}
+#selCombo3{
+	margin-top: 20px;
+}
+#selCombo4{
+	margin-top: 20px;
+}
+#selCombo5{
+	margin-top: 20px;
+}
+#selCombo6{
+	margin-top: 20px;
 }
 
 
-.porcion{
-	margin-left: 50px;
+#botonRecordar{
+	border: 1px solid #AAA;
+	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	width: 60px;
+	height: 30px;
+}
+
+
+
+#tamanos{
+	float:right;
+}
+#tamanos label{
+	margin-left: 10px;
+
+}
+#radiobotons input {
+margin-left: 50px;
+}
+
+.campoForm{
+	margin-bottom: 20px;
+}
+
+.campoForm li{
+	float:left;
+}
+
+.campoForm ul{
+	list-style: none;
+	float: right;
+	margin:0;
+	margin-right: 60px;
+}
+.campoForm input{
+	float: right;
+}
+.campoForm select{
+	float: right;
 }
 
 .botonVerde{
@@ -126,3 +177,4 @@ select#selCombo6{
 	background: #FF0000;
 	color:black;
 }
+
