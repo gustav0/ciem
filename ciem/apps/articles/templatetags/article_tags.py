@@ -39,3 +39,4 @@ def get_latest_article(parser, token):
 	"""
 	bits = token.split_contents()
 	return ArticleNode(1, bits[2], single_article=True)
+
