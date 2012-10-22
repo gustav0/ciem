@@ -229,7 +229,6 @@ class alimentoRecordatorio(models.Model):
 	cuandoComio = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(6)])
 	#1-desayuno | 2-merienda1 | 3-almuerzo | 4-merienda2 | 5-cena | 6-merienda3
 
-	
 class datosRecordatorioResultado(models.Model):
 	recordatorio = models.ForeignKey(datosRecordatorio)
 
