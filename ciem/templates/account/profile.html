@@ -39,16 +39,12 @@
 		<div class="lineaTitulo"><div class="tituloActividad">Cuestionario de actividad física (IPAQ)</div><div class="enlaceActividad"><a href="#">[ VER HISTORIAL COMPLETO ]</a></div>
 			<div class="lineaActividad"><div class="labelActividad">Veces que lo ha completado:</div><div class="contenidoGeneral"> NNN </div></div>
 			<div class="lineaActividad"><div class="labelActividad">Último resultado obtenido:</div><div class="contenidoGeneral"> Obesidad grado XX </div></div>
-<<<<<<< HEAD
-		</div><a href="#"><div class="botonLlenar"> <div class="textoBoton">LLENAR IPAQ</div></div></a>
-
-=======
 		</div><a href="{% url account_ipaq %}"><div class="botonLlenar"> <div class="textoBoton">LLENAR IPAQ</div></div></a>
 	
 		<div class="lineaTitulo lineaTituloUltimo"><div class="tituloActividad">Mi recordatorio de 24 horas</div><div class="enlaceActividad"><a href="{% url account_recordatorio %}">[Datos del recordatorio]</a></div>
 			<div class="lineaActividad"><div class="labelActividad">Veces que lo ha completado:</div><div class="contenidoGeneral"> NNN </div></div>
 		</div><a href="{% url account_recordatorio %}"><div class="botonLlenar"> <div class="textoBoton">LLENAR EL RECORDATORIO 24</div></div></a>
->>>>>>> 4220cbee9a90ef9c880ebd1d29c58edb6f002288
+
 		{% else %}
 
 			<div class="textoNo">No se han registrado actividades</div>
