@@ -56,7 +56,7 @@ article{
 	float: left;
 	width: 960px;
 	height: 160px;
-	background:url(/ciem/static/img/imaCabecera.png)
+	background:url(/ciem/staticmedia/img/imaCabecera.png)
 }
 #barraNavegacion {
 	width: 960px;
@@ -87,7 +87,7 @@ article{
 	float: left;
 	height:33px;
 	width:120px;
-	background:url(/ciem/static/img/fondomenu.png) -0px -0px no-repeat;	
+	background:url(/ciem/staticmedia/img/fondomenu.png) -0px -0px no-repeat;	
 	-webkit-transition: all .1s;
 	-moz-transition: all .1s;
 	-o-transition: all .1s;
@@ -97,7 +97,7 @@ article{
 	background-position:-0px -32px
 }
 #imagenHistoria{
- 	background:url(/ciem/static/img/bannerhistoria.png) -0px -0px no-repeat;	
+ 	background:url(/ciem/staticmedia/img/bannerhistoria.png) -0px -0px no-repeat;	
  	width:480px;
  	height: 333px;
  	float:left;
@@ -112,7 +112,7 @@ article{
 }
 
 #imagenHistoria2{
- 	background:url(/ciem/static/img/comida.jpg) -0px -0px no-repeat;	
+ 	background:url(/ciem/staticmedia/img/comida.jpg) -0px -0px no-repeat;	
  	width:480px;
  	height: 333px;
  	float:right;
@@ -120,7 +120,7 @@ article{
 }
 
 #imagenManzana{
-	background:url(/ciem/static/img/manzana.png) -0px -0px no-repeat;	
+	background:url(/ciem/staticmedia/img/manzana.png) -0px -0px no-repeat;	
  	width:350px;
  	height: 250px;
  	float:right;
