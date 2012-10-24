@@ -1,0 +1,24 @@
+form{
+	text-align: center;
+}
+
+p{
+	background: #F7F7F7;
+	border: 1px solid #D7D7D7;
+	box-shadow: 0 0 1em #EEE;
+	border-radius: .3em;
+	margin: 1em 1.75em;
+	padding: .25em;
+	overflow: auto;
+	width: 50%;
+	display: inline-block;
+	text-align: normal;
+}
+
+input, select,textarea{
+	border: 1px solid #AAA;
+	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	float: right;
+}
