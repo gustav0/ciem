@@ -145,15 +145,7 @@ article{
 	color: white;
 }
 
-input#botonregistro[type="submit"]{
-	position: relative;
-	left: 160px;
-	bottom: 10px;
-	text-decoration: none;.
-	border: 1px solid #006;
-	background-color: #E9F6F5;
-	border-color: #A9CAC6;
-}
+
 .colorCabecera{
 	background-color:#FAFCD9;
 	height: 33px;
