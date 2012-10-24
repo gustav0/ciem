@@ -50,37 +50,46 @@
 
 		<div class="tituloResultado">Resultados Antropométricos</div>
 	</div>
-	<div class="recomendarIPAQ">Le recomendamos llenar el cuestionario de actividad Física (IPAQ)</div><div class="enlaceIPAQ">AQUI</div>
+	<div class="recomendarIPAQ">Le recomendamos llenar el cuestionario de actividad Física (IPAQ)</div>
+	<a href="{% url account_ipaq %}"><div class="enlaceIPAQ">AQUI</div></a>
 {% else %}
+
 	<form action="/antropometricos/" id='formulario' method='post' enctype='multipart/form-data' action="">
 	{% csrf_token %}
+	<div class="cabeceraFormulario"></div>
 	<div id="userForm" class="campoForm noDisplayDiv"><select name="user" id="id_user"><option value="{{ id }}">0</option></select></div>
-	<div class="contenedorOpciones">
+	<div class="contenedorOpciones" style="background-color:#FAF6DC">
 		<div id="pesoForm" class="campoForm">
-			<div class="labelCampo">Peso:{{ form.peso }}</div><div class="medidaIndicar" title="Kilogramos">Kg</div>
+			<div class="medidaIndicar" title="Kilogramos">Kg</div><div class="labelCampo">Peso:{{ form.peso }}</div>
 		</div>
 		<div id="tallaForm" class="campoForm">
-			<div class="labelCampo">Talla (Estatura): {{ form.estatura }}</div><div class="medidaIndicar" title="Centimetros">cm</div>
+			<div class="medidaIndicar" title="Centimetros">cm</div><div class="labelCampo">Talla (Estatura): {{ form.estatura }}</div>
 		</div>
 		<div id="circunferenciaCinturaForm" class="campoForm">
-			<div class="labelCampo">Circunferencia cintura: {{ form.circunferencia_cintura }}</div><div class="medidaIndicar" title="Centimetros">cm</div>
+			<div class="medidaIndicar" title="Centimetros">cm</div><div class="labelCampo">Circunferencia cintura: {{ form.circunferencia_cintura }}</div>
 		</div>
 		<div id="circunferenciaCaderaForm" class="campoForm">
-			<div class="labelCampo">Circunferencia cadera: {{ form.circunferencia_cadera }}</div><div class="medidaIndicar" title="Centimetros">cm</div>
+			<div class="medidaIndicar" title="Centimetros">cm</div><div class="labelCampo">Circunferencia cadera: {{ form.circunferencia_cadera }}</div>
 		</div>
-		<div id="patologia1Form" class="campoForm">
+	</div>
+	<div class="contenedorOpciones" style="background-color:#F0F0F0">
+		<div class="sufreDe">¿Sufre usted de ...?</div>
+		<div id="patologia1Form" class="campoForm2">
 			<div class="labelCampo">Hipertencion: {{ form.hipertencion }}</div>
 		</div>
-		<div id="patologia1Form" class="campoForm">
+		<div id="patologia1Form" class="campoForm2">
 			<div class="labelCampo">Diabetes: {{ form.diabetes }}</div>
 		</div>
-		<div id="patologia1Form" class="campoForm">
+		<div id="patologia1Form" class="campoForm2">
 			<div class="labelCampo">Cancer: {{ form.cancer }}</div>
 		</div>
-		<div id="patologia1Form" class="campoForm">
+		<div id="patologia1Form" class="campoForm2">
 			<div class="labelCampo">Colesterol: {{ form.colesterol }}</div>
-		</div>	
-	<input id="submit" type='submit' value='Confirmar'/>
+		</div>
+		<div id="patologia1Form" class="campoForm2">
+			<div class="labelCampo">Trigliceridos: {{ form.trigliceridos }}</div>
+		</div>		
+	<input id="submit" type='submit' value='Continuar'/>
 	</form>
 {% endif%}
 {% endblock %}
