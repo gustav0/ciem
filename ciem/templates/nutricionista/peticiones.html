@@ -1,0 +1,27 @@
+{% extends 'homepage/index.html' %}
+{% load custom_filters %}
+{% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/nutricionista/perfilUsuarios.css">{% endblock %}
+{% block content %}
+<div id="titulo"> Solicitudes pendientes </div>
+{% for peticion in peticiones %}
+	<div class="dato"> Nombre: {{ usuario|au_getNombre:peticion.user_id|capfirst }} {{ usuario|au_getApellido:peticion.user_id|capfirst }}</div>
+	<div class="dato"> Edad: {{ perfil|au_getFechaNaciemiento:peticion.user_id|calculate_age }} </div>
+	<div class="dato" >Género: 
+		{% if perfil|au_getGenero:peticion.user_id == "m" %}
+			Masculino
+		{% elif perfil|au_getGenero:peticion.user_id == "f" %}
+			Femenino
+		{% else %}
+			Otro
+		{% endif %}
+	</div>    
+	<div class="dato"> Pais: {{ perfil|au_getPais:peticion.user_id }} </div>
+	<div class="dato"> Profesión: {{ peticion.profesion }} </div>
+	<div class="dato"> Estudió en: {{ peticion.universidad }} </div>
+	<div class="dato"> Trabaja en: {{ peticion.trabajo }} </div>
+	<div class="dato"> Telefono de contacto: {{ peticion.telefono }} </div>
+	<div class="dato"> Comentario del solicitante: {{ peticion.comentario }} </div>
+	<div> <a href="?user={{ peticion.user_id }}&a=1"> Aceptar </a> </div>
+	<div> <a href="?user={{ peticion.user_id }}&a=2"> Rechazar </a> </div>
+{% endfor %}
+{% endblock %}

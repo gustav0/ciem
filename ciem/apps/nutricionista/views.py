@@ -4,8 +4,22 @@ from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.core.paginator import EmptyPage, PageNotAnInteger
-from ciem.apps.account.models import datosAntropometricos,antropometricosResultado,userProfile,ipaqResultado,ipaq,frecuenciaConsumo
+from ciem.apps.account.models import datosAntropometricos,antropometricosResultado,userProfile,ipaqResultado,ipaq,frecuenciaConsumo, profesional
 from django.contrib.auth.models import User
+
+@login_required(login_url='/login')
+def verPeticiones(request):
+	getUser = request.GET.get('user',1)
+	aceptar = request.GET.get('a',0)
+	if (int(aceptar) == 1):
+		profesional.objects.filter(user_id = getUser).update(status='aceptado')
+	elif (int(aceptar) == 2):
+		profesional.objects.filter(user_id = getUser).update(status='rechazado')
+	peticiones = profesional.objects.filter(status = 'pendiente')
+	usuario = User.objects.all()
+	perfil = userProfile.objects.all()
+	ctx= {'peticiones':peticiones,'usuario':usuario, 'perfil':perfil}	
+	return render_to_response('nutricionista/peticiones.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')
 def perfilUsuarios(request):

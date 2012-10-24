@@ -1,10 +1,10 @@
 {% extends "homepage/index.html" %}
-{% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/account/registro.css">
+{% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/account/profesional.css">
 {% endblock %}
 {% block content %}
 <form action="" method="post" enctype="multipart/form-data">
 		{% csrf_token %}
-		<div class="mensaje"> Estimado {{ nombre }}, Complete el siguiente formulario para procesar su peticion
+		<div class="mensaje"> Estimado {{ nombre|capfirst }}, Complete el siguiente formulario para procesar su peticion
 		<div class="label">Pofesion </div>
 		<div class="campo">{{ form.profesion }} </div>
 		<div class="label">Egresado de  </div>
@@ -15,11 +15,7 @@
 		<div class="campo">{{ form.telefono }} </div>
 		<div class="label">Comentario  </div>
 		<div class="campo">{{ form.comentario }} </div>	
-		<div class="label">Resumen curricular </div>
-        <div class="campo" id="curriculum"> 
-        	{{ form.curriculum.errors }}
-                {{ form.curriculum }}
-        </div>
+		<div class="escondido">{{ form.status }}</div>	
         	<div class="noDisplayDiv">
         <select name="user" id="id_user">
             <option value="{{ id }}"></option>

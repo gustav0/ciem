@@ -124,7 +124,7 @@ def soyProfesional(request):
 			infouser = list(userProfile.objects.getUserJoin(request.user.id))
 			user = str(infouser[0].first_name)+" "+str(infouser[0].last_name)
 			url = "url"
-			send_mail("Solicitd de Profesional","Nombre del solicintante:%s \nVisite el siguiente enlace para revisar mejor la información: %s" % (user,url), 'ciem.luz.mail@gmail.com',['ciem.luz.mail@gmail.com'])
+		#	send_mail("Solicitd de Profesional","Nombre del solicintante:%s \nVisite el siguiente enlace para revisar mejor la información: %s" % (user,url), 'ciem.luz.mail@gmail.com',['ciem.luz.mail@gmail.com'])
 			form.save()
 			return redirect(reverse('account_profile'))
 		else:
@@ -132,7 +132,8 @@ def soyProfesional(request):
 			return render_to_response('account/soyProfesional.html', ctx, context_instance=RequestContext(request))
 	else:
 		form = soyProfesionalForm
-		ctx = {'form':form,'id':request.user.id}
+		nombre = User.objects.get(id=request.user.id).first_name
+		ctx = {'form':form,'id':request.user.id, 'nombre':nombre}
 		return render_to_response('account/soyProfesional.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')

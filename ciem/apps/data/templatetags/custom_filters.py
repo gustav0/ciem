@@ -84,6 +84,28 @@ def au_getFechaNaciemiento(list,mid):
 		if list[i].id == mid:
 			return list[i].fecha_nacimiento
 	return None
+
+@register.filter#DEVUELVE EL APELLIDO
+def au_getNombre(list,mid):
+	for i in range(list.count()):
+		if list[i].id == mid:
+			return list[i].first_name
+	return None
+
+@register.filter#DEVUELVE EL PAIS
+def au_getPais(list,mid):
+	for i in range(list.count()):
+		if list[i].id == mid:
+			return list[i].pais
+	return None
+
+@register.filter#DEVUELVE EL NOMBRE
+def au_getApellido(list,mid):
+	for i in range(list.count()):
+		if list[i].id == mid:
+			return list[i].last_name
+	return None
+
 @register.filter#DEVUELVE GENERO DISPLAY
 def au_getGenero(list,mid):
 	for i in range(list.count()):
