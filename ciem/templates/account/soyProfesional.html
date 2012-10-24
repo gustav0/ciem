@@ -4,16 +4,25 @@
 {% block content %}
 <form action="" method="post" enctype="multipart/form-data">
 		{% csrf_token %}
-		<div class="mensaje"> Estimado {{ nombre|capfirst }}, Complete el siguiente formulario para procesar su peticion
-		<div class="label">Pofesion </div>
-		<div class="campo">{{ form.profesion }} </div>
-		<div class="label">Egresado de  </div>
-		<div class="campo">{{ form.universidad }} </div>
-		<div class="label">Empresa o Institucion a la que pertenece  </div>
-		<div class="campo">{{ form.trabajo }} </div>	
-		<div class="label">Telefono de contacto  </div>
-		<div class="campo">{{ form.telefono }} </div>
-		<div class="label">Comentario  </div>
+	<div class="centrar">
+		<div class="mensaje"> Estimado {{ nombre|capfirst }}, Complete el siguiente formulario para procesar su peticion</div>
+		<div class="pregunta">
+			<div class="label">Profesion </div>
+			<div class="campo">{{ form.profesion }} </div>
+		</div>
+		<div class="pregunta">
+			<div class="label">Egresado de  </div>
+			<div class="campo">{{ form.universidad }} </div>
+		</div>
+		<div class="pregunta">
+			<div class="label">Institucion a la que pertenece  </div>
+			<div class="campo">{{ form.trabajo }} </div>	
+		</div>
+		<div class="pregunta">
+			<div class="label">Telefono de contacto  </div>
+			<div class="campo">{{ form.telefono }} </div>
+		</div>	
+		<div class="">Comentario  </div>
 		<div class="campo">{{ form.comentario }} </div>	
 		<div class="escondido">{{ form.status }}</div>	
         	<div class="noDisplayDiv">
@@ -24,4 +33,5 @@
 							
 		<input type="submit" value="Enviar peticion">
 	</form>
+</div>
 {% endblock %}
