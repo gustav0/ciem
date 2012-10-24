@@ -1,5 +1,6 @@
 {% extends "homepage/index.html" %}
-
+{% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/articles/articles.css">
+{% endblock %}
 {% block title %}
 Publicaciones de articulos
 {% endblock%}
@@ -7,17 +8,16 @@ Publicaciones de articulos
 {% block clear %}{% endblock%}
 
 {% block content %}
-	<div id="botones">
-		<a href="{% url homepage_calculadora %}">
-			<div class="boton">CALCULADORA DE CALORIAS</div>
-		</a>
-		<a href="/historia/">
-			<div class="boton2">HISTORIA NUTRICIONAL</div>
-		</a>
 		<section id="publicaciones">
-			
+			<h2>Publicar un nuevo articulo</h2>
+			<form action="." method="POST">
+				{% csrf_token %}
+				{{ form.as_p }}
+			<div id="boton">
+				<input type="submit" value="Enviar" id="botonPublicar" name="boton"/>
+			</div>
+			</form>
 		</section>
-	</div>
 {% endblock%}
 
 {% block footer %}

@@ -3,6 +3,7 @@ from django.template import Library
 from django.db.models import Count
 from django.utils.safestring import mark_safe
 from datetime import date
+from django.utils.encoding import force_unicode
 
 
 register = Library()
@@ -148,25 +149,25 @@ def get_radio_porcion(loop):
 
 @register.filter#DEVUELVE EL STRING DE LA FRECUENCIA
 def parse_frecuencia(frecuencia):
-    if int(frecuencia) == 0:    resultado = 'Nunca'
-    elif int(frecuencia) == 1:  resultado = '1 vez al mes'
-    elif int(frecuencia) == 2:  resultado = '2 - 3 al mes'
-    elif int(frecuencia) == 3:  resultado = '1 por semana'
-    elif int(frecuencia) == 4:  resultado = '2 por semana'
-    elif int(frecuencia) == 5:  resultado = '3 - 4 por semana'
-    elif int(frecuencia) == 6:  resultado = '5 - 6 por semana'
-    elif int(frecuencia) == 6:  resultado = '1 vez por dia'
-    elif int(frecuencia) == 6:  resultado = '2 o mas por dia'
-    else:   resultado = 'error'
-    return resultado
+	if int(frecuencia) == 0:    resultado = 'Nunca'
+	elif int(frecuencia) == 1:  resultado = '1 vez al mes'
+	elif int(frecuencia) == 2:  resultado = '2 - 3 al mes'
+	elif int(frecuencia) == 3:  resultado = '1 por semana'
+	elif int(frecuencia) == 4:  resultado = '2 por semana'
+	elif int(frecuencia) == 5:  resultado = '3 - 4 por semana'
+	elif int(frecuencia) == 6:  resultado = '5 - 6 por semana'
+	elif int(frecuencia) == 6:  resultado = '1 vez por dia'
+	elif int(frecuencia) == 6:  resultado = '2 o mas por dia'
+	else:   resultado = 'error'
+	return resultado
 
 @register.filter#DEVUELVE EL STRING DE LA FRECUENCIA
 def parse_porcion(porcion):
-    if porcion =='p':   resultado = 'Pequeña'
-    elif porcion =='m': resultado = 'Mediana'
-    elif porcion =='g': resultado = 'Grande'
-    else:   resultado = 'Grande'
-    return resultado
+	if porcion =='p':   resultado = 'Pequeña'
+	elif porcion =='m': resultado = 'Mediana'
+	elif porcion =='g': resultado = 'Grande'
+	else:   resultado = 'Grande'
+	return resultado
 
 
 #|||||||||||||||||||||||||||||||||||||||||||||||||||||||||#
@@ -179,3 +180,31 @@ def get_progreso(var):
 		if progreso < var[i].seccionnombre_id:
 			progreso = var[i].seccionnombre_id
 	return progreso
+
+
+#|||||||||||||||||||||||||||||||||||||||||||||||||||||||||#
+#|FILTROS PARA SABER SI UN USUARIO PERTENECE A UN GRUPO  |#
+#|||||||||||||||||||||||||||||||||||||||||||||||||||||||||#
+@register.filter
+def in_group(user, groups):
+	"""Returns a boolean if the user is in the given group, or comma-separated
+    list of groups.
+
+    Usage::
+
+        {% if user|in_group:"Friends" %}
+        ...
+        {% endif %}
+
+    or::
+
+        {% if user|in_group:"Friends,Enemies" %}
+        ...
+        {% endif %}
+
+    """
+	if user.is_authenticated():
+		group_list = force_unicode(groups).split(',')
+		return bool(user.groups.filter(name__in=group_list).values('name'))
+	else:
+		return False

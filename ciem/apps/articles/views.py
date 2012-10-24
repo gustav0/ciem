@@ -1,11 +1,22 @@
 from django.shortcuts import get_object_or_404, render_to_response
 from django import http
 from django.template import RequestContext
-from django.views.generic import list_detail
 from ciem.apps.articles.models import *
-from ciem.apps.articles.managers import ArticleManager
-#from django.views.generic.date_based import object_list
+from ciem.apps.articles.forms import * 
 
+
+def nuevoArticulo(request):
+	form = articleNuevoForm(request.POST or None)
+	print request.POST
+	if form.is_valid():
+		
+		articulo = form.save(commit=False)
+		articulo.author = request.user
+		articulo.save()
+	else:
+		form = articleNuevoForm()
+	ctx= {'form':form,'id':request.user.id}
+	return render_to_response('articles/publicar.html', ctx, context_instance=RequestContext(request))
 
 def article_all(request):	
 	ctx = {'lista':Article.objects.published()}
@@ -13,6 +24,7 @@ def article_all(request):
 
 def article_list(request, *args, **kwargs):
 	from django.views.generic.list_detail import object_list
+	nuevo_object_list = object_list
 	category = get_object_or_404(Category, slug=kwargs.pop('category'))
 	kwargs.update({
 		'queryset': Article.objects.published(),
@@ -21,10 +33,11 @@ def article_list(request, *args, **kwargs):
 		'allow_empty': True,
 		'template_object_name': 'article',
 	})
-	return object_list(request, *args, **kwargs)
+	return nuevo_object_list(request, *args, **kwargs)
 
 def article_detail(request, *args, **kwargs):
 	from django.views.generic.date_based import object_detail
+	nuevo_object_detail = object_detail
 	category = get_object_or_404(Category, slug=kwargs.pop('category'))
 	kwargs.update({
 		'queryset': Article.objects.published(),
@@ -32,7 +45,7 @@ def article_detail(request, *args, **kwargs):
 		'slug_field': 'slug',
 		'template_object_name': 'article',
 	})
-	return object_list(request, *args, **kwargs)
+	return nuevo_object_detail(request, *args, **kwargs)
 	
 	
 def article_draft(request, article_id):
