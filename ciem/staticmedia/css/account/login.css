@@ -1,0 +1,59 @@
+input, input:focus{
+    outline: none;
+    margin: 0;
+}
+.errorLogin{
+	color: #CE0D0D;
+}
+.errorLogin input{
+	border: 1px solid #CE0D0D;
+}
+input{
+		border: 1px solid #AAA;
+}
+#alinearLoginForm{
+	height: auto;
+	width: 240px;
+	margin-top: 10px;
+}
+#loginForm{
+	padding: 10px;
+	float: left;
+	height: auto;
+	width: 220px;
+	background-color: #EEE;
+	border: 1.7px solid #CCC;
+}
+
+#usernameFormTag{
+}
+#usernameFormField{
+	float: left;
+	    outline: #CE0D0D;
+}
+#passwordFormTag{
+}
+#passwordFormField{
+	float: left;
+}
+
+#inputForm{
+    width: 50px;
+    margin-bottom: 15px;
+    margin-left: 124px;
+}
+
+.campoLogin{
+	float:left;
+	width: 242px;
+	margin-bottom: 10px;
+}
+
+.clear{
+	clear: both;
+}
+
+.formTag{
+	float: left;
+	width: 84px;
+}

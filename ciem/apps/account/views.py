@@ -95,7 +95,7 @@ def antropometricos(request):
 	if form.is_valid():
 		form.save(request)
 		final = True
-		apreciacion = None
+		apreciacion = datosAntropometricos.objects.getByIdJoin(request.user.id)
 	else:
 		final = False
 		apreciacion = None
