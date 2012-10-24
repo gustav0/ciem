@@ -10,20 +10,20 @@ import math
 from datetime import date
 
 class loginForm(AuthenticationForm):
-	username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Usuario'}))
-	password = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Contraseña'}))
+	username = forms.CharField(widget=forms.TextInput(attrs={'autocomplete':'off','placeholder': 'Usuario'}))
+	password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Contraseña'}))
 
 class registerForm(UserCreationForm):
 	genero = forms.ChoiceField(choices=userProfile.GENERO)
 	cedula = forms.FloatField(widget=forms.TextInput(attrs={'placeholder': '9999999'}))
-	fecha_nacimiento = forms.DateField(input_formats=['%d-%m-%Y'], widget=forms.TextInput(attrs={'placeholder': 'dd-mm-aaaa'}))
-	first_name = forms.CharField(max_length=30, label='Nombre', widget=forms.TextInput(attrs={'placeholder': 'Nombre'}))
+	fecha_nacimiento = forms.DateField(input_formats=['%d-%m-%Y'], widget=forms.TextInput(attrs={'placeholder': 'dd-mm-aaaa','autocomplete':'off'}))
+	first_name = forms.CharField(max_length=30, label='Nombre', widget=forms.TextInput(attrs={'placeholder': 'Nombre',}))
 	last_name = forms.CharField(max_length=30, label='Apellido', widget=forms.TextInput(attrs={'placeholder': 'Apellido'}))
 	email = forms.EmailField(max_length=75, label='Email',widget=forms.TextInput(attrs={'placeholder': 'nick@email.com'}))
 	pais = forms.ModelChoiceField(label="Pais", queryset=Country.objects.all(), widget=forms.Select(attrs={'class':'selector'}))
 	venezuela = forms.ModelChoiceField(label='Municipio', queryset=VeState.objects.all(), widget=forms.Select(attrs={'class':'selector'}))
 	preguntaSecreta = forms.ChoiceField(label="Pregunta secreta", choices=userProfile.PREGUNTA)
-	respuestaSecreta = forms.CharField(max_length=70, label='Respuesta Secreta', widget=forms.TextInput(attrs={'placeholder': 'Respuesta secreta'}))
+	respuestaSecreta = forms.CharField(max_length=70, label='Respuesta Secreta', widget=forms.TextInput(attrs={'placeholder': 'Respuesta secreta','autocomplete':'off'}))
 	def save(self, *arg, **kwargs):
 		user = super(registerForm, self).save(*arg, **kwargs)
 		#if self.cleaned_data["first_name"] != null:
