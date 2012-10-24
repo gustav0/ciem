@@ -9,11 +9,13 @@ Publicaciones de articulos
 
 {% block content %}
 		<section id="publicaciones">
-			<h2>Publicar un articulo en las publicaciones</h2>
+			<h2>Publicar un nuevo articulo</h2>
 			<form action="." method="POST">
 				{% csrf_token %}
 				{{ form.as_p }}
-				<input type="submit" value="Enviar" />
+			<div id="boton">
+				<input type="submit" value="Enviar" id="botonPublicar" name="boton"/>
+			</div>
 			</form>
 		</section>
 {% endblock%}
