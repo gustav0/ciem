@@ -20,6 +20,12 @@
 			<div class="lineaGeneral"><div class="labelGeneral">Municipio:</div><div class="contenidoGeneral">{{ profile.municipio }}</div></div>
 		</div>
 	</div>
+	<div class="fondoGeneral"> 
+		<div class="divisorSeccion"> PROFESIONALES <div class="lineaDivisorSeccion"></div></div>
+		<a stlye="float:left;"href="{% url nutricionista_perfilUsuarios %}">Ver lista de pacientes</a>
+		<a stlye="float:left;"href="{% url article_all %}">Ver publicaciones</a>
+		<a stlye="float:left;"href="{% url nutricionista_peticiones %}">Ver solicitudes de profesionales</a>
+	</div>
 	<div class="fondoActividad"> 
 		<div class="divisorSeccion"> ACTIVIDAD EN LA PÁGINA<div class="lineaDivisorSeccion"></div></div>
 		{% if antropometrico %}
