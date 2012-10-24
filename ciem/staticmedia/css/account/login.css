@@ -4,7 +4,7 @@ input, input:focus{
 }
 #loginError{
 	float: left;
-	width: 125px;
+	width: 140px;
 	margin-left: -15px;
 	color:#CE0D0D;
 }
@@ -51,7 +51,6 @@ input, input:focus{
 #inputForm input{
 	float: left;
 	font-size: 12px;
-	margin-bottom: 15px;
 	padding: 5px 14px 5px 14px;
 	margin-left: 124px;
 	background-color: #2B6B2B;
@@ -95,6 +94,7 @@ input, input:focus{
 	width: 120px;
 	height: 40px;
 	font-size: 13px;
+	margin-top: -10px;
 }
 .extra a{
 	color:	#386838;

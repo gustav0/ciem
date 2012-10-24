@@ -22,7 +22,7 @@
 	</div>
 	<div class="fondoActividad"> 
 		<div class="divisorSeccion"> ACTIVIDAD EN LA PÁGINA<div class="lineaDivisorSeccion"></div></div>
-		{% if frecuencia %}
+		{% if antropometrico %}
 		<div class="lineaTitulo"><div class="tituloActividad">Datos antropométricos</div><div class="enlaceActividad"><a href="{% url account_perfilAntropometrico %}">[ VER HISTORIAL COMPLETO ]</a></div>
 			<div class="lineaActividad"><div class="labelActividad">Veces que lo ha completado:</div><div class="contenidoGeneral">{% if antropometrico %}{{ antropometrico|count_by_len }}{% else %}0{% endif %}</div></div>
 			<div class="lineaActividad"><div class="labelActividad">Último resultado obtenido:</div><div class="contenidoGeneral">{% if antropometrico %}{{ antropometrico.0.apreciacion_obesidad }}{% else %}No hay resultados{% endif %}</div></div>
