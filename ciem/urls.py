@@ -17,7 +17,6 @@ urlpatterns = patterns('',
   (r'^', include('ciem.apps.account.urls')),
   (r'^', include('ciem.apps.nutricionista.urls')),
   (r'', include('ciem.apps.articles.urls')),
-  (r'^', include('ciem.apps.data.urls')),
 	(r'^sitemap\.xml', 'django.contrib.sitemaps.views.sitemap', {'sitemaps':sitemaps}),
     # Examples:
     # url(r'^$', 'ciem.views.home', name='home'),
