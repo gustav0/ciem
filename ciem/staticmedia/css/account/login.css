@@ -2,58 +2,103 @@ input, input:focus{
     outline: none;
     margin: 0;
 }
-.errorLogin{
-	color: #CE0D0D;
+#loginError{
+	float: left;
+	width: 125px;
+	margin-left: -15px;
+	color:#CE0D0D;
 }
 .errorLogin input{
-	border: 1px solid #CE0D0D;
+-webkit-box-shadow:inset 2px 2px 3px 0px #CE0D0D !important;box-shadow:inset 2px 2px 3px 0px #CE0D0D !important;
 }
-input{
-		border: 1px solid #AAA;
+#usernameFormField input,#passwordFormField input {
+	border: 0;
+	height: 24px;
+	width: 190px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	text-indent: 8px;
+	-webkit-box-shadow:inset 2px 2px 3px 0px #777;box-shadow:inset 2px 2px 3px 0px #777;
 }
+#id_username::-webkit-input-placeholder,#id_password::-webkit-input-placeholder  { color:#666; }
+#id_username input:-moz-placeholder,#id_password input:-moz-placeholder { color:#666; }
 #alinearLoginForm{
+	float: left;
 	height: auto;
 	width: 240px;
-	margin-top: 10px;
+	margin-top: 16px;
+	margin-left: 40px;
 }
 #loginForm{
 	padding: 10px;
 	float: left;
-	height: auto;
-	width: 220px;
-	background-color: #EEE;
-	border: 1.7px solid #CCC;
-}
-
-#usernameFormTag{
+	height: 200px;
+	width: 260px;
+	background-color: #F2FFEC;
+	-webkit-border-radius: 50px;border-radius: 50px;
+	-webkit-box-shadow: 2px 2px 3px 0px #888;box-shadow: 2px 2px 3px 0px #888;
+	margin: 30px;
+	margin-left: 330px;
 }
 #usernameFormField{
 	float: left;
-	    outline: #CE0D0D;
-}
-#passwordFormTag{
+	outline: #CE0D0D;
 }
 #passwordFormField{
 	float: left;
 }
-
-#inputForm{
-    width: 50px;
-    margin-bottom: 15px;
-    margin-left: 124px;
+#inputForm{float: left;}
+#inputForm input{
+	float: left;
+	font-size: 12px;
+	margin-bottom: 15px;
+	padding: 5px 14px 5px 14px;
+	margin-left: 124px;
+	background-color: #2B6B2B;
+	color: #EEE;
+	text-transform: uppercase;
+	-webkit-border-radius: 5px;border-radius: 5px;
 }
-
 .campoLogin{
 	float:left;
-	width: 242px;
+	width: 160px;
 	margin-bottom: 10px;
 }
-
 .clear{
 	clear: both;
 }
-
 .formTag{
 	float: left;
 	width: 84px;
+}
+.cabeceraLogin{
+	float: left;
+	width: 230px;
+	height: 30px;
+	margin-left: 35px;
+}
+.iconoLogin{
+	float: left;
+	width: 28px;
+	height: 28px;
+	background-color: black;
+}
+.textoLogin{
+	float: left;
+	color: #006633;
+	font-size: 22px;
+	font-weight: bold;
+	margin-left: 10px;
+}
+.extra{
+	float: left;
+	width: 120px;
+	height: 40px;
+	font-size: 13px;
+}
+.extra a{
+	color:	#386838;
+}
+.extra a:hover{
+	color:	#118311;
 }

@@ -1,4 +1,5 @@
-from django.contrib.auth.forms import UserCreationForm
+# coding: latin-1
+from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django import forms
 from django.forms.formsets import formset_factory
 from django.forms import ModelForm
@@ -7,6 +8,10 @@ from ciem.apps.countries.models import *
 from django.contrib.auth.models import User
 import math
 from datetime import date
+
+class loginForm(AuthenticationForm):
+	username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Usuario'}))
+	password = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Contraseña'}))
 
 class registerForm(UserCreationForm):
 	genero = forms.ChoiceField(choices=userProfile.GENERO)
