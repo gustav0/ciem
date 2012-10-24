@@ -1,9 +1,10 @@
 {% extends "homepage/index.html" %}
 {% block css %}<link rel="stylesheet" href=" {{ MEDIA_URL }}css/account/antropometricos.css">{% endblock %}
 {%load humanize%}
-{% block content %}
 
+{% block content %}
 {% if final %}
+<div id="antropometricos">
 	<div class="alineacionResultado">
 		<div class="contenidoResultado">
 			<div class="identificadorValor">
@@ -52,8 +53,9 @@
 	</div>
 	<div class="recomendarIPAQ">Le recomendamos llenar el cuestionario de actividad Física (IPAQ)</div>
 	<a href="{% url account_ipaq %}"><div class="enlaceIPAQ">AQUI</div></a>
+</div>
 {% else %}
-
+<div id="antropometricos">
 	<form action="/antropometricos/" id='formulario' method='post' enctype='multipart/form-data' action="">
 	{% csrf_token %}
 	<div class="cabeceraFormulario"></div>
@@ -89,7 +91,10 @@
 		<div id="patologia1Form" class="campoForm2">
 			<div class="labelCampo">Trigliceridos: {{ form.trigliceridos }}</div>
 		</div>		
+	<div id="botonContinuar">
 	<input id="submit" type='submit' value='Continuar'/>
+	</div>
 	</form>
+</div>
 {% endif%}
 {% endblock %}

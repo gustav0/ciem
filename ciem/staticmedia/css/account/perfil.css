@@ -112,7 +112,7 @@
 .botonLlenar{
 	float: left;
 	background-color: #CAEBCF;
-	width: 200px;
+	width: 220px;
 	height: 40px;
 	margin-top: 70px;
 	-webkit-border-radius: 10px;
@@ -174,5 +174,42 @@ a .botonLlenar{
 }
 a .textoIniciarA, a .textoIniciarB{
 	color: #FFF;
+}
+
+#botonesProfesional{
+	float: left;
+	width: 750px;
+	height: 120px;
+}
+
+.botonProfesional{
+	margin-top: 10px;
+	color: black;
+	font-weight: bold;
+	background:#58D3F7;
+	float: left;
+	margin-left: 80px;
+	padding: 5px;
+	height: 80px;
+	text-decoration: none;
+	border-radius:0.2em;
+	-webkit-box-shadow: 1px 3px 2px 0px #B4B4B4;
+	box-shadow: 1px 3px 2px 0px #B4B4B4;
+	-webkit-transition-duration: 0.2s;-moz-transition-duration: 0.2s;transition-duration: 0.2s;
+}
+a:hover .botonProfesional{
+	background: #04B486;
+	color: white;
+}
+
+.botonProfesional p{
+	margin:0px;
+}
+
+.botonProfesional  img{
+	width: 50px;
+	height: 50px;
+	margin-left: 30%;
+	float: left;
 }
 
