@@ -15,14 +15,15 @@ Centro de investigaciones Endocrino-Metabólicas
 		
 		<a id="linkAbout" href="{% url homepage_about %}"><div>Nosotros</div></a>
 		<a href="{% url homepage_contact %}"><div>Contacto</div></a>
-		<a href="{% url account_ipaq %}"><div>IPAQ</div></a>
+		<a href="{% url account_ipaq %}"><div>Evaluación</div></a>
+		<a href="{% url homepage_index %}"><div>Publicaciones</div></a>
+		<a href="{% url homepage_index %}"><div>Foro</div></a>		
 			{% if user.is_authenticated %}
 				<a href="{% url account_logout %}"><div>Cerrar Sesión</div></a>
 			{% else %}
 				<a href="{% url account_register %}"><div>Registrarme </div></a>
 			{% endif %}
-		<a href="{% url homepage_index %}"><div>Inicio</div></a>
-		<a href="{% url homepage_index %}"><div>Inicio</div></a>
+
 {% endblock %}
 
 {% block clear %}{% endblock%}
