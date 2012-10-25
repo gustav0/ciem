@@ -61,6 +61,7 @@ class antropometricosResultado(models.Model):
 
 class ipaq(models.Model):
 	user = models.ForeignKey(User)
+	fecha_creacion = models.DateField(auto_now_add=True)
 	dias = ( ('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),('6','6'),('7','7'), )
 	horas = ( ('0','-'),('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),('6','6'),('10','7+'), )
 	minutos = ( ('0','-'),('10','10'),('15','15'),('20','20'),('30','30'),('40','40'),('45','45') )

@@ -1,0 +1,76 @@
+.contenedorSolicitud{
+	float: left;
+	width: 700px;
+	margin-top: 30px;
+	margin-left: 150px;
+	margin-bottom: 30px;
+	-webkit-box-shadow: 2px 2px 5px 0px #888;
+	box-shadow: 2px 2px 5px 0px #888;
+}
+.cabeceraSolicitud{
+	float:left;
+	width:700px;
+	height:30px;
+	background-color:#009B00;
+	color: #FFF;
+	font-size:22px;
+	text-indent:40px;
+	line-height:28px;
+}
+.contenedorInformacion{
+	font-size: 15px;
+	background-color:#FAF6DC;
+	float: left;
+	width: 400px;
+	height: 240px;
+}
+.contenedorComentario{
+	font-size: 15px;
+	background-color:#F0F0F0;
+	float: left;
+	width: 300px;
+	height: 240px;
+}
+.fila{
+	width: 200px;
+	float: left;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.labelDato{
+	font-weight: bold;
+}
+.dato{
+	margin-bottom: 8px;
+	text-indent: 10px;
+}
+.siNo{
+	float: left;
+	line-height: 27px;
+	position: relative;
+	bottom: 60px;
+	left: 680px;
+}
+.siNo a{
+	color:#4B4B4B;
+	text-decoration: none;
+	float: left;
+}
+.siNo a:hover{
+	color:green;
+}
+.aceptar{
+	float: left;
+	width: 30px;
+	height: 26px;
+	background: url(../../img/positivo.png) -0px -0px no-repeat;
+}
+.rechazar{
+	float: left;
+	width: 30px;
+	height: 26px;
+	background: url(../../img/denegar.png) -0px -0px no-repeat;
+}
+#negativo:hover {
+color:red !important;
+}

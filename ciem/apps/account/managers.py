@@ -25,7 +25,7 @@ class ipaqManager(models.Manager):
 
 class ipaqResultadoManager(models.Manager):
 	def getResultados(self,id):
-		query='SELECT * FROM account_ipaq as u INNER JOIN account_ipaqresultado as p ON u.id=p.ipaq_id WHERE u.user_id='+str(id)+';'
+		query='SELECT * FROM account_ipaq as u INNER JOIN account_ipaqresultado as p ON u.id=p.ipaq_id WHERE u.user_id='+str(id)++' order by -data.fecha_creacion;'
 		return self.model.objects.raw(query)
 	
 class antropometricosResultadoManager(models.Manager):

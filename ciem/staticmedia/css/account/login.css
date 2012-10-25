@@ -80,7 +80,7 @@ input, input:focus{
 	float: left;
 	width: 28px;
 	height: 28px;
-	background-color: black;
+	background:url(../../img/candado.png) -0px -0px no-repeat;
 }
 .textoLogin{
 	float: left;
