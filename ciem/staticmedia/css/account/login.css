@@ -15,10 +15,8 @@ input, input:focus{
 	border: 0;
 	height: 24px;
 	width: 190px;
-	-webkit-border-radius: 8px;
-	border-radius: 8px;
 	text-indent: 8px;
-	-webkit-box-shadow:inset 2px 2px 3px 0px #777;box-shadow:inset 2px 2px 3px 0px #777;
+	box-shadow:inset 0px 0px 1px 1px #777;
 }
 #id_username::-webkit-input-placeholder,#id_password::-webkit-input-placeholder  { color:#666; }
 #id_username input:-moz-placeholder,#id_password input:-moz-placeholder { color:#666; }
@@ -35,7 +33,8 @@ input, input:focus{
 	height: 200px;
 	width: 260px;
 	background-color: #F2FFEC;
-	-webkit-border-radius: 50px;border-radius: 50px;
+	-webkit-border-radius: 0.5em;
+	border-radius: 0.5em;
 	-webkit-box-shadow: 2px 2px 3px 0px #888;box-shadow: 2px 2px 3px 0px #888;
 	margin: 30px;
 	margin-left: 330px;
@@ -48,16 +47,29 @@ input, input:focus{
 	float: left;
 }
 #inputForm{float: left;}
+
 #inputForm input{
+	cursor: pointer;
 	float: left;
 	font-size: 12px;
 	padding: 5px 14px 5px 14px;
 	margin-left: 124px;
-	background-color: #2B6B2B;
+	background-color: #009B00;
+	border: 1px solid black;
+	border-radius: 0.2em;
 	color: #EEE;
+	-webkit-transition-duration: 0.2s;
+	-moz-transition-duration: 0.2s;
+	transition-duration: 0.2s;
 	text-transform: uppercase;
-	-webkit-border-radius: 5px;border-radius: 5px;
 }
+
+#inputForm input:hover{
+	background: #2E64FE;
+	color: white;
+	border: 1px solid #009B00;
+}
+
 .campoLogin{
 	float:left;
 	width: 160px;

@@ -6,16 +6,45 @@
 	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-		float: right;
-	margin-right: 300px;
+	float: right;
 
 }
 #usernameForm p{
-	background: #F7F7F7;
+		background: #F7F7F7;
 	border: 1px solid #D7D7D7;
 	box-shadow: 0 0 1em #EEE;
 	border-radius: .3em;
 	margin: 1em 1.75em;
 	padding: .25em;
 	overflow: auto;
+	width: 50%;
+	display: inline-block;
+	text-align: left;
+}
+form{
+	text-align: center;
+}
+
+#botonFinalizar input{
+	cursor: pointer;
+	background-color: #009B00;
+	border: 1px solid black;
+	border-radius: 0.2em;
+	color: #EEE;
+	-webkit-transition-duration: 0.2s;
+	-moz-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+	float: left;
+	margin: 0;
+	font-weight: bold;
+	padding: 15px 40px;
+	margin-bottom: 50px;
+	margin-left: 42%;
+	clear: both;
+}
+
+
+#botonFinalizar input:hover{
+	background: #04B486;
+	color: white;
 }
