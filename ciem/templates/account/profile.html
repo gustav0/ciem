@@ -3,6 +3,7 @@
 {% load custom_filters %}
 {% block css %}<link rel="stylesheet" href=" {{ MEDIA_URL }}css/account/perfil.css">{% endblock %}
 {% block content %}
+	<div id="contenidoPerfil">
 	<div class="mensajeBienvenida">
 	Perfil de {{ user }}, Bienvenido 
 	</div>
@@ -31,9 +32,9 @@
 				<img src="http://www.tuinfomedica.com/uploads/jobs/user-icon.png" alt="listapacientes">
 				</div>
 			</a>
-			<a href="{% url article_all %}">
+			<a href="{% url nuevoArticulo %}">
 				<div class="botonProfesional">
-				<p>Agregar publicacion</p>
+				<p>Agregar publicación</p>
 				<img src="http://icons.iconarchive.com/icons/gakuseisean/aire/256/Add-Folder-icon.png" alt="crearpublicacion">
 				</div>
 			</a>
@@ -77,8 +78,8 @@
 			<div class="textoNo">No se han registrado actividades</div>
  			<a href="{% url account_datosAntropometricos %}"><div class="botonIniciar"><div class="textoIniciarA">COMENZAR</div><div class="textoIniciarB">EVALUACION NUTRICIONAL</div><div class="trianguloVerde"></div></div></a>
 		{% endif %}
+	</div>
 </div>
-		
 <!--
 		<a href="{% url account_editRegister %}">Editar datos </a>
 	<a href="{% url account_recordatorio %}">
