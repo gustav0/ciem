@@ -37,6 +37,9 @@ div#merienda3{
 
 div.botonGroup{
     text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    float:right;
 }
 
 div#desayuno p{margin: 0;}
@@ -48,21 +51,27 @@ div#merienda3 p{margin: 0;}
 
 select#selCombo1{
     width: 400px !important;
+    margin-right: 20px;
 }
 select#selCombo2{
     width: 400px !important;
+    margin-right: 20px;
 }
 select#selCombo3{
     width: 400px !important;
+    margin-right: 20px;
 }
 select#selCombo4{
     width: 400px !important;
+    margin-right: 20px;
 }
 select#selCombo5{
     width: 400px !important;
+    margin-right: 20px;
 }
 select#selCombo6{
     width: 400px !important;
+    margin-right: 20px;
 }
 
 
@@ -91,35 +100,27 @@ select#selCombo6{
     width: 250px;
 }
 
-#selCombo1{
-	margin-top: 20px;
-}
-#selCombo2{
-	margin-top: 20px;
-}
-#selCombo3{
-	margin-top: 20px;
-}
-#selCombo4{
-	margin-top: 20px;
-}
-#selCombo5{
-	margin-top: 20px;
-}
-#selCombo6{
-	margin-top: 20px;
-}
-
-
 #botonRecordar{
-	border: 1px solid #AAA;
-	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-	width: 60px;
-	height: 30px;
+	cursor: pointer;
+	background-color: #009B00;
+	border: 1px solid black;
+	border-radius: 0.2em;
+	color: #EEE;
+	-webkit-transition-duration: 0.2s;
+	-moz-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+	float: left;
+	margin: 0;
+	font-weight: bold;
+	padding: 15px 40px;
+	margin-bottom: 50px;
+	margin-left: 45%;
+	clear: both;
 }
-
+#botonRecordar:hover{
+	background: #04B486;
+	color: white;
+}
 
 
 #tamanos{
@@ -135,6 +136,16 @@ margin-left: 50px;
 
 .campoForm{
 	margin-bottom: 20px;
+	background: #F7F7F7;
+	border: 1px solid #D7D7D7;
+	box-shadow: 0 0 1em #EEE;
+	border-radius: .3em;
+	margin: 1em 1.75em;
+	padding: .25em;
+	overflow: auto;
+	width: 100%;
+	display: inline-block;
+	text-align: left;
 }
 
 .campoForm li{
@@ -147,12 +158,16 @@ margin-left: 50px;
 	margin:0;
 	margin-right: 60px;
 }
-.campoForm input{
+.campoForm input,select{
 	float: right;
+}
+.campoForm label{
+	float: left;
 }
 .campoForm select{
-	float: right;
+	margin: 0px;
 }
+
 
 .botonVerde{
 	width: 30px;

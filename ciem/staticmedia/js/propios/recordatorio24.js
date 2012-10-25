@@ -1,5 +1,11 @@
 $(function(){
- 
+
+	$("#id_desayuno_0").click();
+ 	$("#id_merienda1_0").click();
+ 	$("#id_almuerzo_0").click();
+ 	$("#id_merienda2_0").click();
+ 	$("#id_cena_0").click();
+ 	$("#id_merienda3_0").click();
 	$('input:text').focus(
 		function(){
 				$(this).val('');

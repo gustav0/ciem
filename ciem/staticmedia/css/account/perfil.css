@@ -1,9 +1,11 @@
+
 .mensajeBienvenida{
 	float: left;
 	font-weight: bold;
 	font-size: 20px;
 	margin-left: 40px;
 	margin-bottom: 30px;
+	margin-top: 20px;
 }
 .divisorSeccion{
 	float: left;
@@ -125,7 +127,7 @@
 }
 .botonLlenar:active{
 	margin-top: 71px;
-	width: 198px;
+	width: 235px;
 	height: 38px;
 }
 .textoBoton{
