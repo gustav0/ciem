@@ -20,12 +20,33 @@
 			<div class="lineaGeneral"><div class="labelGeneral">Municipio:</div><div class="contenidoGeneral">{{ profile.municipio }}</div></div>
 		</div>
 	</div>
+	
 	<div class="fondoGeneral"> 
-		<div class="divisorSeccion"> PROFESIONALES <div class="lineaDivisorSeccion"></div></div>
-		<a stlye="float:left;"href="{% url nutricionista_perfilUsuarios %}">Ver lista de pacientes</a>
-		<a stlye="float:left;"href="{% url article_all %}">Ver publicaciones</a>
-		<a stlye="float:left;"href="{% url nutricionista_peticiones %}">Ver solicitudes de profesionales</a>
+		<div class="divisorSeccion"> PROFESIONALES <div class="lineaDivisorSeccion"></div>
+		</div>
+		<div id="botonesProfesional">
+			<a href="{% url nutricionista_perfilUsuarios %}">
+				<div class="botonProfesional">
+				<p>Ver lista de pacientes</p>
+				<img src="http://www.tuinfomedica.com/uploads/jobs/user-icon.png" alt="listapacientes">
+				</div>
+			</a>
+			<a href="{% url article_all %}">
+				<div class="botonProfesional">
+				<p>Agregar publicacion</p>
+				<img src="http://icons.iconarchive.com/icons/gakuseisean/aire/256/Add-Folder-icon.png" alt="crearpublicacion">
+				</div>
+			</a>
+			<a href="{% url nutricionista_peticiones %}">
+				<div class="botonProfesional">
+				<p>Ver solicitudes de profesionales</p>
+				<img src="http://www.omnihospital.ec/salud/images/stories/icono_medico.png" alt="paciente">
+				</div>
+			</a>
+		</div>
 	</div>
+
+
 	<div class="fondoActividad"> 
 		<div class="divisorSeccion"> ACTIVIDAD EN LA PÁGINA<div class="lineaDivisorSeccion"></div></div>
 		{% if antropometrico %}

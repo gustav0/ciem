@@ -2,6 +2,9 @@
 	display:none;
 }
 
+
+
+
 /*FORMULARIO*/
 .cabeceraFormulario{
 	float: left;
@@ -57,20 +60,29 @@
 	height: 210px;
 }
 #submit{
+	cursor: pointer;
+	background-color: #009B00;
+	border: 1px solid black;
+	border-radius: 0.2em;
+	color: #EEE;
+	-webkit-transition-duration: 0.2s;
+	-moz-transition-duration: 0.2s;
+	transition-duration: 0.2s;
 	float: left;
 	margin: 0;
 	font-weight: bold;
 	padding: 4px;
-	color: #FCFCFC;
-	background-color: #008D00;
-	-webkit-border-radius: 4px;
-	border-radius: 8px;
 	position: relative;
 	left: 250px;
+	clear: both;
 }
 #submit:hover{
-	background-color:#006D00;
+	background: #2B6B2B;
+	color: white;
+	border: 1px solid #009B00;
 }
+
+
 /*VISTA PACIENTE*/
 table,th,td{
 	border: 1px solid black;

@@ -1,22 +1,27 @@
 {% extends "homepage/index.html" %}
+{% load custom_filters %}
 {% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/articles/articles.css">
 {% endblock %}
 {% block title %}
 Publicaciones de articulos
 {% endblock%}
-
 {% block clear %}{% endblock%}
-
 {% block content %}
 		<section id="publicaciones">
-			<h2>Publicar un nuevo articulo</h2>
-			<form action="." method="POST">
-				{% csrf_token %}
-				{{ form.as_p }}
-			<div id="boton">
-				<input type="submit" value="Enviar" id="botonPublicar" name="boton"/>
-			</div>
-			</form>
+			{% if user|in_group:"profesional" %}
+	       		<h2>Publicar un nuevo articulo</h2>
+				<form action="." method="POST">
+					{% csrf_token %}
+					{{ form.as_p }}
+				<div id="boton">
+					<input type="submit" value="Enviar" id="botonPublicar" name="boton"/>
+				</div>
+				</form>
+       		{% else %}
+       			<div id="aviso">
+       				<p>Usted no puede realizar publicaciones porque no es un profesional autenticado.</p>
+       			</div>
+      	  	{% endif %}
 		</section>
 {% endblock%}
 

@@ -27,3 +27,7 @@ input, select,textarea{
 	margin-right: 300px;
 	margin-bottom: 30px;
 }
+
+#aviso{
+	text-align: center;
+}

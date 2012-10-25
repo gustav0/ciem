@@ -5,7 +5,7 @@ from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.core.paginator import EmptyPage, PageNotAnInteger
 from ciem.apps.account.models import datosAntropometricos,antropometricosResultado,userProfile,ipaqResultado,ipaq,frecuenciaConsumo, profesional
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 
 @login_required(login_url='/login')
 def verPeticiones(request):
@@ -13,6 +13,9 @@ def verPeticiones(request):
 	aceptar = request.GET.get('a',0)
 	if (int(aceptar) == 1):
 		profesional.objects.filter(user_id = getUser).update(status='aceptado')
+		persona = User.objects.get(id = getUser)
+		g = Group.objects.get(name='profesional') 
+		g.user_set.add(persona)
 	elif (int(aceptar) == 2):
 		profesional.objects.filter(user_id = getUser).update(status='rechazado')
 	peticiones = profesional.objects.filter(status = 'pendiente')
