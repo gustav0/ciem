@@ -184,7 +184,7 @@ a .textoIniciarA, a .textoIniciarB{
 
 .botonProfesional{
 	margin-top: 10px;
-	color: black;
+	color: #4B4B4B;
 	font-weight: bold;
 	background:#58D3F7;
 	float: left;
@@ -199,7 +199,6 @@ a .textoIniciarA, a .textoIniciarB{
 }
 a:hover .botonProfesional{
 	background: #04B486;
-	color: white;
 }
 
 .botonProfesional p{
