@@ -1,27 +1,40 @@
 {% extends 'homepage/index.html' %}
 {% load custom_filters %}
-{% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/nutricionista/perfilUsuarios.css">{% endblock %}
+{% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/nutricionista/peticiones.css">{% endblock %}
 {% block content %}
 <div id="titulo"> Solicitudes pendientes </div>
 {% for peticion in peticiones %}
-	<div class="dato"> Nombre: {{ usuario|au_getNombre:peticion.user_id|capfirst }} {{ usuario|au_getApellido:peticion.user_id|capfirst }}</div>
-	<div class="dato"> Edad: {{ perfil|au_getFechaNaciemiento:peticion.user_id|calculate_age }} </div>
-	<div class="dato" >Género: 
-		{% if perfil|au_getGenero:peticion.user_id == "m" %}
-			Masculino
-		{% elif perfil|au_getGenero:peticion.user_id == "f" %}
-			Femenino
-		{% else %}
-			Otro
-		{% endif %}
-	</div>    
-	<div class="dato"> Pais: {{ perfil|au_getPais:peticion.user_id }} </div>
-	<div class="dato"> Profesión: {{ peticion.profesion }} </div>
-	<div class="dato"> Estudió en: {{ peticion.universidad }} </div>
-	<div class="dato"> Trabaja en: {{ peticion.trabajo }} </div>
-	<div class="dato"> Telefono de contacto: {{ peticion.telefono }} </div>
-	<div class="dato"> Comentario del solicitante: {{ peticion.comentario }} </div>
-	<div> <a href="?user={{ peticion.user_id }}&a=1"> Aceptar </a> </div>
-	<div> <a href="?user={{ peticion.user_id }}&a=2"> Rechazar </a> </div>
+<div class="contenedorSolicitud">
+	<div class="cabeceraSolicitud">Solicitud de {{ usuario|au_getNombre:peticion.user_id|capfirst }} {{ usuario|au_getApellido:peticion.user_id|capfirst }}</div>
+	<div class="contenidoSolicitud">
+		<div class="contenedorInformacion">
+			<div class="fila">
+				<div class="dato"><div class="labelDato">Nombre:</div>  {{ usuario|au_getNombre:peticion.user_id|capfirst }} {{ usuario|au_getApellido:peticion.user_id|capfirst }}</div>
+				<div class="dato"><div class="labelDato">Edad:</div>  {{ perfil|au_getFechaNaciemiento:peticion.user_id|calculate_age }} </div>
+				<div class="dato" ><div class="labelDato">Género:</div>
+					{% if perfil|au_getGenero:peticion.user_id == "m" %}
+						Masculino
+					{% elif perfil|au_getGenero:peticion.user_id == "f" %}
+						Femenino
+					{% else %}
+						Otro
+					{% endif %}
+				</div>    
+				<div class="dato"><div class="labelDato">Pais:</div>{{ perfil|au_getPais:peticion.user_id }} </div>
+			</div>
+			<div class="fila">
+				<div class="dato"><div class="labelDato">Profesión:</div>{{ peticion.profesion }} </div>
+				<div class="dato"><div class="labelDato">Estudió en:</div>{{ peticion.universidad }} </div>
+				<div class="dato"><div class="labelDato">Trabaja en:</div>{{ peticion.trabajo }} </div>
+				<div class="dato"><div class="labelDato">Telefono:</div>{{ peticion.telefono }} </div>
+			</div>
+		</div>
+		<div class="contenedorComentario">
+			<div class="dato" style="margin-top:15px;"><div class="labelDato" style="text-align:center; color:#277A00;font-size:20px;">Comentario</div> {{ peticion.comentario }} </div>
+		</div>
+	</div>
+</div>
+<div class="siNo"> <a href="?user={{ peticion.user_id }}&a=1"><div class="aceptar"></div>Aceptar</a>
+ <a id="negativo" href="?user={{ peticion.user_id }}&a=2"><div class="rechazar"></div>Rechazar </a> </div>
 {% endfor %}
 {% endblock %}

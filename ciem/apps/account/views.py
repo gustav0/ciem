@@ -112,6 +112,10 @@ def ipaq(request):
 	form = ipaqForm(request.POST or None)
 	if form.is_valid():
 		form.save()
+		form = ipaqResultado.objects.getResultados(request.user.id)
+		final = True
+	else:
+		final = False
 	ctx= {'form':form, 'id':request.user.id, }
 	return render_to_response('account/ipaq.html', ctx, context_instance=RequestContext(request))
 
