@@ -158,7 +158,7 @@ def parse_frecuencia(frecuencia):
 	elif int(frecuencia) == 6:  resultado = '5 - 6 por semana'
 	elif int(frecuencia) == 6:  resultado = '1 vez por dia'
 	elif int(frecuencia) == 6:  resultado = '2 o mas por dia'
-	else:   resultado = 'error'
+	else:  resultado = 'error'
 	return resultado
 
 @register.filter#DEVUELVE EL STRING DE LA FRECUENCIA
@@ -181,6 +181,13 @@ def get_progreso(var):
 			progreso = var[i].seccionnombre_id
 	return progreso
 
+@register.filter #DEVUELVE TRUE SI EL USUARIO YA EMPEZO LA FRECUENCIA DE CONSUMO
+def if_progreso(var):
+	if int(var)==1:
+		print 'return FALSE'
+		return False
+	print 'return TRUE'
+	return True
 
 #|||||||||||||||||||||||||||||||||||||||||||||||||||||||||#
 #|FILTROS PARA SABER SI UN USUARIO PERTENECE A UN GRUPO  |#
