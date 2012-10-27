@@ -452,3 +452,15 @@ class ipaqForm(ModelForm):
 			trabaja= trabajo["trabaja"], \
 			minVehiculo = float(self.cal_tiempoVehiculo()))
 		return ipaq
+
+
+class indicadoresDieteticosForm(ModelForm):
+	comeEntreComidas = forms.TypedChoiceField(choices=((1, 'Si'), (0, 'No')), widget=forms.RadioSelect)
+	modificadoAlimentacionReciente = forms.TypedChoiceField(choices=((1, 'Si'), (0, 'No')), widget=forms.RadioSelect)
+	esAlergicoIntolerante = forms.TypedChoiceField(choices=((1, 'Si'), (0, 'No')), widget=forms.RadioSelect)
+	suplementoAlimenticio = forms.TypedChoiceField(choices=((1, 'Si'), (0, 'No')), widget=forms.RadioSelect)
+	salComidas = forms.TypedChoiceField(choices=((1, 'Si'), (0, 'No')), widget=forms.RadioSelect)
+	tieneDieta = forms.TypedChoiceField(choices=((1, 'Si'), (0, 'No')), widget=forms.RadioSelect)
+	consumoVariaEmocion = forms.TypedChoiceField(choices=((1, 'Si'), (0, 'No')), widget=forms.RadioSelect)
+	class Meta:
+		model = indicadoresDieteticos

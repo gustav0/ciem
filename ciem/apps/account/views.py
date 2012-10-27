@@ -6,8 +6,8 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response,redirect
 from django.template import RequestContext
-from ciem.apps.account.forms import antropometricosForm,registerForm,ipaqForm, soyProfesionalForm, recordatorioForm, editRegisterForm, recuperarContrasenaForm
-from ciem.apps.account.models import datosAntropometricos,frecuenciaConsumo,dataFrecuenciaConsumo,alimentoFrecuencia,userProfile,datosRecordatorio, alimentoRecordatorio,ipaqResultado,ipaq as myipaq, preguntaSecreta
+from ciem.apps.account.forms import antropometricosForm,registerForm,ipaqForm, soyProfesionalForm, recordatorioForm, editRegisterForm, recuperarContrasenaForm, indicadoresDieteticosForm
+from ciem.apps.account.models import datosAntropometricos,frecuenciaConsumo,dataFrecuenciaConsumo,alimentoFrecuencia,userProfile,datosRecordatorio, indicadoresDieteticos,alimentoRecordatorio,ipaqResultado,ipaq as myipaq, preguntaSecreta
 from ciem.apps.data.models import alimento
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -306,6 +306,19 @@ def recordatorio(request):
 	alimentos = alimento.objects.all().order_by('nombre')
 	ctx = {'form':form,'alimentos':alimentos, 'id':request.user.id}
 	return render_to_response('account/recordatorio24.html', ctx, context_instance=RequestContext(request))
+
+@login_required(login_url='/login')
+def indicadores(request):
+	perfilIndicadores = indicadoresDieteticos.objects.getById(request.user.id)
+	if not perfilIndicadores.exists():
+		form = indicadoresDieteticosForm(request.POST or None)
+		if form.is_valid():
+			form.save()
+			return HttpResponseRedirect('/felicidades/')
+		ctx= {'form':form, 'id':request.user.id, }
+		return render_to_response('account/indicadores.html', ctx, context_instance=RequestContext(request))
+	return HttpResponseRedirect('/felicidades/')
+	
 
 def felicidades(request):
 	ctx = {}

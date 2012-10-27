@@ -1,0 +1,111 @@
+{% extends "homepage/index.html" %}
+{% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/account/indicadoresdieteticos.css">
+{% endblock %}
+{% block content %}
+<h2>Indicadores dietéticos</h2>
+
+	<form action="." method="POST">
+		{% csrf_token %}
+		<input type="hidden" id="user" name="user" value="{{ id }}" />
+		<div id="usernameForm" class="campoForm">
+			{{ form.comidasAlDia.errors}}
+			<label>¿Cuántas comidas hace al día?</label>
+			{{ form.comidasAlDia }}
+			{{ form.quienPreparaAlimentos.errors }}
+			<label>¿Quién prepara sus alimentos?</label>
+			{{ form.quienPreparaAlimentos }}
+			{{ form.comeEntreComidas.erros }}
+			<label>¿Come entre comidas?</label>
+			{{ form.comeEntreComidas }}
+		</div>
+		<div id="usernameForm" class="campoForm">
+			{{ form.queComeEntreComidas.errors}}
+			<label>¿Que come entre comidas?</label>
+			{{ form.queComeEntreComidas }}
+		</div>
+		<div id="usernameForm" class="campoForm">
+			{{ form.modificadoAlimentacionReciente.errors}}
+			<label>¿Ha modificado su alimentación en el último año?</label>
+			{{ form.modificadoAlimentacionReciente }}
+			{{ form.porqueModifico.errors }}
+			<label>¿Por qué?</label>
+			{{ form.porqueModifico }}
+			{{ form.comoModifico.erros }}
+			<label>¿Cómo?</label>
+			{{ form.comoModifico }}
+		</div>
+		<div id="usernameForm" class="campoForm">
+			{{ form.comoSuApetito.errors}}
+			<label>¿Cómo es su apetito?</label>
+			{{ form.comoSuApetito }}
+			{{ form.horaMasHambre.erros }}
+			<label>¿A qué hora tiene más hambre?</label>
+			{{ form.horaMasHambre }}
+		</div>
+		<div id="usernameForm" class="campoForm">
+			{{ form.alimentoPreferido.errors}}
+			<label>Alimento preferidos:</label>
+			{{ form.alimentoPreferido }}
+			{{ form.alimentoDesagrado.erros }}
+			<label>Alimentos que le desagradan:</label>
+			{{ form.alimentoDesagrado }}
+		</div>
+		<div id="usernameForm" class="campoForm">
+			{{ form.salComidas.errors }}
+			<label>¿Agrega sal a la comida?</label>
+			{{ form.salComidas }}
+			{{ form.esAlergicoIntolerante.errors}}
+			<label>¿Es alérgico o intolerante a algún alimento?</label>
+			{{ form.esAlergicoIntolerante }}
+		</div>
+		<div id="usernameForm" class="campoForm">
+			{{ form.cualAlimento.erros }}
+			<label>¿Cuál?</label>
+			{{ form.cualAlimento }}
+
+		</div>
+		<div id="usernameForm" class="campoForm">
+			{{ form.suplementoAlimenticio.errors}}
+			<label>¿Toma algún suplemento alimenticio?</label>
+			{{ form.suplementoAlimenticio }}
+		</div>
+		<div id="usernameForm" class="campoForm">
+			{{ form.cuantasVecesSuplemento.erros }}
+			<label>Cuantas veces al día:</label>
+			{{ form.cuantasVecesSuplemento }}
+			{{ form.porqueSuplemento.erros }}
+			<label>Porqué lo utiliza:</label>
+			{{ form.porqueSuplemento }}
+		</div>
+		<div id="usernameForm" class="campoForm">
+			{{ form.consumoVariaEmocion.errors}}
+			<label>¿Su consumo de alminetos varía cuando esta ansioso, triste o nerviso?
+			</label>
+			{{ form.consumoVariaEmocion }}
+			{{ form.comoVariaConsumo.erros }}
+			<label>Cómo:</label>
+			{{ form.comoVariaConsumo }}
+		</div>
+		<div id="usernameForm" class="campoForm">
+			{{ form.tieneDieta.errors}}
+			<label>¿Se ha sometido a dietas?</label>
+			{{ form.tieneDieta }}
+		</div>
+		<div id="usernameForm" class="campoForm">
+			{{ form.cuantasVecesDieta.erros }}
+			<label>Cuántas veces:</label>
+			{{ form.cuantasVecesDieta }}
+			{{ form.tipoDieta.erros }}
+			<label>Qué tipo de dieta:</label>
+			{{ form.tipoDieta}}
+			{{ form.tiempoDieta.erros }}
+			<label for="cuantoTiempo">¿Hace cuanto tiempo posee la dieta?</label>
+			{{ form.tiempoDieta }}
+		</div>
+		{{ form.errors }}
+		{{ form.non_field_errors }}
+		<div id="botonFinalizar">
+			<input type="submit" value="Guardar" id="botonregistro">
+		</div>
+	</form>
+{% endblock %}

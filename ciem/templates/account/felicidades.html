@@ -1,6 +1,10 @@
 {% extends "homepage/index.html" %}
+{% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/account/felicidades.css">
+{% endblock %}
 {% block content %}
-<div class="agradecimeinto">Usted ha finalizado exitosamente el formulario del recordatorio de 24 horas, le agradecemos su cooperacion en nuestra investigación.
+<div id="felicidades" class="agradecimiento">
+	<span aria-hidden="true">C</span>
+	Usted ha finalizado exitosamente este paso, le agradecemos su colaboración en nuestra investigación.
 	<a href="{% url account_profile %}">[Ir al perfil]</a>
 </div>
 {% endblock %}

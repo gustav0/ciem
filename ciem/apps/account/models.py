@@ -231,6 +231,36 @@ class alimentoRecordatorio(models.Model):
 	cuandoComio = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(6)])
 	#1-desayuno | 2-merienda1 | 3-almuerzo | 4-merienda2 | 5-cena | 6-merienda3
 
+class indicadoresDieteticos(models.Model):
+	EMOCIONES = (('aumenta','Aumenta'),('disminuye','Disminuye'))
+	APETITOS = (('bueno','Bueno'), ('regular','Regular'), ('malo','Malo'))
+	user = models.ForeignKey(User)
+	comidasAlDia = models.PositiveIntegerField()
+	quienPreparaAlimentos = models.CharField(max_length=40)
+	comeEntreComidas = models.BooleanField(default=False)
+	queComeEntreComidas = models.CharField(max_length=200,null=True, blank=True)
+	modificadoAlimentacionReciente = models.BooleanField(default=False)
+	porqueModifico = models.CharField(max_length=140,null=True, blank=True)
+	comoModifico = models.CharField(max_length=140,null=True, blank=True)	
+	comoSuApetito = models.CharField(max_length=7, choices=APETITOS, default='bueno')
+	horaMasHambre = models.CharField(max_length=50)
+	alimentoPreferido = models.CharField(max_length=40)
+	alimentoDesagrado = models.CharField(max_length=40)
+	esAlergicoIntolerante = models.BooleanField(default=False)
+	cualAlimento = models.CharField(max_length=140,null=True, blank=True)
+	salComidas = models.BooleanField(default=True)
+	suplementoAlimenticio = models.BooleanField(default=False)
+	cuantasVecesSuplemento = models.PositiveIntegerField(null=True, blank=True)
+	porqueSuplemento = models.CharField(max_length=140,null=True, blank=True)
+	consumoVariaEmocion = models.BooleanField(default=False)	
+	comoVariaConsumo = models.CharField(max_length=9, choices=EMOCIONES,default='aumenta')
+	tieneDieta = models.BooleanField(default=False)
+	cuantasVecesDieta = models.PositiveIntegerField(null=True, blank=True)
+	tipoDieta = models.CharField(max_length=140,null=True, blank=True)
+	tiempoDieta = models.CharField(max_length=140,null=True, blank=True)
+	objects = indicadoresDieteticosManager()
+
+
 class datosRecordatorioResultado(models.Model):
 	recordatorio = models.ForeignKey(datosRecordatorio)
 

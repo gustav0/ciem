@@ -6,26 +6,22 @@
 	color: #DEAE00;
 }
 
-@font-face{ 
-font-family: 'IcoMoon';
-src: url('fonts/base/icomoon-webfont.eot');
-src: url('fonts/base/icomoon-webfont.eot?#iefix') format('embedded-opentype'),
-     url('fonts/base/icomoon-webfont.woff') format('woff'),
-     url('fonts/base/icomoon-webfont.ttf') format('truetype'),
-     url('fonts/base/icomoon-webfont.svg#IcoMoonBase') format('svg');
+#indicadores{
+	border: 1px solid lightgreen;
+	text-indent: 50px;
+
 }
 
-@font-face{ 
-font-family: 'IcoMoonSocial';
-src: url('fonts/social/icomoonsocial-webfont.eot');
-src: url('fonts/social/icomoonsocial-webfont.eot?#iefix') format('embedded-opentype'),
-     url('fonts/social/icomoonsocial-webfont.woff') format('woff'),
-     url('fonts/social/icomoonsocial-webfont.ttf') format('truetype'),
-     url('fonts/social/icomoonsocial-webfont.svg#IcoMoonSocial') format('svg');
+#indicadores p{	
+	border: 1px solid lightblue;
+	width: 80%;
+	margin-left: 10%;
+	box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
 
 span{
 	font-family: 'IcoMoon',arial;
+	font-size: 3em;
 }
 
 

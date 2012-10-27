@@ -1,0 +1,23 @@
+.agradecimiento{
+	padding: 15px 15px 15px 40px;
+	margin: 10px 0;
+	border: 1px solid green;
+	background: lightGreen;
+	color: green;
+	border-radius: 5px;
+	width: 50%;
+	margin-left: 25%;
+}
+
+.agradecimiento span{
+	font-family: 'IcoMoon',arial;
+	font-size: 3em;
+	float: left;
+	margin-right:10px; 
+	margin-top: -15px;
+}
+
+#contenido{
+	padding-top: 60px;
+	padding-bottom: 60px;
+}

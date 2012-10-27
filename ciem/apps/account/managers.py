@@ -58,4 +58,8 @@ class recordatorioManager(models.Manager):
 	def getById(self,id):
 		return	self.model.objects.filter(user_id=id).order_by('-fecha_creacion')
 
+class indicadoresDieteticosManager(models.Manager):
+	def getById(self,id):
+		return self.model.objects.filter(user_id=id)
+
 
