@@ -65,8 +65,8 @@
 		</div><a href=""><div class="botonLlenar"><div class="textoBoton">LLENAR FRECUENCIA DE CONSUMO</div></div></a>
 		
 		<div class="lineaTitulo"><div class="tituloActividad">Cuestionario de actividad física (IPAQ)</div><div class="enlaceActividad"><a href="#">[ VER HISTORIAL COMPLETO ]</a></div>
-			<div class="lineaActividad"><div class="labelActividad">Veces que lo ha completado:</div><div class="contenidoGeneral"> NNN </div></div>
-			<div class="lineaActividad"><div class="labelActividad">Último resultado obtenido:</div><div class="contenidoGeneral"> Obesidad grado XX </div></div>
+			<div class="lineaActividad"><div class="labelActividad">Veces que lo ha completado:</div><div class="contenidoGeneral">{% if ipaq %}{{ ipaq|count_by_len }}{% else %}0{% endif %}</div></div>
+			<div class="lineaActividad"><div class="labelActividad">Último resultado obtenido:</div><div class="contenidoGeneral">{% if ipaq %}{{ ipaq.0.apreciacionIpaq }}{% else %}No hay resultados{% endif %}</div></div>
 		</div><a href="{% url account_ipaq %}"><div class="botonLlenar"> <div class="textoBoton">LLENAR IPAQ</div></div></a>
 	
 		<div class="lineaTitulo lineaTituloUltimo"><div class="tituloActividad">Mis indicadores dietéticos</div><div class="enlaceActividad"><a href="{% url account_indicadoresDieteticos %}">[DATOS DE LOS INDICADORES]</a></div>

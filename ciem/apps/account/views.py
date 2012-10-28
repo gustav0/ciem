@@ -6,8 +6,8 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response,redirect
 from django.template import RequestContext
-from ciem.apps.account.forms import antropometricosForm,registerForm,ipaqForm, soyProfesionalForm, recordatorioForm, editRegisterForm, recuperarContrasenaForm, indicadoresDieteticosForm
-from ciem.apps.account.models import datosAntropometricos,frecuenciaConsumo,dataFrecuenciaConsumo,alimentoFrecuencia,userProfile,datosRecordatorio, indicadoresDieteticos,alimentoRecordatorio,ipaqResultado,ipaq as myipaq, preguntaSecreta
+from ciem.apps.account.forms import antropometricosForm,registerForm,ipaqForm, soyProfesionalForm, recordatorioForm, editRegisterForm, recuperarContrasenaForm, indicadoresDieteticosForm,frecuencia7Form
+from ciem.apps.account.models import datosAntropometricos,frecuenciaConsumo,dataFrecuenciaConsumo,alimentoFrecuencia,userProfile,datosRecordatorio, indicadoresDieteticos,alimentoRecordatorio,ipaqResultado,ipaq as myipaq, preguntaSecreta, frecuencia7
 from ciem.apps.data.models import alimento
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -80,7 +80,7 @@ def profile(request):
 	frecuencia = frecuenciaConsumo.objects.getById(request.user.id)
 	ipaqr = myipaq.objects.getById(request.user.id)
 	recordatorios = datosRecordatorio.objects.getById(request.user.id)
-	ctx={'profile':request.user.get_profile(),'antropometrico':antropometrico,'frecuencia':frecuencia, 'recordatorios':recordatorios}
+	ctx={'profile':request.user.get_profile(),'antropometrico':antropometrico,'frecuencia':frecuencia,'ipaq':ipaqr, 'recordatorios':recordatorios}
 	return render_to_response('account/profile.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')
@@ -116,7 +116,7 @@ def ipaq(request):
 		final = True
 	else:
 		final = False
-	ctx= {'form':form, 'id':request.user.id, }
+	ctx= {'form':form, 'id':request.user.id,'final':final }
 	return render_to_response('account/ipaq.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')
@@ -324,8 +324,13 @@ def felicidades(request):
 	ctx = {}
 	return render_to_response('account/felicidades.html', ctx,  context_instance=RequestContext(request))
 
-#def verificarDatos():
-
+def frecuencia7(request):
+	form = frecuencia7Form(request.POST or None)
+	if form.is_valid():
+			form.save()
+			return HttpResponseRedirect('/felicidades/')
+	ctx = {'form':form}
+	return render_to_response('account/frecuencia7.html', ctx,  context_instance=RequestContext(request))
 	#perfil = userProfile.objects.get(user_id=request.user.id)
 	#preg = preguntaSecreta.objects.get(id=perfil[0].preguntaSecreta)
 	#pregunta = preg[0].pregunta

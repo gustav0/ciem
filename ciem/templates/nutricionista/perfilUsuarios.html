@@ -124,7 +124,7 @@
 					<div class="resetFont botonFont">R</div>
 				</div>
 				<div class="tablaFrecuencia ajustarFont">
-				{% if perfil.0.progreso|if_progreso %}
+				{% if perfil.0.progreso %}
 					{% for p in perfil %}
 						<div class="lineaFrecuencia">
 							<div class="nombreAlimento">{{ p.descripcion }}</div>

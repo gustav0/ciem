@@ -1,0 +1,84 @@
+#botonFinalizar input{
+	cursor: pointer;
+	background-color: #009B00;
+	border: 1px solid black;
+	border-radius: 0.2em;
+	color: #EEE;
+	-webkit-transition-duration: 0.2s;
+	-moz-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+	float: left;
+	margin: 0;
+	font-weight: bold;
+	padding: 15px 40px;
+	margin-bottom: 50px;
+	margin-left: 42%;
+	clear: both;
+}
+#botonFinalizar input:hover{
+	background: #04B486;
+	color: white;
+}
+.noDisplayDiv{
+	display: none;
+}
+.siNo{
+	height: 24px;
+	width: 870px;
+	clear: both;
+	float: left;
+	background-color: #E1F2EC;
+}
+.seleccion, .seleccion li{
+	margin-left: 20px;
+	float: left;
+}
+.seleccion ul{
+	height: 20px;
+	width: 150px;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	margin-left: 300px;
+}
+.preguntaCompleta{
+	clear:both;
+	font-size: 17px;
+	text-align: justify;
+	margin-bottom: 30px;
+	width: 860px;
+	height: 81px;
+	margin-left: 30px;
+}
+.subpregunta{
+	overflow: hidden;
+	width: 870px;
+	height: 75px;
+	float: left;
+	clear: both;
+	margin-bottom: 20px;
+	background-color:#E6E6E6;
+	-webkit-transition: height 0.5s;
+	-webkit-transition-timing-function: linear;
+}
+.identificadorPregunta,.identificadorPregunta2{
+	float: left;
+	background: url(../../img/identificadorIpaq.png) -0px -0px no-repeat;
+	width: 38px;
+	height: 38px;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 35px;
+	margin-right: 20px;
+	font-family: "arial narrow";
+	font-weight: normal;
+}
+.identificadorPregunta{
+	text-indent: 14px;
+}
+.identificadorPregunta2{
+	text-indent: 9px;
+}
+.itemLista{
+    float: left;
+}
