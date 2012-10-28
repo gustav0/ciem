@@ -61,8 +61,9 @@
 			   <ul class="resultados"> 
 				<li><a href="?user={{ n.id }}&p=1"><div class="opcionResultado">Antropométricos</div></a></li>
 				<li><a href="?user={{ n.id }}&p=2"><div class="opcionResultado">IPAQ</div></a></li>
-				<li><a href="?user={{ n.id }}&p=3"><div class="opcionResultado">Frecuencia de consumo</div></a></li></ul>
-				<li><a href="?user={{ n.id }}&p=4"><div class="opcionResultado">Recordatorio de 24 horas</div></a></li></ul>
+				<li><a href="?user={{ n.id }}&p=3"><div class="opcionResultado">Frecuencia de consumo</div></a></li>
+				<li><a href="?user={{ n.id }}&p=4"><div class="opcionResultado">Recordatorio de 24 horas</div></a></li>
+				<li><a href="?user={{ n.id }}&p=5"><div class="opcionResultado">Indicadores dietéticos</div></a></li></ul>
 			{% endfor %}
 		{% elif tipo|get_int == 1 %}
 			{% for n in nombre %}
@@ -115,7 +116,7 @@
 		{% elif tipo|get_int == 3 %}
 			{% for n in nombre %}
 				<div class="perfilDe divbold">Frecuencia de consumo de {{n.get_full_name|cap}}
-					<div id="contenedorBarra">Barra de progreso: <progress id="bar" value="{{perfil.0.progreso}}" max="8"><span>{{perfil.0.progreso}}/8 secciones</span></progress></div>
+					<div id="contenedorBarra">Barra de progreso: <progress id="bar" value="{{perfil.0.progreso}}" max="9"><span>{{perfil.0.progreso}}/8 secciones</span></progress></div>
 				</div>
 				<div class="tamanoLetra">
 					<div class="increaseFont botonFont">A</div>
@@ -123,18 +124,57 @@
 					<div class="resetFont botonFont">R</div>
 				</div>
 				<div class="tablaFrecuencia ajustarFont">
+				{% if perfil.0.progreso|if_progreso %}
 					{% for p in perfil %}
 						<div class="lineaFrecuencia">
 							<div class="nombreAlimento">{{ p.descripcion }}</div>
-							<div class="frecuenciaAlimento">{{ p.frecuencia|parse_frecuencia }}</div>
+							<div class="frecuenciaAlimento">
+								{{ p.frecuencia|parse_frecuencia }}</div>
 							<div class="porcionAlimento">{{ p.porcion|parse_porcion }}</div>
 							<div class="mediaAlimento">{{ p.media }}</div>
 						</div>
 					{% endfor %}
+				{% else %}
+				<div id="aviso">
+					<span aria-hidden="true">!</span>
+       				<p>Este usuario todavía no posee una frecuencia de consumo.</p>
+       			</div>
+				{% endif %}
 				</div>
 			{% endfor %}
-		{% else %}
+		{% elif tipo|get_int == 4 %}
 		24horas
+		{% elif tipo|get_int == 5 %}
+		<h2>Indicadores dietéticos ingresados</h2>
+			{% for p in perfil %}
+			<div id="indicadores">
+				<p>Comidas al día: {{p.comidasAlDia}}</p>
+				<p>Quien prepara la comida: {{p.quienPreparaAlimentos}}</p>
+				<p>Come entre comidas: {{p.comeEntreComidas}}</p>
+				<p>Qué come entre comidas: {{p.queComeEntreComidas}}</p>
+				<p>Modifico su alimentación en el último año: {{p.modificadoAlimentacionReciente}}</p>
+				<p>Por qué modifico su alimentación: {{p.porqueModifico}}</p>
+				<p>En que sentido lo modifico: {{p.comoModifico}}</p>
+				<p>Apetito: {{p.comoSuApetito}}</p>
+				<p>A que hora tiene más hambre: {{p.horaMasHambre}}</p>
+				<p>Alimentos preferidos: {{p.alimentoPreferido}}</p>
+				<p>Alimentos que le desagradan: {{p.alimentoDesagrado}}</p>
+				<p>Es alergico a algún alimento: {{p.esAlergicoIntolerante}}</p>
+				<p>Cual alimento es alergico: {{p.cualAlimento}}</p>
+				<p>Agrega sal a las comidas: {{p.salComidas}}</p>
+				<p>Utiliza suplementos: {{p.suplementoAlimenticio}}</p>
+				<p>Cuantas veces al día: {{p.cuantasVecesSuplemento}}</p>
+				<p>Porque los utiliza: {{p.porqueSuplemento}}</p>
+				<p>Su consumo varia cuando esta ansioso, triste o nervioso: {{p.consumoVariaEmocion}}</p>
+				<p>Cómo varia: {{p.comoVariaConsumo}}</p>
+				<p>Ha realizado dietas: {{p.tieneDieta}}</p>
+				<p>Cuantas dietas: {{p.cuantasVecesDieta}}</p>	 
+	 			<p>Tipo de dieta: {{p.tipoDieta}}</p>
+				<p>Hace cuanto tiempo: {{p.tiempoDieta}}</p>
+			</div>
+			{% endfor %}
+		{% else %}
+		No existe esa opción
 		{% endif %}
 			<a href="{% url nutricionista_perfilUsuarios %}" id="anterior">«</a>
 	{% endif %}

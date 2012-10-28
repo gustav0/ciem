@@ -1,3 +1,30 @@
+#aviso{
+	border: 1px solid gold;
+	background: lightYellow;
+	text-indent: 20px;
+	border-radius: 5px;
+	color: #DEAE00;
+}
+
+#indicadores{
+	border: 1px solid lightgreen;
+	text-indent: 50px;
+
+}
+
+#indicadores p{	
+	border: 1px solid lightblue;
+	width: 80%;
+	margin-left: 10%;
+	box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+span{
+	font-family: 'IcoMoon',arial;
+	font-size: 3em;
+}
+
+
 .nombrePaciente{
 	width: 120px;
 	height:20px;
