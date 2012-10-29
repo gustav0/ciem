@@ -1,7 +1,9 @@
 {% extends 'homepage/index.html' %}
+{% block title %}Perfil del usuario{% endblock %}
 {% load humanize %}
 {% load custom_filters %}
-{% block css %}<link rel="stylesheet" href=" {{ MEDIA_URL }}css/account/perfil.css">{% endblock %}
+{% block css %}<link rel="stylesheet" href=" {{ MEDIA_URL }}css/account/perfil.css">
+{% endblock %}
 {% block content %}
 	<div id="contenidoPerfil">
 	<div class="mensajeBienvenida">
