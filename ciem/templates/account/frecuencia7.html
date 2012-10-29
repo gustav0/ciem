@@ -1,0 +1,58 @@
+{% extends "homepage/index.html" %}
+{% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/account/frecuencia7.css">
+{% endblock %}
+
+{% block content %}
+	<form action="." method="POST">
+		{% csrf_token %}
+		<div id="userForm" class="campoForm noDisplayDiv"><select name="user" id="id_user"><option value="{{ user.id }}">0</option></select></div>
+
+		<div class="preguntaCompleta" id="p1">
+	        <div class="pregunta"><div class="identificadorPregunta">1</div>¿Acostumbró a comer pollo o pavo?</div>
+	     	<div class="siNo">
+	            <div class="seleccion">{{form.p1}}</div>
+	        </div>
+	        <div class="subpregunta" id="sp1">    
+	     		<div class="spregunta">¿Con que frecuencia comió el pellejo del pollo o pavo?</div>
+	     		<div class="respuesta">
+	                <div class="seleccion">{{form.p1a}}</div>
+	            </div>
+	        </div>
+	    </div>
+
+		<div class="preguntaCompleta" id="p2">
+	        <div class="pregunta"><div class="identificadorPregunta">2</div>¿Acostumbró a comer carne de res, puerco, jamón, carnero u ovejo?</div>
+	     	<div class="siNo">
+	            <div class="seleccion">{{form.p2}}</div>
+	        </div>
+	        <div class="subpregunta" id="sp2">    
+	     		<div class="spregunta">¿Con que frecuencia comió la grasa de la carne?</div>
+	     		<div class="respuesta">
+	                <div class="seleccion">{{form.p2a}}</div>
+	            </div>
+	        </div>
+	    </div>
+
+		<div class="preguntaCompleta" id="p3">
+	        <div class="pregunta"><div class="identificadorPregunta">3</div>¿Acostumbró a comer torticas o albóndigas de carne molida u otro tipo de carne molida?</div>
+	     	<div class="siNo">
+	            <div class="seleccion">{{form.p3}}</div>
+	        </div>
+	        <div class="subpregunta" id="sp3">    
+	     		<div class="spregunta">¿Como era la carne?</div>
+	     		<div class="respuesta">
+	                <div class="lista">
+	                	<div class="itemLista">{{form.p3a}}Regular</div>
+	                	<div class="itemLista">{{form.p3b}}Magra</div>
+	                	<div class="itemLista">{{form.p3c}}Extra magra</div>
+	                	<div class="itemLista">{{form.p3d}}Carne molida de pollo</div>
+	                	<div class="itemLista">{{form.p3e}}No sé</div>
+	            </div>
+	        </div>
+	    </div>
+			{{form.as_p}}
+		<div id="botonFinalizar">
+			<input type="submit" value="Register" id="botonregistro">
+		</div>
+	</form>
+{% endblock %}

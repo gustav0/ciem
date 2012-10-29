@@ -4,8 +4,15 @@
 <script src="{{ MEDIA_URL }}js/propios/ipaq.js"></script>
 {% endblock%}
 {% block css %}<link rel="stylesheet" href=" {{ MEDIA_URL }}css/account/ipaq.css">{% endblock %}
-
 {% block content %}
+{% if final %}
+
+Su resultado es: {{ fomr.0.apreciacionIpaq}}
+
+    <div class="recomendar24">Le recomendamos llenar el recordatorio de 24 horas</div>
+    <a href="{% url account_recordatorio %}"><div class="enlace24">AQUI</div></a>
+
+{% else %}
 <form action="" id='formulario' method='post' enctype='multipart/form-data'>
 	{% csrf_token %}
     <div class="seccion" >Actividad fisica relacionada con en el trabajo</div></br>
@@ -242,4 +249,6 @@
 	   <input type="submit" value="Finalizar" />
     </div>
 </form>
+
+{% endif %}
 {% endblock %}

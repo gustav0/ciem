@@ -135,12 +135,30 @@ p{
 	margin-left: 40%;
 	clear: both;
 }
-
 #botonFinalizar input:hover{
 	background: #04B486;
 	color: white;
 }
-
 .noDisplayDiv{
 	display:none;
+}
+.recomendar24{
+	float: left;
+	margin-top: 15px;
+	margin-bottom: 20px;
+}
+.enlace24{
+	float: left;
+	margin-top: 15px;
+	margin-left: 20px;
+	font-weight: bold;
+	padding: 4px;
+	color: #FCFCFC;
+	background-color: #008D00;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+}
+.enlace24 a{
+	text-decoration: none;
+	color: #FCFCFC;
 }
