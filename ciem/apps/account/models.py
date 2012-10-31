@@ -236,6 +236,7 @@ class alimentoRecordatorio(models.Model):
 class indicadoresDieteticos(models.Model):
 	EMOCIONES = (('aumenta','Aumenta'),('disminuye','Disminuye'))
 	APETITOS = (('bueno','Bueno'), ('regular','Regular'), ('malo','Malo'))
+	fecha_creacion = models.DateField(auto_now_add=True)
 	user = models.ForeignKey(User)
 	comidasAlDia = models.PositiveIntegerField()
 	quienPreparaAlimentos = models.CharField(max_length=40)
@@ -271,6 +272,7 @@ class preguntaSecreta(models.Model):
 
 class frecuencia7(models.Model):
 	user = models.ForeignKey(User)
+	fecha_creacion = models.DateField(auto_now_add=True)
 	SINO = (('si','Si'),('no','No'))
 	c1 = (('casi','Casi siempre'),('frec','Frecuentemente'),('avec','A veces'),('cnun','Casi nunca'),('nunc','Nunca'))
 	c4 = (('vice','Vitamina C extra'),('vite','Vitamina E'),('calc','Calcio'),('ning','Ninguna'),('nose','No sé'))
