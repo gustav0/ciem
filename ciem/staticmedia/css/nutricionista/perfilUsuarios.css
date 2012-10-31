@@ -18,26 +18,25 @@
 	margin-left: 10%;
 	box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
-
 span{
 	font-family: 'IcoMoon',arial;
 	font-size: 3em;
 }
-
-
 .nombrePaciente{
-	width: 120px;
+	width: 240px;
 	height:20px;
 	float: left;
+	font-weight: bold;
+	text-transform: capitalize;
 }
 .edadPaciente{
-	width: 60px;
+	width: 140px;
 	height:20px;
 	float: left;
 	text-align: center;
 }
 .generoPaciente{
-	width: 62px;
+	width: 140px;
 	height:20px;
 	float: left;
 	text-align: center;
@@ -45,10 +44,18 @@ span{
 .linea{
 	float: left;
 	clear: both;
-	border: 1px solid lightgray;
-	border-top: 0;
+	border-bottom: 1px solid #AAA;
+	margin-left: 20px;
+	text-indent: 15px;
+	margin-bottom: 4px;
 }
-
+.linea a{
+	text-decoration: none;
+	color:#333;
+}
+.linea a:hover{
+	text-decoration: underline;
+}
 .cuadro_paciente{
 	display:block;
 	text-align:left;
@@ -257,16 +264,12 @@ progress#bar {
    margin-top:-1px;
    text-align:center;
 }
-
-
 /*VENTANA POP*/
-
-
 .variableMas{
 	color: #3F3F3F;
 	float: left;
 	width: 474px;
-	border-bottom: 1px solid darkGray;
+	border-bottom: 1px solid darkgray;
 	margin-bottom: 5px;
 }
 .varLabel{
@@ -275,4 +278,34 @@ progress#bar {
 .varContenido{
 	margin-left: 6px;
 	float: left;
+}
+
+
+/*PRINCIPAL*/
+.fondoLista{
+	float: left;
+	margin-top: -6px;
+	margin-left: 150px;
+	margin-bottom: 30px;
+	background-color: #EFFFDA;
+	width: 558px;
+	border: 1px solid #AFAFAF;
+}
+.tituloResultado {
+	margin-top: 24px;
+	margin-left: 35px;
+	position: relative;
+	color: white;
+	font-family: tahoma;
+	font-size: 21px;
+	line-height: 38px;
+	text-align: center;
+	float: left;
+	width: 360px;
+	height: 40px;
+	background-color: #2C792C;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-box-shadow: 2px 2px 3px 0px #888;
+	box-shadow: 2px 2px 3px 0px #888;
 }
