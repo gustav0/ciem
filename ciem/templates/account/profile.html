@@ -31,19 +31,19 @@
 			<a href="{% url nutricionista_perfilUsuarios %}">
 				<div class="botonProfesional">
 				<p>Ver lista de pacientes</p>
-				<img src="http://www.tuinfomedica.com/uploads/jobs/user-icon.png" alt="listapacientes">
+				<img src="{{ MEDIA_URL }}img/user-icon.png" alt="listapacientes">
 				</div>
 			</a>
 			<a href="{% url nuevoArticulo %}">
 				<div class="botonProfesional">
 				<p>Agregar publicación</p>
-				<img src="http://icons.iconarchive.com/icons/gakuseisean/aire/256/Add-Folder-icon.png" alt="crearpublicacion">
+				<img src="{{ MEDIA_URL }}img/Add-Folder-icon.png" alt="crearpublicacion">
 				</div>
 			</a>
 			<a href="{% url nutricionista_peticiones %}">
 				<div class="botonProfesional">
 				<p>Ver solicitudes de profesionales</p>
-				<img src="http://www.omnihospital.ec/salud/images/stories/icono_medico.png" alt="paciente">
+				<img src="{{ MEDIA_URL }}img/icono_medico.png" alt="paciente">
 				</div>
 			</a>
 		</div>
