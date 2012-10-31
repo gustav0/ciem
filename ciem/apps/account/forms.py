@@ -428,7 +428,15 @@ class ipaqForm(ModelForm):
 		else: 
 			vMinutos = float(0)
 		return vMinutos
-		
+
+	def cal_apreciacion(self,metTotal):
+		if(float(metTotal) < 1200):
+			return "Baja";
+		elif(float(metTotal) < 2000):
+			return "Moderada"
+		else:
+			return "Alta"
+				
 	def save(self):
 		global minAndandoTotal, minVigorosoTotal, minModeradoTotal, diasTotalModerado, diasTotalAndar, diasTotalVigoroso
 		mediaSentado=(self.cal_sentadoTotal()/7)
@@ -448,9 +456,8 @@ class ipaqForm(ModelForm):
 			metVigorosoRecreacion = recreacion["metVigoroso"], metModeradoHogar = hogar["metModerado"], metModeradoJHogar = hogar["metModeradoJ"],\
 			metModeradoTrabajo = trabajo["metModerado"], metModeradoTransporte = transporte["metModerado"], metModeradoRecreacion = recreacion["metModerado"],\
 			diasTotalModerado = diasTotalModerado, diasTotalAndar = diasTotalAndar, diasTotalVigoroso = diasTotalVigoroso, \
-			diasTotal = float(diasTotalVigoroso+diasTotalAndar+diasTotalModerado), \
-			trabaja= trabajo["trabaja"], \
-			minVehiculo = float(self.cal_tiempoVehiculo()))
+			diasTotal = float(diasTotalVigoroso+diasTotalAndar+diasTotalModerado), apreciacionIpaq =self.cal_apreciacion(metTotal),\
+			trabaja= trabajo["trabaja"], minVehiculo = float(self.cal_tiempoVehiculo()))
 		return ipaq
 
 
