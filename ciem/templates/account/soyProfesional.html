@@ -1,7 +1,9 @@
 {% extends "homepage/index.html" %}
+{% block title %}Petición de profesional{% endblock %}
 {% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/account/profesional.css">
 {% endblock %}
 {% block content %}
+<h2>Formulario para la petición del permiso de publicación</h2>
 <form action="" method="post" enctype="multipart/form-data">
 		{% csrf_token %}
 	<div class="centrar">

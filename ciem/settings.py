@@ -128,11 +128,14 @@ INSTALLED_APPS = (
     'ciem.apps.articles',
     'ciem.apps.tagging',
     'ciem.apps.countries',
+    'ciem.apps.forum',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+    'django.contrib.admindocs',
 )
+
+FORUM_BASE = '/forum'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
