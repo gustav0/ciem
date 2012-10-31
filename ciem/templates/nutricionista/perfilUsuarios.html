@@ -15,13 +15,16 @@
 {% block content %}
 {% if usuario %}
 	{% if nombre.count > 2 %}
-		<div class="linea" style="margin-top:5px;outline:1px solid lightgray;">
-			<div class="nombrePaciente" style="outline:1px solid lightgray;">Nombre</div>
-			<div class="edadPaciente" style="outline:1px solid lightgray;">Edad</div>
-			<div class="generoPaciente" style="outline:1px solid lightgray;">Género</div>
+	
+	<div class="tituloResultado">Lista de Pacientes</div>
+	<div class="fondoLista">
+		<div class="linea"style="font-weight:bold;text-transform:uppercase !important;border:0;margin-bottom:15px;margin-top:12px;">
+			<div class="nombrePaciente"style="text-transform:uppercase !important;">Nombre</div>
+			<div class="edadPaciente">Edad</div>
+			<div class="generoPaciente">Género</div>
 		</div>
 		{% for n in nombre %}
-		<div class="linea">
+		<div class="linea" >
 			<div class="nombrePaciente">
 				<a href="?user={{ n.id }}">{{ n.get_full_name }}</a>
 			</div>
@@ -37,6 +40,7 @@
 			</div>
 		</div>
 		{% endfor %}
+	</div> 
 	{% else %}
 		{% if tipo|get_int == 0 %}
 			{% for n in nombre %}
