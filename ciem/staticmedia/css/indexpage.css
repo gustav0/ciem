@@ -115,8 +115,8 @@ article{
 	background-position:-0px -32px
 }
 #imagenHistoria{
- 	background:url(/ciem/staticmedia/img/bannerhistoria.png) -0px -0px no-repeat;	
- 	width:480px;
+ 	background:url(/ciem/staticmedia/img/bannerinicio.png) -0px -0px no-repeat;	
+ 	width:960px;
  	height: 333px;
  	float:left;
  	cursor: pointer;
@@ -129,13 +129,6 @@ article{
 	margin-left: 30px; 
 }
 
-#imagenHistoria2{
- 	background:url(/ciem/staticmedia/img/comida.jpg) -0px -0px no-repeat;	
- 	width:480px;
- 	height: 333px;
- 	float:right;
- 	z-index: 10;
-}
 
 #imagenManzana{
 	background:url(/ciem/staticmedia/img/manzana.png) -0px -0px no-repeat;	
