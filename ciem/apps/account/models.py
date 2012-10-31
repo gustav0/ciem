@@ -303,7 +303,6 @@ class frecuencia7(models.Model):
 	p5c = models.BooleanField(default=False)
 	p5d = models.BooleanField(default=False)
 	p5e = models.BooleanField(default=False)
-	p5f = models.BooleanField(default=False)
 	p6a = models.BooleanField(default=False)
 	p6b = models.BooleanField(default=False)
 	p6c = models.BooleanField(default=False)

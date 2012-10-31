@@ -331,6 +331,4 @@ def frecuencia7(request):
 			return HttpResponseRedirect('/felicidades/')
 	ctx = {'form':form}
 	return render_to_response('account/frecuencia7.html', ctx,  context_instance=RequestContext(request))
-	#perfil = userProfile.objects.get(user_id=request.user.id)
-	#preg = preguntaSecreta.objects.get(id=perfil[0].preguntaSecreta)
-	#pregunta = preg[0].pregunta
+

@@ -21,7 +21,7 @@
 			<div class="lineaGeneral"><div class="labelGeneral">Municipio:</div><div class="contenidoGeneral">{{ profile.municipio }}</div></div>
 		</div>
 	</div>
-	
+	{% if perms.data.add_alimento and perms.data.change_alimento %}
 	<div class="fondoGeneral"> 
 		<div class="divisorSeccion"> PROFESIONALES <div class="lineaDivisorSeccion"></div>
 		</div>
@@ -46,7 +46,7 @@
 			</a>
 		</div>
 	</div>
-
+	{% endif %}
 
 	<div class="fondoActividad"> 
 		<div class="divisorSeccion"> ACTIVIDAD EN LA PÁGINA<div class="lineaDivisorSeccion"></div></div>
