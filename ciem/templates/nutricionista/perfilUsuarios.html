@@ -72,7 +72,8 @@
 			{% endfor %}
 		{% elif tipo|get_int == 1 %}
 			{% for n in nombre %}
-			<div class="perfilDe divbold">Perfil antropometrico de {{n.get_full_name|cap}}</div>
+			<div class="perfilDe divbold"style="margin-bottom:15px;">Perfil antropometrico de {{n.get_full_name|cap}}</div>
+			{% if perfil.0 %}
 				{% for p in perfil %}
 					<div class="contenedorPerfil">
 						<div class="perfilN">Perfil del {{ p.fecha_creacion|date:"d/m/Y" }}:</div>
@@ -112,6 +113,11 @@
 						<!-- fin POPUP -->						
 					</div>
 				{% endfor %}
+			{% endif %}
+			<div id="aviso">
+					<span aria-hidden="true">!</span>
+       				<p>Este usuario todavía no posee una frecuencia de consumo.</p>
+       		</div>
 			{% endfor %}
 		{% elif tipo|get_int == 2 %}
 			{% for n in nombre %}
