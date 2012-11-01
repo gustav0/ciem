@@ -113,11 +113,12 @@
 						<!-- fin POPUP -->						
 					</div>
 				{% endfor %}
-			{% endif %}
+			{% else %}
 			<div id="aviso">
 					<span aria-hidden="true">!</span>
        				<p>Este usuario todavía no posee una frecuencia de consumo.</p>
        		</div>
+       		{% endif %}
 			{% endfor %}
 		{% elif tipo|get_int == 2 %}
 			{% for n in nombre %}
