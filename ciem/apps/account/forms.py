@@ -452,7 +452,7 @@ class ipaqForm(ModelForm):
 			minAndarTrabajo=trabajo["minAndar"] , minModeradoTrabajo= trabajo["minModerado"], minModeradoTransporte= transporte["minModerado"], \
 			minAndarTransporte=transporte["minAndar"], minModeradoJHogar=hogar["minModeradoJ"],minModeradoHogar=hogar["minModerado"],minVigorosoHogar=hogar["minVigoroso"],\
 			minVigorosoRecre=recreacion["minVigoroso"],minModeradoRecre=recreacion["minModerado"], minAndarRecre=recreacion["minAndar"], metAndarTrabajo =trabajo["metAndar"],\
-			metAndarRecreacion = recreacion["metAndar"], metVigorosoTrabajo = trabajo["metVigoroso"],metVigorosoHogar = hogar["metVigoroso"],\
+			metAndarRecreacion = recreacion["metAndar"], metAndarTransporte = transporte["metAndar"], metVigorosoTrabajo = trabajo["metVigoroso"],metVigorosoHogar = hogar["metVigoroso"],\
 			metVigorosoRecreacion = recreacion["metVigoroso"], metModeradoHogar = hogar["metModerado"], metModeradoJHogar = hogar["metModeradoJ"],\
 			metModeradoTrabajo = trabajo["metModerado"], metModeradoTransporte = transporte["metModerado"], metModeradoRecreacion = recreacion["metModerado"],\
 			diasTotalModerado = diasTotalModerado, diasTotalAndar = diasTotalAndar, diasTotalVigoroso = diasTotalVigoroso, \

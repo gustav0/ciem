@@ -23,3 +23,9 @@
 .mensaje{
 	margin-bottom: 36px;
 }
+#id_status{
+	display: none;
+}
+#id_user{
+	display: none;
+}
