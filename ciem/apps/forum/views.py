@@ -22,10 +22,6 @@ from ciem.apps.forum.forms import CreateThreadForm, ReplyForm
 FORUM_PAGINATION = getattr(settings, 'FORUM_PAGINATION', 10)
 LOGIN_URL = getattr(settings, 'LOGIN_URL', '/accounts/login/')
 
-def prueba(request):
-    ctx = {}
-    return render_to_response('forum/prueba.html', ctx, context_instance=RequestContext(request))
-
 def forums_list(request):
     queryset = Forum.objects.for_groups(request.user.groups.all()).filter(parent__isnull=True)
     return object_list( request, queryset=queryset)

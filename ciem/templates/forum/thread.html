@@ -1,13 +1,15 @@
 {% extends "forum_base.html" %}
 {% load i18n %}
 {% block title %}{{ thread.title|escape }} ({{ forum.title }}){% endblock %}
-
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/forum/forum.css">
+{% endblock %}
 {% block pagetitle %}{{ forum.title }} &raquo; {{ thread.title|escape }}{% endblock %}
 
 
 {% block breadcrumbs %}{% for title, url in thread.forum.get_url_name %} &raquo; <a href='{{ url }}'>{{ title }}</a>{% endfor %} &raquo; <a href='{{ thread.get_absolute_url }}'>{{ thread.title|escape }}</a> ({{ thread.posts }} {% blocktrans count thread.posts as counter %}post{% plural %}posts{% endblocktrans %}){% endblock %}
 
-{% block content %}
+{% block contenedor %}
 
 <table id='djangoForumThreadPosts'>
 {% for post in post_list %}

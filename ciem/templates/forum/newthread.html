@@ -1,6 +1,8 @@
 {% extends "forum_base.html" %}
 {% load i18n %}
-
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/forum/forum.css">
+{% endblock %}
 {% block title %}{% blocktrans with forum.title as title %}New Thread in {{ title }}{% endblocktrans %}{% endblock %}
 
 {% block extrahead %}
@@ -13,7 +15,7 @@
 {% block breadcrumbs %} {% for title, url in forum.get_url_name %} &raquo; <a href='{{ url }}'>{{ title }}</a> {% endfor %} &raquo; {% trans "New Thread" %}{% endblock %}
 
 
-{% block content %}
+{% block contenedor %}
 
 <h2>{% trans "Create a Thread" %}</h2>
 asdasdasd

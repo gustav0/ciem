@@ -15,7 +15,6 @@ from ciem.apps.forum.models import Forum
 
 urlpatterns = patterns('',
     url(r'^forum/$', 'ciem.apps.forum.views.forums_list', name='forum_index'),
-    url(r'^prueba/$','ciem.apps.forum.views.prueba', name='forum_prueba'),
     url(r'^thread/(?P<thread>[0-9]+)/$', 'ciem.apps.forum.views.thread', name='forum_view_thread'),
     url(r'^thread/(?P<thread>[0-9]+)/reply/$', 'ciem.apps.forum.views.reply', name='forum_reply_thread'),
 

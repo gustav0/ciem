@@ -1,6 +1,8 @@
 {% extends "forum_base.html" %}
 {% load i18n %}
-
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/forum/forum.css">
+{% endblock %}
 {% block title %}{{ forum.title }}{% endblock %}
 
 {% block extrahead %}
@@ -13,7 +15,7 @@
 {% block breadcrumbs %} {% for title, url in forum.get_url_name %} &raquo; <a href='{{ url }}'>{{ title }}</a> {% endfor %} ({{ forum.threads }} {% trans "thread" %}{{ forum.threads|pluralize }}, {{ forum.posts }} {% trans "post" %}{{ forum.posts|pluralize }}){% endblock %}
 
 
-{% block content %}
+{% block contenedor %}
 
 {% if child_forums %}
 <table id='djangoForumList'>
