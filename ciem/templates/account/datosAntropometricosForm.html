@@ -2,6 +2,7 @@
 {% block title %}Datos antropometricos{% endblock %}
 {% block css %}<link rel="stylesheet" href=" {{ MEDIA_URL }}css/account/antropometricos.css">{% endblock %}
 {%load humanize%}
+{%load custom_filters%}
 
 {% block content %}
 {% if final %}
@@ -35,7 +36,13 @@
 			<div class="apreciacionResultado">
 				<div class="apreciacionObesidad">
 					<div class="labelApreciacion">Obesidad</div>
-					<div class="valueApreciacion">{{ apreciacion.0.apreciacion_obesidad }}</div>
+					<div class="valueApreciacion">
+						{% if apreciacion.0.apreciacion_obesidad|compareTo:"Sobrepeso (Obesidad grado I)" %}
+						(Obesidad grado I)
+						{% else %}
+						{{ apreciacion.0.apreciacion_obesidad }}
+						{%endif%}
+					</div>
 				</div>
 				<div class="apreciacionCintura">
 					<div class="labelApreciacion">Cintura</div>

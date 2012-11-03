@@ -21,6 +21,13 @@ def sumame_uno(value):
 @register.filter#DEVUELVE LISTA DEL 0 AL NUMERO INDICADO
 def get_int(value):
 	return int(value)
+@register.filter
+def compareTo(string1, string2):
+	print str(string1)+" == "+str(string2)
+	if string1 == string2 :	
+		return True
+	else:	
+		return False
 @register.filter#OBTIENE RANGO PARA UN CICLO FOR
 def get_range(value):
 	return range(value)
@@ -181,13 +188,6 @@ def get_progreso(var):
 			progreso = var[i].seccionnombre_id
 	return progreso
 
-@register.filter #DEVUELVE TRUE SI EL USUARIO YA EMPEZO LA FRECUENCIA DE CONSUMO
-def if_progreso(var):
-	if int(var)==1:
-		print 'return FALSE'
-		return False
-	print 'return TRUE'
-	return True
 
 #|||||||||||||||||||||||||||||||||||||||||||||||||||||||||#
 #|FILTROS PARA SABER SI UN USUARIO PERTENECE A UN GRUPO  |#

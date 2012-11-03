@@ -3,8 +3,8 @@ from django.contrib.auth.views import login, logout
 from ciem.apps.account.forms import loginForm
 
 urlpatterns = patterns('ciem.apps.account.views',
- url(r'^profile/$', 'profile', name="account_profile"),
- url(r'^register/$', 'register', name="account_register"),
+ url(r'^perfil/$', 'profile', name="account_profile"),
+ url(r'^registro/$', 'register', name="account_register"),
  url(r'^antropometricos/$', 'antropometricos', name="account_datosAntropometricos"),
  url(r'^diagnostico/$', 'perfilAntropometrico', name="account_perfilAntropometrico"),
  url(r'^nutricionistas/$', 'nutricionistas', name="account_nutricionistas"),

@@ -7,7 +7,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response,redirect
 from django.template import RequestContext
 from ciem.apps.account.forms import antropometricosForm,registerForm,ipaqForm, soyProfesionalForm, recordatorioForm, editRegisterForm, recuperarContrasenaForm, indicadoresDieteticosForm,frecuencia7Form
-from ciem.apps.account.models import datosAntropometricos,frecuenciaConsumo,dataFrecuenciaConsumo,alimentoFrecuencia,userProfile,datosRecordatorio, indicadoresDieteticos,alimentoRecordatorio,ipaqResultado,ipaq as myipaq, preguntaSecreta, frecuencia7
+from ciem.apps.account.models import datosAntropometricos,frecuenciaConsumo,dataFrecuenciaConsumo,alimentoFrecuencia,userProfile,datosRecordatorio, indicadoresDieteticos,alimentoRecordatorio,ipaqResultado,ipaq as myipaq, preguntaSecreta, frecuencia7,indicadoresDieteticos
 from ciem.apps.data.models import alimento
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
@@ -76,11 +76,12 @@ def recuperarContrasena(request):
 
 @login_required(login_url='/login')
 def profile(request):
+	indicadores = indicadoresDieteticos.objects.getById(request.user.id)
 	antropometrico = datosAntropometricos.objects.getForPerfil(request.user.id)
 	frecuencia = frecuenciaConsumo.objects.getById(request.user.id)
 	ipaqr = ipaqResultado.objects.getResultados(request.user.id)
 	recordatorios = datosRecordatorio.objects.getById(request.user.id)
-	ctx={'profile':request.user.get_profile(),'antropometrico':antropometrico,'frecuencia':frecuencia,'ipaq':ipaqr, 'recordatorios':recordatorios}
+	ctx={'profile':request.user.get_profile(),'antropometrico':antropometrico,'frecuencia':frecuencia,'ipaq':ipaqr, 'recordatorios':recordatorios,'indicadores':indicadores}
 	return render_to_response('account/profile.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')
@@ -239,6 +240,8 @@ def frecuencia(request):
 					return HttpResponseRedirect("/frecuencia/")
 			else:
 				preguntas = preguntasFormSet(queryset=dataFrecuenciaConsumo.objects.none())
+		elif progreso=='9':
+			return HttpResponseRedirect('/felicidades/')
 	else:
 		if request.method == "POST":
 			frecuenciaConsumo.objects.create(user=request.user,progreso='1')
