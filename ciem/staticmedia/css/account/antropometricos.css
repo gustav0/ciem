@@ -309,3 +309,23 @@ table,th,td{
 	text-decoration: none;
 	color: #FCFCFC;
 }
+
+#botonLlenar{
+	line-height: 37px;
+	text-indent: 5px;
+	color: #4B4B4B;
+	text-decoration: none;
+	float: left;
+	background-color: #CAEBCF;
+	margin: 15px 0px;
+	margin-left: 40%;
+	width: 240px;
+	height: 40px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 1px 3px 2px 0px #B4B4B4;
+	box-shadow: 1px 3px 2px 0px #B4B4B4;
+}
+#botonLlenar:hover{
+	background-color: #97CFA0;
+}

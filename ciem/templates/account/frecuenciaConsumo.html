@@ -7,7 +7,7 @@
 {% block content %}
 	{% if progreso %}
 	 	{% if progreso|get_int < 9 %}
-		<div>Sección: {{progreso}}   </div>
+		<h3>Sección: {{progreso}}   </h3>
 		<form action="." method="POST" id="seccion1">
 			{% csrf_token %}
 			{{preguntas.management_form}}
@@ -29,9 +29,8 @@
 				<div class="porcion">{{forloop.counter0|get_radio_porcion}}</div>
 			</div>
 			{% endfor %}
-			<input value="Guardar" type="submit" style="float:left;clear:both;">
+			<input value="Guardar" type="submit">
 		</form>
-		<div id="enviarS1" style="height:50px;width:50px;background-color:black;cursor:pointer;"></div>
 		{% else %}
 
 		<div class="agradecimeinto">Usted ha finalizado exitosamente el formulario de frecuencia de consumo, le agradecemos su cooperacion en nuestra investigación.
@@ -39,10 +38,10 @@
 		{% endif %}
 	{% else %}
 
-		<div>Presione iniciar para iniciar a llenar su formulario de frecuencia de consumo alimenticio.</div>
-		<form action="" id='botonInicioFrecuencia' method='post'>
+		<div id="inicioFrecuencia">Presione iniciar para empezar a llenar su formulario de frecuencia de consumo alimenticio.</div>
+		<form action="" id="botonInicioFrecuencia" method='post'>
 			{% csrf_token %}
-		<input value="Iniciar" type="submit" style="float:left;clear:both;">
+		<input value="Iniciar" type="submit" >
 		</form>
 	{% endif %}
 {% endblock %}
