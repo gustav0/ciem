@@ -151,10 +151,11 @@ article{
 }
 
 #cajaLoginOut{
-	float:right;
+	float: right;
+	outline: 1px solid rgba(214, 214, 214, 0.5);
 	background-color: rgba(250, 252, 217, 0.3);
 	margin-right: 35px;
-	margin-top:95px;
+	margin-top: 4px;
 	padding: 5px 10px;
 	border-top-right-radius: 0.3em;
 	border-top-left-radius: 0.3em;
@@ -165,19 +166,20 @@ article{
 #cajaLoginOut:hover{
 	background-color: rgba(250, 252, 217, 1);
 }
-#cajaLoginOut:hover .campoLogin input{
+#cajaLoginOut:hover .campoLoginIndex input{
 	background-color: white;
 }
 div#cajaLoginOut a{
 	float: left;
 }
-.campoLogin input{
+.campoLoginIndex input{
 	background-color:rgba(255, 255, 255, 0.3);
 	transition-duration: 0.6s;
 	-webkit-transition-duration: 0.6s;
 	-moz-transition-duration: 0.6s;
 }
 div#cajaLoginOut input[type="submit"]{
+	margin-left: 36px;
 	cursor: pointer;
 	float: left;
 	font-size: 12px;
