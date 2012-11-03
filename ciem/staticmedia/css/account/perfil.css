@@ -209,4 +209,25 @@ a:hover .botonProfesional{
 	margin-left: 30%;
 	float: left;
 }
-
+.publicador{
+	margin-top: 7px;
+	color: #4B4B4B;
+	width: 206px;
+	padding-top: 6px;
+	font-weight: bold;
+	background: #58D3F7;
+	text-align: center;
+	float: left;
+	margin-left: 275px;
+	height: 30px;
+	text-decoration: none;
+	border-radius: 10.2em;
+	-webkit-box-shadow: 1px 3px 2px 0px #B4B4B4;
+	box-shadow: 1px 3px 2px 0px #B4B4B4;
+	-webkit-transition-duration: 0.2s;
+	-moz-transition-duration: 0.2s;
+	transition-duration: 0.2s
+}
+a:hover .publicador{
+	background: #04B486;
+}
