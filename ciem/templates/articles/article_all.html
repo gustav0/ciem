@@ -7,8 +7,11 @@ Publicaciones de articulos
 {% block clear %}{% endblock%}
 
 {% block content %}		
+
+
 		<section id="listadepublicaciones">
 		<h2>Lista de articulos</h2>
+		{% if lista %}
 		{% get_articles 10 as arti %}
 		{% for a in arti %}
 		<h3>{{a.title}}</h3>
@@ -22,6 +25,9 @@ Publicaciones de articulos
 					Etiquetas: {{a.tags}}
 				</section>	
 		{% endfor %}
+		{% else %}
+		<article>No hay ningún articulo publicado.</article>
+		{% endif %}
 		</section>
 {% endblock%}
 

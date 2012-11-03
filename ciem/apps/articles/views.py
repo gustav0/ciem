@@ -19,7 +19,8 @@ def nuevoArticulo(request):
 	return render_to_response('articles/publicar.html', ctx, context_instance=RequestContext(request))
 
 def article_all(request):	
-	ctx = {'lista':Article.objects.published()}
+	articulosPublicados = Article.objects.published()
+	ctx = {'lista':articulosPublicados}
 	return render_to_response('articles/article_all.html', ctx, context_instance=RequestContext(request))
 
 def article_list(request, *args, **kwargs):
