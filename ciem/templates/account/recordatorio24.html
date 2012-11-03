@@ -1,13 +1,18 @@
 {% extends "homepage/index.html" %}
 {% block title %}Recordatorio 24 horas{% endblock %}
 {% block js %}
-<script src="{{ MEDIA_URL }}js/adquiridos/jquery-1.8.1.min.js" type="text/javascript">
-</script>
+<script src="{{ MEDIA_URL }}js/adquiridos/jquery-1.8.1.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/adquiridos/jquery.mask.min.js"></script>
 <script type="text/javascript" src="{{ MEDIA_URL }}js/adquiridos/teclaEnter.js"></script>
 <script src="{{ MEDIA_URL }}js/propios/recordatorio24.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}pluggins/jquery-ui-1.9.0.custom/js/jquery-ui-1.9.0.custom.min.js"></script>
+<script type="text/javascript" language="javascript" src="{{ MEDIA_URL }}pluggins/jquery-ui-1.9.0.custom/development-bundle/ui/jquery.ui.timepicker.js" />"></script>
 {% endblock%}
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/account/recordatorio.css">
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}pluggins/jquery-ui-1.9.0.custom/development-bundle/ui/jquery.ui.timepicker.css">
+<link rel="stylesheet"href="{{ MEDIA_URL }}pluggins/jquery-ui-1.9.0.custom/css/ui-lightness/jquery-ui-1.9.0.custom.min.css">
+
 {% endblock %}
 
 {% block content %}

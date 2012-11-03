@@ -82,6 +82,7 @@ def profile(request):
 	if user.groups.filter(name="Profesional"):
 		publicador = True
 	antropometrico = datosAntropometricos.objects.getForPerfil(request.user.id)
+	recordatorios = datosRecordatorio.objects.getForPerfil(request.user.id)
 	frecuencia = frecuenciaConsumo.objects.getById(request.user.id)
 	ipaqr = ipaqResultado.objects.getResultados(request.user.id)
 	recordatorios = datosRecordatorio.objects.getById(request.user.id)

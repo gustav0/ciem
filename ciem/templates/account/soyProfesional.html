@@ -1,5 +1,10 @@
 {% extends "homepage/index.html" %}
 {% block title %}Petición de profesional{% endblock %}
+{% block js %}
+<script src="{{ MEDIA_URL }}js/adquiridos/jquery-1.8.1.min.js" type="text/javascript">
+</script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/adquiridos/jquery.mask.min.js"></script>
+{% endblock %}
 {% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/account/profesional.css">
 {% endblock %}
 {% block content %}
@@ -36,4 +41,7 @@
 		<input type="submit" value="Enviar peticion">
 	</form>
 </div>
+<script type="text/javascript">
+	$("#id_telefono").mask('(999) 999-9999');
+</script>
 {% endblock %}

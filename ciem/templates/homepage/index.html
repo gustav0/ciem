@@ -48,7 +48,7 @@ Centro de investigaciones Endocrino-Metabólicas
 			{% else %}
 			
 			<div id="cajaLoginOut">
-				<p>Bienvenido. Por favor ingresa.</p>
+				<p>Ingresar al sistema</p>
 				<form action="/login" method="POST">
 				{% csrf_token %}
 					<div id="usernameForm" class="campoLogin" >
@@ -78,7 +78,6 @@ Centro de investigaciones Endocrino-Metabólicas
 
 					<div class="clear"></div>
 					<div id="inputForm"><input type="submit" value="Ingresar"></div>
-					<a href="/register/"> Registrarse </a>
 				</form>
 			</div>
 			{% endif %}			
@@ -90,6 +89,7 @@ Centro de investigaciones Endocrino-Metabólicas
 	<div id="barraContenido"></div>
 	<div id="cuadroPublicaciones">
 		<h2>Publicaciones</h2>
+		{% if lista %}
 		{% get_articles 5 as arti %}
 		{% for a in arti %}
 		<h3>{{a.title}}</h3>
@@ -103,6 +103,9 @@ Centro de investigaciones Endocrino-Metabólicas
 					Etiquetas: {{a.tags}}
 				</section>	
 		{% endfor %}
+		{% else %}
+		<article>No hay ningún articulo publicado.</article>
+		{% endif %}
 	</div>
 	<div id="imagenManzana"></div>
 	<div id="eslogan">Que el alimento sea tu única medicina</div>
