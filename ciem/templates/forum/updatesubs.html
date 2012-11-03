@@ -2,9 +2,11 @@
 {% load i18n %}
 {% block title %}{% trans "Update Thread Subscriptions" %}{% endblock %}
 {% block pagetitle %}{% trans "Update Thread Subscriptions" %}{% endblock %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/forum/forum.css">
+{% endblock %}
 
-
-{% block content %}
+{% block contenedor %}
 
 {% if user.is_authenticated %}
 {% if not subs %}

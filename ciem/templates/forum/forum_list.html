@@ -1,8 +1,11 @@
-{% extends "forum_base.html" %}{% load i18n %}
-
+{% extends "forum_base.html" %}
+{% load i18n %}
 {% block title %}{% trans "Forums" %}{% endblock %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/forum/forum.css">
+{% endblock %}
 
-{% block content %}
+{% block contenedor %}
 <table id='djangoForumList'>
 <tr>
 <th>{% trans "Forum" %}</th>

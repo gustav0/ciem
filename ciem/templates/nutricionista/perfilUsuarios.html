@@ -261,6 +261,7 @@
 		24horas
 		{% elif tipo|get_int == 5 %}
 		<h2>Indicadores dietéticos ingresados</h2>
+			{% if perfil %}
 			{% for p in perfil %}
 			<div id="indicadores">
 				<p>Comidas al día: {{p.comidasAlDia}}</p>
@@ -288,6 +289,12 @@
 				<p>Hace cuanto tiempo: {{p.tiempoDieta}}</p>
 			</div>
 			{% endfor %}
+			{% else %}
+			<div id="aviso">
+					<span aria-hidden="true">!</span>
+       				<p>Este usuario todavía no posee indicadores dieteticos.</p>
+       			</div>
+			{% endif %}
 		{% else %}
 		No existe esa opción
 		{% endif %}
