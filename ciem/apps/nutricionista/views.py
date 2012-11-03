@@ -6,6 +6,7 @@ from django.http import HttpResponseRedirect
 from django.core.paginator import EmptyPage, PageNotAnInteger
 from ciem.apps.account.models import datosAntropometricos,antropometricosResultado,userProfile,ipaqResultado,ipaq,frecuenciaConsumo, profesional, indicadoresDieteticos
 from django.contrib.auth.models import User, Group
+from ciem.apps.nutricionista.forms import *
 
 @login_required(login_url='/login')
 def verPeticiones(request):
@@ -23,6 +24,45 @@ def verPeticiones(request):
 	perfil = userProfile.objects.all()
 	ctx= {'peticiones':peticiones,'usuario':usuario, 'perfil':perfil}	
 	return render_to_response('nutricionista/peticiones.html', ctx, context_instance=RequestContext(request))
+
+def busqueda(request):
+	form = busquedaForm(request.POST or None)
+	if form.is_valid():
+		genero = form.cleaned_data['genero']
+		edadDesde = form.cleaned_data['edadDesde']
+		edadHasta = form.cleaned_data['edadHasta']
+		#pais = form.cleaned_data['pais']
+		tallaDesde = form.cleaned_data['tallaDesde']
+		tallaHasta = form.cleaned_data['tallaHasta']
+		pesoDesde = form.cleaned_data['pesoDesde']
+		pesoHasta = form.cleaned_data['pesoHasta']
+		obesidad = form.cleaned_data['obesidad']
+		enfermedad = form.cleaned_data['enfermedad']
+		actividadFisica = form.cleaned_data['actividadFisica']
+		query = userProfile.objects.all()
+		if(genero !='t'):
+			query = query.filter(genero=genero)
+		if(tallaDesde != 't' and tallaHasta !='t'):
+			antropometricos = datosAntropometricos.objects.filter(estatura__range=(tallaDesde,tallaHasta))
+			id = []
+			for item in antropometricos:
+				id.append(item.user_id) 
+			query = query.filter(pk__in=id)	
+			for item in query:
+				print item.user_id		
+		elif(tallaDesde != 't' or tallaHasta != 't'):
+			if(tallaDesde != 't'):
+				antropometricos = datosAntropometricos.objects.filter(estatura__gte=tallaDesde)
+			elif(tallaHasta != 't'):
+				antropometricos = datosAntropometricos.objects.filter(estatura__lte=tallaHasta)
+			id = []
+			for item in antropometricos:
+				id.append(item.user_id) 
+			query = query.filter(pk__in=id)
+			for item in query:
+				print item.user_id				
+	ctx={'form': form,}
+	return render_to_response('nutricionista/busqueda.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')
 def perfilUsuarios(request):
