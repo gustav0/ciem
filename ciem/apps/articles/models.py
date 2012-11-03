@@ -36,7 +36,7 @@ class Article(models.Model):
 	body = models.TextField()
 	tags = TagField(max_length=100, blank=True)
 	publish_date = models.DateTimeField(default=datetime.now, help_text=u'You may future-date articles to enable scheduled publishing.')
-	status = models.CharField(max_length=100, choices=((DRAFT, 'Draft'),(PUBLISHED, 'Published')), default=DRAFT, help_text=u'Only articles with "Published" status will be shown on site.')
+	status = models.CharField(max_length=100, choices=((DRAFT, 'Borrador'),(PUBLISHED, 'Publicar')), default=DRAFT, help_text=u'Only articles with "Published" status will be shown on site.')
 	author = models.ForeignKey(User)
 	featured = models.BooleanField(default=False)
 	related_articles = models.ManyToManyField('Article', blank=True, null=True)

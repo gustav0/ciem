@@ -10,12 +10,14 @@ Publicaciones de articulos
 		<section id="publicaciones">
 			{% if user|in_group:"profesional" %}
 	       		<h2>Publicar un nuevo articulo</h2>
-				<form action="." method="POST">
+				<form id="formulario" action="." method="POST">
 					{% csrf_token %}
 					{{ form.as_p }}
 				<div id="boton">
 					<input type="submit" value="Enviar" id="botonPublicar" name="boton"/>
 				</div>
+					{{ form.errors }}
+					{{ form.non_field_errors }}
 				</form>
        		{% else %}
        			<div id="aviso">
