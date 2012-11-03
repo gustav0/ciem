@@ -256,11 +256,11 @@ $(function(){
 	}
 
 $('#id_horaDesayuno').timepicker({
-	showPeriod: true,
-    showLeadingZero: true,
+	//showPeriod: true,
+    //showLeadingZero: true,
     hourText: 'Hora',
     minuteText: 'Minutos',
-    amPmText: ['AM', 'PM'],
+    //amPmText: ['AM', 'PM'],
     timeSeparator: ':',
     nowButtonText: 'Hora actual',
     showNowButton: true,
@@ -268,11 +268,11 @@ $('#id_horaDesayuno').timepicker({
     showCloseButton: true,
 });
 $('#id_horaMerienda1').timepicker({
-	showPeriod: true,
-    showLeadingZero: true,
+	//showPeriod: true,
+   // showLeadingZero: true,
     hourText: 'Hora',
     minuteText: 'Minutos',
-    amPmText: ['AM', 'PM'],
+    //amPmText: ['AM', 'PM'],
     timeSeparator: ':',
     nowButtonText: 'Hora actual',
     showNowButton: true,
@@ -280,11 +280,11 @@ $('#id_horaMerienda1').timepicker({
     showCloseButton: true,
 });
 $('#id_horaAlmuerzo').timepicker({
-	showPeriod: true,
-    showLeadingZero: true,
+	//showPeriod: true,
+    //showLeadingZero: true,
     hourText: 'Hora',
     minuteText: 'Minutos',
-    amPmText: ['AM', 'PM'],
+    //amPmText: ['AM', 'PM'],
     timeSeparator: ':',
     nowButtonText: 'Hora actual',
     showNowButton: true,
@@ -292,11 +292,11 @@ $('#id_horaAlmuerzo').timepicker({
     showCloseButton: true,
 });
 $('#id_horaMerienda2').timepicker({
- 	showPeriod: true,
-    showLeadingZero: true,
+ 	//showPeriod: true,
+    //showLeadingZero: true,
     hourText: 'Hora',
     minuteText: 'Minutos',
-    amPmText: ['AM', 'PM'],
+    //amPmText: ['AM', 'PM'],
     timeSeparator: ':',
     nowButtonText: 'Hora actual',
     showNowButton: true,
@@ -304,11 +304,11 @@ $('#id_horaMerienda2').timepicker({
     showCloseButton: true,
 });
 $('#id_horaCena').timepicker({
- 	showPeriod: true,
-    showLeadingZero: true,
+ 	//showPeriod: true,
+    //showLeadingZero: true,
     hourText: 'Hora',
     minuteText: 'Minutos',
-    amPmText: ['AM', 'PM'],
+    //amPmText: ['AM', 'PM'],
     timeSeparator: ':',
     nowButtonText: 'Hora actual',
     showNowButton: true,
@@ -316,11 +316,11 @@ $('#id_horaCena').timepicker({
     showCloseButton: true,
 });
 $('#id_horaMerienda3').timepicker({
-	showPeriod: true,
-    showLeadingZero: true,
+	//showPeriod: true,
+    //showLeadingZero: true,
     hourText: 'Hora',
     minuteText: 'Minutos',
-    amPmText: ['AM', 'PM'],
+    //amPmText: ['AM', 'PM'],
     timeSeparator: ':',
     nowButtonText: 'Hora actual',
     showNowButton: true,
