@@ -38,7 +38,7 @@ def perfilUsuarios(request):
 				if int(tipoPerfil)==1:
 					perfil = datosAntropometricos.objects.getByIdJoin(int(getUser))
 				elif int(tipoPerfil)==2:
-					perfil = ipaq.objects.getById(int(getUser))
+					perfil = ipaqResultado.objects.getResultados(int(getUser))
 				elif int(tipoPerfil)==3:
 					perfil = frecuenciaConsumo.objects.getDataById(int(getUser))
 				elif int(tipoPerfil)==4:
