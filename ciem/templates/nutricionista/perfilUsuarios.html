@@ -122,8 +122,111 @@
 			{% endfor %}
 		{% elif tipo|get_int == 2 %}
 			{% for n in nombre %}
-			<div>ipaq</div>
-			<a href="?user={{ n.id }}&d=1"> Descargar como documento Excel </a>
+				{% for p in perfil %}
+				<div>ipaq</div>
+				<a href="?user={{ n.id }}&d=1"> Descargar como documento Excel </a>
+				<div class="titulo">Trabajo</div>
+				<table border="1">
+					<th>Min Andar</th>
+					<th>Min actividad Moderada</th>	
+					<th>Min actividad Vigorosa</th>
+					<th>MET Andar</th>
+					<th>MET Moderado</th>
+					<th>MET Vigoroso</th>
+					<th>MET Total</th>
+				<tr>
+					<td>{{p.minAndarTrabajo}}</td>
+					<td>{{p.minModeradoTrabajo}}</td>
+					<td>{{p.minVigorosoTrabajo}}</td>
+					<td>{{p.metAndarTrabajo}}</td>
+					<td>{{p.metModeradoTrabajo}}</td>
+					<td>{{p.metVigorosoTrabajo}}</td>
+					<td>{{p.metTrabajo}}</td>
+				</tr>
+				</table>
+				<div class="titulo">Transporte</div>						
+				<table border="1">
+					<th>Min Andar</th>
+					<th>Min actividad Moderada</th>	
+					<th>Min en Vehículo</th>
+					<th>MET Andar</th>
+					<th>MET Moderado</th>
+					<th>MET Total</th>
+				<tr>
+					<td>{{p.minAndarTransporte}}</td>
+					<td>{{p.minModeradoTransporte}}</td>
+					<td>{{p.minVehiculo}}</td>
+					<td>{{p.metAndarTransporte}}</td>
+					<td>{{p.metModeradoTransporte}}</td>
+					<td>{{p.metTransporte}}</td>
+				</tr>
+				</table>	
+				<div class="titulo">Hogar</div>
+				<table border="1">
+					<th>Min actividad Vigorosa</th>
+					<th>Min A. Moderada en Casa</th>	
+					<th>Min A. Moderada en Jardín</th>
+					<th>MET Vigoroso</th>
+					<th>MET Moderado en Casa</th>
+					<th>MET Moderado en Jardín</th>
+					<th>MET Total</th>
+				<tr>
+					<td>{{p.minVigorosoHogar}}</td>
+					<td>{{p.minModeradoHogar}}</td>
+					<td>{{p.minModeradoJHogar}}</td>
+					<td>{{p.metVigorosoHogar}}</td>
+					<td>{{p.metModeradoHogar}}</td>
+					<td>{{p.metModeradoJHogar}}</td>
+					<td>{{p.metHogar}}</td>
+				</tr>
+				</table>
+				<div class="titulo">Recreación</div>
+				<table border="1">
+					<th>Min Andar</th>
+					<th>Min actividad Moderada</th>	
+					<th>Min actividad Vigorosa</th>
+					<th>MET Andar</th>
+					<th>MET Moderado</th>
+					<th>MET Vigoroso</th>
+					<th>MET Total</th>
+				<tr>
+					<td>{{p.minAndarRecre}}</td>
+					<td>{{p.minModeradoRecre}}</td>
+					<td>{{p.minVigorosoRecre}}</td>
+					<td>{{p.metAndarRecreacion}}</td>
+					<td>{{p.metModeradoRecreacion}}</td>
+					<td>{{p.metVigorosoRecreacion}}</td>
+					<td>{{p.metRecreacion}}</td>
+				</tr>
+				</table>	
+				<div class="titulo">Transporte</div>						
+				<table border="1">
+					<th>Min Andar</th>
+					<th>Min actividad Moderada</th>	
+					<th>Min en Vehículo</th>
+					<th>MET Andar</th>
+					<th>MET Moderado</th>
+					<th>MET Total</th>
+				<tr>
+					<td>{{p.minAndarTransporte}}</td>
+					<td>{{p.minModeradoTransporte}}</td>
+					<td>{{p.minVehiculo}}</td>
+					<td>{{p.metAndarTransporte}}</td>
+					<td>{{p.metModeradoTransporte}}</td>
+					<td>{{p.metTransporte}}</td>
+				</tr>
+				</table>	
+				<div class="titulo">Tiempo Sentado</div>
+				<table border="1">
+					<th>Min Sentado</th>
+					<th>Media min sentado por dia</th>	
+				<tr>
+					<td>{{p.tiempoSentado}}</td>
+					<td>{{p.MediaSentado}}</td>
+				</tr>
+				</table>															
+				{% endfor %}
+			
 			{% endfor %}
 		{% elif tipo|get_int == 3 %}
 			{% for n in nombre %}
