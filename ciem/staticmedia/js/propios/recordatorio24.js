@@ -1,5 +1,10 @@
 $(function(){
-
+	$("#id_horaDesayuno").mask('00:00');
+	$("#id_horaMerienda1").mask('00:00');
+	$("#id_horaAlmuerzo").mask('00:00');
+	$("#id_horaMerienda2").mask('00:00');
+	$("#id_horaCena").mask('00:00');
+	$("#id_horaMerienda3").mask('00:00');
 	$("#id_desayuno_0").click();
  	$("#id_merienda1_0").click();
  	$("#id_almuerzo_0").click();
@@ -15,8 +20,7 @@ $(function(){
 			if (e.keyCode == 13) return false;
 		});
 
-		
-
+	
 	
 	/////////////////BOTON1///////////////////////
 		$('#botonAgregar1').click(function(){
