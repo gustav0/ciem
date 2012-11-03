@@ -3,8 +3,6 @@
 }
 
 
-
-
 /*FORMULARIO*/
 .cabeceraFormulario{
 	float: left;
@@ -114,11 +112,10 @@ table,th,td{
 	float: left;
 	height: 300px;
 	width: 960px;
-
 }
 .contenidoResultado{
 	margin-left: 80px;
-	margin-top: 80px;
+	margin-top: 40px;
 	float: left;
 	height: 230px;
 	width: 800px;
@@ -262,7 +259,6 @@ table,th,td{
     border-radius: 4px;
     text-align: center;
 	line-height: 30px;
-	/**/
 }
 .tituloApreciacion{
 	font-size: 15px;

@@ -1,4 +1,5 @@
 {% extends "homepage/index.html" %}
+{%load custom_filters%}
 {% block title %}Cuestionario IPAQ{% endblock %}
 {% block js %}
 <script src="{{ MEDIA_URL }}js/adquiridos/jquery-1.8.1.min.js" type="text/javascript"></script>
@@ -7,9 +8,18 @@
 {% block css %}<link rel="stylesheet" href=" {{ MEDIA_URL }}css/account/ipaq.css">{% endblock %}
 {% block content %}
 {% if final %}
-
-Su resultado es: {{ form.0.apreciacionIpaq}}
-Su requerimiento calórico diario es {{ form.0.requerimientoCaloricoDiario }} (Kcal)
+<div class="alineacionResultado">
+    <div class="contenidoResultado">
+        <div class="tituloApreciacion">Su activida física se considera de categoría</div>
+        <div class="valueApreciacion" style=" {%if form.0.apreciacionIpaq|compareTo:'Baja'%} background-color:#F88184;
+        {%elif form.0.apreciacionIpaq|compareTo:'Alta'%}background-color:#BAFA98;
+        {%else%}
+        background-color:#FFFF66;
+        {%endif%}
+     ">{{ form.0.apreciacionIpaq }}</div>
+    </div>
+    <div class="tituloResultado">Resultados de Actividad Física</div>
+</div>
 
     <div class="recomendar24">Le recomendamos llenar el recordatorio de 24 horas</div>
     <a href="{% url account_recordatorio %}"><div class="enlace24">AQUI</div></a>
