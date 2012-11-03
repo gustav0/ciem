@@ -181,7 +181,7 @@ EMAIL_POST = 587
 
 #CSRF_FAILURE_VIEW = 'ciem.apps.homepage.views.csrf_malo'
 
-LOGIN_REDIRECT_URL = '/profile/'
+LOGIN_REDIRECT_URL = '/perfil/'
 LOGIN_URL = '/login/'
 
 AUTHENTICATION_BACKENDS = ('ciem.apps.account.auth.backends.loginBackend',)

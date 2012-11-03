@@ -5,15 +5,10 @@ from django.contrib.auth.views import login, logout
 from ciem.apps.account.forms import loginForm
 
 urlpatterns = patterns('ciem.apps.homepage.views',
-<<<<<<< HEAD
  url(r'^$', 'index', name="homepage_index"),
  url(r'^nosotros/$', 'about', name="homepage_about"),
  url(r'^contacto/$', 'contact', name="homepage_contact"),
-=======
  url(r'^$', login, kwargs={'template_name':'homepage/index.html','authentication_form': loginForm}, name="homepage_index",),
- url(r'^about/$', 'about', name="homepage_about"),
- url(r'^contact/$', 'contact', name="homepage_contact"),
->>>>>>> 902a65a8c639817cfa4802ec533ff7a861df2fd5
  url(r'^calculadora/$', 'calculadora', name="homepage_calculadora"),
   )
 
