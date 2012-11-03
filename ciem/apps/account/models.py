@@ -52,7 +52,6 @@ class datosAntropometricos(models.Model):
 class antropometricosResultado(models.Model):
 	datosAntropometricos = models.ForeignKey(datosAntropometricos)
 	metabolismoBasal = models.FloatField(default = 0)
-	requerimientoCaloricoDiario = models.FloatField(default = 0)
 	indiceAdiposidad = models.FloatField(default = 0)
 	apreciacion_adiposidad = models.CharField(max_length=40) 
 	obesidad = models.FloatField(default = 0)
@@ -167,6 +166,7 @@ class ipaqResultado(models.Model):
 	trabaja = models.FloatField(default=0)
 	minVehiculo= models.FloatField(default=0) 
 	apreciacionIpaq = models.CharField(max_length=10)
+	requerimientoCaloricoDiario = models.FloatField(default = 0)
 	objects = ipaqResultadoManager()
 
 class frecuenciaConsumo(models.Model):

@@ -64,8 +64,6 @@ class antropometricosForm(ModelForm):
 			mb = 0
 		return mb
 
-	def calcular_requerimientoCaloricoDiario(self):
-		return 0
 	
 	def calcular_obesidad(self):
 		peso = float(self.cleaned_data["peso"])
@@ -140,7 +138,7 @@ class antropometricosForm(ModelForm):
 	def save(self,request):
 		datosAntropometricos = super(antropometricosForm,self).save()
 		adiposidad = self.calcular_indiceAdiposidad(request)
-		antropometricosResultado.objects.create(datosAntropometricos=datosAntropometricos,metabolismoBasal=self.calcular_metabolismoBasal(request),requerimientoCaloricoDiario=self.calcular_requerimientoCaloricoDiario(),indiceAdiposidad=adiposidad['indiceAdiposidad'],obesidad = self.calcular_obesidad(),apreciacion_obesidad=self.calcular_apreciacion_obesidad(),apreciacion_adiposidad=adiposidad['apreciacion_adiposidad'],apreciacion_cintura=self.calcular_cintura(request))
+		antropometricosResultado.objects.create(datosAntropometricos=datosAntropometricos,metabolismoBasal=self.calcular_metabolismoBasal(request),indiceAdiposidad=adiposidad['indiceAdiposidad'],obesidad = self.calcular_obesidad(),apreciacion_obesidad=self.calcular_apreciacion_obesidad(),apreciacion_adiposidad=adiposidad['apreciacion_adiposidad'],apreciacion_cintura=self.calcular_cintura(request))
 		return datosAntropometricos			
 	
 
@@ -436,8 +434,34 @@ class ipaqForm(ModelForm):
 			return "Moderada"
 		else:
 			return "Alta"
-				
-	def save(self):
+
+	def cal_requerimientoCaloricoDiario(self, id, metTotal):
+		genero= userProfile.objects.get(user_id=id).genero
+		idAntropometrico = datosAntropometricos.objects.filter(user_id = id)
+		antropometricos = list(antropometricosResultado.objects.filter(datosAntropometricos_id=idAntropometrico[len(idAntropometrico)-1].id))
+		MB = antropometricos[len(antropometricos)-1].metabolismoBasal
+		apreciacion = self.cal_apreciacion(metTotal)
+		if(genero == 'f'):
+			if(apreciacion == "Baja"):
+				requerimiento = MB * 1.50 
+			elif(apreciacion == "Moderada"):
+				requerimiento = MB * 1.64
+			elif(apreciacion == "Alta"):
+				requerimiento = MB * 1.90  
+			else:
+				return 0
+		else:
+			if(apreciacion == "Baja"):
+				requerimiento = MB * 1.60 
+			elif(apreciacion == "Moderada"):
+				requerimiento = MB * 1.78
+			elif(apreciacion == "Alta"):
+				requerimiento = MB * 2.1  
+			else:
+				return 0
+		return requerimiento
+
+	def save(self,request):
 		global minAndandoTotal, minVigorosoTotal, minModeradoTotal, diasTotalModerado, diasTotalAndar, diasTotalVigoroso
 		mediaSentado=(self.cal_sentadoTotal()/7)
 		ipaq = super(ipaqForm,self).save()
@@ -456,7 +480,7 @@ class ipaqForm(ModelForm):
 			metVigorosoRecreacion = recreacion["metVigoroso"], metModeradoHogar = hogar["metModerado"], metModeradoJHogar = hogar["metModeradoJ"],\
 			metModeradoTrabajo = trabajo["metModerado"], metModeradoTransporte = transporte["metModerado"], metModeradoRecreacion = recreacion["metModerado"],\
 			diasTotalModerado = diasTotalModerado, diasTotalAndar = diasTotalAndar, diasTotalVigoroso = diasTotalVigoroso, \
-			diasTotal = float(diasTotalVigoroso+diasTotalAndar+diasTotalModerado), apreciacionIpaq =self.cal_apreciacion(metTotal),\
+			diasTotal = float(diasTotalVigoroso+diasTotalAndar+diasTotalModerado), apreciacionIpaq =self.cal_apreciacion(metTotal), requerimientoCaloricoDiario =self.cal_requerimientoCaloricoDiario(request.user.id, metTotal),\
 			trabaja= trabajo["trabaja"], minVehiculo = float(self.cal_tiempoVehiculo()))
 		return ipaq
 
