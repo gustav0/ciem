@@ -29,7 +29,6 @@ Centro de investigaciones Endocrino-Metabólicas
 {% block clear %}{% endblock%}
 
 {% block content %}
-
 	<div id="imagenHistoria">
 			<a href="{% url homepage_calculadora %}">
 				<div class="boton">CALCULADORA DE CALORIAS</div>
@@ -40,6 +39,50 @@ Centro de investigaciones Endocrino-Metabólicas
 			<a href="{% url account_recordatorio %}">
 				<div class="boton">RECORDATORIO 24 HORAS</div>
 			</a>
+			
+
+			{% if user.is_authenticated %}
+			<div id="cajaLoginIn"><p>Bienvenido, <span>{{ user.username }}</span>. Gracias por entrar.</p>
+			</div>
+    		
+			{% else %}
+			
+			<div id="cajaLoginOut">
+				<p>Bienvenido. Por favor ingresa.</p>
+				<form action="/login" method="POST">
+				{% csrf_token %}
+					<div id="usernameForm" class="campoLogin" >
+						{% if form.username.errors %}
+							<div id="usernameFormField" class="errorLogin">
+						{% else %}
+							<div id="usernameFormField"> 
+						{% endif %}
+						{{ form.username }}</div>
+					</div>
+					<div id="passwordForm" class="campoLogin">
+						{% if form.password.errors %}
+							<div id="passwordFormField" class="errorLogin"></div>
+						{% else %}
+							<div id="passwordFormField">
+						{% endif %}
+						{{ form.password }}</div>
+					</div>
+					<div id="loginError" class="errorLogin">
+						{% if form.non_field_errors %}
+							Usuario y/o contraseña incorrectos.
+						{% elif form.username.errors or form.password.errors %}
+							Campos obligatorios.
+						{% else %}
+						{% endif %}
+					</div>
+
+					<div class="clear"></div>
+					<div id="inputForm"><input type="submit" value="Ingresar"></div>
+					<a href="/register/"> Registrarse </a>
+				</form>
+			</div>
+			{% endif %}			
+
 	</div>
 	<div id="imagenHistoria2">
 			

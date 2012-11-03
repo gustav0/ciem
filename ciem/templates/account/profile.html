@@ -49,7 +49,18 @@
 		</div>
 	</div>
 	{% endif %}
-
+	<div class="fondoGeneral" style="height: 80px;">
+	<div class="divisorSeccion"> PERMISOS OTORGADOS<div class="lineaDivisorSeccion"></div></div>
+	{% if publicador %}>
+	<div class="publicar">
+		<a  href="{% url nuevoArticulo %}">
+		<div  class="publicador">
+		Agregar publicación
+		</div>
+		</a>
+	{% endif %}
+	</div>
+	</div>		
 	<div class="fondoActividad"> 
 		<div class="divisorSeccion"> ACTIVIDAD EN LA PÁGINA<div class="lineaDivisorSeccion"></div></div>
 

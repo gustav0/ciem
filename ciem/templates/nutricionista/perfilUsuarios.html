@@ -126,7 +126,7 @@
 				<div>ipaq</div>
 				<a href="?user={{ n.id }}&d=1"> Descargar como documento Excel </a>
 				<div class="titulo">Trabajo</div>
-				<table border="1">
+				<table style="width:800px" border="1">
 					<th>Min Andar</th>
 					<th>Min actividad Moderada</th>	
 					<th>Min actividad Vigorosa</th>
@@ -145,7 +145,7 @@
 				</tr>
 				</table>
 				<div class="titulo">Transporte</div>						
-				<table border="1">
+				<table style="width:800px" border="1">
 					<th>Min Andar</th>
 					<th>Min actividad Moderada</th>	
 					<th>Min en Vehículo</th>
@@ -162,7 +162,7 @@
 				</tr>
 				</table>	
 				<div class="titulo">Hogar</div>
-				<table border="1">
+				<table style="width:800px" border="1">
 					<th>Min actividad Vigorosa</th>
 					<th>Min A. Moderada en Casa</th>	
 					<th>Min A. Moderada en Jardín</th>
@@ -181,7 +181,7 @@
 				</tr>
 				</table>
 				<div class="titulo">Recreación</div>
-				<table border="1">
+				<table style="width:800px" border="1">
 					<th>Min Andar</th>
 					<th>Min actividad Moderada</th>	
 					<th>Min actividad Vigorosa</th>
@@ -199,32 +199,32 @@
 					<td>{{p.metRecreacion}}</td>
 				</tr>
 				</table>	
-				<div class="titulo">Transporte</div>						
-				<table border="1">
-					<th>Min Andar</th>
-					<th>Min actividad Moderada</th>	
-					<th>Min en Vehículo</th>
-					<th>MET Andar</th>
-					<th>MET Moderado</th>
-					<th>MET Total</th>
-				<tr>
-					<td>{{p.minAndarTransporte}}</td>
-					<td>{{p.minModeradoTransporte}}</td>
-					<td>{{p.minVehiculo}}</td>
-					<td>{{p.metAndarTransporte}}</td>
-					<td>{{p.metModeradoTransporte}}</td>
-					<td>{{p.metTransporte}}</td>
-				</tr>
-				</table>	
+	
 				<div class="titulo">Tiempo Sentado</div>
-				<table border="1">
+				<table style="width:800px" border="1">
 					<th>Min Sentado</th>
 					<th>Media min sentado por dia</th>	
 				<tr>
 					<td>{{p.tiempoSentado}}</td>
 					<td>{{p.MediaSentado}}</td>
 				</tr>
-				</table>															
+				</table>
+				<div class="titulo">Resultados</div>						
+				<table style="width:800px" border="1">
+					<th>Min Andar Toral</th>
+					<th>Min actividad Moderada Total</th>	
+					<th>Min actividad Vigorosa Total</th>
+					<th>MET Total en todas las areas</th>
+					<th>Resultado Actividad Física</th>
+					
+				<tr>
+					<td>{{p.tiempoAndar}}</td>
+					<td>{{p.tiempoModerado}}</td>
+					<td>{{p.tiempoVigoroso}}</td>
+					<td>{{p.metTotal}}</td>
+					<td>{{p.apreciacionIpaq}}</td>
+				</tr>
+				</table>																			
 				{% endfor %}
 			
 			{% endfor %}

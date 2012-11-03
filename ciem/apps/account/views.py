@@ -9,7 +9,7 @@ from django.template import RequestContext
 from ciem.apps.account.forms import antropometricosForm,registerForm,ipaqForm, soyProfesionalForm, recordatorioForm, editRegisterForm, recuperarContrasenaForm, indicadoresDieteticosForm,frecuencia7Form
 from ciem.apps.account.models import datosAntropometricos,frecuenciaConsumo,dataFrecuenciaConsumo,alimentoFrecuencia,userProfile,datosRecordatorio, indicadoresDieteticos,alimentoRecordatorio,ipaqResultado,ipaq as myipaq, preguntaSecreta, frecuencia7,indicadoresDieteticos
 from ciem.apps.data.models import alimento
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.forms.models import modelformset_factory
 from django.core.mail import send_mail
@@ -76,12 +76,23 @@ def recuperarContrasena(request):
 
 @login_required(login_url='/login')
 def profile(request):
+<<<<<<< HEAD
 	indicadores = indicadoresDieteticos.objects.getById(request.user.id)
+=======
+	publicador = False
+	user = User.objects.get(pk=request.user.id)
+	if user.groups.filter(name="Profesional"):
+		publicador = True
+>>>>>>> 902a65a8c639817cfa4802ec533ff7a861df2fd5
 	antropometrico = datosAntropometricos.objects.getForPerfil(request.user.id)
 	frecuencia = frecuenciaConsumo.objects.getById(request.user.id)
 	ipaqr = ipaqResultado.objects.getResultados(request.user.id)
 	recordatorios = datosRecordatorio.objects.getById(request.user.id)
+<<<<<<< HEAD
 	ctx={'profile':request.user.get_profile(),'antropometrico':antropometrico,'frecuencia':frecuencia,'ipaq':ipaqr, 'recordatorios':recordatorios,'indicadores':indicadores}
+=======
+	ctx={'profile':request.user.get_profile(),'antropometrico':antropometrico,'frecuencia':frecuencia,'ipaq':ipaqr, 'recordatorios':recordatorios, 'publicador':publicador}
+>>>>>>> 902a65a8c639817cfa4802ec533ff7a861df2fd5
 	return render_to_response('account/profile.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')
