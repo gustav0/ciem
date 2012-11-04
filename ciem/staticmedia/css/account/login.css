@@ -1,116 +1,20 @@
-input, input:focus{
-    outline: none;
-    margin: 0;
-}
-#loginError{
-	float: left;
-	width: 140px;
-	margin-left: -15px;
-	color:#CE0D0D;
-}
-.errorLogin input{
--webkit-box-shadow:inset 2px 2px 3px 0px #CE0D0D !important;box-shadow:inset 2px 2px 3px 0px #CE0D0D !important;
-}
-#usernameFormField input,#passwordFormField input {
-	border: 0;
-	height: 24px;
-	width: 190px;
-	text-indent: 8px;
-	box-shadow:inset 0px 0px 1px 1px #777;
-}
-#id_username::-webkit-input-placeholder,#id_password::-webkit-input-placeholder  { color:#666; }
-#id_username input:-moz-placeholder,#id_password input:-moz-placeholder { color:#666; }
-#alinearLoginForm{
-	float: left;
-	height: auto;
-	width: 240px;
-	margin-top: 16px;
-	margin-left: 40px;
-}
-#loginForm{
-	padding: 10px;
-	float: left;
-	height: 200px;
-	width: 260px;
-	background-color: #F2FFEC;
-	-webkit-border-radius: 0.5em;
-	border-radius: 0.5em;
-	-webkit-box-shadow: 2px 2px 3px 0px #888;box-shadow: 2px 2px 3px 0px #888;
-	margin: 30px;
-	margin-left: 330px;
-}
-#usernameFormField{
-	float: left;
-	outline: #CE0D0D;
-}
-#passwordFormField{
-	float: left;
-}
-#inputForm{float: left;}
-
-#inputForm input{
-	cursor: pointer;
-	float: left;
-	font-size: 12px;
-	padding: 5px 14px 5px 14px;
-	margin-left: 124px;
-	background-color: #009B00;
-	border: 1px solid black;
-	border-radius: 0.2em;
-	color: #EEE;
-	-webkit-transition-duration: 0.2s;
-	-moz-transition-duration: 0.2s;
-	transition-duration: 0.2s;
-	text-transform: uppercase;
-}
-
-#inputForm input:hover{
-	background: #2E64FE;
-	color: white;
-	border: 1px solid #009B00;
-}
-
-.campoLogin{
-	float:left;
-	width: 160px;
-	margin-bottom: 10px;
-}
-.clear{
-	clear: both;
-}
-.formTag{
-	float: left;
-	width: 84px;
-}
-.cabeceraLogin{
-	float: left;
-	width: 230px;
-	height: 30px;
-	margin-left: 35px;
-}
-.iconoLogin{
-	float: left;
-	width: 28px;
-	height: 28px;
-	background:url(../../img/candado.png) -0px -0px no-repeat;
-}
-.textoLogin{
-	float: left;
-	color: #006633;
-	font-size: 22px;
-	font-weight: bold;
-	margin-left: 10px;
-}
-.extra{
-	float: left;
-	width: 120px;
-	height: 40px;
-	font-size: 13px;
-	margin-top: -10px;
-}
-.extra a{
-	color:	#386838;
-}
-.extra a:hover{
-	color:	#118311;
-}
+input,input:focus{outline:none;margin:0}
+#loginError{float:left;width:140px;margin-left:-15px;color:#CE0D0D}
+.errorLogin input{-webkit-box-shadow:inset 2px 2px 3px 0 #CE0D0D!important;box-shadow:inset 2px 2px 3px 0 #CE0D0D!important}
+#usernameFormField input,#passwordFormField input{border:0;height:24px;width:190px;text-indent:8px;box-shadow:inset 0 0 1px 1px #777}
+#alinearLoginForm{float:left;height:auto;width:240px;margin-top:16px;margin-left:40px}
+#loginForm{float:left;height:200px;width:260px;background-color:#F2FFEC;-webkit-border-radius:.5em;border-radius:.5em;-webkit-box-shadow:2px 2px 3px 0 #888;box-shadow:2px 2px 3px 0 #888;margin:30px 30px 30px 330px;padding:10px}
+#usernameFormField{float:left;outline:#CE0D0D}
+#inputForm input{cursor:pointer;float:left;font-size:12px;margin-left:124px;background-color:#009B00;border:1px solid #000;border-radius:.2em;color:#EEE;-webkit-transition-duration:.2s;-moz-transition-duration:.2s;transition-duration:.2s;text-transform:uppercase;padding:5px 14px}
+#inputForm input:hover{background:#2E64FE;color:#FFF;border:1px solid #009B00}
+.campoLogin{float:left;width:160px;margin-bottom:10px}
+.clear{clear:both}
+.formTag{float:left;width:84px}
+.cabeceraLogin{float:left;width:230px;height:30px;margin-left:35px}
+.iconoLogin{float:left;width:28px;height:28px;background:url(../../img/candado.png) 0 0 no-repeat}
+.textoLogin{float:left;color:#063;font-size:22px;font-weight:700;margin-left:10px}
+.extra{float:left;width:120px;height:40px;font-size:13px;margin-top:-10px}
+.extra a{color:#386838}
+.extra a:hover{color:#118311}
+#id_username::-webkit-input-placeholder,#id_password::-webkit-input-placeholder,#id_username input:-moz-placeholder,#id_password input:-moz-placeholder{color:#666}
+#passwordFormField,#inputForm{float:left}

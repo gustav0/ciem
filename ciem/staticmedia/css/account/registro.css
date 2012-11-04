@@ -1,50 +1,6 @@
-#usernameForm span{
-	font-size: 0;
-}
-#usernameForm input, select{
-	border: 1px solid #AAA;
-	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-	float: right;
-
-}
-#usernameForm p{
-	background: #F7F7F7;
-	border: 1px solid #D7D7D7;
-	box-shadow: 0 0 1em #EEE;
-	border-radius: .3em;
-	margin: 1em 1.75em;
-	padding: .25em;
-	overflow: auto;
-	width: 50%;
-	display: inline-block;
-	text-align: left;
-}
-form{
-	text-align: center;
-}
-
-#botonFinalizar input{
-	cursor: pointer;
-	background-color: #009B00;
-	border: 1px solid black;
-	border-radius: 0.2em;
-	color: #EEE;
-	-webkit-transition-duration: 0.2s;
-	-moz-transition-duration: 0.2s;
-	transition-duration: 0.2s;
-	float: left;
-	margin: 0;
-	font-weight: bold;
-	padding: 15px 40px;
-	margin-bottom: 50px;
-	margin-left: 42%;
-	clear: both;
-}
-
-
-#botonFinalizar input:hover{
-	background: #04B486;
-	color: white;
-}
+#usernameForm span{font-size:0}
+#usernameForm input,select{border:1px solid #AAA;-webkit-box-shadow:0 1px 0 rgba(255,255,255,0.5);-moz-box-shadow:0 1px 0 rgba(255,255,255,0.5);box-shadow:0 1px 0 rgba(255,255,255,0.5);float:right}
+#usernameForm p{background:#F7F7F7;border:1px solid #D7D7D7;box-shadow:0 0 1em #EEE;border-radius:.3em;overflow:auto;width:50%;display:inline-block;text-align:left;margin:1em 1.75em;padding:.25em}
+form{text-align:center}
+#botonFinalizar input{cursor:pointer;background-color:#009B00;border:1px solid #000;border-radius:.2em;color:#EEE;-webkit-transition-duration:.2s;-moz-transition-duration:.2s;transition-duration:.2s;float:left;font-weight:700;clear:both;margin:0 0 50px 42%;padding:15px 40px}
+#botonFinalizar input:hover{background:#04B486;color:#FFF}
