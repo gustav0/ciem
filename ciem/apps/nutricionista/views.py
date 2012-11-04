@@ -26,6 +26,11 @@ def verPeticiones(request):
 	return render_to_response('nutricionista/peticiones.html', ctx, context_instance=RequestContext(request))
 
 def busqueda(request):
+	d = request.GET.get('d',0)
+	if d == '1':	print "get = 1"
+	elif d == '2':	print "get = 2"
+	elif d == '3':	print "get = 3"
+	else:	print "no get"
 	form = busquedaForm(request.POST or None)
 	query = userProfile.objects.all()
 	if form.is_valid():

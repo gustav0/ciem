@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
   $("#link1").click(function(){
-       $('#formulario').attr('action', 'descarga1');
+       $('#formulario').attr('action', '?d=1');
   });
 
 });
