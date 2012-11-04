@@ -6,6 +6,7 @@ from django.http import HttpResponseRedirect
 from django.core.paginator import EmptyPage, PageNotAnInteger
 from ciem.apps.account.models import datosAntropometricos,antropometricosResultado,userProfile,ipaqResultado,ipaq,frecuenciaConsumo, profesional, indicadoresDieteticos
 from django.contrib.auth.models import User, Group
+from ciem.apps.nutricionista.forms import *
 
 @login_required(login_url='/login')
 def verPeticiones(request):
@@ -24,9 +25,91 @@ def verPeticiones(request):
 	ctx= {'peticiones':peticiones,'usuario':usuario, 'perfil':perfil}	
 	return render_to_response('nutricionista/peticiones.html', ctx, context_instance=RequestContext(request))
 
+def busqueda(request):
+	form = busquedaForm(request.POST or None)
+	if form.is_valid():
+		genero = form.cleaned_data['genero']
+		#edadDesde = form.cleaned_data['edadDesde']
+		#edadHasta = form.cleaned_data['edadHasta']
+		#pais = form.cleaned_data['pais']
+		tallaDesde = form.cleaned_data['tallaDesde']
+		tallaHasta = form.cleaned_data['tallaHasta']
+		pesoDesde = form.cleaned_data['pesoDesde']
+		pesoHasta = form.cleaned_data['pesoHasta']
+		obesidad = form.cleaned_data['obesidad']
+		enfermedad = form.cleaned_data['enfermedad']
+		actividadFisica = form.cleaned_data['actividadFisica']
+		query = userProfile.objects.all()
+		if(genero !='t'):
+			query = query.filter(genero=genero)
+		if(tallaDesde != 't' or tallaHasta != 't'):	
+			if(tallaDesde != 't' and tallaHasta !='t'):
+				antropometricos = datosAntropometricos.objects.filter(estatura__range=(tallaDesde,tallaHasta))
+			elif(tallaDesde != 't'):
+				antropometricos = datosAntropometricos.objects.filter(estatura__gte=tallaDesde)
+			elif(tallaHasta != 't'):
+				antropometricos = datosAntropometricos.objects.filter(estatura__lte=tallaHasta)	
+			id = []
+			for item in antropometricos:
+				id.append(item.user_id) 
+			query = query.filter(pk__in=id)	
+		if(genero !='t'):
+			query = query.filter(genero=genero)
+
+		if(pesoDesde != 't' or pesoHasta != 't'):	
+			if(pesoDesde != 't' and pesoHasta !='t'):
+				antropometricos = datosAntropometricos.objects.filter(peso__range=(pesoDesde,pesoHasta))
+			elif(pesoDesde != 't'):
+				antropometricos = datosAntropometricos.objects.filter(peso__gte=pesoDesde)
+			elif(pesoHasta != 't'):
+				antropometricos = datosAntropometricos.objects.filter(peso__lte=pesoHasta)	
+			id = []
+			for item in antropometricos:
+				id.append(item.user_id) 
+		if(obesidad != 't'):
+			antropometricos = antropometricosResultado.objects.filter(apreciacion_obesidad=obesidad)
+			id_antro=[]
+			for item in antropometricos:
+				id_antro.append(item.datosAntropometricos_id)
+			datos = datosAntropometricos.objects.filter(pk__in=id_antro)
+			id = []
+			for item in datos:
+				id.append(item.user_id) 
+			query = query.filter(pk__in=id)	
+		if(enfermedad != 't'):
+			if(enfermedad == "0"):
+				antropometricos = datosAntropometricos.objects.filter(hipertencion=1)			
+			elif(enfermedad == "1"):
+				antropometricos = datosAntropometricos.objects.filter(diabetes=1)
+			elif(enfermedad == "2"):
+				antropometricos = datosAntropometricos.objects.filter(cancer=1)
+			elif(enfermedad == "3"):
+				antropometricos = datosAntropometricos.objects.filter(colesterol=1)
+			else:
+				antropometricos = datosAntropometricos.objects.filter(trigliceridos=1)
+			id = []
+			for item in antropometricos:
+				id.append(item.user_id) 
+			query = query.filter(pk__in=id)	
+		if(actividadFisica != 't'):
+			ipaqs = ipaqResultado.objects.filter(apreciacionIpaq=actividadFisica)
+			id_ipaq=[]
+			for item in ipaqs:
+				id_ipaq.append(item.ipaq_id)
+			datos = ipaq.objects.filter(pk__in=id_ipaq)
+			id = []
+			for item in datos:
+				id.append(item.user_id) 
+			query = query.filter(pk__in=id)	
+	for item in query:
+		print item.user_id	
+	print query.count()							
+	ctx={'form': form,}
+	return render_to_response('nutricionista/busqueda.html', ctx, context_instance=RequestContext(request))
+
 @login_required(login_url='/login')
 def perfilUsuarios(request):
-	if request.user.has_perm('data.add_alimento') and request.user.has_perm('data.change_alimento'):#BUSCAR COMO VERIFICAR SI ES NUTRICIONISTA
+	if request.user.groups.filter(name="profesional"):
 		getUser = request.GET.get('user',1)
 		tipoPerfil = request.GET.get('p',0)
 		descarga = request.GET.get('d',0)
@@ -35,15 +118,15 @@ def perfilUsuarios(request):
 			if getUser > 1:
 				if not User.objects.filter(id=getUser):
 					return HttpResponseRedirect("/perfiles/")
-				if int(tipoPerfil)==1:
+				if int(tipoPerfil)==1:#datos antropometricos
 					perfil = datosAntropometricos.objects.getByIdJoin(int(getUser))
-				elif int(tipoPerfil)==2:
+				elif int(tipoPerfil)==2:#resultados del ipaq
 					perfil = ipaqResultado.objects.getResultados(int(getUser))
-				elif int(tipoPerfil)==3:
+				elif int(tipoPerfil)==3:#frecuenciadeconsumo
 					perfil = frecuenciaConsumo.objects.getDataById(int(getUser))
-				elif int(tipoPerfil)==4:
+				elif int(tipoPerfil)==4:#recordatorio24
 					perfil = None
-				elif int(tipoPerfil)==5:
+				elif int(tipoPerfil)==5:#indicadores dieteticos
 					perfil = indicadoresDieteticos.objects.getById(int(getUser))
 				elif int(descarga)>0:
 					from xlwt import *

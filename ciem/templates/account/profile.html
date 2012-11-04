@@ -23,9 +23,9 @@
 			<div class="lineaGeneral"><div class="labelGeneral">Municipio:</div><div class="contenidoGeneral">{{ profile.municipio }}</div></div>
 		</div>
 	</div>
-	{% if perms.data.add_alimento and perms.data.change_alimento %}
+	{% if user|in_group:"profesional" %}
 	<div class="fondoGeneral"> 
-		<div class="divisorSeccion"> PROFESIONALES <div class="lineaDivisorSeccion"></div>
+		<div class="divisorSeccion">PROFESIONALES <div class="lineaDivisorSeccion"></div>
 		</div>
 		<div id="botonesProfesional">
 			<a href="{% url nutricionista_perfilUsuarios %}">
@@ -40,29 +40,30 @@
 				<img src="{{ MEDIA_URL }}img/Add-Folder-icon.png" alt="crearpublicacion">
 				</div>
 			</a>
+			{% if user|in_group:"profesional2" %}
 			<a href="{% url nutricionista_peticiones %}">
 				<div class="botonProfesional">
 				<p>Ver solicitudes de profesionales</p>
 				<img src="{{ MEDIA_URL }}img/icono_medico.png" alt="paciente">
 				</div>
 			</a>
+        	{% endif %}
 		</div>
 	</div>
-	{% endif %}
-	<div class="fondoGeneral" style="height: 80px;">
-	<div class="divisorSeccion"> PERMISOS OTORGADOS
-		<div class="lineaDivisorSeccion"></div>
-	</div>
-	{% if publicador %}
-	<div class="publicar">
-		<a  href="{% url nuevoArticulo %}">
-		<div  class="publicador">
-		Agregar publicación
+	{% else %}
+	<div class="fondoGeneral"> 
+			<div class="divisorSeccion">PROFESIONALES <div class="lineaDivisorSeccion"></div>
+			</div>
+			<div id="botonesProfesional">
+				<a href="{% url account_soyProfesional %}">
+					<div class="botonProfesional">
+					<p>Petición para ser profesional</p>
+					<img src="http://www.energiasolar365.com/img/web/review-icon.png" alt="peticion profesional">
+					</div>
+				</a>
 		</div>
-		</a>
-	{% endif %}
 	</div>
-	</div>		
+	{% endif %}	
 	<div class="fondoActividad"> 
 		<div class="divisorSeccion"> ACTIVIDAD EN LA PÁGINA
 			<div class="lineaDivisorSeccion">
@@ -96,9 +97,14 @@
 		</div><a href="{% url account_recordatorio %}"><div class="botonLlenar"> <div class="textoBoton">LLENAR EL RECORDATORIO 24</div></div></a>
 
 		{% else %}
-
-			<div class="textoNo">No se han registrado actividades</div>
- 			<a href="{% url account_datosAntropometricos %}"><div class="botonIniciar"><div class="textoIniciarA">COMENZAR</div><div class="textoIniciarB">EVALUACION NUTRICIONAL</div><div class="trianguloVerde"></div></div></a>
+		<div class="textoNo">No se han registrado actividades</div>
+ 			<a href="{% url account_datosAntropometricos %}">
+ 				<div class="botonIniciar">
+ 					<div class="textoIniciarA">COMENZAR</div>
+ 					<div class="textoIniciarB">EVALUACION NUTRICIONAL</div>
+ 					<div class="trianguloVerde"></div>
+ 				</div>
+ 			</a>
 		{% endif %}
 	</div>
 </div>
