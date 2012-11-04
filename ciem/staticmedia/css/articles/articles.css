@@ -23,12 +23,34 @@ input, select,textarea{
 	float: right;
 }
 
-#botonPublicar{
-	margin-right: 300px;
-	margin-bottom: 30px;
-}
 
 #aviso{
 	text-align: center;
 }
 
+
+#formulario input[type="submit"]{
+	cursor: pointer;
+	float: left;
+	font-size: 12px;
+	padding: 5px 14px 5px 14px;
+	background-color: #009B00;
+	border: 1px solid black;
+	border-radius: 0.2em;
+	color: #EEE;
+	-webkit-transition-duration: 0.2s;
+	-moz-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+	text-transform: uppercase;
+	margin-left: 45%;
+	margin-top: 10px;
+	margin-right: 300px;
+	margin-bottom: 30px;
+
+}
+
+#formulario input[type="submit"]:hover{
+	background: #2E64FE;
+	color: white;
+	border: 1px solid #009B00;
+}
