@@ -256,11 +256,11 @@ $(function(){
 	}
 
 $('#id_horaDesayuno').timepicker({
-	//showPeriod: true,
-    //showLeadingZero: true,
+	showPeriod: true,
+    showLeadingZero: true,
     hourText: 'Hora',
     minuteText: 'Minutos',
-    //amPmText: ['AM', 'PM'],
+    amPmText: ['AM', 'PM'],
     timeSeparator: ':',
     nowButtonText: 'Hora actual',
     showNowButton: true,
