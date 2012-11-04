@@ -3,9 +3,13 @@
 {% load custom_filters %}
 {% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/nutricionista/peticiones.css">{% endblock %}
 {% block content %}
+<script src="{{ MEDIA_URL }}js/propios/busqueda.js"></script>
 <form action="" id='formulario' method='post' enctype='multipart/form-data'>
 	{% csrf_token %}
 	{{ form.as_p }}
 <input type="submit" value="Buscar">
 </form>
+<a id="link1"> Descargar informacion antropométrica </a>
+<a id="link2"> Descargar IPAQ </a>
+<a id="link3"> Descargar Frecuencia </a>
 {% endblock %}
