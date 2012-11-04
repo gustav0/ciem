@@ -1,110 +1,16 @@
-#seccion1 input[type="submit"]{
-	cursor: pointer;
-	float: left;
-	font-size: 12px;
-	padding: 5px 14px 5px 14px;
-	background-color: #009B00;
-	border: 1px solid black;
-	border-radius: 0.2em;
-	color: #EEE;
-	-webkit-transition-duration: 0.2s;
-	-moz-transition-duration: 0.2s;
-	transition-duration: 0.2s;
-	text-transform: uppercase;
-	margin-left: 80px;
-	margin-top: 10px;
-}
-
-#seccion1 input[type="submit"]:hover{
-	background: #2E64FE;
-	color: white;
-	border: 1px solid #009B00;
-}
-
-#seccion1{
-	margin-left: 5%;
-}
-
-#aviso{
-	background: #F7F7F7;
-	border: 1px solid #D7D7D7;
-}
-.frecuencia{
-	float:left;
-	width: 136px;
-}
-.porcion{
-	word-spacing: 7px;
-	float:left;
-	width: 65px;
-}
-.media{
-	float:left;
-	width: 100px;
-	text-align:center;
-}
-.texto{
-	float: left;
-	width: 500px;
-}
-.porcion ul{
-	padding: 0;
-	margin: 0;
-	list-style: none;
-	width: 100px;
-}
-.porcion li{
-	float: left;
-	width: 20px;
-}
-.pregunta{
-	width: 810px;
-	height: 40px;
-	border-bottom: 1px solid black;
-	margin-top: 10px;
-}
-.noDisplayDiv{
-	display:none;
-}
-.textoPregunta{
-	float: left;
-	width: 490px;
-	height: 40px;
-}
-
-#contenido{
-	padding-top: 20px;
-	padding-bottom: 60px;
-}
-
-#inicioFrecuencia{
-	background: #CDF5CD;
-	padding: 15px 15px 15px 40px;
-	margin: 10px 0px;
-	border-radius: 5px;
-	width: 50%;
-	margin-left: 25%;
-
-}
-
-form#botonInicioFrecuencia input[type="submit"]{
-	cursor: pointer;
-	float: left;
-	font-size: 12px;
-	padding: 5px 14px 5px 14px;
-	background-color: #009B00;
-	border: 1px solid black;
-	border-radius: 0.2em;
-	color: #EEE;
-	-webkit-transition-duration: 0.2s;
-	-moz-transition-duration: 0.2s;
-	transition-duration: 0.2s;
-	text-transform: uppercase;
-	margin-left: 50%;
-}
-
-form#botonInicioFrecuencia input[type="submit"]:hover{
-	background: #2E64FE;
-	color: white;
-	border: 1px solid #009B00;
-}
+#seccion1 input[type=submit]{cursor:pointer;float:left;font-size:12px;background-color:#009B00;border:1px solid #000;border-radius:.2em;color:#EEE;-webkit-transition-duration:.2s;-moz-transition-duration:.2s;transition-duration:.2s;text-transform:uppercase;margin-left:80px;margin-top:10px;padding:5px 14px}
+#seccion1{margin-left:5%}
+#aviso{background:#F7F7F7;border:1px solid #D7D7D7}
+.frecuencia{float:left;width:136px}
+.porcion{word-spacing:7px;float:left;width:65px}
+.media{float:left;width:100px;text-align:center}
+.texto{float:left;width:500px}
+.porcion ul{list-style:none;width:100px;margin:0;padding:0}
+.porcion li{float:left;width:20px}
+.pregunta{width:810px;height:40px;border-bottom:1px solid #000;margin-top:10px}
+.noDisplayDiv{display:none}
+.textoPregunta{float:left;width:490px;height:40px}
+#contenido{padding-top:20px;padding-bottom:60px}
+#inicioFrecuencia{background:#CDF5CD;border-radius:5px;width:50%;margin:10px 0 10px 25%;padding:15px 15px 15px 40px}
+form#botonInicioFrecuencia input[type=submit]{cursor:pointer;float:left;font-size:12px;background-color:#009B00;border:1px solid #000;border-radius:.2em;color:#EEE;-webkit-transition-duration:.2s;-moz-transition-duration:.2s;transition-duration:.2s;text-transform:uppercase;margin-left:50%;padding:5px 14px}
+#seccion1 input[type=submit]:hover,form#botonInicioFrecuencia input[type=submit]:hover{background:#2E64FE;color:#FFF;border:1px solid #009B00}

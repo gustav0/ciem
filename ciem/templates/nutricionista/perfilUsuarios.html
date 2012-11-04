@@ -14,8 +14,7 @@
 {% endblock %}
 {% block content %}
 {% if usuario %}
-	{% if nombre.count > 2 %}
-	
+	{% if nombre.count > 2 %}	
 	<div class="tituloResultado">Lista de Pacientes</div>
 	<div class="fondoLista">
 		<div class="linea"style="font-weight:bold;text-transform:uppercase !important;border:0;margin-bottom:15px;margin-top:12px;">
@@ -97,7 +96,7 @@
 							<div class="calculoValor">{{ p.obesidad }}</div>
 							<div class ="rango">Normal </div>
 						</div>
-<a id="plusinfo" href="#" onclick="cargarContenido('{{n.get_full_name|cap}}','{{p.fecha_creacion|date:"d/m/Y"}}','{{p.peso|floatformat:0|intcomma}}','{{p.circunferencia_cintura|floatformat:0|intcomma}}','{{p.circunferencia_cadera|floatformat:0|intcomma}}','{{p.estatura|floatformat:0|intcomma}}','{{p.hipertencion}}','{{p.diabetes}}','{{p.cancer}}','{{p.trigliceridos}}')">
+								<a id="plusinfo" href="#" onclick="cargarContenido('{{n.get_full_name|cap}}','{{p.fecha_creacion|date:"d/m/Y"}}','{{p.peso|floatformat:0|intcomma}}','{{p.circunferencia_cintura|floatformat:0|intcomma}}','{{p.circunferencia_cadera|floatformat:0|intcomma}}','{{p.estatura|floatformat:0|intcomma}}','{{p.hipertencion}}','{{p.diabetes}}','{{p.cancer}}','{{p.trigliceridos}}')">
 							<div id="masinfo">
 								+
 							</div>
@@ -121,114 +120,121 @@
 			{% endif %}
 			{% endfor %}
 		{% elif tipo|get_int == 2 %}
-			{% for n in nombre %}
-				{% for p in perfil %}
-				<div>ipaq</div>
-				<a href="?user={{ n.id }}&d=1"> Descargar como documento Excel </a>
-				<div class="titulo">Trabajo</div>
-				<table style="width:800px" border="1">
-					<th>Min Andar</th>
-					<th>Min actividad Moderada</th>	
-					<th>Min actividad Vigorosa</th>
-					<th>MET Andar</th>
-					<th>MET Moderado</th>
-					<th>MET Vigoroso</th>
-					<th>MET Total</th>
-				<tr>
-					<td>{{p.minAndarTrabajo}}</td>
-					<td>{{p.minModeradoTrabajo}}</td>
-					<td>{{p.minVigorosoTrabajo}}</td>
-					<td>{{p.metAndarTrabajo}}</td>
-					<td>{{p.metModeradoTrabajo}}</td>
-					<td>{{p.metVigorosoTrabajo}}</td>
-					<td>{{p.metTrabajo}}</td>
-				</tr>
-				</table>
-				<div class="titulo">Transporte</div>						
-				<table style="width:800px" border="1">
-					<th>Min Andar</th>
-					<th>Min actividad Moderada</th>	
-					<th>Min en Vehículo</th>
-					<th>MET Andar</th>
-					<th>MET Moderado</th>
-					<th>MET Total</th>
-				<tr>
-					<td>{{p.minAndarTransporte}}</td>
-					<td>{{p.minModeradoTransporte}}</td>
-					<td>{{p.minVehiculo}}</td>
-					<td>{{p.metAndarTransporte}}</td>
-					<td>{{p.metModeradoTransporte}}</td>
-					<td>{{p.metTransporte}}</td>
-				</tr>
-				</table>	
-				<div class="titulo">Hogar</div>
-				<table style="width:800px" border="1">
-					<th>Min actividad Vigorosa</th>
-					<th>Min A. Moderada en Casa</th>	
-					<th>Min A. Moderada en Jardín</th>
-					<th>MET Vigoroso</th>
-					<th>MET Moderado en Casa</th>
-					<th>MET Moderado en Jardín</th>
-					<th>MET Total</th>
-				<tr>
-					<td>{{p.minVigorosoHogar}}</td>
-					<td>{{p.minModeradoHogar}}</td>
-					<td>{{p.minModeradoJHogar}}</td>
-					<td>{{p.metVigorosoHogar}}</td>
-					<td>{{p.metModeradoHogar}}</td>
-					<td>{{p.metModeradoJHogar}}</td>
-					<td>{{p.metHogar}}</td>
-				</tr>
-				</table>
-				<div class="titulo">Recreación</div>
-				<table style="width:800px" border="1">
-					<th>Min Andar</th>
-					<th>Min actividad Moderada</th>	
-					<th>Min actividad Vigorosa</th>
-					<th>MET Andar</th>
-					<th>MET Moderado</th>
-					<th>MET Vigoroso</th>
-					<th>MET Total</th>
-				<tr>
-					<td>{{p.minAndarRecre}}</td>
-					<td>{{p.minModeradoRecre}}</td>
-					<td>{{p.minVigorosoRecre}}</td>
-					<td>{{p.metAndarRecreacion}}</td>
-					<td>{{p.metModeradoRecreacion}}</td>
-					<td>{{p.metVigorosoRecreacion}}</td>
-					<td>{{p.metRecreacion}}</td>
-				</tr>
-				</table>	
-	
-				<div class="titulo">Tiempo Sentado</div>
-				<table style="width:800px" border="1">
-					<th>Min Sentado</th>
-					<th>Media min sentado por dia</th>	
-				<tr>
-					<td>{{p.tiempoSentado}}</td>
-					<td>{{p.MediaSentado}}</td>
-				</tr>
-				</table>
-				<div class="titulo">Resultados</div>						
-				<table style="width:800px" border="1">
-					<th>Min Andar Toral</th>
-					<th>Min actividad Moderada Total</th>	
-					<th>Min actividad Vigorosa Total</th>
-					<th>MET Total en todas las areas</th>
-					<th>Resultado Actividad Física</th>
-					
-				<tr>
-					<td>{{p.tiempoAndar}}</td>
-					<td>{{p.tiempoModerado}}</td>
-					<td>{{p.tiempoVigoroso}}</td>
-					<td>{{p.metTotal}}</td>
-					<td>{{p.apreciacionIpaq}}</td>
-				</tr>
-				</table>																			
-				{% endfor %}
+				<h2>Información ingresada en el formulario IPAQ.</h2>
+				{% if perfil.0 %}
+					{% for n in nombre %}
+						{% for p in perfil %}
+						<a href="?user={{ n.id }}&d=1"> Descargar como documento Excel </a>
+						<div class="titulo">Trabajo</div>
+						<table style="width:800px" border="1">
+							<th>Min Andar</th>
+							<th>Min actividad Moderada</th>	
+							<th>Min actividad Vigorosa</th>
+							<th>MET Andar</th>
+							<th>MET Moderado</th>
+							<th>MET Vigoroso</th>
+							<th>MET Total</th>
+						<tr>
+							<td>{{p.minAndarTrabajo}}</td>
+							<td>{{p.minModeradoTrabajo}}</td>
+							<td>{{p.minVigorosoTrabajo}}</td>
+							<td>{{p.metAndarTrabajo}}</td>
+							<td>{{p.metModeradoTrabajo}}</td>
+							<td>{{p.metVigorosoTrabajo}}</td>
+							<td>{{p.metTrabajo}}</td>
+						</tr>
+						</table>
+						<div class="titulo">Transporte</div>						
+						<table style="width:800px" border="1">
+							<th>Min Andar</th>
+							<th>Min actividad Moderada</th>	
+							<th>Min en Vehículo</th>
+							<th>MET Andar</th>
+							<th>MET Moderado</th>
+							<th>MET Total</th>
+						<tr>
+							<td>{{p.minAndarTransporte}}</td>
+							<td>{{p.minModeradoTransporte}}</td>
+							<td>{{p.minVehiculo}}</td>
+							<td>{{p.metAndarTransporte}}</td>
+							<td>{{p.metModeradoTransporte}}</td>
+							<td>{{p.metTransporte}}</td>
+						</tr>
+						</table>	
+						<div class="titulo">Hogar</div>
+						<table style="width:800px" border="1">
+							<th>Min actividad Vigorosa</th>
+							<th>Min A. Moderada en Casa</th>	
+							<th>Min A. Moderada en Jardín</th>
+							<th>MET Vigoroso</th>
+							<th>MET Moderado en Casa</th>
+							<th>MET Moderado en Jardín</th>
+							<th>MET Total</th>
+						<tr>
+							<td>{{p.minVigorosoHogar}}</td>
+							<td>{{p.minModeradoHogar}}</td>
+							<td>{{p.minModeradoJHogar}}</td>
+							<td>{{p.metVigorosoHogar}}</td>
+							<td>{{p.metModeradoHogar}}</td>
+							<td>{{p.metModeradoJHogar}}</td>
+							<td>{{p.metHogar}}</td>
+						</tr>
+						</table>
+						<div class="titulo">Recreación</div>
+						<table style="width:800px" border="1">
+							<th>Min Andar</th>
+							<th>Min actividad Moderada</th>	
+							<th>Min actividad Vigorosa</th>
+							<th>MET Andar</th>
+							<th>MET Moderado</th>
+							<th>MET Vigoroso</th>
+							<th>MET Total</th>
+						<tr>
+							<td>{{p.minAndarRecre}}</td>
+							<td>{{p.minModeradoRecre}}</td>
+							<td>{{p.minVigorosoRecre}}</td>
+							<td>{{p.metAndarRecreacion}}</td>
+							<td>{{p.metModeradoRecreacion}}</td>
+							<td>{{p.metVigorosoRecreacion}}</td>
+							<td>{{p.metRecreacion}}</td>
+						</tr>
+						</table>	
 			
-			{% endfor %}
-		{% elif tipo|get_int == 3 %}
+						<div class="titulo">Tiempo Sentado</div>
+						<table style="width:800px" border="1">
+							<th>Min Sentado</th>
+							<th>Media min sentado por dia</th>	
+						<tr>
+							<td>{{p.tiempoSentado}}</td>
+							<td>{{p.MediaSentado}}</td>
+						</tr>
+						</table>
+						<div class="titulo">Resultados</div>						
+						<table style="width:800px" border="1">
+							<th>Min Andar Toral</th>
+							<th>Min actividad Moderada Total</th>	
+							<th>Min actividad Vigorosa Total</th>
+							<th>MET Total en todas las areas</th>
+							<th>Resultado Actividad Física</th>
+							
+						<tr>
+							<td>{{p.tiempoAndar}}</td>
+							<td>{{p.tiempoModerado}}</td>
+							<td>{{p.tiempoVigoroso}}</td>
+							<td>{{p.metTotal}}</td>
+							<td>{{p.apreciacionIpaq}}</td>
+						</tr>
+						</table>																			
+						{% endfor %}
+					
+					{% endfor %}
+				{% else %}
+					<div id="aviso">
+						<span aria-hidden="true">!</span>
+						<p>Este usuario todavía no ha completado el formulario IPAQ.</p>
+					</div>
+				{% endif %}
+			{% elif tipo|get_int == 3 %}
 			{% for n in nombre %}
 				<div class="perfilDe divbold">Frecuencia de consumo de {{n.get_full_name|cap}}
 					<div id="contenedorBarra">Barra de progreso: <progress id="bar" value="{{perfil.0.progreso}}" max="9"><span>{{perfil.0.progreso}}/8 secciones</span></progress></div>

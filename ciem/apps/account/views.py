@@ -77,16 +77,13 @@ def recuperarContrasena(request):
 @login_required(login_url='/login')
 def profile(request):
 	indicadores = indicadoresDieteticos.objects.getById(request.user.id)
-	publicador = False
 	user = User.objects.get(pk=request.user.id)
-	if user.groups.filter(name="Profesional"):
-		publicador = True
 	antropometrico = datosAntropometricos.objects.getForPerfil(request.user.id)
 	recordatorios = datosRecordatorio.objects.getForPerfil(request.user.id)
 	frecuencia = frecuenciaConsumo.objects.getById(request.user.id)
 	ipaqr = ipaqResultado.objects.getResultados(request.user.id)
 	recordatorios = datosRecordatorio.objects.getById(request.user.id)
-	ctx={'profile':request.user.get_profile(),'antropometrico':antropometrico,'frecuencia':frecuencia,'ipaq':ipaqr, 'recordatorios':recordatorios,'indicadores':indicadores,'publicador':publicador}
+	ctx={'profile':request.user.get_profile(),'antropometrico':antropometrico,'frecuencia':frecuencia,'ipaq':ipaqr, 'recordatorios':recordatorios,'indicadores':indicadores}
 	return render_to_response('account/profile.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')

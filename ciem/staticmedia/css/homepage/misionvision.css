@@ -1,24 +1,4 @@
-section{
-	height: 600px;
-}
-
-p{
-	padding: 5px;
-	background: #efefef;
-	text-align: justify
-}
-
-#contenido{
-	padding-top:5px; 
-	width: 960px;
-}
-
-#bannerFrutas{
-	background:url(/ciem/staticmedia/img/bannernutrition.png) -0px -0px no-repeat;	
- 	width:960px;
- 	height: 333px;
- 	text-align: center;
- 	float:left;
- 	margin: 25px;
- 	z-index: 9;
- }
+section{height:600px}
+p{background:#efefef;text-align:justify;padding:5px}
+#contenido{padding-top:5px;width:960px}
+#bannerFrutas{background:url(/ciem/staticmedia/img/bannernutrition.png) 0 0 no-repeat;width:960px;height:333px;text-align:center;float:left;z-index:9;margin:25px}

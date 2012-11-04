@@ -1,233 +1,34 @@
-
-.mensajeBienvenida{
-	float: left;
-	font-weight: bold;
-	font-size: 20px;
-	margin-left: 40px;
-	margin-bottom: 30px;
-	margin-top: 20px;
-}
-.divisorSeccion{
-	float: left;
-	width: 840px;
-	font-size: 13px;
-	height: 16px;
-	margin-bottom: 5px;
-}
-.lineaDivisorSeccion{
-	background-color: lightgray;
-	height: 2px;
-	float: left;
-	width: 600px;
-	margin-top: -8px;
-	margin-left: 150px;
-}
-.generalIzquierda{
-	float: left;
-	width: 350px;
-	height: 100px;
-	margin-top: 10px;
-}
-.generalDerecha{
-	float: left;
-	width: 350px;
-	height: 100px;
-	margin-top: 10px;
-}
-.fondoGeneral{
-	float: left;
-	width: 860px;
-	height: 150px;
-	margin-left: 100px;
-}
-.labelGeneral{
-	float: left;
-	font-size: 17px;
-	width: 140px;
-	color: #818D50;
-	text-align: right;
-	margin-right: 10px;
-}
-.contenidoGeneral{
-	float: left;
-	color: #525252;
-}
-.lineaGeneral{
-	float: left;
-	clear: both;
-	margin-bottom: 10px;
-}
-.fondoActividad{
-	float: left;
-	width: 860px;
-	margin-left: 100px;
-}
-.tituloActividad{
-	float: left;
-	margin-left: 10px;
-	margin-right: 10px;
-	font-size: 17px;
-	font-weight: bold;
-}
-.enlaceActividad{
-	float: left;
-	margin-top: 4px;
-	font-size: 10px;
-}
-.enlaceActividad a{
-	text-decoration: none;
-	color: #4B4B4B;
-}
-.enlaceActividad a:hover{
-	color: #8A3200;
-}
-.lineaTitulo{
-	width: 500px;
-	float: left;
-	margin-top: 50px;
-}
-.lineaTituloUltimo{
-	margin-bottom:50px;
-}
-
-.lineaActividad{
-	margin-top: 10px;
-	float: left;
-	clear: both;
-}
-.labelActividad{
-	float: left;
-	font-size: 17px;
-	width: 240px;
-	color: #818D50;
-	text-align: right;
-	margin-right: 20px;
-}
-
-/* BOTON */
-.textoNo{
-	float: left;
-	font-size: 16px;
-	font-weight: bold;
-	color: #63634A;
-}
-.botonLlenar{
-	float: left;
-	background-color: #CAEBCF;
-	width: 240px;
-	height: 40px;
-	margin-top: 70px;
-	-webkit-border-radius: 10px;
-	border-radius: 10px;
-	-webkit-box-shadow: 1px 3px 2px 0px #B4B4B4;
-	box-shadow: 1px 3px 2px 0px #B4B4B4;
-}
-.botonLlenar:hover{
-	background-color: #97CFA0;
-}
-.botonLlenar:active{
-	margin-top: 71px;
-	width: 235px;
-	height: 38px;
-}
-.textoBoton{
-	font-size: 13px;
-	text-indent: 6px;
-	line-height: 37px;
-}
-a .botonLlenar{
-	color: #4B4B4B;
-}
-.botonIniciar{
-	float: left;
-	background-color: #2BAC3E;
-	width: 400px;
-	height: 40px;
-	-webkit-border-radius: 10px;
-	border-radius: 10px;
-	-webkit-box-shadow: 1px 3px 2px 0px #B4B4B4;
-	box-shadow: 1px 3px 2px 0px #B4B4B4;
-	margin: 20px;
-}
-.textoIniciarA{
-	float: left;
-	font-size: 22px;
-	text-indent: 2px;
-	margin-left: 20px;
-	margin-top: 5px;
-	letter-spacing: 1px;
-	font-weight: bold;
-}
-.textoIniciarB{
-	float: left;
-	font-size: 15px;
-	text-indent: 2px;
-	margin-top: 10px;
-	margin-left: 10px;
-	letter-spacing: 2px;
-}
-.trianguloVerde{
-	width: 30px;
-	height: 30px;
-	background: url(../../img/flecha.png) -0px -0px no-repeat;
-	float: left;
-	margin-top: 6px;
-	margin-left: 9px;
-}
-a .textoIniciarA, a .textoIniciarB{
-	color: #FFF;
-}
-#botonesProfesional{
-	float: left;
-	width: 750px;
-	height: 120px;
-}
-.botonProfesional{
-	margin-top: 10px;
-	color: #4B4B4B;
-	font-weight: bold;
-	background:#58D3F7;
-	float: left;
-	margin-left: 80px;
-	padding: 5px;
-	height: 80px;
-	text-decoration: none;
-	border-radius:0.2em;
-	-webkit-box-shadow: 1px 3px 2px 0px #B4B4B4;
-	box-shadow: 1px 3px 2px 0px #B4B4B4;
-	-webkit-transition-duration: 0.2s;-moz-transition-duration: 0.2s;transition-duration: 0.2s;
-}
-a:hover .botonProfesional{
-	background: #04B486;
-}
-.botonProfesional p{
-	margin:0px;
-}
-.botonProfesional  img{
-	width: 50px;
-	height: 50px;
-	margin-left: 30%;
-	float: left;
-}
-.publicador{
-	margin-top: 7px;
-	color: #4B4B4B;
-	width: 206px;
-	padding-top: 6px;
-	font-weight: bold;
-	background: #58D3F7;
-	text-align: center;
-	float: left;
-	margin-left: 275px;
-	height: 30px;
-	text-decoration: none;
-	border-radius: 10.2em;
-	-webkit-box-shadow: 1px 3px 2px 0px #B4B4B4;
-	box-shadow: 1px 3px 2px 0px #B4B4B4;
-	-webkit-transition-duration: 0.2s;
-	-moz-transition-duration: 0.2s;
-	transition-duration: 0.2s
-}
-a:hover .publicador{
-	background: #04B486;
-}
+.mensajeBienvenida{float:left;font-weight:700;font-size:20px;margin-left:40px;margin-bottom:30px;margin-top:20px}
+.divisorSeccion{float:left;width:840px;font-size:13px;height:16px;margin-bottom:5px}
+.lineaDivisorSeccion{background-color:lightgray;height:2px;float:left;width:600px;margin-top:-8px;margin-left:150px}
+.fondoGeneral{float:left;width:860px;height:150px;margin-left:100px}
+.labelGeneral{float:left;font-size:17px;width:140px;color:#818D50;text-align:right;margin-right:10px}
+.contenidoGeneral{float:left;color:#525252}
+.lineaGeneral{float:left;clear:both;margin-bottom:10px}
+.fondoActividad{float:left;width:860px;margin-left:100px}
+.tituloActividad{float:left;margin-left:10px;margin-right:10px;font-size:17px;font-weight:700}
+.enlaceActividad{float:left;margin-top:4px;font-size:10px}
+.enlaceActividad a{text-decoration:none;color:#4B4B4B}
+.enlaceActividad a:hover{color:#8A3200}
+.lineaTitulo{width:500px;float:left;margin-top:50px}
+.lineaTituloUltimo{margin-bottom:50px}
+.lineaActividad{margin-top:10px;float:left;clear:both}
+.labelActividad{float:left;font-size:17px;width:240px;color:#818D50;text-align:right;margin-right:20px}
+.textoNo{float:left;font-size:16px;font-weight:700;color:#63634A}
+.botonLlenar{float:left;background-color:#CAEBCF;width:240px;height:40px;margin-top:70px;-webkit-border-radius:10px;border-radius:10px;-webkit-box-shadow:1px 3px 2px 0 #B4B4B4;box-shadow:1px 3px 2px 0 #B4B4B4}
+.botonLlenar:hover{background-color:#97CFA0}
+.botonLlenar:active{margin-top:71px;width:235px;height:38px}
+.textoBoton{font-size:13px;text-indent:6px;line-height:37px}
+a .botonLlenar{color:#4B4B4B}
+.botonIniciar{float:left;background-color:#2BAC3E;width:400px;height:40px;-webkit-border-radius:10px;border-radius:10px;-webkit-box-shadow:1px 3px 2px 0 #B4B4B4;box-shadow:1px 3px 2px 0 #B4B4B4;margin:20px}
+.textoIniciarA{float:left;font-size:22px;text-indent:2px;margin-left:20px;margin-top:5px;letter-spacing:1px;font-weight:700}
+.textoIniciarB{float:left;font-size:15px;text-indent:2px;margin-top:10px;margin-left:10px;letter-spacing:2px}
+.trianguloVerde{width:30px;height:30px;background:url(../../img/flecha.png) 0 0 no-repeat;float:left;margin-top:6px;margin-left:9px}
+a .textoIniciarA,a .textoIniciarB{color:#FFF}
+#botonesProfesional{float:left;width:750px;height:120px}
+.botonProfesional{margin-top:10px;color:#4B4B4B;font-weight:700;background:#58D3F7;float:left;margin-left:80px;height:80px;text-decoration:none;border-radius:.2em;-webkit-box-shadow:1px 3px 2px 0 #B4B4B4;box-shadow:1px 3px 2px 0 #B4B4B4;-webkit-transition-duration:.2s;-moz-transition-duration:.2s;transition-duration:.2s;padding:5px}
+.botonProfesional p{margin:0}
+.botonProfesional img{width:50px;height:50px;margin-left:30%;float:left}
+.publicador{margin-top:7px;color:#4B4B4B;width:206px;padding-top:6px;font-weight:700;background:#58D3F7;text-align:center;float:left;margin-left:275px;height:30px;text-decoration:none;border-radius:10.2em;-webkit-box-shadow:1px 3px 2px 0 #B4B4B4;box-shadow:1px 3px 2px 0 #B4B4B4;-webkit-transition-duration:.2s;-moz-transition-duration:.2s;transition-duration:.2s}
+.generalIzquierda,.generalDerecha{float:left;width:350px;height:100px;margin-top:10px}
+a:hover .botonProfesional,a:hover .publicador{background:#04B486}

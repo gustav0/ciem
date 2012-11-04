@@ -30,11 +30,11 @@ Centro de investigaciones Endocrino-Metabólicas
 
 {% block content %}
 	<div id="imagenHistoria">
-			<a href="{% url homepage_calculadora %}">
+			<a class="textoBoton" href="{% url homepage_calculadora %}">
 				<div class="boton">CALCULADORA DE CALORIAS</div>
 			</a>
-			<a href="/articleall/">
-				<div class="boton">PUBLICACIONES</div>
+			<a class="textoBoton" href="/articleall/" >
+				<div class="boton"style="width: 180px !important;">PUBLICACIONES</div>
 			</a>
 	
 			{% if user.is_authenticated %}
