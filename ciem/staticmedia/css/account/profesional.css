@@ -1,7 +1,42 @@
-.centrar{width:639px;margin-left:238px}
-.label{float:left;width:200px}
-.pregunta{width:511px}
-#id_comentario{width:460px;height:102px}
-.mensaje{margin-bottom:36px}
-#id_profesion,#id_universidad{width:216px}
-#id_status,#id_user{display:none}
+.centrar{
+	margin-left:20%;
+}
+.label{
+	float:left;
+	width:200px;
+}
+.pregunta{
+	width:511px;
+	margin-bottom: 20px;
+	background: #F7F7F7;
+	border: 1px solid #D7D7D7;
+	box-shadow: 0 0 1em #EEE;
+	border-radius: .3em;
+	margin: 1em 1.75em;
+	padding: .25em;
+	overflow: auto;
+	display: inline-block;
+	text-align: left;
+}
+#id_comentario{
+	width:460px;
+	height:102px;
+}
+.mensaje{
+	margin-bottom:36px;
+}
+#id_profesion,#id_universidad{
+	width:216px;
+}
+#id_status,#id_user{
+	display:none;
+}
+
+form input[type="submit"]{
+	cursor: pointer;
+	background-color:#009B00;border:1px solid #000;border-radius:.2em;color:#EEE;-webkit-transition-duration:.2s;-moz-transition-duration:.2s;transition-duration:.2s;float:left;font-weight:700;clear:both;margin:0 0 50px 45%;padding:15px 40px
+}
+form input[type="submit"]:hover{
+	background:#04B486;color:#FFF;
+}
+
