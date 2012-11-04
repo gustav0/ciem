@@ -50,6 +50,19 @@
         	{% endif %}
 		</div>
 	</div>
+	{% else %}
+	<div class="fondoGeneral"> 
+			<div class="divisorSeccion">PROFESIONALES <div class="lineaDivisorSeccion"></div>
+			</div>
+			<div id="botonesProfesional">
+				<a href="{% url account_soyProfesional %}">
+					<div class="botonProfesional">
+					<p>Petición para ser profesional</p>
+					<img src="http://www.energiasolar365.com/img/web/review-icon.png" alt="peticion profesional">
+					</div>
+				</a>
+		</div>
+	</div>
 	{% endif %}	
 	<div class="fondoActividad"> 
 		<div class="divisorSeccion"> ACTIVIDAD EN LA PÁGINA
@@ -84,9 +97,14 @@
 		</div><a href="{% url account_recordatorio %}"><div class="botonLlenar"> <div class="textoBoton">LLENAR EL RECORDATORIO 24</div></div></a>
 
 		{% else %}
-
-			<div class="textoNo">No se han registrado actividades</div>
- 			<a href="{% url account_datosAntropometricos %}"><div class="botonIniciar"><div class="textoIniciarA">COMENZAR</div><div class="textoIniciarB">EVALUACION NUTRICIONAL</div><div class="trianguloVerde"></div></div></a>
+		<div class="textoNo">No se han registrado actividades</div>
+ 			<a href="{% url account_datosAntropometricos %}">
+ 				<div class="botonIniciar">
+ 					<div class="textoIniciarA">COMENZAR</div>
+ 					<div class="textoIniciarB">EVALUACION NUTRICIONAL</div>
+ 					<div class="trianguloVerde"></div>
+ 				</div>
+ 			</a>
 		{% endif %}
 	</div>
 </div>
