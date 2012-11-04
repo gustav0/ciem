@@ -29,8 +29,8 @@ def busqueda(request):
 	form = busquedaForm(request.POST or None)
 	if form.is_valid():
 		genero = form.cleaned_data['genero']
-		edadDesde = form.cleaned_data['edadDesde']
-		edadHasta = form.cleaned_data['edadHasta']
+		#edadDesde = form.cleaned_data['edadDesde']
+		#edadHasta = form.cleaned_data['edadHasta']
 		#pais = form.cleaned_data['pais']
 		tallaDesde = form.cleaned_data['tallaDesde']
 		tallaHasta = form.cleaned_data['tallaHasta']
@@ -53,8 +53,6 @@ def busqueda(request):
 			for item in antropometricos:
 				id.append(item.user_id) 
 			query = query.filter(pk__in=id)	
-			for item in query:
-				print item.user_id		
 		if(genero !='t'):
 			query = query.filter(genero=genero)
 
@@ -68,9 +66,6 @@ def busqueda(request):
 			id = []
 			for item in antropometricos:
 				id.append(item.user_id) 
-			query = query.filter(pk__in=id)	
-			for item in query:
-				print item.user_id
 		if(obesidad != 't'):
 			antropometricos = antropometricosResultado.objects.filter(apreciacion_obesidad=obesidad)
 			id_antro=[]
@@ -81,12 +76,34 @@ def busqueda(request):
 			for item in datos:
 				id.append(item.user_id) 
 			query = query.filter(pk__in=id)	
-			for item in query:
-				print item.user_id	
 		if(enfermedad != 't'):
-			if(enfermedad == "1"):
-
-
+			if(enfermedad == "0"):
+				antropometricos = datosAntropometricos.objects.filter(hipertencion=1)			
+			elif(enfermedad == "1"):
+				antropometricos = datosAntropometricos.objects.filter(diabetes=1)
+			elif(enfermedad == "2"):
+				antropometricos = datosAntropometricos.objects.filter(cancer=1)
+			elif(enfermedad == "3"):
+				antropometricos = datosAntropometricos.objects.filter(colesterol=1)
+			else:
+				antropometricos = datosAntropometricos.objects.filter(trigliceridos=1)
+			id = []
+			for item in antropometricos:
+				id.append(item.user_id) 
+			query = query.filter(pk__in=id)	
+		if(actividadFisica != 't'):
+			ipaqs = ipaqResultado.objects.filter(apreciacionIpaq=actividadFisica)
+			id_ipaq=[]
+			for item in ipaqs:
+				id_ipaq.append(item.ipaq_id)
+			datos = ipaq.objects.filter(pk__in=id_ipaq)
+			id = []
+			for item in datos:
+				id.append(item.user_id) 
+			query = query.filter(pk__in=id)	
+	for item in query:
+		print item.user_id	
+	print query.count()							
 	ctx={'form': form,}
 	return render_to_response('nutricionista/busqueda.html', ctx, context_instance=RequestContext(request))
 
