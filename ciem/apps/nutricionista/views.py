@@ -26,7 +26,7 @@ def verPeticiones(request):
 
 @login_required(login_url='/login')
 def perfilUsuarios(request):
-	if request.user.has_perm('data.add_alimento') and request.user.has_perm('data.change_alimento'):#BUSCAR COMO VERIFICAR SI ES NUTRICIONISTA
+	if request.user.groups.filter(name="profesional"):
 		getUser = request.GET.get('user',1)
 		tipoPerfil = request.GET.get('p',0)
 		descarga = request.GET.get('d',0)
@@ -35,15 +35,15 @@ def perfilUsuarios(request):
 			if getUser > 1:
 				if not User.objects.filter(id=getUser):
 					return HttpResponseRedirect("/perfiles/")
-				if int(tipoPerfil)==1:
+				if int(tipoPerfil)==1:#datos antropometricos
 					perfil = datosAntropometricos.objects.getByIdJoin(int(getUser))
-				elif int(tipoPerfil)==2:
+				elif int(tipoPerfil)==2:#resultados del ipaq
 					perfil = ipaqResultado.objects.getResultados(int(getUser))
-				elif int(tipoPerfil)==3:
+				elif int(tipoPerfil)==3:#frecuenciadeconsumo
 					perfil = frecuenciaConsumo.objects.getDataById(int(getUser))
-				elif int(tipoPerfil)==4:
+				elif int(tipoPerfil)==4:#recordatorio24
 					perfil = None
-				elif int(tipoPerfil)==5:
+				elif int(tipoPerfil)==5:#indicadores dieteticos
 					perfil = indicadoresDieteticos.objects.getById(int(getUser))
 				elif int(descarga)>0:
 					from xlwt import *
