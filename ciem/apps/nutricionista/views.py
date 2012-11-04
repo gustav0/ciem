@@ -42,25 +42,51 @@ def busqueda(request):
 		query = userProfile.objects.all()
 		if(genero !='t'):
 			query = query.filter(genero=genero)
-		if(tallaDesde != 't' and tallaHasta !='t'):
-			antropometricos = datosAntropometricos.objects.filter(estatura__range=(tallaDesde,tallaHasta))
+		if(tallaDesde != 't' or tallaHasta != 't'):	
+			if(tallaDesde != 't' and tallaHasta !='t'):
+				antropometricos = datosAntropometricos.objects.filter(estatura__range=(tallaDesde,tallaHasta))
+			elif(tallaDesde != 't'):
+				antropometricos = datosAntropometricos.objects.filter(estatura__gte=tallaDesde)
+			elif(tallaHasta != 't'):
+				antropometricos = datosAntropometricos.objects.filter(estatura__lte=tallaHasta)	
 			id = []
 			for item in antropometricos:
 				id.append(item.user_id) 
 			query = query.filter(pk__in=id)	
 			for item in query:
 				print item.user_id		
-		elif(tallaDesde != 't' or tallaHasta != 't'):
-			if(tallaDesde != 't'):
-				antropometricos = datosAntropometricos.objects.filter(estatura__gte=tallaDesde)
-			elif(tallaHasta != 't'):
-				antropometricos = datosAntropometricos.objects.filter(estatura__lte=tallaHasta)
+		if(genero !='t'):
+			query = query.filter(genero=genero)
+
+		if(pesoDesde != 't' or pesoHasta != 't'):	
+			if(pesoDesde != 't' and pesoHasta !='t'):
+				antropometricos = datosAntropometricos.objects.filter(peso__range=(pesoDesde,pesoHasta))
+			elif(pesoDesde != 't'):
+				antropometricos = datosAntropometricos.objects.filter(peso__gte=pesoDesde)
+			elif(pesoHasta != 't'):
+				antropometricos = datosAntropometricos.objects.filter(peso__lte=pesoHasta)	
 			id = []
 			for item in antropometricos:
 				id.append(item.user_id) 
-			query = query.filter(pk__in=id)
+			query = query.filter(pk__in=id)	
 			for item in query:
-				print item.user_id				
+				print item.user_id
+		if(obesidad != 't'):
+			antropometricos = antropometricosResultado.objects.filter(apreciacion_obesidad=obesidad)
+			id_antro=[]
+			for item in antropometricos:
+				id_antro.append(item.datosAntropometricos_id)
+			datos = datosAntropometricos.objects.filter(pk__in=id_antro)
+			id = []
+			for item in datos:
+				id.append(item.user_id) 
+			query = query.filter(pk__in=id)	
+			for item in query:
+				print item.user_id	
+		if(enfermedad != 't'):
+			if(enfermedad == "1"):
+
+
 	ctx={'form': form,}
 	return render_to_response('nutricionista/busqueda.html', ctx, context_instance=RequestContext(request))
 
