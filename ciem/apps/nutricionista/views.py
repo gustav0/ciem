@@ -27,19 +27,20 @@ def verPeticiones(request):
 
 def busqueda(request):
 	form = busquedaForm(request.POST or None)
+	query = userProfile.objects.all()
 	if form.is_valid():
 		genero = form.cleaned_data['genero']
 		#edadDesde = form.cleaned_data['edadDesde']
 		#edadHasta = form.cleaned_data['edadHasta']
 		#pais = form.cleaned_data['pais']
 		tallaDesde = form.cleaned_data['tallaDesde']
+		#print tallaDesde
 		tallaHasta = form.cleaned_data['tallaHasta']
 		pesoDesde = form.cleaned_data['pesoDesde']
 		pesoHasta = form.cleaned_data['pesoHasta']
 		obesidad = form.cleaned_data['obesidad']
 		enfermedad = form.cleaned_data['enfermedad']
 		actividadFisica = form.cleaned_data['actividadFisica']
-		query = userProfile.objects.all()
 		if(genero !='t'):
 			query = query.filter(genero=genero)
 		if(tallaDesde != 't' or tallaHasta != 't'):	
@@ -101,8 +102,8 @@ def busqueda(request):
 			for item in datos:
 				id.append(item.user_id) 
 			query = query.filter(pk__in=id)	
-	for item in query:
-		print item.user_id	
+		for item in query:
+			print item.user_id	
 	print query.count()							
 	ctx={'form': form,}
 	return render_to_response('nutricionista/busqueda.html', ctx, context_instance=RequestContext(request))
