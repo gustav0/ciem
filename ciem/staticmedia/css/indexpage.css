@@ -342,10 +342,24 @@ a.textoBoton{
 	height: 500px;
 }
 #addAlimento{
-	float: left;
-	text-decoration: none;
-	width: 36px;
-	margin-left: 20px;
+	font-size: 1.2em !important;
+margin-left: 50px;
+cursor: pointer;
+float: left;
+font-size: 12px;
+padding: 3px 3px 3px 3px;
+background-color: #009B00;
+border: 1px solid black;
+border-radius: 0.2em;
+color: #EEE;
+-webkit-transition-duration: 0.2s;
+-moz-transition-duration: 0.2s;
+transition-duration: 0.2s;
+}
+#addAlimento:hover{
+	background: #2E64FE;
+	color: white;
+	border: 1px solid #009B00;
 }
 
 #tablaCalc{
@@ -367,6 +381,7 @@ a.textoBoton{
 	height: 20px;
 	width: 340px;
 	border-bottom: thin solid black;
+	text-indent: 5px;
 }
 #caloriaT{
 	float: right;
@@ -378,7 +393,37 @@ a.textoBoton{
 	height: 20px;
 	width: 340px;
 	outline: thin solid black;
-	display: inline;
+	background: green;
+	color:white;
+	text-indent: 5px;
+}
+#sumarAlimento{
+	margin-top: -35px;
+	font-size: 1.5em !important;
+	margin-left: 50px;
+	cursor: pointer;
+	float: left;
+	font-size: 12px;
+	padding: 5px 5px 5px 5px;
+	background-color: #009B00;
+	border: 1px solid black;
+	border-radius: 0.2em;
+	color: #EEE;
+	-webkit-transition-duration: 0.2s;
+	-moz-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+}
+#sumarAlimento:hover{
+	background: #2E64FE;
+	color: white;
+	border: 1px solid #009B00;
+}
+
+#resultado{
+	margin-top: -35px;
+	font-size: 1.2em;
+	margin-left: 10px;
+	float: left;
 }
 
 .helptext{
