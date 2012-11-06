@@ -41,33 +41,51 @@
 		{% endfor %}
 	</div> 
 	{% else %}
-		{% if tipo|get_int == 0 %}
+		{% if tipo|get_int == 0 %}		
 			{% for n in nombre %}
-			<div id="titulo"> Datos generales del paciente </div>
-			<div class = "cuadrar">
-			<br />
-				<div class= "cuadro_paciente">  
-						<div class="dato" >Nombre: {{n.get_full_name|cap }} </div>
-						<div class="dato" >Edad: {{ usuario|au_getFechaNaciemiento:n.id|calculate_age }} </div>
-						<div class="dato" >Cedula:{{ usuario|au_getCedula:n.id}} </div>
-						<div class="dato" >Género: 
+			<h2>Perfil de {{user.get_full_name|cap}}.</h2>
+			<div class="fondoGeneral"> 
+				<div class="divisorSeccion">DATOS GENERALES<div class="lineaDivisorSeccion"></div></div>
+				<div class="generalIzquierda">
+					<div class="lineaGeneral"><div class="labelGeneral">Nombre completo:</div><div class="contenidoGeneral">{{ user.get_full_name|cap }}</div></div>
+					<div class="lineaGeneral"><div class="labelGeneral">Género:</div><div class="contenidoGeneral">Género: 
 								{% if usuario|au_getGenero:n.id == "m" %}
 									Masculino
 								{% elif usuario|au_getGenero:n.id == "f" %}
 									Femenino
 								{% else %}
 									Otro
-								{% endif %}
-						</div>                                    
+								{% endif %}</div></div>
+					<div class="lineaGeneral"><div class="labelGeneral">Cédula:</div><div class="contenidoGeneral">{{ usuario|au_getCedula:n.id|floatformat:0|intcomma }}</div></div>
+				</div>
+				<!-- izquierda - derecha  -->
+				<div class="generalDerecha">
+					<div class="lineaGeneral">
+						<div class="labelGeneral">Fecha de nacimiento:</div>
+						<div class="contenidoGeneral">
+							{{ usuario|au_getFechaNaciemiento:n.id}}
+						</div>
+					</div>
+					<div class="lineaGeneral">
+						<div class="labelGeneral">Edad:</div>
+						<div class="contenidoGeneral">
+							{{ usuario|au_getFechaNaciemiento:n.id|calculate_age }}
+						</div>
+					</div>
+					<div class="lineaGeneral"><div class="labelGeneral">Pais:</div><div class="contenidoGeneral">{{ usuario|au_getPais:n.id }}</div></div>
+					<div class="lineaGeneral"><div class="labelGeneral">Municipio:</div><div class="contenidoGeneral">{{ usuario|au_getMunicipio:n.id }}</div></div>
 				</div>
 			</div>
-			<div class="opcionResultado">Resultados del paciente</div>
+			<div class="fondoGeneral"> 
+				<div class="divisorSeccion"> RESULTADOS DEL PACIENTE<div class="lineaDivisorSeccion"></div></div>
+			<div class="opcionResultado"></div>
 			   <ul class="resultados"> 
-				<li><a href="?user={{ n.id }}&p=1"><div class="opcionResultado">Antropométricos</div></a></li>
-				<li><a href="?user={{ n.id }}&p=2"><div class="opcionResultado">IPAQ</div></a></li>
-				<li><a href="?user={{ n.id }}&p=3"><div class="opcionResultado">Frecuencia de consumo</div></a></li>
-				<li><a href="?user={{ n.id }}&p=4"><div class="opcionResultado">Recordatorio de 24 horas</div></a></li>
-				<li><a href="?user={{ n.id }}&p=5"><div class="opcionResultado">Indicadores dietéticos</div></a></li></ul>
+				<li><a href="?user={{ n.id }}&p=1"><div class="botonLlenar">Antropométricos</div></a></li>
+				<li><a href="?user={{ n.id }}&p=2"><div class="botonLlenar">IPAQ</div></a></li>
+				<li><a href="?user={{ n.id }}&p=3"><div class="botonLlenar">Frecuencia de consumo</div></a></li>
+				<li><a href="?user={{ n.id }}&p=4"><div class="botonLlenar">Recordatorio de 24 horas</div></a></li>
+				<li><a href="?user={{ n.id }}&p=5"><div class="botonLlenar">Indicadores dietéticos</div></a></li></ul>
+			</div>
 			{% endfor %}
 		{% elif tipo|get_int == 1 %}
 			{% for n in nombre %}
