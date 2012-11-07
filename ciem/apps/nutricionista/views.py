@@ -26,11 +26,7 @@ def verPeticiones(request):
 	return render_to_response('nutricionista/peticiones.html', ctx, context_instance=RequestContext(request))
 
 def busqueda(request):
-	d = request.GET.get('d',0)
-	if d == '1':	print "get = 1"
-	elif d == '2':	print "get = 2"
-	elif d == '3':	print "get = 3"
-	else:	print "no get"
+	d = request.GET.get('d','0')
 	form = busquedaForm(request.POST or None)
 	query = userProfile.objects.all()
 	if form.is_valid():
@@ -107,9 +103,24 @@ def busqueda(request):
 			for item in datos:
 				id.append(item.user_id) 
 			query = query.filter(pk__in=id)	
+		id_final = []			
 		for item in query:
+			id_final.append(item.user_id)
 			print item.user_id	
-	print query.count()							
+	print query.count()	
+	if(d!='0'):
+		from xlwt import *
+		if d == '1':
+			wb = descargarAntropometrico(id_final)	
+		elif d == '2':
+			wb = descargarIpaq(id_final)	
+		#elif d == '3':
+		#	wb = descargarAntropometrico(query)										
+		response = HttpResponse(mimetype="application/ms-excel")
+		nombreArchivo ="Antropometrico.xls"
+		response['Content-Disposition'] = 'attachment; filename=' + nombreArchivo
+		wb.save(response)
+		return response							
 	ctx={'form': form,}
 	return render_to_response('nutricionista/busqueda.html', ctx, context_instance=RequestContext(request))
 
@@ -167,7 +178,7 @@ def crear_excel(id):
 	querySetIpaq = list(ipaqResultado.objects.getResultados(id))
 	from xlwt import *
 	wb = Workbook()
-	ws = wb.add_sheet('Sheetname')
+	ws = wb.add_sheet('IPAQ')
 	pattern = Pattern()
 	pattern.pattern = Pattern.SOLID_PATTERN
 	pattern.pattern_fore_colour =22
@@ -197,4 +208,79 @@ def crear_excel(id):
 	for item in lista:
 		ws.write(1,i,item)
 		i += 1
+	return wb
+
+def descargarAntropometrico(id_usuarios):
+	querySetAntropometrico = datosAntropometricos.objects.filter(user_id__in=id_usuarios)
+	from xlwt import *
+	wb = Workbook()
+	ws = wb.add_sheet('Antropometrico')
+	pattern = Pattern()
+	pattern.pattern = Pattern.SOLID_PATTERN
+	pattern.pattern_fore_colour =22
+	style = XFStyle() 
+	style.pattern = pattern
+	nombres = ["FECHA CREACION","ID USUARIO","NOMBRE","APELLIDO","PESO",\
+	"CIRCUNFERENCIA CINTURA","CIRCUNFERENCIA CADERA","ESTATURA","HIPERTENCION",\
+	"DIABETES","CANCER","COLESTEROL","TRIGLICERIDOS","METABOLISMO BASAL",\
+	"INDICE ADIPOSIDAD","APRECIACION ADIPOSIDAD","OBESIDAD","APRECIACION OBESIDAD",\
+	"APRECIACION CINTURA"]
+	i = 0
+	for item in nombres:
+		ws.write(0,i,item,style)
+		ws.col(i).width = 3500
+		i += 1
+	j=1	
+	for antro in querySetAntropometrico:
+		usuario = User.objects.get(pk=antro.user_id)
+		resultados = antropometricosResultado.objects.get(datosAntropometricos_id=antro.id)
+		lista = [antro.fecha_creacion,antro.user_id,usuario.first_name,usuario.last_name,antro.peso,antro.circunferencia_cintura,\
+		antro.circunferencia_cadera,antro.estatura,antro.hipertencion,antro.diabetes,antro.cancer,antro.colesterol,antro.trigliceridos,\
+		resultados.metabolismoBasal, resultados.indiceAdiposidad,resultados.apreciacion_adiposidad, \
+		resultados.obesidad,resultados.apreciacion_obesidad, resultados.apreciacion_cintura]
+		i=0
+		for item in lista:
+			ws.write(j,i,item)
+			i += 1
+		j+=1
+	return wb
+
+def descargarIpaq(id_usuarios):
+	querySetIpaq = ipaq.objects.filter(user_id__in=id_usuarios)
+	from xlwt import *
+	wb = Workbook()
+	ws = wb.add_sheet('Ipaq')
+	pattern = Pattern()
+	pattern.pattern = Pattern.SOLID_PATTERN
+	pattern.pattern_fore_colour =22
+	style = XFStyle() 
+	style.pattern = pattern
+	nombres = ["FECHA CREACION","ID USUARIO","NOMBRE","TRABAJO","IDIASActivig","ITiempoActivig","ITiempoActivigTRUNK","IDiaActmod","ITiempoActmod","ITiempoActmodTRUNK","IDiaAndar","ITiempoAndar","ITiempoAndarTRUNK","IIViajevehiculo","IITiempoViajaVehi","IIdDiaBicicleta","IITiempoBici","IITiempoBiciTRUNK","IIDiaAndar","IITiempoAndar","IITiempoAndarTRUNK","IIIDiaVigJar","IIITiempoVigJar","IIITiempoVigJarTRUNK","IIIDiaModJar","IIITiempoModJar","IIITiempoModJarTRUNK","IIIDiaModCasa","IIITiempoModCasa","IIITiempoModCasaTRUNK","IVDiasAndar","IVTiempoAndar","	IVTiempoAndarTRUNK","IVDiaVigo","IVTiempoVigo","IVTiempoVigoTRUNK","IVDiaMod","IVTiempoMod","IVTiempoModTRUNK","TiempoSentado","TiempoSentadofindesemana","IAndarMET","IModMet","IVigMet","ITotalMET","IIBiciMET","IIAndarMET","IITotalMET","IIIVigJarMET","IIIModJarMET","IIIModCasaMET","IIITotalMET","IVAndarMET","IVModMET","	IVVigMET","IVTotalMET","METsTotalesAreas","METsAndar","METsMod","METsVig","METsTotalesAct","DiasTAndar","DiasTMod","DiasTVig","TotalDias","MinAndar","MinMod","MinVig","DiasAndarMod","MinAndarMod","Alta","Moderada","Leve","PatronActFisica"]
+	i = 0
+	for item in nombres:
+		ws.write(0,i,item,style)
+		ws.col(i).width = 3500
+		i += 1
+	j=1	
+	for ipq in querySetIpaq:
+		usuario = User.objects.get(pk=ipq.user_id)
+		item = ipaqResultado.objects.get(ipaq_id=ipq.id)
+		lista = [ipq.fecha_creacion,ipq.user_id,usuario.first_name,usuario.last_name,item.id,item.trabaja,ipq.p2a_trabajo,item.minVigorosoTrabajo,item.minVigorosoTrabajo, \
+		ipq.p4a_trabajo, item.minModeradoTrabajo,item.minModeradoTrabajo,ipq.p6a_trabajo,item.minAndarTrabajo,\
+		item.minModeradoTrabajo,ipq.p8b_transporte,item.minVehiculo,ipq.p10a_transporte,item.minModeradoTransporte,\
+		item.minModeradoTransporte,ipq.p12a_transporte, item.minAndarTransporte, item.minAndarTransporte, ipq.p14a_hogar,\
+		item.minVigorosoHogar, item.minVigorosoHogar, ipq.p16a_hogar, item.minModeradoHogar, item.minModeradoHogar,\
+		ipq.p19a_hogar, item.minModeradoHogar, item.minModeradoHogar, ipq.p20a_recreacion, item.minAndarRecre, \
+		item.minAndarRecre, ipq.p22a_recreacion, item.minVigorosoRecre, item.minVigorosoRecre, ipq.p24a_recreacion,\
+		item.minModeradoRecre, item.minModeradoRecre, "tiempoSentado","tiempoSentadoFS", item.metAndarTrabajo, \
+		item.metModeradoTrabajo, item.metVigorosoTrabajo, item.metTrabajo, item.metModeradoTransporte, item.metAndarTransporte,\
+		item. metTransporte, item.metVigorosoHogar, item.metModeradoJHogar, item.metModeradoHogar, item.metHogar,\
+		item.metAndarRecreacion, item.metModeradoRecreacion, item.metVigorosoRecreacion, item.metRecreacion, item.metTotal, \
+		item.metTotalAndar, item.metTotalModerado, item.metTotalVigoroso, item.metTotal,item.diasTotalAndar, item.diasTotalModerado, \
+		item.diasTotalVigoroso, item.diasTotal, item.tiempoAndar, item.tiempoModerado, item.tiempoVigoroso]
+		i=0
+		for item in lista:
+			ws.write(j,i,item)
+			i += 1
+		j+=1
 	return wb
