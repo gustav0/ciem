@@ -11,6 +11,7 @@ $(document).ready(function(){
 
   $("#link2").click(function(){
        $('#formulario').attr('action', '?d=2');
+       $('#formulario').submit();
   });
 
 });

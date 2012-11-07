@@ -27,10 +27,14 @@ def verPeticiones(request):
 
 @login_required(login_url='/login')
 def busqueda(request):
+	bandera=False
 	d = request.GET.get('d','0')
 	form = busquedaForm(request.POST or None)
 	query = userProfile.objects.all()
+	print form.errors
 	if form.is_valid():
+		bandera = True
+		cuenta = 0
 		genero = form.cleaned_data['genero']
 		#edadDesde = form.cleaned_data['edadDesde']
 		#edadHasta = form.cleaned_data['edadHasta']
@@ -108,21 +112,23 @@ def busqueda(request):
 		for item in query:
 			id_final.append(item.user_id)
 			print item.user_id	
-	print query.count()	
+	cuenta = query.count()	
 	if(d!='0'):
 		from xlwt import *
 		if d == '1':
-			wb = descargarAntropometrico(id_final)	
+			wb = descargarAntropometrico(id_final)
+			nombreArchivo ="Antropometrico.xls"	
 		elif d == '2':
-			wb = descargarIpaq(id_final)	
+			print "ipaq"
+			wb = descargarIpaq(id_final)
+			nombreArchivo ="Ipaq.xls"		
 		#elif d == '3':
 		#	wb = descargarAntropometrico(query)										
 		response = HttpResponse(mimetype="application/ms-excel")
-		nombreArchivo ="Antropometrico.xls"
 		response['Content-Disposition'] = 'attachment; filename=' + nombreArchivo
 		wb.save(response)
 		return response							
-	ctx={'form': form,}
+	ctx={'form': form,'bandera':bandera, 'cuenta':cuenta}
 	return render_to_response('nutricionista/busqueda.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')
@@ -256,7 +262,7 @@ def descargarIpaq(id_usuarios):
 	pattern.pattern_fore_colour =22
 	style = XFStyle() 
 	style.pattern = pattern
-	nombres = ["FECHA CREACION","ID USUARIO","NOMBRE","TRABAJO","IDIASActivig","ITiempoActivig","ITiempoActivigTRUNK","IDiaActmod","ITiempoActmod","ITiempoActmodTRUNK","IDiaAndar","ITiempoAndar","ITiempoAndarTRUNK","IIViajevehiculo","IITiempoViajaVehi","IIdDiaBicicleta","IITiempoBici","IITiempoBiciTRUNK","IIDiaAndar","IITiempoAndar","IITiempoAndarTRUNK","IIIDiaVigJar","IIITiempoVigJar","IIITiempoVigJarTRUNK","IIIDiaModJar","IIITiempoModJar","IIITiempoModJarTRUNK","IIIDiaModCasa","IIITiempoModCasa","IIITiempoModCasaTRUNK","IVDiasAndar","IVTiempoAndar","	IVTiempoAndarTRUNK","IVDiaVigo","IVTiempoVigo","IVTiempoVigoTRUNK","IVDiaMod","IVTiempoMod","IVTiempoModTRUNK","TiempoSentado","TiempoSentadofindesemana","IAndarMET","IModMet","IVigMet","ITotalMET","IIBiciMET","IIAndarMET","IITotalMET","IIIVigJarMET","IIIModJarMET","IIIModCasaMET","IIITotalMET","IVAndarMET","IVModMET","	IVVigMET","IVTotalMET","METsTotalesAreas","METsAndar","METsMod","METsVig","METsTotalesAct","DiasTAndar","DiasTMod","DiasTVig","TotalDias","MinAndar","MinMod","MinVig","DiasAndarMod","MinAndarMod","Alta","Moderada","Leve","PatronActFisica"]
+	nombres = ["FECHA CREACION","ID USUARIO","NOMBRE","APELLIDO","IDIASActivig","ITiempoActivig","ITiempoActivigTRUNK","IDiaActmod","ITiempoActmod","ITiempoActmodTRUNK","IDiaAndar","ITiempoAndar","ITiempoAndarTRUNK","IIViajevehiculo","IITiempoViajaVehi","IIdDiaBicicleta","IITiempoBici","IITiempoBiciTRUNK","IIDiaAndar","IITiempoAndar","IITiempoAndarTRUNK","IIIDiaVigJar","IIITiempoVigJar","IIITiempoVigJarTRUNK","IIIDiaModJar","IIITiempoModJar","IIITiempoModJarTRUNK","IIIDiaModCasa","IIITiempoModCasa","IIITiempoModCasaTRUNK","IVDiasAndar","IVTiempoAndar","	IVTiempoAndarTRUNK","IVDiaVigo","IVTiempoVigo","IVTiempoVigoTRUNK","IVDiaMod","IVTiempoMod","IVTiempoModTRUNK","TiempoSentado","TiempoSentadofindesemana","IAndarMET","IModMet","IVigMet","ITotalMET","IIBiciMET","IIAndarMET","IITotalMET","IIIVigJarMET","IIIModJarMET","IIIModCasaMET","IIITotalMET","IVAndarMET","IVModMET","	IVVigMET","IVTotalMET","METsTotalesAreas","METsAndar","METsMod","METsVig","METsTotalesAct","DiasTAndar","DiasTMod","DiasTVig","TotalDias","MinAndar","MinMod","MinVig","DiasAndarMod","MinAndarMod","Alta","Moderada","Leve","PatronActFisica"]
 	i = 0
 	for item in nombres:
 		ws.write(0,i,item,style)
