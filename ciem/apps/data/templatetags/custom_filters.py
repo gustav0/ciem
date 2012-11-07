@@ -107,6 +107,14 @@ def au_getPais(list,mid):
 			return list[i].pais
 	return None
 
+@register.filter#DEVUELVE EL Municipio
+def au_getMunicipio(list,mid):
+	for i in range(list.count()):
+		if list[i].id == mid:
+			return list[i].municipio
+	return None
+
+
 @register.filter#DEVUELVE EL NOMBRE
 def au_getApellido(list,mid):
 	for i in range(list.count()):

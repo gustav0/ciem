@@ -23,7 +23,7 @@
 			<div class="lineaGeneral"><div class="labelGeneral">Municipio:</div><div class="contenidoGeneral">{{ profile.municipio }}</div></div>
 		</div>
 	</div>
-	{% if user|in_group:"profesional" %}
+	{% if user|in_group:"profesional" or user|in_group:"profesional2" or user.is_superuser %}
 	<div class="fondoGeneral"> 
 		<div class="divisorSeccion">PROFESIONALES <div class="lineaDivisorSeccion"></div>
 		</div>
@@ -40,7 +40,7 @@
 				<img src="{{ MEDIA_URL }}img/Add-Folder-icon.png" alt="crearpublicacion">
 				</div>
 			</a>
-			{% if user|in_group:"profesional2" %}
+			{% if user|in_group:"profesional2" or user.is_superuser %}
 			<a href="{% url nutricionista_peticiones %}">
 				<div class="botonProfesional">
 				<p>Ver solicitudes de profesionales</p>

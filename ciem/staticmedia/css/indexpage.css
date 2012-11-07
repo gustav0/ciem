@@ -40,10 +40,6 @@ article{
 	padding: 0;
 }
 
-#alimentoT{
-	display: inline;
-	width: 100px;
-}
 
 #contenido{
 	font-family: "arial narrow";
@@ -74,7 +70,7 @@ article{
 	float: left;
 	width: 960px;
 	height: 160px;
-	background:url(/ciem/staticmedia/img/imaCabecera.png)
+	background:url(/ciem/staticmedia/img/imaCabecera.jpg)
 }
 #barraNavegacion {
 	width: 960px;
@@ -115,7 +111,7 @@ article{
 	background-position:-0px -32px
 }
 #imagenHistoria{
- 	background:url(/ciem/staticmedia/img/bannerinicio.png) -0px -0px no-repeat;	
+ 	background:url(/ciem/staticmedia/img/bannerinicio.jpg) -0px -0px no-repeat;	
  	width:960px;
  	height: 300px;
  	float:left;
@@ -155,7 +151,7 @@ article{
 #cajaLoginOut{
 	float: right;
 	outline: 1px solid rgba(214, 214, 214, 0.5);
-	background-color: rgba(250, 252, 217, 1);
+	background-color: rgba(250, 252, 217, 0.7);
 	margin-right: 35px;
 	margin-top: 4px;
 	padding: 5px 10px;
@@ -346,10 +342,24 @@ a.textoBoton{
 	height: 500px;
 }
 #addAlimento{
-	float: left;
-	text-decoration: none;
-	width: 36px;
-	margin-left: 20px;
+	font-size: 1.2em !important;
+margin-left: 50px;
+cursor: pointer;
+float: left;
+font-size: 12px;
+padding: 3px 3px 3px 3px;
+background-color: #009B00;
+border: 1px solid black;
+border-radius: 0.2em;
+color: #EEE;
+-webkit-transition-duration: 0.2s;
+-moz-transition-duration: 0.2s;
+transition-duration: 0.2s;
+}
+#addAlimento:hover{
+	background: #2E64FE;
+	color: white;
+	border: 1px solid #009B00;
 }
 
 #tablaCalc{
@@ -371,6 +381,7 @@ a.textoBoton{
 	height: 20px;
 	width: 340px;
 	border-bottom: thin solid black;
+	text-indent: 5px;
 }
 #caloriaT{
 	float: right;
@@ -382,6 +393,37 @@ a.textoBoton{
 	height: 20px;
 	width: 340px;
 	outline: thin solid black;
+	background: green;
+	color:white;
+	text-indent: 5px;
+}
+#sumarAlimento{
+	margin-top: -35px;
+	font-size: 1.5em !important;
+	margin-left: 50px;
+	cursor: pointer;
+	float: left;
+	font-size: 12px;
+	padding: 5px 5px 5px 5px;
+	background-color: #009B00;
+	border: 1px solid black;
+	border-radius: 0.2em;
+	color: #EEE;
+	-webkit-transition-duration: 0.2s;
+	-moz-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+}
+#sumarAlimento:hover{
+	background: #2E64FE;
+	color: white;
+	border: 1px solid #009B00;
+}
+
+#resultado{
+	margin-top: -35px;
+	font-size: 1.2em;
+	margin-left: 10px;
+	float: left;
 }
 
 .helptext{
