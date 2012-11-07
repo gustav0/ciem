@@ -13,6 +13,7 @@
 </script>
 {% endblock %}
 {% block content %}
+{{ request }}
 {% if usuario %}
 	{% if nombre.count > 2 %}	
 	<div class="tituloResultado">Lista de Pacientes</div>
@@ -87,6 +88,7 @@
 				<li><a href="?user={{ n.id }}&p=5"><div class="botonLlenar">Indicadores dietéticos</div></a></li></ul>
 			</div>
 			{% endfor %}
+			<a href="{% url nutricionista_perfilUsuarios %}" id="anterior">«</a>
 		{% elif tipo|get_int == 1 %}
 			{% for n in nombre %}
 			<div class="perfilDe divbold"style="margin-bottom:15px;">Perfil antropometrico de {{n.get_full_name|cap}}</div>
@@ -137,6 +139,7 @@
 			</div>
 			{% endif %}
 			{% endfor %}
+			<a href="{% url nutricionista_perfilUsuarios %}" id="anterior">«</a>
 		{% elif tipo|get_int == 2 %}
 				<h2>Información ingresada en el formulario IPAQ.</h2>
 				{% if perfil.0 %}
@@ -252,7 +255,8 @@
 						<p>Este usuario todavía no ha completado el formulario IPAQ.</p>
 					</div>
 				{% endif %}
-			{% elif tipo|get_int == 3 %}
+				<a href="{% url nutricionista_perfilUsuarios %}" id="anterior">«</a>
+		{% elif tipo|get_int == 3 %}
 			{% for n in nombre %}
 				<div class="perfilDe divbold">Frecuencia de consumo de {{n.get_full_name|cap}}
 					<div id="contenedorBarra">Barra de progreso: <progress id="bar" value="{{perfil.0.progreso}}" max="9"><span>{{perfil.0.progreso}}/8 secciones</span></progress></div>
@@ -281,6 +285,7 @@
 				{% endif %}
 				</div>
 			{% endfor %}
+			<a href="{% url nutricionista_perfilUsuarios %}" id="anterior">«</a>
 		{% elif tipo|get_int == 4 %}
 		24horas
 		{% elif tipo|get_int == 5 %}
@@ -319,10 +324,10 @@
 					<p>Este usuario todavía no posee indicadores dieteticos.</p>
 			</div>
 			{% endif %}
+			<a href="{% url nutricionista_perfilUsuarios %}" id="anterior">«</a>
 		{% else %}
 		No existe esa opción
 		{% endif %}
-			<a href="{% url nutricionista_perfilUsuarios %}" id="anterior">«</a>
 	{% endif %}
 {% else %}
 error.
