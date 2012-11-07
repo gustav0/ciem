@@ -70,7 +70,7 @@ article{
 	float: left;
 	width: 960px;
 	height: 160px;
-	background:url(/ciem/staticmedia/img/imaCabecera.png)
+	background:url(/ciem/staticmedia/img/imaCabecera.jpg)
 }
 #barraNavegacion {
 	width: 960px;
@@ -111,7 +111,7 @@ article{
 	background-position:-0px -32px
 }
 #imagenHistoria{
- 	background:url(/ciem/staticmedia/img/bannerinicio.png) -0px -0px no-repeat;	
+ 	background:url(/ciem/staticmedia/img/bannerinicio.jpg) -0px -0px no-repeat;	
  	width:960px;
  	height: 300px;
  	float:left;
@@ -151,7 +151,7 @@ article{
 #cajaLoginOut{
 	float: right;
 	outline: 1px solid rgba(214, 214, 214, 0.5);
-	background-color: rgba(250, 252, 217, 1);
+	background-color: rgba(250, 252, 217, 0.7);
 	margin-right: 35px;
 	margin-top: 4px;
 	padding: 5px 10px;
