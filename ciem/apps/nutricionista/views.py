@@ -25,6 +25,7 @@ def verPeticiones(request):
 	ctx= {'peticiones':peticiones,'usuario':usuario, 'perfil':perfil}	
 	return render_to_response('nutricionista/peticiones.html', ctx, context_instance=RequestContext(request))
 
+@login_required(login_url='/login')
 def busqueda(request):
 	d = request.GET.get('d',0)
 	if d == '1':	print "get = 1"
@@ -115,7 +116,7 @@ def busqueda(request):
 
 @login_required(login_url='/login')
 def perfilUsuarios(request):
-	if request.user.groups.filter(name="profesional"):
+	if request.user.groups.filter(name="profesional") or request.user.groups.filter(name="profesional2") or request.user.is_superuser:
 		getUser = request.GET.get('user',1)
 		tipoPerfil = request.GET.get('p',0)
 		descarga = request.GET.get('d',0)
@@ -161,7 +162,7 @@ def perfilUsuarios(request):
 		ctx= {'nombre':nombre,'usuario':usuario,'perfil':perfil,'tipo':tipoPerfil, }	
 		return render_to_response('nutricionista/perfilUsuarios.html', ctx, context_instance=RequestContext(request))
 	else:
-		return HttpResponseRedirect("/profile/")
+		return HttpResponseRedirect("/perfil/")
 
 def crear_excel(id):
 	querySetIpaq = list(ipaqResultado.objects.getResultados(id))
