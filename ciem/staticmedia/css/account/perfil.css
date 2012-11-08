@@ -17,7 +17,6 @@
 .textoNo{float:left;font-size:16px;font-weight:700;color:#63634A}
 .botonLlenar{float:left;background-color:#CAEBCF;width:270px;height:40px;margin-top:70px;-webkit-border-radius:10px;border-radius:10px;-webkit-box-shadow:1px 3px 2px 0 #B4B4B4;box-shadow:1px 3px 2px 0 #B4B4B4}
 .botonLlenar:hover{background-color:#97CFA0}
-.botonLlenar:active{margin-top:71px;width:235px;height:38px}
 .textoBoton{font-size:13px;text-indent:6px;line-height:37px}
 a .botonLlenar{color:#4B4B4B}
 .botonIniciar{float:left;background-color:#2BAC3E;width:450px;height:40px;-webkit-border-radius:10px;border-radius:10px;-webkit-box-shadow:1px 3px 2px 0 #B4B4B4;box-shadow:1px 3px 2px 0 #B4B4B4;margin:20px}

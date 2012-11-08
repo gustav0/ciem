@@ -18,13 +18,16 @@
 }
 
 #indicadores{
-	border: 1px solid lightgreen;
+	background: #FAF6DC;
 	text-indent: 50px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 
 }
 
+
 #indicadores p{	
-	border: 1px solid lightblue;
+	background: #F0F0F0;
 	width: 80%;
 	margin-left: 10%;
 	box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
@@ -101,7 +104,7 @@ span{
 .valor{
    float: left;
    width: 150px;
-   text-indent: 10px;
+   text-indent: 2px;
    text-align:left;
 }
 
@@ -196,7 +199,7 @@ a#anterior:hover {
 	margin-top: 30px;
 	margin-right: 10%;
 	margin-left: 10%;
-	font-family: "arial narrow";
+	font-family: 'open sans', Arial, Helvetica, Sans-serif;
 	font-size: 103%;
 }
 .nombreAlimento{
