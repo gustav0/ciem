@@ -1,4 +1,4 @@
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required,user_passes_test
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
@@ -126,54 +126,48 @@ def busqueda(request):
 	return render_to_response('nutricionista/busqueda.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')
+@user_passes_test(lambda u: u.groups.filter(name='profesional').count() == 1 or u.groups.filter(name='profesional2').count() == 1 or u.is_superuser, login_url='/perfil/')
 def perfilUsuarios(request):
-	if request.user.groups.filter(name="profesional") or request.user.groups.filter(name="profesional2") or request.user.is_superuser:
-		getUser = request.GET.get('user',1)
-		tipoPerfil = request.GET.get('p',0)
-		descarga = request.GET.get('d',0)
-		nombre = None
-		try:
-			if getUser > 1:
-				if not User.objects.filter(id=getUser):
-					return HttpResponseRedirect("/perfiles/")
-				if int(tipoPerfil)==1:#datos antropometricos
-					perfil = datosAntropometricos.objects.getByIdJoin(int(getUser))
-				elif int(tipoPerfil)==2:#resultados del ipaq
-					perfil = ipaqResultado.objects.getResultados(int(getUser))
-				elif int(tipoPerfil)==3:#frecuenciadeconsumo
-					perfil = frecuenciaConsumo.objects.getDataById(int(getUser))
-				elif int(tipoPerfil)==4:#recordatorio24
-					perfil = None
-				elif int(tipoPerfil)==5:#indicadores dieteticos
-					perfil = indicadoresDieteticos.objects.getById(int(getUser))
-				elif int(descarga)>0:
-					from xlwt import *
-					wb = crear_excel(int(getUser))
-					response = HttpResponse(mimetype="application/ms-excel")
-					nom = User.objects.filter(id=int(getUser))
-					nombreArchivo =nom[0].first_name.capitalize()+nom[0].last_name.capitalize() +"Ipaq.xls"
-					response['Content-Disposition'] = 'attachment; filename=' + nombreArchivo
-					wb.save(response)
-					return response
-				else:
-					perfil = None
-					tipoPerfil = 0
-				nombre = User.objects.filter(id=getUser)
-				usuario = userProfile.objects.filter(user=getUser)
-				#usuario = userProfile.objects.getUserJoin(int(getUser))
-			else:
-				nombre = User.objects.all()
-				usuario = userProfile.objects.all()
-				#usuario = userProfile.objects.getAllUser()
+	getUser = request.GET.get('user')
+	tipoPerfil = request.GET.get('p',0)
+	descarga = request.GET.get('d',0)
+	nombre = None
+	try:
+		if getUser > 1:
+			if not User.objects.filter(id=getUser):
+				return HttpResponseRedirect("/perfiles/")
+			if int(tipoPerfil)==1:#datos antropometricos
+				perfil = datosAntropometricos.objects.getByIdJoin(int(getUser))
+			elif int(tipoPerfil)==2:#resultados del ipaq
+				perfil = ipaqResultado.objects.getResultados(int(getUser))
+			elif int(tipoPerfil)==3:#frecuenciadeconsumo
+				perfil = frecuenciaConsumo.objects.getDataById(int(getUser))
+			elif int(tipoPerfil)==4:#recordatorio24
 				perfil = None
-		
-		except ValueError:
-			return HttpResponseRedirect("/perfiles/")
-		#ctx= {'usuario':usuario,'perfil':perfil,'tipo':tipoPerfil, }	
-		ctx= {'nombre':nombre,'usuario':usuario,'perfil':perfil,'tipo':tipoPerfil, }	
-		return render_to_response('nutricionista/perfilUsuarios.html', ctx, context_instance=RequestContext(request))
-	else:
-		return HttpResponseRedirect("/perfil/")
+			elif int(tipoPerfil)==5:#indicadores dieteticos
+				perfil = indicadoresDieteticos.objects.getById(int(getUser))
+			elif int(descarga)>0:
+				from xlwt import *
+				wb = crear_excel(int(getUser))
+				response = HttpResponse(mimetype="application/ms-excel")
+				nom = User.objects.filter(id=int(getUser))
+				nombreArchivo =nom[0].first_name.capitalize()+nom[0].last_name.capitalize() +"Ipaq.xls"
+				response['Content-Disposition'] = 'attachment; filename=' + nombreArchivo
+				wb.save(response)
+				return response
+			else:
+				perfil = None
+				tipoPerfil = 0
+			nombre = User.objects.filter(id=getUser)
+			usuario = userProfile.objects.filter(user=getUser)
+		else:
+			nombre = User.objects.all()
+			usuario = userProfile.objects.all()
+			perfil = None
+	except ValueError:
+		return HttpResponseRedirect("/perfiles/")
+	ctx= {'nombre':nombre,'usuario':usuario,'perfil':perfil,'tipo':tipoPerfil, }	
+	return render_to_response('nutricionista/perfilUsuarios.html', ctx, context_instance=RequestContext(request))
 
 def crear_excel(id):
 	querySetIpaq = list(ipaqResultado.objects.getResultados(id))

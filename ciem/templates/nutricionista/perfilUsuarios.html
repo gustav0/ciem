@@ -12,10 +12,11 @@
 
 </script>
 {% endblock %}
+
+
 {% block content %}
-{{ request }}
 {% if usuario %}
-	{% if nombre.count > 2 %}	
+	{% if nombre.count > 1 %}	
 	<div class="tituloResultado">Lista de Pacientes</div>
 	<div class="fondoLista">
 		<div class="linea"style="font-weight:bold;text-transform:uppercase !important;border:0;margin-bottom:15px;margin-top:12px;">
@@ -42,13 +43,13 @@
 		{% endfor %}
 	</div> 
 	{% else %}
-		{% if tipo|get_int == 0 %}		
+		{% if tipo|get_int == 0 %}	
 			{% for n in nombre %}
-			<h2>Perfil de {{user.get_full_name|cap}}.</h2>
+			<h2>Perfil de {{n.get_full_name|cap}}</h2>
 			<div class="fondoGeneral"> 
 				<div class="divisorSeccion">DATOS GENERALES<div class="lineaDivisorSeccion"></div></div>
 				<div class="generalIzquierda">
-					<div class="lineaGeneral"><div class="labelGeneral">Nombre completo:</div><div class="contenidoGeneral">{{ user.get_full_name|cap }}</div></div>
+					<div class="lineaGeneral"><div class="labelGeneral">Nombre completo:</div><div class="contenidoGeneral">{{ n.get_full_name|cap }}</div></div>
 					<div class="lineaGeneral"><div class="labelGeneral">Género:</div><div class="contenidoGeneral">Género: 
 								{% if usuario|au_getGenero:n.id == "m" %}
 									Masculino
@@ -59,7 +60,6 @@
 								{% endif %}</div></div>
 					<div class="lineaGeneral"><div class="labelGeneral">Cédula:</div><div class="contenidoGeneral">{{ usuario|au_getCedula:n.id|floatformat:0|intcomma }}</div></div>
 				</div>
-				<!-- izquierda - derecha  -->
 				<div class="generalDerecha">
 					<div class="lineaGeneral">
 						<div class="labelGeneral">Fecha de nacimiento:</div>
@@ -79,13 +79,14 @@
 			</div>
 			<div class="fondoGeneral"> 
 				<div class="divisorSeccion"> RESULTADOS DEL PACIENTE<div class="lineaDivisorSeccion"></div></div>
-			<div class="opcionResultado"></div>
-			   <ul class="resultados"> 
-				<li><a href="?user={{ n.id }}&p=1"><div class="botonLlenar">Antropométricos</div></a></li>
-				<li><a href="?user={{ n.id }}&p=2"><div class="botonLlenar">IPAQ</div></a></li>
-				<li><a href="?user={{ n.id }}&p=3"><div class="botonLlenar">Frecuencia de consumo</div></a></li>
-				<li><a href="?user={{ n.id }}&p=4"><div class="botonLlenar">Recordatorio de 24 horas</div></a></li>
-				<li><a href="?user={{ n.id }}&p=5"><div class="botonLlenar">Indicadores dietéticos</div></a></li></ul>
+				<div class="opcionResultado"></div>
+			   	<ul class="resultados"> 
+					<li><a href="?user={{ n.id }}&p=1"><div class="botonLlenar">Antropométricos</div></a></li>
+					<li><a href="?user={{ n.id }}&p=2"><div class="botonLlenar">IPAQ</div></a></li>
+					<li><a href="?user={{ n.id }}&p=3"><div class="botonLlenar">Frecuencia de consumo</div></a></li>
+					<li><a href="?user={{ n.id }}&p=4"><div class="botonLlenar">Recordatorio de 24 horas</div></a></li>
+					<li><a href="?user={{ n.id }}&p=5"><div class="botonLlenar">Indicadores dietéticos</div></a></li>
+				</ul>
 			</div>
 			{% endfor %}
 			<a href="{% url nutricionista_perfilUsuarios %}" id="anterior">«</a>
