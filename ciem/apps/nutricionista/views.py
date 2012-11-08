@@ -45,7 +45,11 @@ def busqueda(request):
 		pesoDesde = form.cleaned_data['pesoDesde']
 		pesoHasta = form.cleaned_data['pesoHasta']
 		obesidad = form.cleaned_data['obesidad']
-		enfermedad = form.cleaned_data['enfermedad']
+		hipertencion = form.cleaned_data['enf_hip']
+		diabetes = form.cleaned_data['enf_dia']
+		cancer = form.cleaned_data['enf_can']
+		colesterol = form.cleaned_data['enf_col']
+		trigliceridos = form.cleaned_data['enf_tri']
 		actividadFisica = form.cleaned_data['actividadFisica']
 		if(genero !='t'):
 			query = query.filter(genero=genero)
@@ -83,21 +87,21 @@ def busqueda(request):
 			for item in datos:
 				id.append(item.user_id) 
 			query = query.filter(pk__in=id)	
-		if(enfermedad != 't'):
-			if(enfermedad == "0"):
-				antropometricos = datosAntropometricos.objects.filter(hipertencion=1)			
-			elif(enfermedad == "1"):
-				antropometricos = datosAntropometricos.objects.filter(diabetes=1)
-			elif(enfermedad == "2"):
-				antropometricos = datosAntropometricos.objects.filter(cancer=1)
-			elif(enfermedad == "3"):
-				antropometricos = datosAntropometricos.objects.filter(colesterol=1)
-			else:
-				antropometricos = datosAntropometricos.objects.filter(trigliceridos=1)
-			id = []
-			for item in antropometricos:
-				id.append(item.user_id) 
-			query = query.filter(pk__in=id)	
+		if(hipertencion):
+			antropometricos = datosAntropometricos.objects.filter(hipertencion=1)
+			query = queryAntro(antropometricos,query)							
+		if(diabetes):
+			antropometricos = datosAntropometricos.objects.filter(diabetes=1)
+			query = queryAntro(antropometricos,query)	
+		if(cancer):
+			antropometricos = datosAntropometricos.objects.filter(cancer=1)
+			query = queryAntro(antropometricos,query)				
+		if(colesterol):
+			antropometricos = datosAntropometricos.objects.filter(colesterol=1)
+			query = queryAntro(antropometricos,query)				
+		if(trigliceridos):
+			antropometricos = datosAntropometricos.objects.filter(trigliceridos=1)
+			query = queryAntro(antropometricos,query)
 		if(actividadFisica != 't'):
 			ipaqs = ipaqResultado.objects.filter(apreciacionIpaq=actividadFisica)
 			id_ipaq=[]
@@ -291,3 +295,9 @@ def descargarIpaq(id_usuarios):
 			i += 1
 		j+=1
 	return wb
+	
+def queryAntro(antropometricos,query):
+	id = []
+	for item in antropometricos:
+		id.append(item.user_id) 
+	return query.filter(pk__in=id)	
