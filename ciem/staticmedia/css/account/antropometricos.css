@@ -3,7 +3,12 @@
 .sufreDe{margin-top:20px;float:left;width:300px;color:#277A00;font-weight:700;text-indent:20px;font-size:22px}
 #formulario{float:left;margin-top:30px;margin-left:150px;margin-bottom:30px;width:700px;-webkit-box-shadow:2px 2px 5px 0 #888;box-shadow:2px 2px 5px 0 #888}
 .medidaIndicar{float:right;color:#277A00;font-weight:700;margin-left:10px}
-.campoForm{float:left;width:220px;margin-left:60px;margin-top:20px}
+.campoForm {
+	float: left;
+	width: 260px;
+	margin-left: 38px;
+	margin-top: 20px;
+}
 .labelCampo{float:right}
 .campoForm2{float:left;width:220px;margin-right:100px;margin-top:10px}
 .contenedorOpciones{float:left;width:350px;height:210px}

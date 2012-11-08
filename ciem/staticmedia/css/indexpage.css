@@ -16,6 +16,11 @@ src: url('fonts/social/icomoonsocial-webfont.eot?#iefix') format('embedded-opent
      url('fonts/social/icomoonsocial-webfont.svg#IcoMoonSocial') format('svg');
 }
 
+body{
+	font-family:  'open sans', Arial, Helvetica, Sans-serif;
+	font-size: 16px;
+}
+
 article{
 	background: #E0FFB8;
 	border: 1px solid #94DA3A;
@@ -42,7 +47,6 @@ article{
 
 
 #contenido{
-	font-family: "arial narrow";
 	width: 960px;
 	margin: auto; 
 	clear: both;
@@ -81,7 +85,7 @@ article{
 #barraNavegacion a{
 	text-decoration: none;
 	color:#4A821E;
-	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif, helvetica, arial;
 	font-size: 12px;
 	-webkit-transition: all .1s;
 	-moz-transition: all .1s;
@@ -221,7 +225,6 @@ div#cajaLoginOut input[type="submit"]:hover{
 }
 .contenido{
 	margin-top: -8px;
-	font-family: Helvetica, Arial;
 	font-size: 16px;
 	background:#efefef;
 	color:#797979;
@@ -265,7 +268,7 @@ a.textoBoton{
 	background: #F7F7F7;
 	border: 1px solid #D7D7D7;
 	border-radius: 1em;
-	text-indent: 40px;
+	text-indent: 20px;
 	-webkit-transition-duration: 0.2s;
 	-moz-transition-duration: 0.2s;
 	transition-duration: 0.2s;
