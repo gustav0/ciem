@@ -38,7 +38,7 @@
 					<div class="labelApreciacion">Obesidad</div>
 					<div class="valueApreciacion">
 						{% if apreciacion.0.apreciacion_obesidad|compareTo:"Sobrepeso (Obesidad grado I)" %}
-						Sobrepeso
+						(Obesidad grado I)
 						{% else %}
 						{{ apreciacion.0.apreciacion_obesidad }}
 						{%endif%}
