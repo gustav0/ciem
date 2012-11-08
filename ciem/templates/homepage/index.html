@@ -73,8 +73,8 @@ Centro de investigaciones Endocrino-Metabólicas
 	<div id="barraContenido"></div>
 	<div id="cuadroPublicaciones">
 		<h2>Publicaciones</h2>
-		{% if lista %}
 		{% get_articles 5 as arti %}
+		{% if arti %}
 		{% for a in arti %}
 		<h3>{{a.title}}</h3>
 				<article>

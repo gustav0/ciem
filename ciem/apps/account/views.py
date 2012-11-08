@@ -15,6 +15,7 @@ from django.forms.models import modelformset_factory
 from django.core.mail import send_mail
 from django.forms.models import model_to_dict
 from django.views.decorators.csrf import csrf_protect
+from django.utils.encoding import smart_str, smart_unicode
 
 def register(request):
 	form = registerForm(request.POST or None)
@@ -129,7 +130,7 @@ def soyProfesional(request):
 		print form.errors
 		if form.is_valid():
 			infouser = list(userProfile.objects.getUserJoin(request.user.id))
-			user = str(infouser[0].first_name)+" "+str(infouser[0].last_name)
+			user = smart_str(infouser[0].first_name)+" "+smart_str(infouser[0].last_name)
 			url = "url"
 		#	send_mail("Solicitd de Profesional","Nombre del solicintante:%s \nVisite el siguiente enlace para revisar mejor la información: %s" % (user,url), 'ciem.luz.mail@gmail.com',['ciem.luz.mail@gmail.com'])
 			form.save()
