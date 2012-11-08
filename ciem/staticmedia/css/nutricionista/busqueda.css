@@ -1,0 +1,25 @@
+.item_busqueda{
+	float: left;
+}
+.label{
+	width: 140px;
+	font-weight: bold;
+	font-size: 	14px;
+	margin-bottom: 6px;
+	margin-top: 20px;
+}
+#id_tallaHasta{
+	margin-left: 6px;
+}
+#id_pesoHasta{
+	margin-left: 6px;
+}
+#id_obesidad{
+	width: 97px;
+}
+.cuadro{
+margin-top: 74px;
+float: left;
+margin-left: -144px;}
+#boton{cursor:pointer;background-color:#009B00;border:1px solid #000;border-radius:.2em;color:#EEE;-webkit-transition-duration:.2s;-moz-transition-duration:.2s;transition-duration:.2s;float:left;font-weight:700;clear:both;margin:0 0 50px 42%;padding:15px 20px;margin-top: 15px;}
+#boton input:hover{background:#04B486;color:#FFF}

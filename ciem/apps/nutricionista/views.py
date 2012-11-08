@@ -27,10 +27,14 @@ def verPeticiones(request):
 
 @login_required(login_url='/login')
 def busqueda(request):
+	bandera=False
 	d = request.GET.get('d','0')
 	form = busquedaForm(request.POST or None)
 	query = userProfile.objects.all()
+	print form.errors
 	if form.is_valid():
+		bandera = True
+		cuenta = 0
 		genero = form.cleaned_data['genero']
 		#edadDesde = form.cleaned_data['edadDesde']
 		#edadHasta = form.cleaned_data['edadHasta']
@@ -41,7 +45,11 @@ def busqueda(request):
 		pesoDesde = form.cleaned_data['pesoDesde']
 		pesoHasta = form.cleaned_data['pesoHasta']
 		obesidad = form.cleaned_data['obesidad']
-		enfermedad = form.cleaned_data['enfermedad']
+		hipertencion = form.cleaned_data['enf_hip']
+		diabetes = form.cleaned_data['enf_dia']
+		cancer = form.cleaned_data['enf_can']
+		colesterol = form.cleaned_data['enf_col']
+		trigliceridos = form.cleaned_data['enf_tri']
 		actividadFisica = form.cleaned_data['actividadFisica']
 		if(genero !='t'):
 			query = query.filter(genero=genero)
@@ -79,21 +87,21 @@ def busqueda(request):
 			for item in datos:
 				id.append(item.user_id) 
 			query = query.filter(pk__in=id)	
-		if(enfermedad != 't'):
-			if(enfermedad == "0"):
-				antropometricos = datosAntropometricos.objects.filter(hipertencion=1)			
-			elif(enfermedad == "1"):
-				antropometricos = datosAntropometricos.objects.filter(diabetes=1)
-			elif(enfermedad == "2"):
-				antropometricos = datosAntropometricos.objects.filter(cancer=1)
-			elif(enfermedad == "3"):
-				antropometricos = datosAntropometricos.objects.filter(colesterol=1)
-			else:
-				antropometricos = datosAntropometricos.objects.filter(trigliceridos=1)
-			id = []
-			for item in antropometricos:
-				id.append(item.user_id) 
-			query = query.filter(pk__in=id)	
+		if(hipertencion):
+			antropometricos = datosAntropometricos.objects.filter(hipertencion=1)
+			query = queryAntro(antropometricos,query)							
+		if(diabetes):
+			antropometricos = datosAntropometricos.objects.filter(diabetes=1)
+			query = queryAntro(antropometricos,query)	
+		if(cancer):
+			antropometricos = datosAntropometricos.objects.filter(cancer=1)
+			query = queryAntro(antropometricos,query)				
+		if(colesterol):
+			antropometricos = datosAntropometricos.objects.filter(colesterol=1)
+			query = queryAntro(antropometricos,query)				
+		if(trigliceridos):
+			antropometricos = datosAntropometricos.objects.filter(trigliceridos=1)
+			query = queryAntro(antropometricos,query)
 		if(actividadFisica != 't'):
 			ipaqs = ipaqResultado.objects.filter(apreciacionIpaq=actividadFisica)
 			id_ipaq=[]
@@ -108,21 +116,23 @@ def busqueda(request):
 		for item in query:
 			id_final.append(item.user_id)
 			print item.user_id	
-	print query.count()	
+	cuenta = query.count()	
 	if(d!='0'):
 		from xlwt import *
 		if d == '1':
-			wb = descargarAntropometrico(id_final)	
+			wb = descargarAntropometrico(id_final)
+			nombreArchivo ="Antropometrico.xls"	
 		elif d == '2':
-			wb = descargarIpaq(id_final)	
+			print "ipaq"
+			wb = descargarIpaq(id_final)
+			nombreArchivo ="Ipaq.xls"		
 		#elif d == '3':
 		#	wb = descargarAntropometrico(query)										
 		response = HttpResponse(mimetype="application/ms-excel")
-		nombreArchivo ="Antropometrico.xls"
 		response['Content-Disposition'] = 'attachment; filename=' + nombreArchivo
 		wb.save(response)
 		return response							
-	ctx={'form': form,}
+	ctx={'form': form,'bandera':bandera, 'cuenta':cuenta}
 	return render_to_response('nutricionista/busqueda.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')
@@ -250,7 +260,7 @@ def descargarIpaq(id_usuarios):
 	pattern.pattern_fore_colour =22
 	style = XFStyle() 
 	style.pattern = pattern
-	nombres = ["FECHA CREACION","ID USUARIO","NOMBRE","TRABAJO","IDIASActivig","ITiempoActivig","ITiempoActivigTRUNK","IDiaActmod","ITiempoActmod","ITiempoActmodTRUNK","IDiaAndar","ITiempoAndar","ITiempoAndarTRUNK","IIViajevehiculo","IITiempoViajaVehi","IIdDiaBicicleta","IITiempoBici","IITiempoBiciTRUNK","IIDiaAndar","IITiempoAndar","IITiempoAndarTRUNK","IIIDiaVigJar","IIITiempoVigJar","IIITiempoVigJarTRUNK","IIIDiaModJar","IIITiempoModJar","IIITiempoModJarTRUNK","IIIDiaModCasa","IIITiempoModCasa","IIITiempoModCasaTRUNK","IVDiasAndar","IVTiempoAndar","	IVTiempoAndarTRUNK","IVDiaVigo","IVTiempoVigo","IVTiempoVigoTRUNK","IVDiaMod","IVTiempoMod","IVTiempoModTRUNK","TiempoSentado","TiempoSentadofindesemana","IAndarMET","IModMet","IVigMet","ITotalMET","IIBiciMET","IIAndarMET","IITotalMET","IIIVigJarMET","IIIModJarMET","IIIModCasaMET","IIITotalMET","IVAndarMET","IVModMET","	IVVigMET","IVTotalMET","METsTotalesAreas","METsAndar","METsMod","METsVig","METsTotalesAct","DiasTAndar","DiasTMod","DiasTVig","TotalDias","MinAndar","MinMod","MinVig","DiasAndarMod","MinAndarMod","Alta","Moderada","Leve","PatronActFisica"]
+	nombres = ["FECHA CREACION","ID USUARIO","NOMBRE","APELLIDO","IDIASActivig","ITiempoActivig","ITiempoActivigTRUNK","IDiaActmod","ITiempoActmod","ITiempoActmodTRUNK","IDiaAndar","ITiempoAndar","ITiempoAndarTRUNK","IIViajevehiculo","IITiempoViajaVehi","IIdDiaBicicleta","IITiempoBici","IITiempoBiciTRUNK","IIDiaAndar","IITiempoAndar","IITiempoAndarTRUNK","IIIDiaVigJar","IIITiempoVigJar","IIITiempoVigJarTRUNK","IIIDiaModJar","IIITiempoModJar","IIITiempoModJarTRUNK","IIIDiaModCasa","IIITiempoModCasa","IIITiempoModCasaTRUNK","IVDiasAndar","IVTiempoAndar","	IVTiempoAndarTRUNK","IVDiaVigo","IVTiempoVigo","IVTiempoVigoTRUNK","IVDiaMod","IVTiempoMod","IVTiempoModTRUNK","TiempoSentado","TiempoSentadofindesemana","IAndarMET","IModMet","IVigMet","ITotalMET","IIBiciMET","IIAndarMET","IITotalMET","IIIVigJarMET","IIIModJarMET","IIIModCasaMET","IIITotalMET","IVAndarMET","IVModMET","	IVVigMET","IVTotalMET","METsTotalesAreas","METsAndar","METsMod","METsVig","METsTotalesAct","DiasTAndar","DiasTMod","DiasTVig","TotalDias","MinAndar","MinMod","MinVig","DiasAndarMod","MinAndarMod","Alta","Moderada","Leve","PatronActFisica"]
 	i = 0
 	for item in nombres:
 		ws.write(0,i,item,style)
@@ -279,3 +289,9 @@ def descargarIpaq(id_usuarios):
 			i += 1
 		j+=1
 	return wb
+	
+def queryAntro(antropometricos,query):
+	id = []
+	for item in antropometricos:
+		id.append(item.user_id) 
+	return query.filter(pk__in=id)	
