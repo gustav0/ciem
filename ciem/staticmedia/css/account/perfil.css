@@ -15,18 +15,18 @@
 .lineaActividad{margin-top:10px;float:left;clear:both}
 .labelActividad{float:left;font-size:17px;width:240px;color:#818D50;text-align:right;margin-right:20px}
 .textoNo{float:left;font-size:16px;font-weight:700;color:#63634A}
-.botonLlenar{float:left;background-color:#CAEBCF;width:240px;height:40px;margin-top:70px;-webkit-border-radius:10px;border-radius:10px;-webkit-box-shadow:1px 3px 2px 0 #B4B4B4;box-shadow:1px 3px 2px 0 #B4B4B4}
+.botonLlenar{float:left;background-color:#CAEBCF;width:270px;height:40px;margin-top:70px;-webkit-border-radius:10px;border-radius:10px;-webkit-box-shadow:1px 3px 2px 0 #B4B4B4;box-shadow:1px 3px 2px 0 #B4B4B4}
 .botonLlenar:hover{background-color:#97CFA0}
 .botonLlenar:active{margin-top:71px;width:235px;height:38px}
 .textoBoton{font-size:13px;text-indent:6px;line-height:37px}
 a .botonLlenar{color:#4B4B4B}
-.botonIniciar{float:left;background-color:#2BAC3E;width:400px;height:40px;-webkit-border-radius:10px;border-radius:10px;-webkit-box-shadow:1px 3px 2px 0 #B4B4B4;box-shadow:1px 3px 2px 0 #B4B4B4;margin:20px}
+.botonIniciar{float:left;background-color:#2BAC3E;width:450px;height:40px;-webkit-border-radius:10px;border-radius:10px;-webkit-box-shadow:1px 3px 2px 0 #B4B4B4;box-shadow:1px 3px 2px 0 #B4B4B4;margin:20px}
 .textoIniciarA{float:left;font-size:22px;text-indent:2px;margin-left:20px;margin-top:5px;letter-spacing:1px;font-weight:700}
 .textoIniciarB{float:left;font-size:15px;text-indent:2px;margin-top:10px;margin-left:10px;letter-spacing:2px}
 .trianguloVerde{width:30px;height:30px;background:url(../../img/flecha.png) 0 0 no-repeat;float:left;margin-top:6px;margin-left:9px}
 a .textoIniciarA,a .textoIniciarB{color:#FFF}
 #botonesProfesional{float:left;width:750px;height:120px}
-.botonProfesional{margin-top:10px;color:#4B4B4B;font-weight:700;background:#58D3F7;float:left;margin-left:80px;height:80px;text-decoration:none;border-radius:.2em;-webkit-box-shadow:1px 3px 2px 0 #B4B4B4;box-shadow:1px 3px 2px 0 #B4B4B4;-webkit-transition-duration:.2s;-moz-transition-duration:.2s;transition-duration:.2s;padding:5px}
+.botonProfesional{margin-top:10px;color:#4B4B4B;font-weight:700;background:#58D3F7;float:left;margin-left:50px;height:80px;text-decoration:none;border-radius:.2em;-webkit-box-shadow:1px 3px 2px 0 #B4B4B4;box-shadow:1px 3px 2px 0 #B4B4B4;-webkit-transition-duration:.2s;-moz-transition-duration:.2s;transition-duration:.2s;padding:5px}
 .botonProfesional p{margin:0}
 .botonProfesional img{width:50px;height:50px;margin-left:30%;float:left}
 .publicador{margin-top:7px;color:#4B4B4B;width:206px;padding-top:6px;font-weight:700;background:#58D3F7;text-align:center;float:left;margin-left:275px;height:30px;text-decoration:none;border-radius:10.2em;-webkit-box-shadow:1px 3px 2px 0 #B4B4B4;box-shadow:1px 3px 2px 0 #B4B4B4;-webkit-transition-duration:.2s;-moz-transition-duration:.2s;transition-duration:.2s}
