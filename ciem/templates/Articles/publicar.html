@@ -5,6 +5,11 @@
 {% block title %}
 Publicaciones de articulos
 {% endblock%}
+{% block js %}
+<script src="{{ MEDIA_URL }}js/adquiridos/jquery-1.8.1.min.js" type="text/javascript">
+</script>
+<script src="{{ MEDIA_URL }}js/propios/publicar.js" type="text/javascript"></script>
+{% endblock %}
 {% block clear %}{% endblock%}
 {% block content %}
 		<section id="publicaciones">
@@ -16,8 +21,6 @@ Publicaciones de articulos
 				<div id="boton">
 					<input type="submit" value="Enviar" id="botonPublicar" name="boton"/>
 				</div>
-					{{ form.errors }}
-					{{ form.non_field_errors }}
 				</form>
        		{% else %}
        			<div id="aviso">

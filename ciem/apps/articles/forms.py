@@ -10,13 +10,13 @@ class articleNuevoForm(ModelForm):
 	category = forms.ModelChoiceField(label="Categoria",queryset=Category.objects.all())
 	title = forms.CharField(label='Titulo')
 	body = forms.CharField(label='Cuerpo del articulo', widget=forms.Textarea())
-	tags = forms.CharField(label='Etiquetas',required=True)
+	tags = forms.CharField(label='Etiquetas',required=False)
 	publish_date = forms.DateTimeField(label='Fecha de publicacion', initial=datetime.now)
 	status = forms.ChoiceField(label='Estatus del articulo',choices=((DRAFT, 'Borrador'),(PUBLISHED, 'Publicar')))
-	featured = forms.BooleanField(label='Destacados')
+	featured = forms.BooleanField(label='Destacados', required=False)
 	slug = forms.CharField(label='Ficha')
-	summary = forms.CharField(label='Resumen',required=True)
-	snippet = forms.CharField(label='Fragmento',required=True, widget=forms.Textarea())
+	summary = forms.CharField(label='Resumen', required=False)
+	snippet = forms.CharField(label='Fragmento', required=False, widget=forms.Textarea())
 	class Meta:
 		model = Article
 		exclude = ['author','related_articles']
