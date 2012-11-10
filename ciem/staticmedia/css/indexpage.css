@@ -38,6 +38,7 @@ article{
 
 .errorlist{
 	color: red;
+	list-style: none;
 }
 #alinearCuerpo{
 	width: 960px;
