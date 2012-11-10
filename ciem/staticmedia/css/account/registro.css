@@ -4,3 +4,4 @@
 form{text-align:center}
 #botonFinalizar input{cursor:pointer;background-color:#009B00;border:1px solid #000;border-radius:.2em;color:#EEE;-webkit-transition-duration:.2s;-moz-transition-duration:.2s;transition-duration:.2s;float:left;font-weight:700;clear:both;margin:0 0 50px 42%;padding:15px 40px}
 #botonFinalizar input:hover{background:#04B486;color:#FFF}
+.noDisplayDiv{display:none;}

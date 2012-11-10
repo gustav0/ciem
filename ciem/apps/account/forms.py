@@ -19,7 +19,7 @@ class registerForm(UserCreationForm):
 	fecha_nacimiento = forms.DateField(input_formats=['%d-%m-%Y'], widget=forms.TextInput(attrs={'placeholder': 'dd-mm-aaaa','autocomplete':'off'}))
 	first_name = forms.CharField(max_length=30, label='Nombre', widget=forms.TextInput(attrs={'placeholder': 'Nombre',}))
 	last_name = forms.CharField(max_length=30, label='Apellido', widget=forms.TextInput(attrs={'placeholder': 'Apellido'}))
-	email = forms.EmailField(max_length=75, label='Email',widget=forms.TextInput(attrs={'placeholder': 'nick@email.com'}))
+	email = forms.EmailField(required=False,max_length=75, label='Email',widget=forms.TextInput(attrs={'placeholder': 'nick@email.com'}))
 	pais = forms.ModelChoiceField(label="País", queryset=Country.objects.all(), widget=forms.Select(attrs={'class':'selector'}))
 	venezuela = forms.ModelChoiceField(label='Estado', queryset=VeState.objects.all(), widget=forms.Select(attrs={'class':'selector'}))
 	preguntaSecreta = forms.ChoiceField(label="Pregunta secreta", choices=userProfile.PREGUNTA)

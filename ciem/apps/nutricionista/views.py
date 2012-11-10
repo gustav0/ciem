@@ -31,6 +31,7 @@ def busqueda(request):
 	d = request.GET.get('d','0')
 	form = busquedaForm(request.POST or None)
 	query = userProfile.objects.all()
+	antropometricoPerfil = datosAntropometricos.objects.all()
 	print form.errors
 	if form.is_valid():
 		bandera = True
@@ -38,9 +39,8 @@ def busqueda(request):
 		genero = form.cleaned_data['genero']
 		#edadDesde = form.cleaned_data['edadDesde']
 		#edadHasta = form.cleaned_data['edadHasta']
-		#pais = form.cleaned_data['pais']
+		pais = form.cleaned_data['pais']
 		tallaDesde = form.cleaned_data['tallaDesde']
-		#print tallaDesde
 		tallaHasta = form.cleaned_data['tallaHasta']
 		pesoDesde = form.cleaned_data['pesoDesde']
 		pesoHasta = form.cleaned_data['pesoHasta']
@@ -51,60 +51,83 @@ def busqueda(request):
 		colesterol = form.cleaned_data['enf_col']
 		trigliceridos = form.cleaned_data['enf_tri']
 		actividadFisica = form.cleaned_data['actividadFisica']
+
+		# BUSQUEDA POR GENERO
 		if(genero !='t'):
 			query = query.filter(genero=genero)
+
+		# BUSQUEDA POR PAIS
+		if(pais):
+			query = query.filter(pais=pais)			
+
+		# BUSQUEDA POR TALLA
 		if(tallaDesde != 't' or tallaHasta != 't'):	
 			if(tallaDesde != 't' and tallaHasta !='t'):
 				antropometricos = datosAntropometricos.objects.filter(estatura__range=(tallaDesde,tallaHasta))
+				antropometricoPerfil = datosAntropometricos.objects.filter(estatura__range=(tallaDesde,tallaHasta))	
 			elif(tallaDesde != 't'):
 				antropometricos = datosAntropometricos.objects.filter(estatura__gte=tallaDesde)
+				antropometricoPerfil= datosAntropometricos.objects.filter(estatura__gte=tallaDesde)
 			elif(tallaHasta != 't'):
 				antropometricos = datosAntropometricos.objects.filter(estatura__lte=tallaHasta)	
+				antropometricoPerfil= datosAntropometricos.objects.filter(estatura__lte=tallaHasta)	
 			id = []
 			for item in antropometricos:
 				id.append(item.user_id) 
 			query = query.filter(pk__in=id)	
-		if(genero !='t'):
-			query = query.filter(genero=genero)
 
+		# BUSQUEDA POR PESO
 		if(pesoDesde != 't' or pesoHasta != 't'):	
 			if(pesoDesde != 't' and pesoHasta !='t'):
 				antropometricos = datosAntropometricos.objects.filter(peso__range=(pesoDesde,pesoHasta))
-				antropometricoPerfil = antropometricos.filter(peso__range=(pesoDesde,pesoHasta))
+				antropometricoPerfil = antropometricoPerfil.filter(peso__range=(pesoDesde,pesoHasta))
 			elif(pesoDesde != 't'):
 				antropometricos = datosAntropometricos.objects.filter(peso__gte=pesoDesde)
-				#antropometricoPerfil = antropometricos.filter(peso__range=(pesoDesde,pesoHasta))
+				antropometricoPerfil = antropometricos.filter(peso__gte=pesoDesde)
 			elif(pesoHasta != 't'):
-				antropometricos = datosAntropometricos.objects.filter(peso__lte=pesoHasta)	
+				antropometricos = datosAntropometricos.objects.filter(peso__lte=pesoHasta)
+				antropometricoPerfil = antropometricos.filter(peso__lte=pesoHasta)
 			id = []
 			for item in antropometricos:
 				id.append(item.user_id) 
-			query = query.filter(pk__in=id)		
+			query = query.filter(pk__in=id)	
+
+		# BUSQUEDA POR OBESIDAD
 		if(obesidad != 't'):
 			antropometricos = antropometricosResultado.objects.filter(apreciacion_obesidad=obesidad)
 			id_antro=[]
 			for item in antropometricos:
 				id_antro.append(item.datosAntropometricos_id)
 			datos = datosAntropometricos.objects.filter(pk__in=id_antro)
+			antropometricoPerfil = antropometricoPerfil.filter(pk__in=id_antro)
 			id = []
 			for item in datos:
 				id.append(item.user_id) 
 			query = query.filter(pk__in=id)	
+
+		# BUSQUEDA POR PATOLOGIA
 		if(hipertencion):
 			antropometricos = datosAntropometricos.objects.filter(hipertencion=1)
+			antropometricoPerfil = antropometricoPerfil.filter(hipertencion=1)
 			query = queryAntro(antropometricos,query)							
 		if(diabetes):
 			antropometricos = datosAntropometricos.objects.filter(diabetes=1)
+			antropometricoPerfil = antropometricoPerfil.filter(diabetes=1)
 			query = queryAntro(antropometricos,query)	
 		if(cancer):
 			antropometricos = datosAntropometricos.objects.filter(cancer=1)
+			antropometricoPerfil = antropometricoPerfil.filter(cancer=1)
 			query = queryAntro(antropometricos,query)				
 		if(colesterol):
 			antropometricos = datosAntropometricos.objects.filter(colesterol=1)
+			antropometricoPerfil = antropometricoPerfil.filter(colesterol=1)
 			query = queryAntro(antropometricos,query)				
 		if(trigliceridos):
 			antropometricos = datosAntropometricos.objects.filter(trigliceridos=1)
+			antropometricoPerfil = antropometricoPerfil.filter(trigliceridos=1)
 			query = queryAntro(antropometricos,query)
+
+		# BUSQUEDA POR ACTIVIDAD FISICA	
 		if(actividadFisica != 't'):
 			ipaqs = ipaqResultado.objects.filter(apreciacionIpaq=actividadFisica)
 			id_ipaq=[]
@@ -119,11 +142,18 @@ def busqueda(request):
 		for item in query:
 			id_final.append(item.user_id)
 			print item.user_id	
-	cuenta = query.count()	
+		id_antro = []	
+		for per in antropometricoPerfil:
+			id_antro.append(per.id)
+		# COUNTS	
+		querySetAntropometrico = datosAntropometricos.objects.filter(user_id__in=id_final, pk__in=id_antro)
+		#print "CUENTA ANTRO" 
+	#	print querySetAntropometrico.count()	
+	cuenta = query.count()
 	if(d!='0'):
 		from xlwt import *
 		if d == '1':
-			wb = descargarAntropometrico(id_final)
+			wb = descargarAntropometrico(querySetAntropometrico)
 			nombreArchivo ="Antropometrico.xls"	
 		elif d == '2':
 			wb = descargarIpaq(id_final, actividadFisica)
@@ -217,8 +247,7 @@ def crear_excel(id):
 		i += 1
 	return wb
 
-def descargarAntropometrico(id_usuarios):
-	querySetAntropometrico = datosAntropometricos.objects.filter(user_id__in=id_usuarios)
+def descargarAntropometrico(querySetAntropometrico):
 	from xlwt import *
 	wb = Workbook()
 	ws = wb.add_sheet('Antropometrico')
