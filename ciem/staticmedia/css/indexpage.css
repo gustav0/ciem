@@ -282,9 +282,10 @@ a.textoBoton{
 }
 
 .boton:hover{
-	background: #009999;
+	background: #65C569;
+	border: 1px solid #65C569;
+	box-shadow: inset 0 -1px;
 	color:black;
-	border: 1px solid #D7D7D7;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
 	overflow: auto;
 }

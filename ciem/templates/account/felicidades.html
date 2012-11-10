@@ -3,9 +3,13 @@
 {% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/account/felicidades.css">
 {% endblock %}
 {% block content %}
+{% if mensaje and enlace %}
 <div id="felicidades" class="agradecimiento">
 	<span aria-hidden="true">C</span>
-	Usted ha finalizado exitosamente este paso, le agradecemos su colaboración en nuestra investigación.
-	<a href="{% url account_frecuencia %}">[Continuar]</a>
+	{{mensaje|escape}}
+	Para continuar hacer clic <a href="{{enlace}}">[Aquí]</a>
 </div>
+{% else %}
+Error.
+{% endif %}
 {% endblock %}

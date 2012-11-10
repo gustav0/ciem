@@ -14,4 +14,8 @@ $(function(){
 		}
 	});
 
+	$("#formulario").submit(function(){
+		$("#id_venezuela").removeAttr('disabled');
+	});
+
 });
