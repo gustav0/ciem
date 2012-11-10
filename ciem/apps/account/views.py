@@ -244,7 +244,7 @@ def frecuencia(request):
 			else:
 				preguntas = preguntasFormSet(queryset=dataFrecuenciaConsumo.objects.none())
 		elif progreso=='9':
-			return HttpResponseRedirect('/felicidades/')
+			return HttpResponseRedirect('/felicidades/?mensaje=frecuencia')
 	else:
 		if request.method == "POST":
 			frecuenciaConsumo.objects.create(user=request.user,progreso='1')
@@ -308,7 +308,7 @@ def recordatorio(request):
 					alimentoRecordar.save()
 				except Exception, e:
 					print "ERROR"
-			return HttpResponseRedirect('/felicidades/')
+			return HttpResponseRedirect('/felicidades/?mensaje=recordatorio')
 	alimentos = alimento.objects.all().order_by('nombre')
 	ctx = {'form':form,'alimentos':alimentos, 'id':request.user.id}
 	return render_to_response('account/recordatorio24.html', ctx, context_instance=RequestContext(request))
@@ -320,21 +320,36 @@ def indicadores(request):
 		form = indicadoresDieteticosForm(request.POST or None)
 		if form.is_valid():
 			form.save()
-			return HttpResponseRedirect('/felicidades/')
+			return HttpResponseRedirect('/felicidades/?mensaje=indicadores')
 		ctx= {'form':form, 'id':request.user.id, }
 		return render_to_response('account/indicadores.html', ctx, context_instance=RequestContext(request))
 	return HttpResponseRedirect('/felicidades/')
 	
 
 def felicidades(request):
-	ctx = {}
+	getMensaje = request.GET.get('mensaje')
+	mensaje = 'Opción no valida, le invitamos que ingrese a su perfil.'
+	enlace = '/perfil/'
+	if getMensaje == 'indicadores':
+		mensaje = 'Usted ha finalizado exitosamente %s, le agradecemos su colaboración en nuestra investigación.' % ('los indicadores dieteticos')
+		enlace = '/frecuencia/'
+	if getMensaje == 'frecuencia7':
+		mensaje = 'Usted ha finalizado exitosamente %s, le agradecemos su colaboración en nuestra investigación.' % ('la frecuencia de consumo 7 días')
+		enlace = '/perfil/'
+	if getMensaje == 'frecuencia':
+		mensaje = 'Usted ha finalizado exitosamente %s, le agradecemos su colaboración en nuestra investigación.' % ('la frecuencia de consumo del mes')
+		enlace = '/frecuencia7/'
+	if getMensaje == 'recordatorio':
+		mensaje = 'Usted ha finalizado exitosamente %s, le agradecemos su colaboración en nuestra investigación.' % ('el recordatorio de 24 horas')
+		enlace = '/indicadores/'
+	ctx = {'mensaje':mensaje, 'enlace':enlace}
 	return render_to_response('account/felicidades.html', ctx,  context_instance=RequestContext(request))
 
 def frecuencia7(request):
 	form = frecuencia7Form(request.POST or None)
 	if form.is_valid():
 			form.save()
-			return HttpResponseRedirect('/felicidades/')
+			return HttpResponseRedirect('/felicidades/?mensaje=frecuencia7')
 	ctx = {'form':form}
 	return render_to_response('account/frecuencia7.html', ctx,  context_instance=RequestContext(request))
 
