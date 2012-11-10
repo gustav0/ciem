@@ -57,7 +57,7 @@ def busqueda(request):
 			query = query.filter(genero=genero)
 
 		# BUSQUEDA POR PAIS
-		if(pais !='t'):
+		if(pais):
 			query = query.filter(pais=pais)			
 
 		# BUSQUEDA POR TALLA
