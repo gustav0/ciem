@@ -7,6 +7,7 @@ from django.core.paginator import EmptyPage, PageNotAnInteger
 from ciem.apps.account.models import datosAntropometricos,antropometricosResultado,userProfile,ipaqResultado,ipaq,frecuenciaConsumo, profesional, indicadoresDieteticos
 from django.contrib.auth.models import User, Group
 from ciem.apps.nutricionista.forms import *
+from time import gmtime, strftime
 
 @login_required(login_url='/login')
 def verPeticiones(request):
@@ -26,6 +27,7 @@ def verPeticiones(request):
 	return render_to_response('nutricionista/peticiones.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')
+@user_passes_test(lambda u: u.groups.filter(name='profesional').count() == 1 or u.groups.filter(name='profesional2').count() == 1 or u.is_superuser, login_url='/perfil/')
 def busqueda(request):
 	bandera=False
 	d = request.GET.get('d','0')
@@ -37,8 +39,8 @@ def busqueda(request):
 		bandera = True
 		cuenta = 0
 		genero = form.cleaned_data['genero']
-		#edadDesde = form.cleaned_data['edadDesde']
-		#edadHasta = form.cleaned_data['edadHasta']
+		edadDesde = form.cleaned_data['edadDesde']
+		edadHasta = form.cleaned_data['edadHasta']
 		pais = form.cleaned_data['pais']
 		tallaDesde = form.cleaned_data['tallaDesde']
 		tallaHasta = form.cleaned_data['tallaHasta']
@@ -51,15 +53,31 @@ def busqueda(request):
 		colesterol = form.cleaned_data['enf_col']
 		trigliceridos = form.cleaned_data['enf_tri']
 		actividadFisica = form.cleaned_data['actividadFisica']
-
+		currentYear =  strftime("%Y", gmtime())
+		currentDay =  strftime("%d", gmtime())
+		currentMonth =  strftime("%m", gmtime())
 		# BUSQUEDA POR GENERO
 		if(genero !='t'):
 			query = query.filter(genero=genero)
 
 		# BUSQUEDA POR PAIS
 		if(pais):
-			query = query.filter(pais=pais)			
+			query = query.filter(pais=pais)		
 
+		print "fecha hasta"
+		#BUSQUEDA POR EDAD
+		if(edadDesde != 't'):
+			yearHasta = int(currentYear)-int(edadDesde)
+		if(edadHasta != 't'):
+			yearDesde = int(currentYear)-int(edadHasta)
+		if(edadDesde != 't' or edadHasta != 't'):	
+			if(edadDesde != 't' and edadHasta !='t'):
+				query = query.filter(fecha_nacimiento__range=(datetime.date(yearDesde, 1, 1),datetime.date(yearHasta, int(currentMonth), int(currentDay))))	
+			elif(edadDesde != 't'):
+				query = query.filter(fecha_nacimiento__lte=(datetime.date(yearHasta, int(currentMonth), int(currentDay))))	
+			elif(edadHasta != 't'):
+				query = query.filter(fecha_nacimiento__gte=(datetime.date(yearDesde, 1, 1)))
+	
 		# BUSQUEDA POR TALLA
 		if(tallaDesde != 't' or tallaHasta != 't'):	
 			if(tallaDesde != 't' and tallaHasta !='t'):
