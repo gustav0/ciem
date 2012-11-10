@@ -38,8 +38,20 @@
 		</div>
 		{% endif %}
 	{% else %}
-
-		<div id="inicioFrecuencia">Presione iniciar para empezar a llenar su formulario de frecuencia de consumo alimenticio.</div>
+		<div id="inicioFrecuencia">Presione iniciar para empezar a llenar su formulario de frecuencia de consumo alimenticio. Luego de leer las instrucciones.</div>
+		<div id="infocontent">
+			<div id="infoPorcion">
+				<img src="{{ MEDIA_URL }}img/infoporcion.jpg" alt="info porcion">
+			</div>
+			<div id="imgPorcion">
+				<label>Porción pequeña</label>
+				<label>Porción mediana</label>
+				<label>Porción grande</label>
+					<img src="{{ MEDIA_URL }}img/arepapequena.jpg" alt="arepa pequeña">
+					<img src="{{ MEDIA_URL }}img/arepamediana.jpg" alt="arepa mediana">
+					<img src="{{ MEDIA_URL }}img/arepagrande.jpg" alt="arepa grande">		
+			</div>
+		</div>
 		<form action="" id="botonInicioFrecuencia" method='post'>
 			{% csrf_token %}
 		<input value="Iniciar" type="submit" >

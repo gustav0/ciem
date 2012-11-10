@@ -5,6 +5,7 @@
 {% block content %}
 <script language="javascript" type="text/javascript" src="{{ MEDIA_URL }}js/adquiridos/jquery-1.8.1.min.js"></script>
 <script src="{{ MEDIA_URL }}js/propios/busqueda.js"></script>
+<div class="cuadroBuscar">
 <form action="" id="formulario" method="post" enctype="multipart/form-data">
 	{% csrf_token %}
 	<div class="item_busqueda">
@@ -27,23 +28,28 @@
 	</div>	
 	<div class="item_busqueda">
 		<div class="label"> PATOLOGÍA </div> 
-		<div class="valor">{{ form.enf_hip }} Hipertención</div>
-		<div class="valor">{{ form.enf_dia }} Diábetes</div>
+		<div class="valor">{{ form.enf_hip }} Hipertensión</div>
+		<div class="valor">{{ form.enf_dia }} Diabetes</div>
 		<div class="valor">{{ form.enf_can }} Cáncer</div>
 		<div class="valor">{{ form.enf_col }} Colesterol</div>	
-		<div class="valor">{{ form.enf_tri }} Trigliceridos</div>		
+		<div class="valor">{{ form.enf_tri }} Triglicéridos</div>		
 	</div>	
 	<div class="item_busqueda">
 		<div class="label"> ACTIVIDAD FÍSICA </div> 
 		<div class="valor">{{ form.actividadFisica }}</div>
-	</div>						
+	</div>	
+	<div class="item_busqueda">
+		<div class="label"> País </div> 
+		<div class="valor">{{ form.pais }}</div>
+	</div>							
 <input id="boton" type="submit" value="Buscar">
 </form>
+</div>
 {% if bandera %}
-<div class="cuadro">
 <div id="personas_encontradas"> Se han encontrado ({{cuenta}}) pacientes</div>
-<div id="link1"> Descargar informacion antropométrica </div>
-<div id="link2"> Descargar IPAQ </div>
+<div class="cuadro">
+<div class="link" id="link1"> Descargar informacion antropométrica </div>
+<div class= "link" id="link2"> Descargar IPAQ </div>
 <div id="link3"></div>
 </div>
 {% endif %}

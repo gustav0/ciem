@@ -12,7 +12,7 @@
 {% endblock%}
 {% block content %}
 <h2>Registro de nuevo usuario</h2>
-	<form action="." method="POST">
+	<form id="formulario" action="." method="POST">
 		{% csrf_token %}
 		<div id="usernameForm" class="campoForm">
 			{{ form.as_p }}
