@@ -70,13 +70,16 @@ def busqueda(request):
 		if(pesoDesde != 't' or pesoHasta != 't'):	
 			if(pesoDesde != 't' and pesoHasta !='t'):
 				antropometricos = datosAntropometricos.objects.filter(peso__range=(pesoDesde,pesoHasta))
+				antropometricoPerfil = antropometricos.filter(peso__range=(pesoDesde,pesoHasta))
 			elif(pesoDesde != 't'):
 				antropometricos = datosAntropometricos.objects.filter(peso__gte=pesoDesde)
+				#antropometricoPerfil = antropometricos.filter(peso__range=(pesoDesde,pesoHasta))
 			elif(pesoHasta != 't'):
 				antropometricos = datosAntropometricos.objects.filter(peso__lte=pesoHasta)	
 			id = []
 			for item in antropometricos:
 				id.append(item.user_id) 
+			query = query.filter(pk__in=id)		
 		if(obesidad != 't'):
 			antropometricos = antropometricosResultado.objects.filter(apreciacion_obesidad=obesidad)
 			id_antro=[]
@@ -123,8 +126,7 @@ def busqueda(request):
 			wb = descargarAntropometrico(id_final)
 			nombreArchivo ="Antropometrico.xls"	
 		elif d == '2':
-			print "ipaq"
-			wb = descargarIpaq(id_final)
+			wb = descargarIpaq(id_final, actividadFisica)
 			nombreArchivo ="Ipaq.xls"		
 		#elif d == '3':
 		#	wb = descargarAntropometrico(query)										
@@ -256,7 +258,7 @@ def descargarAntropometrico(id_usuarios):
 		j+=1
 	return wb
 
-def descargarIpaq(id_usuarios):
+def descargarIpaq(id_usuarios, actividadFisica):
 	querySetIpaq = ipaq.objects.filter(user_id__in=id_usuarios)
 	from xlwt import *
 	wb = Workbook()
@@ -275,27 +277,33 @@ def descargarIpaq(id_usuarios):
 	j=1	
 	for ipq in querySetIpaq:
 		usuario = User.objects.get(pk=ipq.user_id)
-		item = ipaqResultado.objects.get(ipaq_id=ipq.id)
-		lista = [ipq.fecha_creacion,ipq.user_id,usuario.first_name,usuario.last_name,item.id,item.trabaja,ipq.p2a_trabajo,item.minVigorosoTrabajo,item.minVigorosoTrabajo, \
-		ipq.p4a_trabajo, item.minModeradoTrabajo,item.minModeradoTrabajo,ipq.p6a_trabajo,item.minAndarTrabajo,\
-		item.minModeradoTrabajo,ipq.p8b_transporte,item.minVehiculo,ipq.p10a_transporte,item.minModeradoTransporte,\
-		item.minModeradoTransporte,ipq.p12a_transporte, item.minAndarTransporte, item.minAndarTransporte, ipq.p14a_hogar,\
-		item.minVigorosoHogar, item.minVigorosoHogar, ipq.p16a_hogar, item.minModeradoHogar, item.minModeradoHogar,\
-		ipq.p19a_hogar, item.minModeradoHogar, item.minModeradoHogar, ipq.p20a_recreacion, item.minAndarRecre, \
-		item.minAndarRecre, ipq.p22a_recreacion, item.minVigorosoRecre, item.minVigorosoRecre, ipq.p24a_recreacion,\
-		item.minModeradoRecre, item.minModeradoRecre, "tiempoSentado","tiempoSentadoFS", item.metAndarTrabajo, \
-		item.metModeradoTrabajo, item.metVigorosoTrabajo, item.metTrabajo, item.metModeradoTransporte, item.metAndarTransporte,\
-		item. metTransporte, item.metVigorosoHogar, item.metModeradoJHogar, item.metModeradoHogar, item.metHogar,\
-		item.metAndarRecreacion, item.metModeradoRecreacion, item.metVigorosoRecreacion, item.metRecreacion, item.metTotal, \
-		item.metTotalAndar, item.metTotalModerado, item.metTotalVigoroso, item.metTotal,item.diasTotalAndar, item.diasTotalModerado, \
-		item.diasTotalVigoroso, item.diasTotal, item.tiempoAndar, item.tiempoModerado, item.tiempoVigoroso]
-		i=0
-		for item in lista:
-			ws.write(j,i,item)
-			i += 1
-		j+=1
+		try:
+			if actividadFisica == 't':
+				item = ipaqResultado.objects.get(ipaq_id=ipq.id)
+			else:
+				item = ipaqResultado.objects.get(ipaq_id=ipq.id, apreciacionIpaq=actividadFisica)
+			lista = [ipq.fecha_creacion,ipq.user_id,usuario.first_name,usuario.last_name,item.id,item.trabaja,ipq.p2a_trabajo,item.minVigorosoTrabajo,item.minVigorosoTrabajo, \
+			ipq.p4a_trabajo, item.minModeradoTrabajo,item.minModeradoTrabajo,ipq.p6a_trabajo,item.minAndarTrabajo,\
+			item.minModeradoTrabajo,ipq.p8b_transporte,item.minVehiculo,ipq.p10a_transporte,item.minModeradoTransporte,\
+			item.minModeradoTransporte,ipq.p12a_transporte, item.minAndarTransporte, item.minAndarTransporte, ipq.p14a_hogar,\
+			item.minVigorosoHogar, item.minVigorosoHogar, ipq.p16a_hogar, item.minModeradoHogar, item.minModeradoHogar,\
+			ipq.p19a_hogar, item.minModeradoHogar, item.minModeradoHogar, ipq.p20a_recreacion, item.minAndarRecre, \
+			item.minAndarRecre, ipq.p22a_recreacion, item.minVigorosoRecre, item.minVigorosoRecre, ipq.p24a_recreacion,\
+			item.minModeradoRecre, item.minModeradoRecre, "tiempoSentado","tiempoSentadoFS", item.metAndarTrabajo, \
+			item.metModeradoTrabajo, item.metVigorosoTrabajo, item.metTrabajo, item.metModeradoTransporte, item.metAndarTransporte,\
+			item. metTransporte, item.metVigorosoHogar, item.metModeradoJHogar, item.metModeradoHogar, item.metHogar,\
+			item.metAndarRecreacion, item.metModeradoRecreacion, item.metVigorosoRecreacion, item.metRecreacion, item.metTotal, \
+			item.metTotalAndar, item.metTotalModerado, item.metTotalVigoroso, item.metTotal,item.diasTotalAndar, item.diasTotalModerado, \
+			item.diasTotalVigoroso, item.diasTotal, item.tiempoAndar, item.tiempoModerado, item.tiempoVigoroso, " "," "," ",item.apreciacionIpaq]
+			i=0
+			for item in lista:
+				ws.write(j,i,item)
+				i += 1
+			j+=1
+		except:
+			j=j	
 	return wb
-	
+
 def queryAntro(antropometricos,query):
 	id = []
 	for item in antropometricos:

@@ -19,8 +19,8 @@
 		</div>
 		<div class="generalDerecha">
 			<div class="lineaGeneral"><div class="labelGeneral">Fecha de nacimiento:</div><div class="contenidoGeneral">{{ profile.fecha_nacimiento }}</div></div>
-			<div class="lineaGeneral"><div class="labelGeneral">Pais:</div><div class="contenidoGeneral">{{ profile.pais }}</div></div>
-			<div class="lineaGeneral"><div class="labelGeneral">Municipio:</div><div class="contenidoGeneral">{{ profile.municipio }}</div></div>
+			<div class="lineaGeneral"><div class="labelGeneral">País:</div><div class="contenidoGeneral">{{ profile.pais }}</div></div>
+			<div class="lineaGeneral"><div class="labelGeneral">Estado:</div><div class="contenidoGeneral">{{ profile.municipio }}</div></div>
 		</div>
 	</div>
 	{% if user|in_group:"profesional" or user|in_group:"profesional2" or user.is_superuser %}
