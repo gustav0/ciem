@@ -10,28 +10,28 @@
 	<div class="alineacionResultado">
 		<div class="contenidoResultado">
 			<div class="identificadorValor">
-				<div class="identificadorFecha">Fecha</div>
-				<div class="identificadorPeso">Peso</div>
-				<div class="identificadorEstatura">Estatura</div>
-				<div class="identificadorCirCad">Cir. cadera</div>
-				<div class="identificadorCirCin">Cir. cintura</div>
-				<div class="identificadorCancer">Cáncer</div>
-				<div class="identificadorDiabetes">Diabetes</div>
-				<div class="identificadorColesterol">Colesterol</div>
-				<div class="identificadorHipertencion">Hipertensión</div>
-				<div class="identificadorTrigliceridos">Triglicéridos</div>
+				<div class="identificador1">Fecha</div>
+				<div class="identificador1">Peso</div>
+				<div class="identificador1">Estatura</div>
+				<div class="identificador1">Cir. cadera</div>
+				<div class="identificador1">Cir. cintura</div>
+				<div class="identificador">Cáncer</div>
+				<div class="identificador">Diabetes</div>
+				<div class="identificador">Colesterol</div>
+				<div class="identificador">Hipertensión</div>
+				<div class="identificador">Triglicéridos</div>
 			</div>
 			<div class="resultadoValor">
-				<div class="resultadoFecha">{{ apreciacion.0.fecha_creacion|date:"d,M Y" }}</div>
-				<div class="resultadoPeso">{{ apreciacion.0.peso|floatformat:0}} Kg</div>
-				<div class="resultadoEstatura">{{ apreciacion.0.estatura|floatformat:0}} cm</div>
-				<div class="resultadoCirCad">{{ apreciacion.0.circunferencia_cadera|floatformat:0}} cm</div>
-				<div class="resultadoCirCin">{{ apreciacion.0.circunferencia_cintura|floatformat:0}} cm</div>
-				<div class="resultadoCancer"><div class="{% if apreciacion.0.cancer %}divPositivo{% else %}divNegativo{% endif %}"></div></div>
-				<div class="resultadoDiabetes"><div class="{% if apreciacion.0.diabetes %}divPositivo{% else %}divNegativo{% endif %}"></div></div>
-				<div class="resultadoColesterol"><div class="{% if apreciacion.0.colesterol %}divPositivo{% else %}divNegativo{% endif %}"></div></div>
-				<div class="resultadoHipertencion"><div class="{% if apreciacion.0.hipertencion %}divPositivo{% else %}divNegativo{% endif %}"></div></div>
-				<div class="resultadoTrigliceridos"><div class="{% if apreciacion.0.trigliceridos %}divPositivo{% else %}divNegativo{% endif %}"></div></div>
+				<div class="resultado1">{{ apreciacion.0.fecha_creacion|date:"d,M Y" }}</div>
+				<div class="resultado1">{{ apreciacion.0.peso|floatformat:0}} Kg</div>
+				<div class="resultado1">{{ apreciacion.0.estatura|floatformat:0}} cm</div>
+				<div class="resultado1">{{ apreciacion.0.circunferencia_cadera|floatformat:0}} cm</div>
+				<div class="resultado1">{{ apreciacion.0.circunferencia_cintura|floatformat:0}} cm</div>
+				<div class="resultado"><div class="{% if apreciacion.0.cancer %}divPositivo{% else %}divNegativo{% endif %}"></div></div>
+				<div class="resultado"><div class="{% if apreciacion.0.diabetes %}divPositivo{% else %}divNegativo{% endif %}"></div></div>
+				<div class="resultado"><div class="{% if apreciacion.0.colesterol %}divPositivo{% else %}divNegativo{% endif %}"></div></div>
+				<div class="resultado"><div class="{% if apreciacion.0.hipertencion %}divPositivo{% else %}divNegativo{% endif %}"></div></div>
+				<div class="resultado"><div class="{% if apreciacion.0.trigliceridos %}divPositivo{% else %}divNegativo{% endif %}"></div></div>
 			</div>
 			<div class="apreciacionResultado">
 				<div class="apreciacionObesidad">
@@ -60,7 +60,7 @@
 		<div class="tituloResultado">Resultados Antropométricos</div>
 	</div>
 	<div class="recomendarIPAQ">Le recomendamos llenar el cuestionario de actividad Física (IPAQ)</div>
-	<a href="{% url account_ipaq %}"><div class="enlaceIPAQ">AQUI</div></a>
+	<a href="{% url account_ipaq %}"><div class="enlaceIPAQ">AQUÍ</div></a>
 </div>
 {% else %}
 <div id="antropometricos">

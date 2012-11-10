@@ -30,37 +30,24 @@
 		<div id="botonesProfesional">
 			<a href="{% url nutricionista_perfilUsuarios %}">
 				<div class="botonProfesional">
-				<p>Ver lista de pacientes</p>
+				<p>Lista de pacientes</p>
 				<img src="{{ MEDIA_URL }}img/user-icon.png" alt="listapacientes">
 				</div>
 			</a>
 			<a href="{% url nuevoArticulo %}">
 				<div class="botonProfesional">
-				<p>Agregar publicación</p>
+				<p>Nueva publicación</p>
 				<img src="{{ MEDIA_URL }}img/Add-Folder-icon.png" alt="crearpublicacion">
 				</div>
 			</a>
 			{% if user|in_group:"profesional2" or user.is_superuser %}
 			<a href="{% url nutricionista_peticiones %}">
 				<div class="botonProfesional">
-				<p>Ver solicitudes de profesionales</p>
+				<p>Ver solicitudes</p>
 				<img src="{{ MEDIA_URL }}img/icono_medico.png" alt="paciente">
 				</div>
 			</a>
         	{% endif %}
-		</div>
-	</div>
-	{% else %}
-	<div class="fondoGeneral"> 
-			<div class="divisorSeccion">PROFESIONALES <div class="lineaDivisorSeccion"></div>
-			</div>
-			<div id="botonesProfesional">
-				<a href="{% url account_soyProfesional %}">
-					<div class="botonProfesional">
-					<p>Petición para ser profesional</p>
-					<img src="{{ MEDIA_URL }}img/review-icon.png" alt="peticion profesional">
-					</div>
-				</a>
 		</div>
 	</div>
 	{% endif %}	
@@ -97,7 +84,6 @@
 		</div><a href="{% url account_recordatorio %}"><div class="botonLlenar"> <div class="textoBoton">LLENAR EL RECORDATORIO 24</div></div></a>
 
 		{% else %}
-		<div class="textoNo">No se han registrado actividades</div>
  			<a href="{% url account_datosAntropometricos %}">
  				<div class="botonIniciar">
  					<div class="textoIniciarA">COMENZAR</div>
