@@ -405,7 +405,7 @@ transition-duration: 0.2s;
 #sumarAlimento{
 	margin-top: -35px;
 	font-size: 1.5em !important;
-	margin-left: 50px;
+	margin-left: 80px;
 	cursor: pointer;
 	float: left;
 	font-size: 12px;
@@ -424,13 +424,15 @@ transition-duration: 0.2s;
 	border: 1px solid #009B00;
 }
 
-#resultado{
+#resultado {
 	margin-top: -35px;
 	font-size: 1.2em;
-	margin-left: 10px;
+	margin-left: 350px;
 	float: left;
 }
-
+#calorias{
+	width: 120px;
+}
 .helptext{
 	display: none;
 }

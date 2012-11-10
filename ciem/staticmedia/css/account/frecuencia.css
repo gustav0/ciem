@@ -1,4 +1,27 @@
-#seccion1 input[type=submit]{cursor:pointer;float:left;font-size:12px;background-color:#009B00;border:1px solid #000;border-radius:.2em;color:#EEE;-webkit-transition-duration:.2s;-moz-transition-duration:.2s;transition-duration:.2s;text-transform:uppercase;margin-left:80px;margin-top:10px;padding:5px 14px}
+h3{
+	background: #009B00;
+	padding: 10px 0px;
+	color:white;
+	text-indent: 10px;
+}
+
+#seccion1 input[type="submit"] {
+cursor: pointer;
+float: left;
+font-size: 12px;
+background-color: #009B00;
+border: 1px solid black;
+border-radius: .2em;
+color: #EEE;
+-webkit-transition-duration: .2s;
+-moz-transition-duration: .2s;
+transition-duration: .2s;
+text-transform: uppercase;
+margin-left: 40%;
+margin-top: 20px;
+margin-bottom: 20px;
+padding: 5px 14px;
+}
 #seccion1{margin-left:5%}
 #aviso{background:#F7F7F7;border:1px solid #D7D7D7}
 .frecuencia{float:left;width:136px}
@@ -28,7 +51,7 @@ form#botonInicioFrecuencia input[type=submit]{
 	margin-top: 20px;
 	margin-bottom: 41px;
 }
-#seccion1 input[type=submit]:hover,form#botonInicioFrecuencia input[type=submit]:hover{background:#2E64FE;color:#FFF;border:1px solid #009B00}
+#seccion1 input[type=submit]:hover,form#botonInicioFrecuencia input[type=submit]:hover{background:#04B486;color:#FFF}
 #infoPorcion{
 	float: left;
 	margin-left: 23%;

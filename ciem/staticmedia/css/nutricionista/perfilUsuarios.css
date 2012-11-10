@@ -37,14 +37,14 @@ span{
 	font-size: 3em;
 }
 .nombrePaciente{
-	width: 240px;
+	width: 300px;
 	height:20px;
 	float: left;
 	font-weight: bold;
 	text-transform: capitalize;
 }
 .edadPaciente{
-	width: 140px;
+	width: 100px;
 	height:20px;
 	float: left;
 	text-align: center;
@@ -303,8 +303,9 @@ progress#bar {
 	margin-left: 150px;
 	margin-bottom: 30px;
 	background-color: #EFFFDA;
-	width: 558px;
 	border: 1px solid #AFAFAF;
+	padding-bottom: 20px;
+	padding-right: 20px;
 }
 .tituloResultado {
 	margin-top: 24px;
