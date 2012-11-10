@@ -1,4 +1,5 @@
-$(function(){
+$(document).ready(function(){
+	$("#id_venezuela").attr('disabled','disabled');
 	$("#id_pais").change(function(){          
 		$pais = $(this).find("option:selected").val();
 		$otro = "25";
