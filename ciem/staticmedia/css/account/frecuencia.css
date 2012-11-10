@@ -10,7 +10,36 @@
 .pregunta{width:810px;height:40px;border-bottom:1px solid #000;margin-top:10px}
 .noDisplayDiv{display:none}
 .textoPregunta{float:left;width:490px;height:40px}
-#contenido{padding-top:20px;padding-bottom:60px}
-#inicioFrecuencia{background:#CDF5CD;border-radius:5px;width:50%;margin:10px 0 10px 25%;padding:15px 15px 15px 40px}
-form#botonInicioFrecuencia input[type=submit]{cursor:pointer;float:left;font-size:12px;background-color:#009B00;border:1px solid #000;border-radius:.2em;color:#EEE;-webkit-transition-duration:.2s;-moz-transition-duration:.2s;transition-duration:.2s;text-transform:uppercase;margin-left:50%;padding:5px 14px}
+#contenido{padding-top:20px}
+#inicioFrecuencia {
+	background: #CDF5CD;
+	border-radius: 5px;
+	width: 50%;
+	margin: 10px 0 10px 16%;
+	padding: 15px 96px 15px 96px;
+}
+form#botonInicioFrecuencia input[type=submit]{
+	cursor:pointer;float:left;font-size:16px;
+	background-color:#009B00;border:1px solid #000;
+	border-radius:.2em;color:#EEE;-webkit-transition-duration:.2s;
+	-moz-transition-duration:.2s;transition-duration:.2s;text-transform:uppercase;
+	margin-left:48%;
+	padding: 13px 24px;
+	margin-top: 20px;
+	margin-bottom: 41px;
+}
 #seccion1 input[type=submit]:hover,form#botonInicioFrecuencia input[type=submit]:hover{background:#2E64FE;color:#FFF;border:1px solid #009B00}
+#infoPorcion{
+	float: left;
+	margin-left: 23%;
+}
+#imgPorcion{
+	float: left;
+}
+#imgPorcion label {
+	float: left;
+	margin-left: 155px;
+}
+#imgPorcion img{
+	margin-left: 35px;
+}
