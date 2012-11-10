@@ -168,6 +168,7 @@ def busqueda(request):
 		#print "CUENTA ANTRO" 
 	#	print querySetAntropometrico.count()	
 	cuenta = query.count()
+	request.session['userQuery'] = list(query)
 	if(d!='0'):
 		from xlwt import *
 		if d == '1':
@@ -221,9 +222,20 @@ def perfilUsuarios(request):
 			nombre = User.objects.filter(id=getUser)
 			usuario = userProfile.objects.filter(user=getUser)
 		else:
-			nombre = User.objects.all()
-			usuario = userProfile.objects.all()
-			perfil = None
+			if 'userQuery' in request.session:
+				userQuery = request.session['userQuery']
+				id_user_busqueda = []
+				for item in userQuery:
+					id_user_busqueda.append(item.id)
+				nombre = User.objects.filter(pk__in=id_user_busqueda)
+				usuario = userProfile.objects.filter(user_id__in=id_user_busqueda)
+				perfil = None
+				del request.session['userQuery']
+			else:
+				print "no session"
+				nombre = User.objects.all()
+				usuario = userProfile.objects.all()
+				perfil = None
 	except ValueError:
 		return HttpResponseRedirect("/perfiles/")
 	ctx= {'nombre':nombre,'usuario':usuario,'perfil':perfil,'tipo':tipoPerfil, }	

@@ -17,6 +17,7 @@
 {% block content %}
 {% if usuario %}
 	{% if nombre.count > 1 %}	
+	<a href="{% url nutricionista_busqueda %}"> <div class="linkBusqueda"> Búsqueda Avanzada </div></a>
 	<div class="tituloResultado">Lista de Pacientes</div>
 	<div class="fondoLista">
 		<div class="linea"style="font-weight:bold;text-transform:uppercase !important;border:0;margin-bottom:15px;margin-top:12px;">

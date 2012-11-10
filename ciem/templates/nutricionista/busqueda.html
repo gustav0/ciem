@@ -18,7 +18,7 @@
 		<div class="desde">Desde {{ form.edadDesde }}</div>
 		<div class="hasta">Hasta {{ form.edadHasta }}</div>
 	</div>		
-	
+
 	<div class="item_busqueda">
 		<div class="label"> TALLA </div> 
 		<div class="desde">Desde {{ form.tallaDesde }}</div>
@@ -54,7 +54,7 @@
 </form>
 </div>
 {% if bandera %}
-<div id="personas_encontradas"> Se han encontrado ({{cuenta}}) pacientes</div>
+<a href="{% url nutricionista_perfilUsuarios %}"> <div id="personas_encontradas"> Se han encontrado ({{cuenta}}) pacientes</div> </a>
 <div class="cuadro">
 <div class="link" id="link1"> Descargar informacion antropométrica </div>
 <div class= "link" id="link2"> Descargar IPAQ </div>
