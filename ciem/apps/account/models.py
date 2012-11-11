@@ -201,27 +201,16 @@ class datosRecordatorio(models.Model):
 	user = models.ForeignKey(User)
 	fecha_creacion = models.DateField(auto_now_add=True)
 	horaDesayuno = models.TimeField(max_length=40)
-	desayuno = models.BooleanField(default=False)
 	diasDesayuno =  models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(7)])
-	
 	horaMerienda1 = models.TimeField(max_length=40,)
-	merienda1 = models.BooleanField(default=False)
 	diasMerienda1 =  models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(7)])
-	
 	horaAlmuerzo = models.TimeField(max_length=40)
-	almuerzo = models.BooleanField(default=False)
 	diasAlmuerzo =  models.IntegerField(default=0,validators=[MinValueValidator(0), MaxValueValidator(7)])
-	
 	horaMerienda2 = models.TimeField(max_length=40)
-	merienda2 = models.BooleanField(default=False)
 	diasMerienda2 =  models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(7)])
-	
 	horaCena = models.TimeField(max_length=40)
-	cena = models.BooleanField(default=False)
 	diasCena =  models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(7)])
-	
 	horaMerienda3 = models.TimeField(max_length=40) 
-	merienda3 = models.BooleanField(default=False)
 	diasMerienda3 =  models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(7)])
 	objects = recordatorioManager()
 
