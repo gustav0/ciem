@@ -1,13 +1,55 @@
 body{font-family:Verdana;text-align:center}
 #djangoForumBody{width:90%;text-align:left;margin:0 auto}
 #djangoForumList,#djangoForumThreadList,#djangoForumThreadPosts{border-collapse:collapse;width:100%}
-#djangoForumList td,#djangoForumThreadList td,#djangoForumThreadPosts td{border:solid #777 1px;padding:6px}
+#djangoForumList td,#djangoForumThreadList td,#djangoForumThreadPosts td{padding:6px;}
 #djangoForumList .djangoForumListDetails{width:70%}
 #djangoForumList .djangoForumListDetails strong{font-size:120%}
 #djangoForumList .djangoForumListDetails .djangoForumStats{font-size:80%}
-.djangoForumListLastPost,.djangoForumThreadLastPost{background-color:#ccc;border-bottom:solid #777 1px}
-#djangoForumList th,#djangoForumThreadList th,#djangoForumThreadPosts th{background-color:#3a3;border:solid #777 1px;color:#fff;text-align:left;padding:4px}
+/*.djangoForumListLastPost,.djangoForumThreadLastPost{background: #C2F0BC;}*/
+#djangoForumList th,#djangoForumThreadList th,#djangoForumThreadPosts th{background-color: #FFFFFF;border-top: solid #C4E2C8 1px;color: rgb(77, 75, 75);text-align: left;padding:4px}
 #djangoForumBreadcrumbs{padding:20px}
 #djangoForumBody label{font-size:110%;font-weight:700;display:block;padding:4px}
 .djangoForumPagination{display:inline}
 #djangoForumThreadPosts th,#djangoForumThreadPostDetail{width:20%}
+
+.odd {
+   background-color: #DFFECB; }
+.even td {
+   border-top: 1px solid #BAFFBC; } 
+.cajaForo{
+	float: left;
+	margin-left: 20%;
+	background: #F0F0F0;
+	width: 55%;
+}
+.cajaForo label, textarea{
+	margin-left: 30px;
+}
+.cajaForo span{
+	float: right;
+	margin-top: -22px;
+	margin-right: 260px;
+}
+.cajaForo input[type="checkbox"]{
+	float: right;
+	margin-top: -22px;
+	margin-right: 210px;
+	margin-bottom:20px; 
+}
+
+.cajaForo input[type="text"]{
+	float: right;
+	margin-top: -25px;
+	margin-right: 220px;
+}
+
+.cajaForo input[type="submit"]{
+	margin-left: 210px;
+	margin-bottom: 20px;
+}
+img{
+	float: left;
+	margin-top: 30px;
+	margin-right: 10px;
+	margin-left: 130px;
+}
