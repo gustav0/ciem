@@ -6,7 +6,7 @@ p{float:left;margin:0}
 .siNo{height:24px;width:870px;clear:both;float:left;background-color:#E1F2EC}
 .preguntaCompleta{clear:both;font-size:17px;text-align:justify;margin-bottom:30px;width:860px;height:81px;margin-left:30px}
 .subpregunta{overflow:hidden;width:870px;height:75px;float:left;clear:both;margin-bottom:20px;background-color:#E6E6E6;-webkit-transition:height .5s;-webkit-transition-timing-function:linear}
-.identificadorPregunta,.identificadorPregunta2{float:left;background:url(../../img/identificadorIpaq.png) 0 0 no-repeat;width:38px;height:38px;font-size:20px;line-height:35px;margin-right:20px;font-family:'open sans',Arial,Sans-serif;font-weight:400}
+.identificadorPregunta,.identificadorPregunta2{float:left;background:url(../../img/identificadorIpaq.png) 0 0 no-repeat;width:38px;height:38px;font-size:17px;line-height:35px;margin-right:20px;font-family:'open sans',Arial,Sans-serif;font-weight:400;color: gray}
 .identificadorPregunta{text-indent:14px}
 .identificadorPregunta2{text-indent:9px}
 .pregunta{height:40px;margin-bottom:15px}
