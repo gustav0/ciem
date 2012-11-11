@@ -50,6 +50,19 @@
         	{% endif %}
 		</div>
 	</div>
+	{% else %}
+	<div class="fondoGeneral"> 
+			<div class="divisorSeccion">PROFESIONALES <div class="lineaDivisorSeccion"></div>
+			</div>
+			<div id="botonesProfesional">
+				<a href="{% url account_soyProfesional %}">
+					<div class="botonProfesional">
+					<p>¿Deseas unirte a nuestra red de profesionales?</p>
+					<img src="{{ MEDIA_URL }}img/review-icon.png" alt="peticion profesional">
+					</div>
+				</a>
+		</div>
+	</div>
 	{% endif %}	
 	<div class="fondoActividad"> 
 		<div class="divisorSeccion"> ACTIVIDAD EN LA PÁGINA
@@ -86,7 +99,7 @@
 		{% else %}
 		<div id="botonBonito">
  			<a href="{% url account_datosAntropometricos %}" class="a-btn">
- 				<span class="a-btn-text">EVALUACIÓN NUTRICIONAL</span>
+ 				<span class="a-btn-text">Evaluación nutricional</span>
  				<span class="a-btn-slide-text">COMENZAR</span>
  				<span class="a-btn-icon-right"><span></span>
  				</span>

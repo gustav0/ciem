@@ -45,17 +45,17 @@
 					<label class="tama" for="g">Grande</label>
 				</div>
 				<div id="radiobotons">
-					<input type="radio" value="p" name="porcion-desayuno">
-					<input type="radio" value="m" name="porcion-desayuno" checked>
 					<input type="radio" value="g" name="porcion-desayuno">
+					<input type="radio" value="m" name="porcion-desayuno" checked>
+					<input type="radio" value="p" name="porcion-desayuno">
 				</div>
 			</div>
 			<div class="campoForm">
 				<label>Buscar alimentos:</label>
-				<input list="alimentos" name="alimento" id="input1">
-				<datalist id="alimentos">
+				<input list="alimentosD" name="alimento" id="input1" id_a="">
+				<datalist id="alimentosD">
 					{% for a in alimentos%}
-					<OPTION value="{{a.nombre}}|{{a.id}}">{{a.id}}</OPTION>
+					<option id_a="{{a.id}}" value="{{a.nombre}}">{{a.id}}</OPTION>
 					{% endfor %}
 				</datalist>
 				<label for="id_selCombo1">Alimentos consumidos en el desayuno</label>
@@ -67,7 +67,7 @@
 				</SELECT>
 			</div> 
 			</div>
-			<!-- SEPARACION -->
+			<!-- MERIENDA 1 -->
 			<hr>
 			<div id="merienda1"><h3>Primera merienda</h3>
 			<div class="campoForm">
@@ -92,17 +92,17 @@
 					<label class="tama" for="g">Grande</label>
 				</div>
 				<div id="radiobotons">
-					<input type="radio" value="p" name="porcion-merienda1">
-					<input type="radio" value="m" name="porcion-merienda1" checked>
 					<input type="radio" value="g" name="porcion-merienda1">
+					<input type="radio" value="m" name="porcion-merienda1" checked>
+					<input type="radio" value="p" name="porcion-merienda1">
 				</div>
 			</div>
 			<div class="campoForm">
 			<label>Buscar alimentos:</label>
-			<input list="alimentos" name="alimento" id="input2">
-			<datalist id="alimentos">
+			<input list="alimentosM1" name="alimento" id="input2" id_a="">
+			<datalist id="alimentosM1">
 				{% for a in alimentos%}
-				<OPTION value="{{a.nombre}}">{{a.id}}</OPTION>
+				<option id_a="{{a.id}}" value="{{a.nombre}}">{{a.id}}</OPTION>
 				{% endfor %}
 			</datalist>
 			<label>Alimentos consumidos entre el desayuno y el almuerzo</label>
@@ -113,7 +113,7 @@
 			<SELECT id="selCombo2" multiple="multiple" name="selCombo2" SIZE="5"></SELECT>
 			</div>
 			</div> 
-			<!-- SEPARACION -->
+			<!-- ALMUERZO -->
 			<hr>
 			<div id="almuerzo"><h3>Almuerzo</h3>
 			<div class="campoForm">
@@ -128,7 +128,7 @@
 			</div>
 			<div class="campoForm">
 				{{ form.diasAlmuerzo.errors }}
-				<label for="id_diasMerienda1">Especifique cuantos días</label>
+				<label for="id_diasAlmuerzo">Especifique cuantos días</label>
 				{{ form.diasAlmuerzo }}
 			</div>
 			<div class="campoForm">Porción:  
@@ -138,17 +138,17 @@
 					<label class="tama" for="g">Grande</label>
 				</div>
 				<div id="radiobotons">
-					<input type="radio" value="p" name="porcion-almuerzo">
-					<input type="radio" value="m" name="porcion-almuerzo" checked>
 					<input type="radio" value="g" name="porcion-almuerzo">
+					<input type="radio" value="m" name="porcion-almuerzo" checked>
+					<input type="radio" value="p" name="porcion-almuerzo">
 				</div>
 			</div>
 			<div class="campoForm">
 			<label>Buscar alimentos:</label>
-			<input list="alimentos" name="alimento" id="input3">
-			<datalist id="alimentos">
+			<input list="alimentosA" name="alimento" id="input3">
+			<datalist id="alimentosA">
 				{% for a in alimentos%}
-				<OPTION value="{{a.nombre}}">{{a.id}}</OPTION>
+				<option id_a="{{a.id}}" value="{{a.nombre}}">{{a.id}}</OPTION>
 				{% endfor %}
 			</datalist>
 			<label>Alimentos consumidos en el almuerzo</label>
@@ -160,7 +160,7 @@
 			</SELECT>
 			</div>
 			</div> 
-			<!-- SEPARACION -->
+			<!-- MERIENDA 2 -->
 			<hr>
 			<div id="merienda2"><h3>Segunda merienda</h3>
 			<div class="campoForm">
@@ -185,17 +185,17 @@
 					<label class="tama" for="g">Grande</label>
 				</div>
 				<div id="radiobotons">
-					<input type="radio" value="p" name="porcion-merienda2">
-					<input type="radio" value="m" name="porcion-merienda2" checked>
 					<input type="radio" value="g" name="porcion-merienda2">
+					<input type="radio" value="m" name="porcion-merienda2" checked>
+					<input type="radio" value="p" name="porcion-merienda2">
 				</div>
 			</div>
 			<div class="campoForm">
 			<label>Buscar alimentos:</label>
-			<input list="alimentos" name="alimento" id="input4">
-			<datalist id="alimentos">
+			<input list="alimentosM2" name="alimento" id="input4">
+			<datalist id="alimentosM2">
 				{% for a in alimentos%}
-				<OPTION value="{{a.nombre}}">{{a.id}}</OPTION>
+				<option id_a="{{a.id}}" value="{{a.nombre}}">{{a.id}}</OPTION>
 				{% endfor %}
 			</datalist>
 			<label>Alimentos consumidos entre el almuerzo y la cena</label>
@@ -207,7 +207,7 @@
 			</SELECT>
 			</div>
 			</div> 
-			<!-- SEPARACION -->
+			<!-- CENA -->
 			<hr>
 			<div id="cena"><h3>Cena</h3>
 			<div class="campoForm">
@@ -232,17 +232,17 @@
 					<label class="tama" for="g">Grande</label>
 				</div>
 				<div id="radiobotons">
-					<input type="radio" value="p" name="porcion-cena">
-					<input type="radio" value="m" name="porcion-cena" checked>
 					<input type="radio" value="g" name="porcion-cena">
+					<input type="radio" value="m" name="porcion-cena" checked>
+					<input type="radio" value="p" name="porcion-cena">
 				</div>
 			</div>
 			<div class="campoForm">
 				<label>Buscar alimentos:</label>
-				<input list="alimentos" name="alimento" id="input5">
-				<datalist id="alimentos">
+				<input list="alimentosC" name="alimento" id="input5">
+				<datalist id="alimentosC">
 					{% for a in alimentos%}
-					<OPTION value="{{a.nombre}}">{{a.id}}</OPTION>
+					<option id_a="{{a.id}}" value="{{a.nombre}}">{{a.id}}</OPTION>
 					{% endfor %}
 				</datalist>
 				<label>Alimentos consumidos en la cena</label>
@@ -254,7 +254,7 @@
 				</SELECT>
 			</div> 
 			</div>
-			<!-- SEPARACION -->
+			<!-- MERIENDA 3 -->
 			<hr>
 			<div id="merienda3"><h3>Tercera merienda</h3>
 			<div class="campoForm">
@@ -286,10 +286,10 @@
 			</div>
 			<div class="campoForm">
 				<label>Buscar alimentos:</label>
-				<input list="alimentos" name="alimento" id="input6">
-				<datalist id="alimentos">
+				<input list="alimentosM3" name="alimento" id="input6">
+				<datalist id="alimentosM3">
 					{% for a in alimentos%}
-					<OPTION value="{{a.nombre}}">{{a.id}}</OPTION>
+					<option id_a="{{a.id}}" value="{{a.nombre}}">{{a.id}}</OPTION>
 					{% endfor %}
 				</datalist>
 				<label>Alimentos consumidos después de la cena</label>

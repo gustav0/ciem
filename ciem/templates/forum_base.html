@@ -1,8 +1,12 @@
 {% extends 'homepage/index.html' %}
 {% load i18n %}
+{% block js %}
+<script src="{{ MEDIA_URL }}js/adquiridos/jquery.min.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/propios/forumzebra.js"></script>
+{% endblock %}
 {% block content %}
 <div id='djangoForumBody'>
-<h1>{% block pagetitle %}{% trans "Welcome to the Forums" %}{% endblock %}</h1>
+<h2>{% block pagetitle %}{% trans "Welcome to the Forums" %}{% endblock %}</h2>
 <div id='djangoForumBreadcrumbs'><a href='/'>{% trans "Home" %}</a> &raquo; <a href='{% url forum_index %}'>{% trans "Forums" %}</a>{% block breadcrumbs %}{% endblock %}</div>
 {% block contenedor %}{% endblock %}
 </div>
