@@ -73,16 +73,22 @@ class antropometricosForm(ModelForm):
 		return obesidad	
 	def calcular_apreciacion_obesidad(self):
 		ob = self.calcular_obesidad()
-		if( ob < 24.9):
-			apreciacion="Normopeso"
-		elif ( ob < 29.9):
-			apreciacion="Sobrepeso (Obesidad grado I)" 
-		elif ( ob < 34.9 ):
-			apreciacion="Obesidad grado II " 	
-		elif ( ob < 39.9 ):
-			apreciacion="Obesidad grado III " 	
+		if( ob < 16):
+			apreciacion="Delgadez Severa"
+		elif ( ob < 16.9):
+			apreciacion="Delgadez Moderada" 
+		elif ( ob < 18.49):
+			apreciacion="Delgadez Aceptable" 	
+		elif ( ob < 24.99):
+			apreciacion="Normal" 
+		elif ( ob < 29.99):
+			apreciacion="Sobrepeso" 									
+		elif ( ob < 34.99 ):
+			apreciacion="Obesidad grado I" 	
+		elif ( ob < 39.99 ):
+			apreciacion="Obesidad grado II" 	
 		else:
-			apreciacion="Obesidad grado IV" 				
+			apreciacion="Obesidad grado III" 				
 		return apreciacion
 
 	def calcular_indiceAdiposidad(self,request):
