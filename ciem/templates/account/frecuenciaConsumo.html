@@ -2,13 +2,15 @@
 {% block title %}Frecuencia de consumo 30 días{% endblock %}
 {% load custom_filters%}
 {% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/account/frecuencia.css">{% endblock %}
-{% block js %} <script src="{{ MEDIA_URL }}js/adquiridos/jquery.min.js"></script>
+{% block js %} <script src="{{ MEDIA_URL }}js/Adquiridos/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/Adquiridos/tooltip.js"></script>
 <!--<script src="{{ MEDIA_URL }}js/propios/frecuencia.js"></script>-->
 {% endblock %}
 {% block content %}
 	{% if progreso %}
 	 	{% if progreso|get_int < 9 %}
 		<h3>Sección: {{progreso}}   </h3>
+		<a href="{{ MEDIA_URL }}img/ayudaita.jpg" title="Dame una ayudaita" class="preview"><img src="{{ MEDIA_URL }}img/interrogacion.png" alt="Una ayudaita"></a>
 		<form action="." method="POST" id="seccion1">
 			{% csrf_token %}
 			{{preguntas.management_form}}

@@ -16,6 +16,8 @@ src: url('fonts/social/icomoonsocial-webfont.eot?#iefix') format('embedded-opent
      url('fonts/social/icomoonsocial-webfont.svg#IcoMoonSocial') format('svg');
 }
 
+a img {border: none; }
+
 body{
 	font-family:  'open sans', Arial, Helvetica, Sans-serif;
 	font-size: 16px;

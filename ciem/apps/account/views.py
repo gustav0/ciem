@@ -265,46 +265,45 @@ def recordatorio(request):
 			comidaCena = request.POST.getlist('selCombo5')
 			comidaMerienda3 = request.POST.getlist('selCombo6')
 			instance = form.save()
-			print instance.pk
 			for comida in comidaDesayuno:
 				try:
 					separado = comida.split('|')
-					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=instance, alimentoid=separado[1], namealimento=separado[0], tam=separado[2], cuandoComio=separado[3])
+					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=instance,alimentoid=separado[0], namealimento=separado[1], tam=separado[2], cuandoComio=separado[3])
 					alimentoRecordar.save()
 				except Exception, e:
-					print "ERROR"
+					print e
 			for comida2 in comidaMerienda2:
 				try:
 					separado = comida2.split('|')
-					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=instance, alimentoid=separado[1], namealimento=separado[0], tam=separado[2], cuandoComio=separado[3])
+					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=instance, alimentoid=separado[0], namealimento=separado[1], tam=separado[2], cuandoComio=separado[3])
 					alimentoRecordar.save()
 				except Exception, e:
-					print "ERROR"
+					print e
 			for comida3 in comidaAlmuerzo:
 				try:
 					separado = comida3.split('|')
-					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=instance, alimentoid=separado[1], namealimento=separado[0], tam=separado[2], cuandoComio=separado[3])
+					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=instance, alimentoid=separado[0], namealimento=separado[1], tam=separado[2], cuandoComio=separado[3])
 					alimentoRecordar.save()
 				except Exception, e:
-					print "ERROR"
+					print e
 			for comida4 in comidaMerienda2:
 				try:
 					separado = comida4.split('|')
-					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=instance, alimentoid=separado[1], namealimento=separado[0], tam=separado[2], cuandoComio=separado[3])
+					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=instance, alimentoid=separado[0], namealimento=separado[1], tam=separado[2], cuandoComio=separado[3])
 					alimentoRecordar.save()
 				except Exception, e:
-					print "ERROR"
+					print e
 			for comida5 in comidaCena:
 				try:
 					separado = comida5.split('|')
-					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=instance, alimentoid=separado[1], namealimento=separado[0], tam=separado[2], cuandoComio=separado[3])
+					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=instance, alimentoid=separado[0], namealimento=separado[1], tam=separado[2], cuandoComio=separado[3])
 					alimentoRecordar.save()
 				except Exception, e:
-					print "ERROR"
+					print e
 			for comida6 in comidaMerienda3:
 				try:
 					separado = comida6.split('|')
-					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=instance, alimentoid=separado[1], namealimento=separado[0], tam=separado[2], cuandoComio=separado[3])
+					alimentoRecordar = alimentoRecordatorio(datosRecordatorio=instance, alimentoid=separado[0], namealimento=separado[1], tam=separado[2], cuandoComio=separado[3])
 					alimentoRecordar.save()
 				except Exception, e:
 					print "ERROR"

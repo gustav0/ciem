@@ -5,6 +5,20 @@ h3{
 	text-indent: 10px;
 }
 
+#preview{
+	position:absolute;
+	border:1px solid #ccc;
+	background:#333;
+	padding:5px;
+	display:none;
+	color:#fff;
+}
+
+a img{
+	position: fixed;
+	left: 92%;
+}
+
 #seccion1 input[type="submit"] {
 cursor: pointer;
 float: left;
