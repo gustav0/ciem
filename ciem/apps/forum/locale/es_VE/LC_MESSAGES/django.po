@@ -51,7 +51,7 @@ msgstr "Descripción"
 
 #: models.py:30 models.py:175
 msgid "Threads"
-msgstr "Hilos"
+msgstr "Temas"
 
 #: models.py:31 models.py:157 models.py:247
 #: templates/forum/thread_list.html:42
@@ -95,7 +95,7 @@ msgstr "Hora del último mensaje"
 #: models.py:174 templates/forum/thread_list.html:41
 #: templates/forum/updatesubs.html:18
 msgid "Thread"
-msgstr "Hilo"
+msgstr "Tema"
 
 #: models.py:207
 msgid "Time"
@@ -142,7 +142,7 @@ msgstr "Último mensaje"
 #: templates/forum/forum_list.html:14
 #, python-format
 msgid "%(thread_count)s threads, %(post_count)s posts"
-msgstr "%(thread_count)s hilos, %(post_count)s mensajes"
+msgstr "%(thread_count)s temas, %(post_count)s mensajes"
 
 #: templates/forum/forum_list.html:17 templates/forum/thread_list.html:30
 #: templates/forum/thread_list.html:53
@@ -167,7 +167,7 @@ msgstr "Actualizar suscripciones"
 #: templates/forum/newthread.html:4 templates/forum/newthread.html.py:11
 #, python-format
 msgid "New Thread in %(title)s"
-msgstr "Nuevo hilo en %(title)s"
+msgstr "Nuevo tema en %(title)s"
 
 #: templates/forum/newthread.html:7
 #, python-format
@@ -181,11 +181,11 @@ msgstr "Mensajes en %(forum.title)s via ATOM"
 
 #: templates/forum/newthread.html:13
 msgid "New Thread"
-msgstr "Nuevo hilo"
+msgstr "Nuevo tema"
 
 #: templates/forum/newthread.html:18 templates/forum/thread_list.html:69
 msgid "Create a Thread"
-msgstr "Crear un hilo"
+msgstr "Crear un tema"
 
 #: templates/forum/newthread.html:21 templates/forum/reply.html:16
 #: templates/forum/thread.html:40 templates/forum/thread_list.html:72
@@ -195,16 +195,16 @@ msgstr "Enviar como"
 #: templates/forum/reply.html:4
 #, python-format
 msgid "Reply to thread  \"%(title)s\""
-msgstr "Responder al hilo  \"%(title)s\""
+msgstr "Responder al tema  \"%(title)s\""
 
 #: templates/forum/reply.html:6
 #, python-format
 msgid "Reply to Thread \"%(title)s\""
-msgstr "Responder al hilo \"%(title)s\""
+msgstr "Responder al tema \"%(title)s\""
 
 #: templates/forum/reply.html:13
 msgid "Reply to Thread"
-msgstr "Responder al hilo"
+msgstr "Responder al tema"
 
 #: templates/forum/thread.html:8 templates/forum/thread_list.html:13
 #: templates/forum/thread_list.html:27
@@ -238,7 +238,7 @@ msgstr "Enviar una respuesta"
 #: templates/forum/thread.html:36
 msgid "Sorry, this thread is closed. No further replies are permitted."
 msgstr ""
-"Disculpe, este hilo está cerrado. No se pueden enviar nuevas respuestas."
+"Disculpe, este tema está cerrado. No se pueden enviar nuevas respuestas."
 
 #: templates/forum/thread.html:42
 msgid "Submit"
@@ -260,7 +260,7 @@ msgstr "Mensajes en %(ftitle)s via ATOM"
 
 #: templates/forum/thread_list.html:13 templates/forum/thread_list.html:27
 msgid "thread"
-msgstr "hilo"
+msgstr "Tema"
 
 #: templates/forum/thread_list.html:21
 msgid "Sub-Forum"
@@ -268,7 +268,7 @@ msgstr "Sub-Foro"
 
 #: templates/forum/updatesubs.html:3 templates/forum/updatesubs.html.py:4
 msgid "Update Thread Subscriptions"
-msgstr "Actualizar suscripciones al hilo"
+msgstr "Actualizar suscripciones al tema"
 
 #: templates/forum/updatesubs.html:11
 msgid "No subscriptions."

@@ -12,6 +12,7 @@
 {% block contenedor %}
 
 <table id='djangoForumThreadPosts'>
+<tr><th class='djangoForumThreadPostDetail'>Tiempo</th><td>Mensaje</td></tr>
 {% for post in post_list %}
 
 <tr>
@@ -33,17 +34,19 @@
 {% endif %}
 
 {% if request.user.is_authenticated %}<p><a href="{% url forum_subscriptions %}?next={{ request.path }}">{% trans "Update Subscriptions" %}</a></p>{% endif %}
-<h2>{% trans "Post a Reply" %}</h2>
+<img src="{{ MEDIA_URL }}img/masicon.png" alt="masicon"><h2>{% trans "Post a Reply" %}</h2>
 {% if thread.closed %}
 <p>{% trans "Sorry, this thread is closed. No further replies are permitted." %}</p>
 {% else %}
 {% if user.is_authenticated %}
+<div class="cajaForo">
 <form method='post' action='reply/'>
 {% csrf_token %}
-<p><label>{% trans "Posting As" %}</label><span>{{ user.username }}</span></p>
+<p><label>{% trans "Posting As" %}:</label><span>{{ user.username }}</span></p>
 {{ form.as_p }}
 <input type='submit' value='{% trans "Submit" %}' />
 </form>
+</div>
 {% else %}
 <p>{% trans "Please login to post a reply." %}</p>
 {% endif %}

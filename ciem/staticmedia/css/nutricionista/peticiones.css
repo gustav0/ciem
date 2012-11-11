@@ -1,3 +1,19 @@
+#aviso{
+	border: 1px solid gold;
+	background: lightYellow;
+	text-indent: 20px;
+	border-radius: 5px;
+	color: #DEAE00;
+	width: 60%;
+	margin-left:20%; 
+	margin-bottom: 40px;
+	font-weight: bold;
+}
+span{
+	font-family: 'IcoMoon',arial;
+	font-size: 3em;
+}
+
 .contenedorSolicitud{
 	float: left;
 	width: 700px;
