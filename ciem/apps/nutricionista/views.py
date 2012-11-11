@@ -199,6 +199,7 @@ def perfilUsuarios(request):
 				return HttpResponseRedirect("/perfiles/")
 			if int(tipoPerfil)==1:#datos antropometricos
 				perfil = datosAntropometricos.objects.getByIdJoin(int(getUser))
+				print perfil
 			elif int(tipoPerfil)==2:#resultados del ipaq
 				perfil = ipaqResultado.objects.getResultados(int(getUser))
 			elif int(tipoPerfil)==3:#frecuenciadeconsumo

@@ -10,9 +10,9 @@ input,input:focus{outline:none;margin:0}
 .campoLogin{float:left;width:160px;margin-bottom:10px}
 .clear{clear:both}
 .formTag{float:left;width:84px}
-.cabeceraLogin{float:left;width:230px;height:30px;margin-left:35px}
+.cabeceraLogin{float:left;width:230px;height:30px;margin-left:20px;}
 .iconoLogin{float:left;width:28px;height:28px;background:url(../../img/candado.png) 0 0 no-repeat}
-.textoLogin{float:left;color:#063;font-size:22px;font-weight:700;margin-left:10px}
+.textoLogin{float:left;color:#063;font-size:22px;font-weight:700;}
 .extra{float: left;width:140px;height:40px;font-size:13px;margin-top:2px;}
 .extra a{color:#386838}
 .extra a:hover{color:#118311}

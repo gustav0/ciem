@@ -106,17 +106,22 @@
 						<div class="fila">
 							<div class="valor" >Metabolismo Basal</div>
 							<div class="calculoValor">{{ p.metabolismobasal }}</div>
-							<div class ="rango">Normal </div>
+							<div class ="rango"> - </div>
 						</div>
 						<div class="fila">
 							<div class="valor" >Indice de Adiposidad</div>
-							<div class="calculoValor">{{ p.indiceadiposidad }}</div>
-							<div class ="rango">Normal </div>
+							<div class="calculoValor">{{ p.indiceAdiposidad }}</div>
+							<div class ="rango">{{p.apreciacion_adiposidad}} </div>
 						</div>
 						<div class="fila">
 							<div class="valor" >Obesidad</div>
 							<div class="calculoValor">{{ p.obesidad }}</div>
-							<div class ="rango">Normal </div>
+							<div class ="rango">{{p.apreciacion_obesidad}} </div>
+						</div>
+						<div class="fila">
+							<div class="valor" >Cintura</div>
+							<div class="calculoValor">{{p.circunferencia_cintura|floatformat:0|intcomma}} cm</div>
+							<div class ="rango">{{p.apreciacion_cintura}} </div>
 						</div>
 								<a id="plusinfo" href="#" onclick="cargarContenido('{{n.get_full_name|cap}}','{{p.fecha_creacion|date:"d/m/Y"}}','{{p.peso|floatformat:0|intcomma}}','{{p.circunferencia_cintura|floatformat:0|intcomma}}','{{p.circunferencia_cadera|floatformat:0|intcomma}}','{{p.estatura|floatformat:0|intcomma}}','{{p.hipertencion}}','{{p.diabetes}}','{{p.cancer}}','{{p.trigliceridos}}')">
 							<div id="masinfo">
