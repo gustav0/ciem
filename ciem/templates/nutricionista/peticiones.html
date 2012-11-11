@@ -3,7 +3,8 @@
 {% load custom_filters %}
 {% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/nutricionista/peticiones.css">{% endblock %}
 {% block content %}
-<div id="titulo"> Solicitudes pendientes </div>
+<h2> Solicitudes pendientes </h2>
+{% if peticiones %}
 {% for peticion in peticiones %}
 <div class="contenedorSolicitud">
 	<div class="cabeceraSolicitud">Solicitud de {{ usuario|au_getNombre:peticion.user_id|capfirst }} {{ usuario|au_getApellido:peticion.user_id|capfirst }}</div>
@@ -38,4 +39,10 @@
 <div class="siNo"> <a href="?user={{ peticion.user_id }}&a=1"><div class="aceptar"></div>Aceptar</a>
  <a id="negativo" href="?user={{ peticion.user_id }}&a=2"><div class="rechazar"></div>Rechazar </a> </div>
 {% endfor %}
+{% else %}
+	<div id="aviso">
+		<span aria-hidden="true">!</span>
+		<p>En este momento no hay solicitudes para ser profesional.</p>
+	</div>
+{% endif %}
 {% endblock %}
