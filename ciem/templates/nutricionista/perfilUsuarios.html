@@ -158,9 +158,9 @@
 				<h2>Información ingresada en el formulario IPAQ.</h2>
 				{% if perfil.0 %}
 					{% for n in nombre %}
+						<a class="titulo boton botonfix" href="?user={{ n.id }}&d=1"> Descargar resultados como documento Excel </a>
 						{% for p in perfil %}
 						<div class="wrapperTabla">
-							<a class="titulo" href="?user={{ n.id }}&d=1"> Descargar como documento Excel </a>
 							<div class="titulo">Trabajo</div>
 							<table class="customers">
 								<th>Min Andar</th>
