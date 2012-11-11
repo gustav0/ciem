@@ -143,12 +143,6 @@ class antropometricosForm(ModelForm):
 	
 
 class recordatorioForm(ModelForm):
-	desayuno = forms.TypedChoiceField(choices=((0, 'Si'), (1, 'No')), widget=forms.RadioSelect)
-	merienda1 = forms.TypedChoiceField(choices=((0, 'Si'), (1, 'No')), widget=forms.RadioSelect)
-	almuerzo = forms.TypedChoiceField(choices=((0, 'Si'), (1, 'No')), widget=forms.RadioSelect)
-	merienda2 = forms.TypedChoiceField(choices=((0, 'Si'), (1, 'No')), widget=forms.RadioSelect)
-	cena = forms.TypedChoiceField(choices=((0, 'Si'), (1, 'No')), widget=forms.RadioSelect)
-	merienda3 = forms.TypedChoiceField(choices=((0, 'Si'), (1, 'No')), widget=forms.RadioSelect)
 	CHOICES = (('0','-'),('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),('6','6'),('7','7'))
 	diasDesayuno = forms.ChoiceField(widget=forms.Select, choices=CHOICES, initial='0')
 	diasMerienda1 = forms.ChoiceField(widget=forms.Select, choices=CHOICES, initial='0')

@@ -25,29 +25,22 @@
 			<div id="desayuno"><h3>Desayuno</h3>
 			<div class="campoForm">
 				{{ form.horaDesayuno.errors }}
-				<label for="id_horaDesayuno">Hora del desayuno:</label>
+				<label for="id_horaDesayuno">¿A qué hora desayuna?: </label>
 				{{ form.horaDesayuno }}
 			</div>
 			<div class="campoForm">
-				{{ form.desayuno.erros }}
-				<label for="id_desayuno">Usted desayuna todos los días:</label>
-				{{ form.desayuno }}
-			</div>
-			<div class="campoForm">
 				{{ form.diasDesayuno.errors }}
-				<label for="id_diasDesayuno">Especifique cuantos días</label>
+				<label for="id_diasDesayuno">¿Cuántos días a la semana?: </label>
 				{{ form.diasDesayuno }}
 			</div>
-			<div class="campoForm">Porción:  
+			<div class="campoForm">Tamaño de la porción que come:  
 				<div id="tamanos">
-					<label class="tama" for="p">Pequeño</label>
-					<label class="tama" for="m">Mediano</label>
-					<label class="tama" for="g">Grande</label>
-				</div>
-				<div id="radiobotons">
-					<input type="radio" value="g" name="porcion-desayuno">
-					<input type="radio" value="m" name="porcion-desayuno" checked>
 					<input type="radio" value="p" name="porcion-desayuno">
+					<label class="tama" for="p">Pequeño</label>
+					<input type="radio" value="m" name="porcion-desayuno" checked>
+					<label class="tama" for="m">Mediano</label>
+					<input type="radio" value="g" name="porcion-desayuno">
+					<label class="tama" for="g">Grande</label>
 				</div>
 			</div>
 			<div class="campoForm">
@@ -72,29 +65,22 @@
 			<div id="merienda1"><h3>Primera merienda</h3>
 			<div class="campoForm">
 				{{ form.horaMerienda1.errors }}
-				<label for="id_horaMerienda1">Hora de la primera merienda:</label>
+				<label for="id_horaMerienda1">¿A qué hora merienda (de mañana)?: </label>
 				{{ form.horaMerienda1 }}
 			</div>
 			<div class="campoForm">
-				{{ form.merienda1.erros }}
-				<label for="id_merienda1">Usted siempre merienda entre el desayuno y el almuerzo:</label>
-				{{ form.merienda1 }}
-			</div>
-			<div class="campoForm">
 				{{ form.diasMerienda1.errors }}
-				<label for="id_diasMerienda1">Especifique cuantos días</label>
+				<label for="id_diasMerienda1">¿Cuántos días a la semana?: </label>
 				{{ form.diasMerienda1 }}
 			</div>
-			<div class="campoForm">Porción:  
+			<div class="campoForm">Tamaño de la porción:  
 				<div id="tamanos">
-					<label class="tama" for="p">Pequeño</label>
-					<label class="tama" for="m">Mediano</label>
-					<label class="tama" for="g">Grande</label>
-				</div>
-				<div id="radiobotons">
-					<input type="radio" value="g" name="porcion-merienda1">
-					<input type="radio" value="m" name="porcion-merienda1" checked>
 					<input type="radio" value="p" name="porcion-merienda1">
+					<label class="tama" for="p">Pequeño</label>
+					<input type="radio" value="m" name="porcion-merienda1" checked>
+					<label class="tama" for="m">Mediano</label>
+					<input type="radio" value="g" name="porcion-merienda1">
+					<label class="tama" for="g">Grande</label>
 				</div>
 			</div>
 			<div class="campoForm">
@@ -118,29 +104,22 @@
 			<div id="almuerzo"><h3>Almuerzo</h3>
 			<div class="campoForm">
 				{{ form.horaAlmuerzo.errors }}
-				<label for="id_horaAlmuerzo">Hora del almuerzo:</label>
+				<label for="id_horaAlmuerzo">¿A qué hora almuerza?: </label>
 				{{ form.horaAlmuerzo }}
 			</div>
 			<div class="campoForm">
-				{{ form.almuerzo.erros }}
-				<label for="id_almuerzo">Usted almuerza todos los días:</label>
-				{{ form.almuerzo }}
-			</div>
-			<div class="campoForm">
 				{{ form.diasAlmuerzo.errors }}
-				<label for="id_diasAlmuerzo">Especifique cuantos días</label>
+				<label for="id_diasAlmuerzo">¿Cuántos días a la semana?: </label>
 				{{ form.diasAlmuerzo }}
 			</div>
-			<div class="campoForm">Porción:  
+			<div class="campoForm">Tamaño de la porción:  
 				<div id="tamanos">
-					<label class="tama" for="p">Pequeño</label>
-					<label class="tama" for="m">Mediano</label>
-					<label class="tama" for="g">Grande</label>
-				</div>
-				<div id="radiobotons">
-					<input type="radio" value="g" name="porcion-almuerzo">
-					<input type="radio" value="m" name="porcion-almuerzo" checked>
 					<input type="radio" value="p" name="porcion-almuerzo">
+					<label class="tama" for="p">Pequeño</label>
+					<input type="radio" value="m" name="porcion-almuerzo" checked>
+					<label class="tama" for="m">Mediano</label>
+					<input type="radio" value="g" name="porcion-almuerzo">
+					<label class="tama" for="g">Grande</label>
 				</div>
 			</div>
 			<div class="campoForm">
@@ -165,29 +144,22 @@
 			<div id="merienda2"><h3>Segunda merienda</h3>
 			<div class="campoForm">
 				{{ form.horaMerienda2.errors }}
-				<label for="id_horaMerienda2">Hora de la segunda merienda:</label>
+				<label for="id_horaMerienda2">¿A qué hora merienda (de tarde)?:</label>
 				{{ form.horaMerienda2 }}
 			</div>
 			<div class="campoForm">
-				{{ form.merienda2.erros }}
-				<label for="id_merienda2">Usted siempre merienda entre el almuerzo y la cena:</label>
-				{{ form.merienda2 }}
-			</div>
-			<div class="campoForm">
 				{{ form.diasMerienda2.errors }}
-				<label for="id_diasMerienda2">Especifique cuantos días</label>
+				<label for="id_diasMerienda2">¿Cuántos días a la semana?:</label>
 				{{ form.diasMerienda2 }}
 			</div>
-			<div class="campoForm">Porción:  
+			<div class="campoForm">Tamaño de la porción:  
 				<div id="tamanos">
-					<label class="tama" for="p">Pequeño</label>
-					<label class="tama" for="m">Mediano</label>
-					<label class="tama" for="g">Grande</label>
-				</div>
-				<div id="radiobotons">
-					<input type="radio" value="g" name="porcion-merienda2">
-					<input type="radio" value="m" name="porcion-merienda2" checked>
 					<input type="radio" value="p" name="porcion-merienda2">
+					<label class="tama" for="p">Pequeño</label>
+					<input type="radio" value="m" name="porcion-merienda2" checked>
+					<label class="tama" for="m">Mediano</label>
+					<input type="radio" value="g" name="porcion-merienda2">
+					<label class="tama" for="g">Grande</label>
 				</div>
 			</div>
 			<div class="campoForm">
@@ -212,29 +184,22 @@
 			<div id="cena"><h3>Cena</h3>
 			<div class="campoForm">
 				{{ form.horaCena.errors }}
-				<label for="id_horacena">Hora de la cena:</label>
+				<label for="id_horacena">¿A qué hora cena?:</label>
 				{{ form.horaCena }}
 			</div>
 			<div class="campoForm">
-				{{ form.cena.erros }}
-				<label for="id_cena">Usted cena todos los días:</label>
-				{{ form.cena }}
-			</div>
-			<div class="campoForm">
 				{{ form.diasCena.errors }}
-				<label for="id_diascena">Especifique cuantos días</label>
+				<label for="id_diascena">¿Cuántos días a la semana?:</label>
 				{{ form.diasCena }}
 			</div>	
-			<div class="campoForm">Porción:  
+			<div class="campoForm">Tamaño de la porción:  
 				<div id="tamanos">
-					<label class="tama" for="p">Pequeño</label>
-					<label class="tama" for="m">Mediano</label>
-					<label class="tama" for="g">Grande</label>
-				</div>
-				<div id="radiobotons">
-					<input type="radio" value="g" name="porcion-cena">
-					<input type="radio" value="m" name="porcion-cena" checked>
 					<input type="radio" value="p" name="porcion-cena">
+					<label class="tama" for="p">Pequeño</label>
+					<input type="radio" value="m" name="porcion-cena" checked>
+					<label class="tama" for="m">Mediano</label>
+					<input type="radio" value="g" name="porcion-cena">
+					<label class="tama" for="g">Grande</label>
 				</div>
 			</div>
 			<div class="campoForm">
@@ -259,29 +224,22 @@
 			<div id="merienda3"><h3>Tercera merienda</h3>
 			<div class="campoForm">
 				{{ form.horaMerienda3.errors }}
-				<label for="id_horaMerienda3">Hora de la primera merienda:</label>
+				<label for="id_horaMerienda3">¿A qué hora merienda (de noche)?:</label>
 				{{ form.horaMerienda3 }}
 			</div>
 			<div class="campoForm">
-				{{ form.merienda3.erros }}
-				<label for="id_merienda3">Usted merienda entre el desayuno y el almuerzo:</label>
-				{{ form.merienda3 }}
-			</div>
-			<div class="campoForm">
 				{{ form.diasMerienda3.errors }}
-				<label for="id_diasMerienda3">Especifique cuantos días</label>
+				<label for="id_diasMerienda3">¿Cuántos días a la semana?: </label>
 				{{ form.diasMerienda3 }}
 			</div>	
-			<div class="campoForm">Porción:  
+			<div class="campoForm">Tamaño de la porción:  
 				<div id="tamanos">
-					<label class="tama" for="p">Pequeño</label>
-					<label class="tama" for="m">Mediano</label>
-					<label class="tama" for="g">Grande</label>
-				</div>
-				<div id="radiobotons">
 					<input type="radio" value="p" name="porcion-merienda3">
+					<label class="tama" for="p">Pequeño</label>
 					<input type="radio" value="m" name="porcion-merienda3" checked>
+					<label class="tama" for="m">Mediano</label>
 					<input type="radio" value="g" name="porcion-merienda3">
+					<label class="tama" for="g">Grande</label>
 				</div>
 			</div>
 			<div class="campoForm">
