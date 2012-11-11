@@ -157,12 +157,12 @@ class recordatorioForm(ModelForm):
 	diasCena = forms.ChoiceField(widget=forms.Select, choices=CHOICES, initial='0')
 	diasMerienda3 = forms.ChoiceField(widget=forms.Select, choices=CHOICES, initial='0')
 	valid_time_formats = ['%H:%M', '%I:%M%p', '%I:%M %p']
-	horaDesayuno =forms.TimeField(help_text='ex: 8:30AM', input_formats=valid_time_formats)
-	horaMerienda1 =forms.TimeField(help_text='ex: 10:30AM', input_formats=valid_time_formats)
-	horaAlmuerzo =forms.TimeField(help_text='ex: 1:30PM', input_formats=valid_time_formats)
-	horaMerienda2 =forms.TimeField(help_text='ex: 3:30PM', input_formats=valid_time_formats)
-	horaCena = forms.TimeField(help_text='ex: 6:00PM', input_formats=valid_time_formats)
-	horaMerienda3 =forms.TimeField(help_text='ex: 8:00PM', input_formats=valid_time_formats)
+	horaDesayuno =forms.TimeField(required=False,help_text='ex: 8:30AM', input_formats=valid_time_formats)
+	horaMerienda1 =forms.TimeField(required=False,help_text='ex: 10:30AM', input_formats=valid_time_formats)
+	horaAlmuerzo =forms.TimeField(required=False,help_text='ex: 1:30PM', input_formats=valid_time_formats)
+	horaMerienda2 =forms.TimeField(required=False,help_text='ex: 3:30PM', input_formats=valid_time_formats)
+	horaCena = forms.TimeField(required=False,help_text='ex: 6:00PM', input_formats=valid_time_formats)
+	horaMerienda3 =forms.TimeField(required=False,help_text='ex: 8:00PM', input_formats=valid_time_formats)
 	
 	class Meta:
 		model = datosRecordatorio

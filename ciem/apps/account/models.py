@@ -204,7 +204,7 @@ class datosRecordatorio(models.Model):
 	desayuno = models.BooleanField(default=False)
 	diasDesayuno =  models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(7)])
 	
-	horaMerienda1 = models.TimeField(max_length=40)
+	horaMerienda1 = models.TimeField(max_length=40,)
 	merienda1 = models.BooleanField(default=False)
 	diasMerienda1 =  models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(7)])
 	

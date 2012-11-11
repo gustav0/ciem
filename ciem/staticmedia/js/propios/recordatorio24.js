@@ -29,12 +29,11 @@ $(document).ready(function(){
 			$('#alimentosD option').each(function(index) {
 				$name = $(this).val();
 				if($name==$auxAlimento){
-				    alert("conseguí")
 	    			$('#input1').attr('id_a',$(this).text())
 	    			return false;
 	    		}
 			});
-			$("#selCombo1").append('<option value="'+$('#input1').attr('id_a')+'|'+$('input[name=porcion-desayuno]:checked').val()+'|1">'+$('#input1').val()+' ('+$('input[name=porcion-desayuno]:checked').val()+') '+'</option>');
+			$("#selCombo1").append('<option value="'+$('#input1').attr('id_a')+'|'+$('#input1').val()+'|'+$('input[name=porcion-desayuno]:checked').val()+'|1">'+$('#input1').val()+'('+$('input[name=porcion-desayuno]:checked').val()+')'+'</option>');
 			$('#input1').focus();
 		}
 	});
@@ -59,7 +58,7 @@ $(document).ready(function(){
 	    			return false;
 	    		}
 			});
-			$("#selCombo1").append('<option value="'+$('#input1').attr('id_a')+'|'+$('input[name=porcion-desayuno]:checked').val()+'|1">'+$('#input1').val()+' ('+$('input[name=porcion-desayuno]:checked').val()+') '+'</option>');
+			$("#selCombo1").append('<option value="'+$('#input1').attr('id_a')+'|'+$('#input1').val()+'|'+$('input[name=porcion-desayuno]:checked').val()+'|1">'+$('#input1').val()+' ('+$('input[name=porcion-desayuno]:checked').val()+') '+'</option>');
 			$('#input1').focus();
 		}
 	});
@@ -78,7 +77,7 @@ $(document).ready(function(){
 	    			return false;
 	    		}
 			});
-			$("#selCombo2").append('<option value="'+$('#input2').attr('id_a')+'|'+$('input[name=porcion-merienda1]:checked').val()+'|2">'+$('#input2').val()+' ('+$('input[name=porcion-merienda1]:checked').val()+') '+'</option>');
+			$("#selCombo2").append('<option value="'+$('#input2').attr('id_a')+'|'+$('#input2').val()+'|'+$('input[name=porcion-merienda1]:checked').val()+'|2">'+$('#input2').val()+' ('+$('input[name=porcion-merienda1]:checked').val()+') '+'</option>');
 			$('#input2').focus();
 		}
 	});
@@ -101,7 +100,7 @@ $(document).ready(function(){
 	    			return false;
 	    		}
 			});
-			$("#selCombo2").append('<option value="'+$('#input2').attr('id_a')+'|'+$('input[name=porcion-merienda1]:checked').val()+'|2">'+$('#input2').val()+' ('+$('input[name=porcion-merienda1]:checked').val()+') '+'</option>');
+			$("#selCombo2").append('<option value="'+$('#input2').attr('id_a')+'|'+$('#input2').val()+'|'+$('input[name=porcion-merienda1]:checked').val()+'|2">'+$('#input2').val()+' ('+$('input[name=porcion-merienda1]:checked').val()+') '+'</option>');
 			$('#input2').focus();
 		}
 	});
@@ -120,7 +119,7 @@ $(document).ready(function(){
 	    			return false;
 	    		}
 			});
-			$("#selCombo3").append('<option value="'+$('#input3').attr('id_a')+'|'+$('input[name=porcion-almuerzo]:checked').val()+'|3">'+$('#input3').val()+' ('+$('input[name=porcion-almuerzo]:checked').val()+') '+'</option>');
+			$("#selCombo3").append('<option value="'+$('#input3').attr('id_a')+'|'+$('#input3').val()+'|'+$('input[name=porcion-almuerzo]:checked').val()+'|3">'+$('#input3').val()+' ('+$('input[name=porcion-almuerzo]:checked').val()+') '+'</option>');
 			$('#input3').focus();
 		}
 	});
@@ -143,7 +142,7 @@ $(document).ready(function(){
 	    			return false;
 	    		}
 			});
-			$("#selCombo3").append('<option value="'+$('#input3').attr('id_a')+'|'+$('input[name=porcion-almuerzo]:checked').val()+'|3">'+$('#input3').val()+' ('+$('input[name=porcion-almuerzo]:checked').val()+') '+'</option>');
+			$("#selCombo3").append('<option value="'+$('#input3').attr('id_a')+'|'+$('#input3').val()+'|'+$('input[name=porcion-almuerzo]:checked').val()+'|3">'+$('#input3').val()+' ('+$('input[name=porcion-almuerzo]:checked').val()+') '+'</option>');
 			$('#input3').focus();
 		}
 	});
@@ -162,7 +161,7 @@ $(document).ready(function(){
 	    			return false;
 	    		}
 			});
-			$("#selCombo4").append('<option value="'+$('#input4').attr('id_a')+'|'+$('input[name=porcion-merienda2]:checked').val()+'|4">'+$('#input4').val()+' ('+$('input[name=porcion-merienda2]:checked').val()+') '+'</option>');
+			$("#selCombo4").append('<option value="'+$('#input4').attr('id_a')+'|'+$('#input4').val()+'|'+$('input[name=porcion-merienda2]:checked').val()+'|4">'+$('#input4').val()+' ('+$('input[name=porcion-merienda2]:checked').val()+') '+'</option>');
 			$('#input4').focus();
 		}
 	});
@@ -185,7 +184,7 @@ $(document).ready(function(){
 	    			return false;
 	    		}
 			});
-			$("#selCombo4").append('<option value="'+$('#input4').attr('id_a')+'|'+$('input[name=porcion-merienda2]:checked').val()+'|4">'+$('#input4').val()+' ('+$('input[name=porcion-merienda2]:checked').val()+') '+'</option>');
+			$("#selCombo4").append('<option value="'+$('#input4').attr('id_a')+'|'+$('#input4').val()+'|'+$('input[name=porcion-merienda2]:checked').val()+'|4">'+$('#input4').val()+' ('+$('input[name=porcion-merienda2]:checked').val()+') '+'</option>');
 			$('#input4').focus();
 		}
 	});
@@ -204,7 +203,7 @@ $(document).ready(function(){
 	    			return false;
 	    		}
 			});
-			$("#selCombo5").append('<option value="'+$('#input5').attr('id_a')+'|'+$('input[name=porcion-cena]:checked').val()+'|5">'+$('#input5').val()+' ('+$('input[name=porcion-cena]:checked').val()+') '+'</option>');
+			$("#selCombo5").append('<option value="'+$('#input5').attr('id_a')+'|'+$('#input5').val()+'|'+$('input[name=porcion-cena]:checked').val()+'|5">'+$('#input5').val()+' ('+$('input[name=porcion-cena]:checked').val()+') '+'</option>');
 			$('#input5').focus();
 		}
 	});
@@ -227,7 +226,7 @@ $(document).ready(function(){
 	    			return false;
 	    		}
 			});
-			$("#selCombo5").append('<option value="'+$('#input5').attr('id_a')+'|'+$('input[name=porcion-cena]:checked').val()+'|5">'+$('#input5').val()+' ('+$('input[name=porcion-cena]:checked').val()+') '+'</option>');
+			$("#selCombo5").append('<option value="'+$('#input5').attr('id_a')+'|'+$('#input5').val()+'|'+$('input[name=porcion-cena]:checked').val()+'|5">'+$('#input5').val()+' ('+$('input[name=porcion-cena]:checked').val()+') '+'</option>');
 			$('#input5').focus();
 		}
 	});
@@ -246,7 +245,7 @@ $(document).ready(function(){
 	    			return false;
 	    		}
 			});
-			$("#selCombo6").append('<option value="'+$('#input6').attr('id_a')+'|'+$('input[name=porcion-merienda3]:checked').val()+'|6">'+$('#input6').val()+' ('+$('input[name=porcion-merienda3]:checked').val()+') '+'</option>');
+			$("#selCombo6").append('<option value="'+$('#input6').attr('id_a')+'|'+$('#input6').val()+'|'+$('input[name=porcion-merienda3]:checked').val()+'|6">'+$('#input6').val()+' ('+$('input[name=porcion-merienda3]:checked').val()+') '+'</option>');
 			$('#input6').focus();
 		}
 	});
@@ -269,7 +268,7 @@ $(document).ready(function(){
 	    			return false;
 	    		}
 			});
-			$("#selCombo6").append('<option value="'+$('#input6').attr('id_a')+'|'+$('input[name=porcion-merienda3]:checked').val()+'|6">'+$('#input6').val()+' ('+$('input[name=porcion-merienda3]:checked').val()+') '+'</option>');
+			$("#selCombo6").append('<option value="'+$('#input6').attr('id_a')+'|'+$('#input6').val()+'|'+$('input[name=porcion-merienda3]:checked').val()+'|6">'+$('#input6').val()+' ('+$('input[name=porcion-merienda3]:checked').val()+') '+'</option>');
 			$('#input6').focus();
 		}
 	});
@@ -301,6 +300,7 @@ $(document).ready(function(){
 	    showNowButton: true,
 	    closeButtonText: 'Cerrar',
 	    showCloseButton: true,
+	    defaultTime:'00:00 AM'
 	});
 	$('#id_horaMerienda1').timepicker({
 		showPeriod: true,
@@ -313,6 +313,7 @@ $(document).ready(function(){
 	    showNowButton: true,
 	    closeButtonText: 'Cerrar',
 	    showCloseButton: true,
+	    defaultTime:'00:00 AM'
 	});
 	$('#id_horaAlmuerzo').timepicker({
 		showPeriod: true,
@@ -325,6 +326,7 @@ $(document).ready(function(){
 	    showNowButton: true,
 	    closeButtonText: 'Cerrar',
 	    showCloseButton: true,
+	    defaultTime:'00:00 AM'
 	});
 	$('#id_horaMerienda2').timepicker({
 	 	showPeriod: true,
@@ -337,6 +339,7 @@ $(document).ready(function(){
 	    showNowButton: true,
 	    closeButtonText: 'Cerrar',
 	    showCloseButton: true,
+	    defaultTime:'00:00 AM'
 	});
 	$('#id_horaCena').timepicker({
 	 	showPeriod: true,
@@ -349,6 +352,7 @@ $(document).ready(function(){
 	    showNowButton: true,
 	    closeButtonText: 'Cerrar',
 	    showCloseButton: true,
+	    defaultTime:'00:00 AM'
 	});
 	$('#id_horaMerienda3').timepicker({
 		showPeriod: true,
@@ -361,5 +365,6 @@ $(document).ready(function(){
 	    showNowButton: true,
 	    closeButtonText: 'Cerrar',
 	    showCloseButton: true,
+	    defaultTime:'00:00 AM'
 	});
 });
