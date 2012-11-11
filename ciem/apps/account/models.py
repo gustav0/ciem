@@ -7,6 +7,7 @@ from ciem.apps.account.managers import *
 from ciem.apps.data.models import alimento
 from ciem.apps.account.gestorDocumento import ContentTypeRestrictedFileField
 
+
 #from ciem.apps.account.managers import userManager
 
 class userProfile(models.Model):

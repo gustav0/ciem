@@ -17,6 +17,7 @@
 {% block content %}
 {% if usuario %}
 	{% if nombre.count > 1 %}	
+	<a href="{% url nutricionista_busqueda %}"> <div class="linkBusqueda"> Búsqueda Avanzada </div></a>
 	<div class="tituloResultado">Lista de Pacientes</div>
 	<div class="fondoLista">
 		<div class="linea"style="font-weight:bold;text-transform:uppercase !important;border:0;margin-bottom:15px;margin-top:12px;">
@@ -73,8 +74,8 @@
 							{{ usuario|au_getFechaNaciemiento:n.id|calculate_age }}
 						</div>
 					</div>
-					<div class="lineaGeneral"><div class="labelGeneral">Pais:</div><div class="contenidoGeneral">{{ usuario|au_getPais:n.id }}</div></div>
-					<div class="lineaGeneral"><div class="labelGeneral">Municipio:</div><div class="contenidoGeneral">{{ usuario|au_getMunicipio:n.id }}</div></div>
+					<div class="lineaGeneral"><div class="labelGeneral">País:</div><div class="contenidoGeneral">{{ usuario|au_getPais:n.id }}</div></div>
+					<div class="lineaGeneral"><div class="labelGeneral">Estado:</div><div class="contenidoGeneral">{{ usuario|au_getMunicipio:n.id }}</div></div>
 				</div>
 			</div>
 			<div class="fondoGeneral"> 

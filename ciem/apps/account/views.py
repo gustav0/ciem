@@ -342,6 +342,9 @@ def felicidades(request):
 	if getMensaje == 'recordatorio':
 		mensaje = 'Usted ha finalizado exitosamente %s, le agradecemos su colaboración en nuestra investigación.' % ('el recordatorio de 24 horas')
 		enlace = '/indicadores/'
+	if getMensaje == 'publicar':
+		mensaje = 'Usted a publicado exitosamente un articulo, puede regresar al perfil o ver los articulos publicados.'
+		enlace = '/perfil/'
 	ctx = {'mensaje':mensaje, 'enlace':enlace}
 	return render_to_response('account/felicidades.html', ctx,  context_instance=RequestContext(request))
 

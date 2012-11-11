@@ -97,13 +97,15 @@
 		</div><a href="{% url account_recordatorio %}"><div class="botonLlenar"> <div class="textoBoton">LLENAR EL RECORDATORIO 24</div></div></a>
 
 		{% else %}
- 			<a href="{% url account_datosAntropometricos %}">
- 				<div class="botonIniciar">
- 					<div class="textoIniciarA">COMENZAR</div>
- 					<div class="textoIniciarB">EVALUACION NUTRICIONAL</div>
- 					<div class="trianguloVerde"></div>
- 				</div>
+		<div id="botonBonito">
+ 			<a href="{% url account_datosAntropometricos %}" class="a-btn">
+ 				<span class="a-btn-text">Evaluación nutricional</span>
+ 				<span class="a-btn-slide-text">COMENZAR</span>
+ 				<span class="a-btn-icon-right"><span></span>
+ 				</span>
+
  			</a>
+ 		</div>
 		{% endif %}
 	</div>
 </div>

@@ -1,5 +1,6 @@
 from django.shortcuts import get_object_or_404, render_to_response
 from django import http
+from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from ciem.apps.articles.models import *
 from ciem.apps.articles.forms import * 
@@ -9,12 +10,10 @@ def nuevoArticulo(request):
 	form = articleNuevoForm(request.POST or None)
 	print request.POST
 	if form.is_valid():
-		
 		articulo = form.save(commit=False)
 		articulo.author = request.user
 		articulo.save()
-	else:
-		form = articleNuevoForm()
+		return HttpResponseRedirect('/felicidades/?mensaje=publicar')
 	ctx= {'form':form,'id':request.user.id}
 	return render_to_response('articles/publicar.html', ctx, context_instance=RequestContext(request))
 

@@ -21,7 +21,50 @@ p{float:left;margin:0}
 #botonFinalizar input{cursor:pointer;background-color:#009B00;border:1px solid #000;border-radius:.2em;color:#EEE;-webkit-transition-duration:.2s;-moz-transition-duration:.2s;transition-duration:.2s;float:left;font-weight:700;clear:both;margin:0 0 50px 40%;padding:15px 40px}
 #botonFinalizar input:hover{background:#04B486;color:#FFF}
 .recomendar24{float:left;margin-top:15px;margin-bottom:20px}
-.enlace24{float:left;margin-top:15px;margin-left:20px;font-weight:700;color:#FCFCFC;background-color:#008D00;-webkit-border-radius:8px;border-radius:8px;padding:4px}
+.enlace24{
+	float:left;
+	margin-top:5px;
+	margin-left:20px;
+	margin-bottom: 20px;
+	font-weight:700;
+	color:#FCFCFC;
+	background-color:#008D00;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+	padding:10px 20px;
+	border:1px solid black;
+	animation:animarboton 2s infinite;
+	-moz-animation:animarboton 2s infinite; /* Firefox */
+	-webkit-animation:animarboton 2s infinite; /* Safari and Chrome */
+	-o-animation:animarboton 2s infinite; /* Opera */
+}
+@keyframes animarboton
+{
+0%   {background:#087C08;}
+50%  {background:#26DD26;}
+100% {background:#087C08;}
+}
+
+@-moz-keyframes animarboton /* Firefox */
+{
+0%   {background:#087C08;}
+50%  {background:#26DD26;}
+100% {background:#087C08;}
+}
+
+@-webkit-keyframes animarboton /* Safari and Chrome */
+{
+0%   {background:#087C08;}
+50%  {background:#26DD26;}
+100% {background:#087C08;}
+}
+
+@-o-keyframes animarboton /* Opera */
+{
+0%   {background:#087C08;}
+50%  {background:#26DD26;}
+100% {background:#087C08;}
+}
 .enlace24 a{text-decoration:none;color:#FCFCFC}
 .alineacionResultado{float:left;height:300px;width:960px}
 .contenidoResultado{margin-left:80px;margin-top:80px;float:left;height:140px;width:800px;background-color:#F2FFEC;-webkit-box-shadow:2px 2px 5px 0 #888;box-shadow:2px 2px 5px 0 #888}
