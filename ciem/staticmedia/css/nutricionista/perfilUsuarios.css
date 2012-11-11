@@ -282,6 +282,7 @@ a#anterior {
 	color: #444;
     font-size: 5em;
     float: left;
+    clear: both;
 }
 
 a#anterior:hover {
@@ -448,4 +449,47 @@ progress#bar {
 	border-radius: 2px;
 	-webkit-box-shadow: 2px 2px 3px 0px #888;
 	box-shadow: 2px 2px 3px 0px #888;
+}
+
+.wrapperTabla{
+	width: 900px;
+	padding-bottom:40px;
+	padding-right:20px;
+	padding-top: 10px;   
+	float: left;
+	margin-left: 10px;
+	margin-bottom: 40px;
+	margin-top: 20px;
+	outline: 1px solid  #A7C942;
+}
+
+.titulo{
+	margin-left: 80px;
+	font-weight: bold;
+	margin-top: 5px;
+}
+.customers
+{
+margin-left: 80px;
+font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+width:800px;
+border-collapse:collapse;
+}
+.customers td, .customers th 
+{
+border:1px solid #98bf21;
+padding:3px 3px 2px 3px;
+}
+.customers th 
+{
+text-align:left;
+padding-top:5px;
+padding-bottom:4px;
+background-color:#A7C942;
+color:#ffffff;
+}
+.customers tr.alt td 
+{
+color:#000000;
+background-color:#EAF2D3;
 }
