@@ -4,32 +4,45 @@
 {% endblock %}
 {% block content %}
 	{% if bandera = 1 %}
+		<div id="formulario1">
+			<div class="textoLogin">
+				Recuperar contraseña
+			</div>
 		<form action="" method="post">
 			{% csrf_token %}
-			Username {{ form.username }}
+			Nombre de usuario: {{ form.username }}
 			<input type="submit" value="Enviar">
 		</form>
+		</div>
 		{% if error = 1 %}
 			<div class="error"> Ingrese un username válido </div>
 		{% endif %}
 	{% else %}
 		{% if bandera = 2 %}
-		<div> Su contraseña : {{ contrasena }}</div>
+		<div id="formulario1">{{ mensaje }}</div>
 		{% else %}
 			{% if error = 2 %}
-				<div class="error"> Datos inválidos </div>
+				<div class="error">
+					<span aria-hidden="true">X</span>
+					<p>Datos inválidos.</p>
+				</div>
 			{% endif %}
+			<div id="textoLoginDatos">
+				Ingrese los datos para recuperar su contraseña:
+			</div>
 			<form action="" method="post">
 				{% csrf_token %}
-				<div class="item">Cedula {{ form.cedula }}</div>
-				<div class ="item">Pregunta Secreta: {{ pregunta}} </div>
-				<div class = "item"> Respuesta {{ form.respuestaSecreta }}
+				<div class="usernameForm">Cedula {{ form.cedula }}</div>
+				<div class ="usernameForm">Pregunta Secreta: {{ pregunta}} </div>
+				<div class = "usernameForm"> Respuesta {{ form.respuestaSecreta }}</div>
+				<div class = "usernameForm"> Nueva contraseña {{ form.password1 }}</div>
+				<div class = "usernameForm"> Reescribir contraseña {{ form.password2 }}</div>
 				<div class="noDisplayDiv">
 					<select name="pregunta">
             			<option value="{{ pregunta }}"></option>
             		</select>
     			</div>
-				<input type="submit" value="Enviar">
+				<div id="botonFinalizar"><input type="submit" value="Enviar"></div>
 			</form>
 		{% endif %}
 	{% endif %}

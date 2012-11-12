@@ -36,8 +36,10 @@ class registerForm(UserCreationForm):
 
 class recuperarContrasenaForm(forms.Form):
 	username = forms.CharField(max_length=70)
-	cedula = forms.FloatField(widget=forms.TextInput(attrs={'placeholder': '9999999'}))
+	cedula = forms.FloatField(label='Cédula',widget=forms.TextInput(attrs={'placeholder': '9999999'}))
 	respuestaSecreta = forms.CharField(max_length=70, label='Respuesta Secreta', widget=forms.TextInput(attrs={'placeholder': 'Respuesta secreta'}))
+	password1 = forms.CharField(widget=forms.PasswordInput())
+	password2 = forms.CharField(widget=forms.PasswordInput())
 
 class editRegisterForm(ModelForm):
 	class Meta:
