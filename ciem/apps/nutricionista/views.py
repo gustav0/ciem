@@ -252,7 +252,7 @@ def crear_excel(id):
 	pattern.pattern_fore_colour =22
 	style = XFStyle() 
 	style.pattern = pattern
-	nombres = ["IdentificacionHistoria","TRABAJO","IDIASActivig","ITiempoActivig","ITiempoActivigTRUNK","IDiaActmod","ITiempoActmod","ITiempoActmodTRUNK","IDiaAndar","ITiempoAndar","ITiempoAndarTRUNK","IIViajevehiculo","IITiempoViajaVehi","IIdDiaBicicleta","IITiempoBici","IITiempoBiciTRUNK","IIDiaAndar","IITiempoAndar","IITiempoAndarTRUNK","IIIDiaVigJar","IIITiempoVigJar","IIITiempoVigJarTRUNK","IIIDiaModJar","IIITiempoModJar","IIITiempoModJarTRUNK","IIIDiaModCasa","IIITiempoModCasa","IIITiempoModCasaTRUNK","IVDiasAndar","IVTiempoAndar","	IVTiempoAndarTRUNK","IVDiaVigo","IVTiempoVigo","IVTiempoVigoTRUNK","IVDiaMod","IVTiempoMod","IVTiempoModTRUNK","TiempoSentado","TiempoSentadofindesemana","IAndarMET","IModMet","IVigMet","ITotalMET","IIBiciMET","IIAndarMET","IITotalMET","IIIVigJarMET","IIIModJarMET","IIIModCasaMET","IIITotalMET","IVAndarMET","IVModMET","	IVVigMET","IVTotalMET","METsTotalesAreas","METsAndar","METsMod","METsVig","METsTotalesAct","DiasTAndar","DiasTMod","DiasTVig","TotalDias","MinAndar","MinMod","MinVig","DiasAndarMod","MinAndarMod","Alta","Moderada","Leve","PatronActFisica"]
+	nombres = ["IdentificacionHistoria","Fecha de creacion","TRABAJO","IDIASActivig","ITiempoActivig","ITiempoActivigTRUNK","IDiaActmod","ITiempoActmod","ITiempoActmodTRUNK","IDiaAndar","ITiempoAndar","ITiempoAndarTRUNK","IIViajevehiculo","IITiempoViajaVehi","IIdDiaBicicleta","IITiempoBici","IITiempoBiciTRUNK","IIDiaAndar","IITiempoAndar","IITiempoAndarTRUNK","IIIDiaVigJar","IIITiempoVigJar","IIITiempoVigJarTRUNK","IIIDiaModJar","IIITiempoModJar","IIITiempoModJarTRUNK","IIIDiaModCasa","IIITiempoModCasa","IIITiempoModCasaTRUNK","IVDiasAndar","IVTiempoAndar","	IVTiempoAndarTRUNK","IVDiaVigo","IVTiempoVigo","IVTiempoVigoTRUNK","IVDiaMod","IVTiempoMod","IVTiempoModTRUNK","TiempoSentado","TiempoSentadofindesemana","IAndarMET","IModMet","IVigMet","ITotalMET","IIBiciMET","IIAndarMET","IITotalMET","IIIVigJarMET","IIIModJarMET","IIIModCasaMET","IIITotalMET","IVAndarMET","IVModMET","	IVVigMET","IVTotalMET","METsTotalesAreas","METsAndar","METsMod","METsVig","METsTotalesAct","DiasTAndar","DiasTMod","DiasTVig","TotalDias","MinAndar","MinMod","MinVig","DiasAndarMod","MinAndarMod","Alta","Moderada","Leve","PatronActFisica"]
 	i = 0
 	for item in nombres:
 		ws.write(0,i,item,style)
@@ -260,24 +260,24 @@ def crear_excel(id):
 		i += 1
 	j=1	
 	for item in querySetIpaq:
-		lista = [item.id,item.trabaja,item.p2a_trabajo,item.minVigorosoTrabajo,item.minVigorosoTrabajo, \
+		lista = [item.id,str(item.fecha_creacion),item.trabaja,item.p2a_trabajo,item.minVigorosoTrabajo,item.minVigorosoTrabajo, \
 		item.p4a_trabajo, item.minModeradoTrabajo,item.minModeradoTrabajo,item.p6a_trabajo,item.minAndarTrabajo,\
 		item.minModeradoTrabajo,item.p8b_transporte,item.minVehiculo,item.p10a_transporte,item.minModeradoTransporte,\
 		item.minModeradoTransporte,item.p12a_transporte, item.minAndarTransporte, item.minAndarTransporte, item.p14a_hogar,\
 		item.minVigorosoHogar, item.minVigorosoHogar, item.p16a_hogar, item.minModeradoHogar, item.minModeradoHogar,\
 		item.p19a_hogar, item.minModeradoHogar, item.minModeradoHogar, item.p20a_recreacion, item.minAndarRecre, \
 		item.minAndarRecre, item.p22a_recreacion, item.minVigorosoRecre, item.minVigorosoRecre, item.p24a_recreacion,\
-		item.minModeradoRecre, item.minModeradoRecre, "tiempoSentado","tiempoSentadoFS", item.metAndarTrabajo, \
+		item.minModeradoRecre, item.minModeradoRecre, item.tiempoSentado,item.MediaSentado, item.metAndarTrabajo, \
 		item.metModeradoTrabajo, item.metVigorosoTrabajo, item.metTrabajo, item.metModeradoTransporte, item.metAndarTransporte,\
 		item. metTransporte, item.metVigorosoHogar, item.metModeradoJHogar, item.metModeradoHogar, item.metHogar,\
 		item.metAndarRecreacion, item.metModeradoRecreacion, item.metVigorosoRecreacion, item.metRecreacion, item.metTotal, \
 		item.metTotalAndar, item.metTotalModerado, item.metTotalVigoroso, item.metTotal,item.diasTotalAndar, item.diasTotalModerado, \
-		item.diasTotalVigoroso, item.diasTotal, item.tiempoAndar, item.tiempoModerado, item.tiempoVigoroso ]
-	i=0	
-	for item in lista:
-		ws.write(j,i,item)
-		i += 1
-	j+=1	
+		item.diasTotalVigoroso, item.diasTotal, item.tiempoAndar, item.tiempoModerado, item.tiempoVigoroso," "," "," ",item.apreciacionIpaq ]
+		i=0	
+		for item in lista:
+			ws.write(j,i,item)
+			i += 1
+		j+=1	
 	return wb
 
 def descargarAntropometrico(querySetAntropometrico):
@@ -345,7 +345,7 @@ def descargarIpaq(id_usuarios, actividadFisica):
 			item.minVigorosoHogar, item.minVigorosoHogar, ipq.p16a_hogar, item.minModeradoHogar, item.minModeradoHogar,\
 			ipq.p19a_hogar, item.minModeradoHogar, item.minModeradoHogar, ipq.p20a_recreacion, item.minAndarRecre, \
 			item.minAndarRecre, ipq.p22a_recreacion, item.minVigorosoRecre, item.minVigorosoRecre, ipq.p24a_recreacion,\
-			item.minModeradoRecre, item.minModeradoRecre, "tiempoSentado","tiempoSentadoFS", item.metAndarTrabajo, \
+			item.minModeradoRecre, item.minModeradoRecre, item.tiempoSentado,item.MediaSentado, item.metAndarTrabajo, \
 			item.metModeradoTrabajo, item.metVigorosoTrabajo, item.metTrabajo, item.metModeradoTransporte, item.metAndarTransporte,\
 			item. metTransporte, item.metVigorosoHogar, item.metModeradoJHogar, item.metModeradoHogar, item.metHogar,\
 			item.metAndarRecreacion, item.metModeradoRecreacion, item.metVigorosoRecreacion, item.metRecreacion, item.metTotal, \
