@@ -1,9 +1,7 @@
 #contenido{
 	width: 960px;
-	height: 630px;
 }
 #wrapper{
-	margin-top: 50px;
 	background: #EFEFEF;
 	text-align: justify;
 	padding: 5px;
@@ -17,7 +15,6 @@
 	width: 230px;
 	height: 546px;
 	text-align: center;
-	margin-top: 50px;
 	padding: 0px;
 	float: left;
 }
