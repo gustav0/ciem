@@ -34,7 +34,6 @@ def busqueda(request):
 	form = busquedaForm(request.POST or None)
 	query = userProfile.objects.all()
 	antropometricoPerfil = datosAntropometricos.objects.all()
-	print form.errors
 	if form.is_valid():
 		bandera = True
 		cuenta = 0
@@ -63,8 +62,6 @@ def busqueda(request):
 		# BUSQUEDA POR PAIS
 		if(pais):
 			query = query.filter(pais=pais)		
-
-		print "fecha hasta"
 		#BUSQUEDA POR EDAD
 		if(edadDesde != 't'):
 			yearHasta = int(currentYear)-int(edadDesde)
@@ -159,7 +156,6 @@ def busqueda(request):
 		id_final = []			
 		for item in query:
 			id_final.append(item.user_id)
-			print item.user_id	
 		id_antro = []	
 		for per in antropometricoPerfil:
 			id_antro.append(per.id)
@@ -199,7 +195,6 @@ def perfilUsuarios(request):
 				return HttpResponseRedirect("/perfiles/")
 			if int(tipoPerfil)==1:#datos antropometricos
 				perfil = datosAntropometricos.objects.getByIdJoin(int(getUser))
-				print perfil
 			elif int(tipoPerfil)==2:#resultados del ipaq
 				perfil = ipaqResultado.objects.getResultados(int(getUser))
 			elif int(tipoPerfil)==3:#frecuenciadeconsumo
@@ -233,7 +228,6 @@ def perfilUsuarios(request):
 				perfil = None
 				del request.session['userQuery']
 			else:
-				print "no session"
 				nombre = User.objects.all()
 				usuario = userProfile.objects.all()
 				perfil = None
