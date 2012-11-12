@@ -258,6 +258,7 @@ def crear_excel(id):
 		ws.write(0,i,item,style)
 		ws.col(i).width = 3500
 		i += 1
+	j=1	
 	for item in querySetIpaq:
 		lista = [item.id,item.trabaja,item.p2a_trabajo,item.minVigorosoTrabajo,item.minVigorosoTrabajo, \
 		item.p4a_trabajo, item.minModeradoTrabajo,item.minModeradoTrabajo,item.p6a_trabajo,item.minAndarTrabajo,\
@@ -274,8 +275,9 @@ def crear_excel(id):
 		item.diasTotalVigoroso, item.diasTotal, item.tiempoAndar, item.tiempoModerado, item.tiempoVigoroso ]
 	i=0	
 	for item in lista:
-		ws.write(1,i,item)
+		ws.write(j,i,item)
 		i += 1
+	j+=1	
 	return wb
 
 def descargarAntropometrico(querySetAntropometrico):
@@ -301,7 +303,7 @@ def descargarAntropometrico(querySetAntropometrico):
 	for antro in querySetAntropometrico:
 		usuario = User.objects.get(pk=antro.user_id)
 		resultados = antropometricosResultado.objects.get(datosAntropometricos_id=antro.id)
-		lista = [antro.fecha_creacion,antro.user_id,usuario.first_name,usuario.last_name,antro.peso,antro.circunferencia_cintura,\
+		lista = [str(antro.fecha_creacion),antro.user_id,usuario.first_name,usuario.last_name,antro.peso,antro.circunferencia_cintura,\
 		antro.circunferencia_cadera,antro.estatura,antro.hipertencion,antro.diabetes,antro.cancer,antro.colesterol,antro.trigliceridos,\
 		resultados.metabolismoBasal, resultados.indiceAdiposidad,resultados.apreciacion_adiposidad, \
 		resultados.obesidad,resultados.apreciacion_obesidad, resultados.apreciacion_cintura]
