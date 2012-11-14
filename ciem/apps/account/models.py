@@ -256,6 +256,15 @@ class indicadoresDieteticos(models.Model):
 
 class datosRecordatorioResultado(models.Model):
 	recordatorio = models.ForeignKey(datosRecordatorio)
+	proteinas_necesarias_gramos = models.FloatField()
+	proteinas_necesarias_calorias = models.FloatField()
+	proteinas_necesarias_porcentaje = models.FloatField()
+	hidratos_necesarios_gramos = models.FloatField()
+	hidratos_necesarios_calorias = models.FloatField()
+	hidratos_necesarios_porcentaje = models.FloatField()
+	grasas_necesarias_gramos = models.FloatField()
+	grasas_necesarias_calorias = models.FloatField()
+	grasas_necesarias_porcentaje = models.FloatField()
 
 class preguntaSecreta(models.Model):
 	pregunta = models.CharField(max_length=100)

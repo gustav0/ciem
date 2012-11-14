@@ -36,8 +36,11 @@ class registerForm(UserCreationForm):
 
 class recuperarContrasenaForm(forms.Form):
 	username = forms.CharField(max_length=70)
-	cedula = forms.FloatField(widget=forms.TextInput(attrs={'placeholder': '9999999'}))
+	cedula = forms.FloatField(label='Cédula',widget=forms.TextInput(attrs={'placeholder': '9999999'}))
 	respuestaSecreta = forms.CharField(max_length=70, label='Respuesta Secreta', widget=forms.TextInput(attrs={'placeholder': 'Respuesta secreta'}))
+	password1 = forms.CharField(widget=forms.PasswordInput())
+	password2 = forms.CharField(widget=forms.PasswordInput())
+
 
 class editRegisterForm(ModelForm):
 	class Meta:
@@ -149,6 +152,7 @@ class antropometricosForm(ModelForm):
 	
 
 class recordatorioForm(ModelForm):
+	global porcentaje
 	CHOICES = (('0','-'),('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),('6','6'),('7','7'))
 	diasDesayuno = forms.ChoiceField(widget=forms.Select, choices=CHOICES, initial='0')
 	diasMerienda1 = forms.ChoiceField(widget=forms.Select, choices=CHOICES, initial='0')
@@ -157,16 +161,42 @@ class recordatorioForm(ModelForm):
 	diasCena = forms.ChoiceField(widget=forms.Select, choices=CHOICES, initial='0')
 	diasMerienda3 = forms.ChoiceField(widget=forms.Select, choices=CHOICES, initial='0')
 	valid_time_formats = ['%H:%M', '%I:%M%p', '%I:%M %p']
-	horaDesayuno =forms.TimeField(help_text='ex: 8:30AM', input_formats=valid_time_formats)
-	horaMerienda1 =forms.TimeField(help_text='ex: 10:30AM', input_formats=valid_time_formats)
-	horaAlmuerzo =forms.TimeField(help_text='ex: 1:30PM', input_formats=valid_time_formats)
-	horaMerienda2 =forms.TimeField(help_text='ex: 3:30PM', input_formats=valid_time_formats)
-	horaCena = forms.TimeField(help_text='ex: 6:00PM', input_formats=valid_time_formats)
-	horaMerienda3 =forms.TimeField(help_text='ex: 8:00PM', input_formats=valid_time_formats)
-	
+	horaDesayuno =forms.TimeField(help_text='ex: 8:30AM', input_formats=valid_time_formats, widget=forms.TextInput(attrs={'value': '07:00'}))
+	horaMerienda1 =forms.TimeField(help_text='ex: 10:30AM', input_formats=valid_time_formats, widget=forms.TextInput(attrs={'value': '10:00'}))
+	horaAlmuerzo =forms.TimeField(help_text='ex: 1:30PM', input_formats=valid_time_formats, widget=forms.TextInput(attrs={'value': '13:00'}))
+	horaMerienda2 =forms.TimeField(help_text='ex: 3:30PM', input_formats=valid_time_formats, widget=forms.TextInput(attrs={'value': '16:00'}))
+	horaCena = forms.TimeField(help_text='ex: 6:00PM', input_formats=valid_time_formats, widget=forms.TextInput(attrs={'value': '19:00'}))
+	horaMerienda3 =forms.TimeField(help_text='ex: 8:00PM', input_formats=valid_time_formats, widget=forms.TextInput(attrs={'value': '22:00'}))
 	class Meta:
 		model = datosRecordatorio
-
+	def save(self,request):
+		requerimiento_calorico = ipaqResultado.objects.getResultados(request.user.id)[0].requerimientoCaloricoDiario
+		print requerimiento_calorico
+		peso_persona = datosAntropometricos.objects.filter(id=request.user.id).order_by('-fecha_creacion')[0].peso
+		datosRecordatorio = super(recordatorioForm,self).save()
+		proteinas_necesarias = self.calcular_proteinas_necesarias(requerimiento_calorico,peso_persona)
+		grasas_necesarias = self.calcular_grasas_necesarias(requerimiento_calorico)
+		hidratos_necesarios = self.calcular_hidratos_necesarios(requerimiento_calorico,int(proteinas_necesarias['porcentaje']+grasas_necesarias['porcentaje']))
+		datosRecordatorioResultado.objects.create(recordatorio=datosRecordatorio,proteinas_necesarias_gramos=proteinas_necesarias['gramos'],proteinas_necesarias_calorias=proteinas_necesarias['calorias'],proteinas_necesarias_porcentaje=proteinas_necesarias['porcentaje'],hidratos_necesarios_gramos=hidratos_necesarios['gramos'],hidratos_necesarios_calorias=hidratos_necesarios['calorias'],hidratos_necesarios_porcentaje=hidratos_necesarios['porcentaje'],grasas_necesarias_gramos=grasas_necesarias['gramos'],grasas_necesarias_calorias=grasas_necesarias['calorias'],grasas_necesarias_porcentaje=grasas_necesarias['porcentaje'],)
+	def calcular_proteinas_necesarias(self,requerimiento_calorico,peso_persona):
+		calorias = peso_persona * 4
+		if(requerimiento_calorico!=0):
+			porcentaje = calorias*100/requerimiento_calorico
+		else:
+			porcentaje = 0
+		proteinas = {'calorias':calorias,'porcentaje':porcentaje,'gramos':peso_persona}
+		return proteinas
+	def calcular_hidratos_necesarios(self,requerimiento_calorico,porcentaje_actual):
+		porcentaje = 100 - porcentaje_actual
+		calorias = porcentaje*requerimiento_calorico/100
+		gramos = calorias/4
+		hidratos = {'porcentaje':porcentaje,'calorias':calorias,'gramos':gramos}
+		return hidratos
+	def calcular_grasas_necesarias(self,requerimiento_calorico):
+		calorias = requerimiento_calorico * .3
+		gramos = calorias / 9
+		grasas = {'porcentaje':30,'calorias':calorias,'gramos':gramos}
+		return grasas
 
 class recordatorioAlimentos(ModelForm):
 	class Meta:
