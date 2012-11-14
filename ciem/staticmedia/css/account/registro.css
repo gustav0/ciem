@@ -1,7 +1,89 @@
-#usernameForm span{font-size:0}
-#usernameForm input,select{border:1px solid #AAA;-webkit-box-shadow:0 1px 0 rgba(255,255,255,0.5);-moz-box-shadow:0 1px 0 rgba(255,255,255,0.5);box-shadow:0 1px 0 rgba(255,255,255,0.5);float:right}
-#usernameForm p{background:#F7F7F7;border:1px solid #D7D7D7;box-shadow:0 0 1em #EEE;border-radius:.3em;overflow:auto;width:50%;display:inline-block;text-align:left;margin:1em 1.75em;padding:.25em}
 form{text-align:center}
 #botonFinalizar input{cursor:pointer;background-color:#009B00;border:1px solid #000;border-radius:.2em;color:#EEE;-webkit-transition-duration:.2s;-moz-transition-duration:.2s;transition-duration:.2s;float:left;font-weight:700;clear:both;margin:0 0 50px 42%;padding:15px 40px}
 #botonFinalizar input:hover{background:#04B486;color:#FFF}
 .noDisplayDiv{display:none;}
+#formulario1{
+	width: 500px;
+	float: left;
+	padding: 50px 10px;
+	margin:10px;
+	margin-left: 25%;
+	border:1px solid green;
+	background-color: #F2FFEC;
+	-webkit-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 2px 2px 3px 0 #888;
+	box-shadow: 2px 2px 3px 0 #888;
+}
+.textoLogin {
+	float: left;
+	color: #063;
+	font-size: 22px;
+	font-weight: 700;
+	margin-top: -40px;
+}
+
+#textoLoginDatos {
+	float: left;
+	color: #063;
+	font-size: 22px;
+	font-weight: 700;
+	margin: 20px;
+}
+
+.usernameForm{
+background: #F7F7F7;
+border: 1px solid #D7D7D7;
+box-shadow: 0 0 1em #EEE;
+border-radius: .3em;
+overflow: auto;
+width: 50%;
+display: inline-block;
+text-align: left;
+margin: 1em 1.75em;
+padding: .25em;
+clear: both;
+}
+
+.usernameForm input{
+	float: right;
+	margin-right: 100px;
+}
+
+#botonFinalizar input[type="submit"]:hover{
+background: #04B486;
+color: white;
+}
+#botonFinalizar input[type="submit"]{
+cursor: pointer;
+background-color: #009B00;
+border: 1px solid black;
+border-radius: .2em;
+color: #EEE;
+-webkit-transition-duration: .2s;
+-moz-transition-duration: .2s;
+transition-duration: .2s;
+float: left;
+font-weight: 700;
+clear: both;
+margin: 0 0 50px 42%;
+padding: 15px 40px;
+}
+
+span{
+	font-family: 'IcoMoon',helvetica;
+	font-size: 24px;
+}
+
+.error{
+	float: left;
+	margin: 20px;
+	border: 1px solid red;
+	background: #FDEFEF;
+	text-indent: 20px;
+	border-radius: 5px;
+	color: red;
+	width: 60%;
+	margin-left:20%; 
+	font-weight: bold;
+}
