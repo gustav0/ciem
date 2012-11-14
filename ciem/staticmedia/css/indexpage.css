@@ -24,9 +24,6 @@ body{
 }
 
 article{
-	text-align: justify;
-	text-justify:inter-word;
-	line-height: 1.5em;
 	background: #E0FFB8;
 	border: 1px solid #94DA3A;
 	border-width: 1px 0;
