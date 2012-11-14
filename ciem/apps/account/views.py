@@ -161,9 +161,9 @@ def frecuencia(request):
 		for p in perfilFrecuencia:
 			progreso = p.progreso
 		if progreso=='1':
-			print "progreso 1"
 			preguntasFormSet = modelformset_factory(dataFrecuenciaConsumo,extra=26,max_num=26)
 			alimento =	alimentoFrecuencia.objects.getById(1) 
+			print alimento.count()
 			if request.method == 'POST':
 				preguntas = preguntasFormSet(request.POST)
 				if preguntas.is_valid():
@@ -273,7 +273,7 @@ def recordatorio(request):
 			comidaMerienda2 = request.POST.getlist('selCombo4')
 			comidaCena = request.POST.getlist('selCombo5')
 			comidaMerienda3 = request.POST.getlist('selCombo6')
-			instance = form.save()
+			instance = form.save(request)
 			for comida in comidaDesayuno:
 				try:
 					separado = comida.split('|')
