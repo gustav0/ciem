@@ -44,23 +44,14 @@ def recuperarContrasena(request):
 	bandera = 0
 	pregunta = 'null'
 	error = 0
-	mensaje = ''
+	contrasena = 0
 	form = recuperarContrasenaForm(request.POST or None)
 	try:
 		respuesta = request.POST['respuestaSecreta']
 		cedula = request.POST['cedula']
 		try:
 			perfil = userProfile.objects.get(cedula=cedula, respuestaSecreta=respuesta)
-			if perfil:
-				user = User.objects.get(id=perfil.user_id)
-				pass1 = request.POST['password1']
-				pass2 = request.POST['password2']
-				if pass1 and pass2 and pass1 == pass2:
-					user.set_password(pass2)
-					user.save()
-					mensaje = 'Se cambio su contraseña correctamente, ahora lo invitamos a ingresar al sistema.'
-				else:
-					mensaje = 'No se pudo cambiar su contraseña, esto se debe a que los datos ingresados no son validos.'
+			contrasena = User.objects.get(id=perfil.user_id).password
 			bandera = 2
 		except:
 			pregunta = request.POST['pregunta']
@@ -81,7 +72,7 @@ def recuperarContrasena(request):
 				error = 1
 
 		#verificarDatos()
-	ctx= {'form':form, 'bandera':bandera, 'pregunta':pregunta, 'error':error, 'mensaje':mensaje}
+	ctx= {'form':form, 'bandera':bandera, 'pregunta':pregunta, 'error':error, 'contrasena':contrasena}
 	return render_to_response('account/recuperarContrasena.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')
@@ -161,9 +152,9 @@ def frecuencia(request):
 		for p in perfilFrecuencia:
 			progreso = p.progreso
 		if progreso=='1':
-			print "progreso 1"
 			preguntasFormSet = modelformset_factory(dataFrecuenciaConsumo,extra=26,max_num=26)
 			alimento =	alimentoFrecuencia.objects.getById(1) 
+			print alimento.count()
 			if request.method == 'POST':
 				preguntas = preguntasFormSet(request.POST)
 				if preguntas.is_valid():
@@ -273,7 +264,7 @@ def recordatorio(request):
 			comidaMerienda2 = request.POST.getlist('selCombo4')
 			comidaCena = request.POST.getlist('selCombo5')
 			comidaMerienda3 = request.POST.getlist('selCombo6')
-			instance = form.save()
+			instance = form.save(request)
 			for comida in comidaDesayuno:
 				try:
 					separado = comida.split('|')
@@ -346,8 +337,7 @@ def felicidades(request):
 		enlace = '/perfil/'
 	if getMensaje == 'frecuencia':
 		mensaje = 'Usted ha finalizado exitosamente %s, le agradecemos su colaboración en nuestra investigación.' % ('la frecuencia de consumo del mes')
-		enlace = '/perfil/'
-		#falta que este listo el frecuencia7 para poder redireccionar ahí.
+		enlace = '/frecuencia7/'
 	if getMensaje == 'recordatorio':
 		mensaje = 'Usted ha finalizado exitosamente %s, le agradecemos su colaboración en nuestra investigación.' % ('el recordatorio de 24 horas')
 		enlace = '/indicadores/'
