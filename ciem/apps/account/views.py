@@ -345,7 +345,7 @@ def felicidades(request):
 		mensaje = 'Usted ha finalizado exitosamente %s, le agradecemos su colaboración en nuestra investigación.' % ('la frecuencia de consumo 7 días')
 		enlace = '/perfil/'
 	if getMensaje == 'frecuencia':
-		mensaje = 'Usted ha finalizado exitosamente %s, le agradecemos su colaboración en nuestra investigación.' % ('la frecuencia de consumo del mes')
+		mensaje = 'Usted ha finalizado exitosamente %s, le agradecemos su colaboración en nuestra investigación.' % ('la frecuencia de consumo')
 		enlace = '/perfil/'
 		#falta que este listo el frecuencia7 para poder redireccionar ahí.
 	if getMensaje == 'recordatorio':

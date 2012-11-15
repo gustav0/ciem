@@ -7,7 +7,11 @@
 <div id="felicidades" class="agradecimiento">
 	<span aria-hidden="true">C</span>
 	{{mensaje|escape}}
+	{% if enlace == "/perfil/" %}
+	Para regresar al perfil hacer clic <a href="{{enlace}}">[Aquí]</a>
+	{% else %}
 	Para continuar hacer clic <a href="{{enlace}}">[Aquí]</a>
+	{% endif %}
 </div>
 {% else %}
 Error.
