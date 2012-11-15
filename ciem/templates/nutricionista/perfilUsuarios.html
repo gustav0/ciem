@@ -123,7 +123,12 @@
 						<div class="fila">
 							<div class="valor" >Obesidad</div>
 							<div class="calculoValor">{{ p.obesidad }}</div>
-							<div class ="rango">{{p.apreciacion_obesidad}} </div>
+							<div class ="rango">
+							{% if p.apreciacion_obesidad == 'Sobrepeso (Obesidad grado I)' %}
+								Sobrepeso </div>
+							{% else %}
+								{{p.apreciacion_obesidad}} </div>
+							{% endif %}
 						</div>
 						<div class="fila">
 							<div class="valor" >Cintura</div>
