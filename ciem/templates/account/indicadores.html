@@ -1,4 +1,5 @@
 {% extends "homepage/index.html" %}
+{% load custom_filters %}
 {% block title %}Indicadores dieteticos{% endblock %}
 {% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/account/indicadoresdieteticos.css">
 {% endblock %}
@@ -9,6 +10,7 @@
 {% endblock %}
 {% block content %}
 <h2>Indicadores dietéticos</h2>
+{% if not perfilIndicadores.0 %}
 
 	<form action="." method="POST">
 		{% csrf_token %}
@@ -120,4 +122,41 @@
 			<input type="submit" value="Guardar" id="botonregistro">
 		</div>
 	</form>
+{% else %}
+	<div id="felicidades" class="agradecimiento">
+		<span aria-hidden="true">C</span>
+		Usted ya ingreso los indicadores dietéticos, a continuación los datos ingresados. 
+		Puede continuar con el recorrido haciendo clic <a href="/frecuencia/">[Aquí]</a>
+	</div>
+	{% for p in perfilIndicadores %}
+		<h3>Indicadores dietéticos ingresados</h3>
+		<div id="indicadores">
+				<p>Comidas al día: {{p.comidasAlDia}}</p>
+				<p>Quien prepara la comida: {{p.quienPreparaAlimentos}}</p>
+				<p>Come entre comidas: {{ p.comeEntreComidas|traducir_bool }}
+				</p>
+				<p>Qué come entre comidas: {{p.queComeEntreComidas}}</p>
+				<p>Modifico su alimentación en el último año: {{p.modificadoAlimentacionReciente|traducir_bool}}</p>
+				<p>Por qué modifico su alimentación: {{p.porqueModifico}}</p>
+				<p>En que sentido lo modifico: {{p.comoModifico}}</p>
+				<p>Apetito: {{p.comoSuApetito}}</p>
+				<p>A que hora tiene más hambre: {{p.horaMasHambre}}</p>
+				<p>Alimentos preferidos: {{p.alimentoPreferido}}</p>
+				<p>Alimentos que le desagradan: {{p.alimentoDesagrado}}</p>
+				<p>Es alergico a algún alimento: {{p.esAlergicoIntolerante|traducir_bool}}</p>
+				<p>Cual alimento es alergico: {{p.cualAlimento}}</p>
+				<p>Agrega sal a las comidas: {{p.salComidas|traducir_bool}}</p>
+				<p>Utiliza suplementos: {{p.suplementoAlimenticio|traducir_bool}}</p>
+				<p>Cuantas veces al día: {{p.cuantasVecesSuplemento}}</p>
+				<p>Porque los utiliza: {{p.porqueSuplemento}}</p>
+				<p>Su consumo varia cuando esta ansioso, triste o nervioso: {{p.consumoVariaEmocion|traducir_bool}}</p>
+				<p>Cómo varia: {{p.comoVariaConsumo}}</p>
+				<p>Ha realizado dietas: {{p.tieneDieta|traducir_bool}}</p>
+				<p>Cuantas dietas: {{p.cuantasVecesDieta}}</p>	 
+				<p>Tipo de dieta: {{p.tipoDieta}}</p>
+				<p>Hace cuanto tiempo: {{p.tiempoDieta}}</p>
+		</div>
+	{% endfor %}
+{% endif %}
+
 {% endblock %}

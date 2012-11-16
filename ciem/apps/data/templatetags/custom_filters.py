@@ -8,6 +8,15 @@ from django.utils.encoding import force_unicode
 
 register = Library()
 
+@register.filter#PARA TRADUCIR BOOL
+def traducir_bool(value):
+	valor = value
+	print valor
+	if valor==False:
+		return 'No'
+	else:
+		return 'Si'
+
 @register.filter#DEVUELVE LISTA DEL 0 AL NUMERO INDICADO
 def get_index(value,list):
 	mylista = value

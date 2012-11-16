@@ -6,4 +6,20 @@
 form{text-align:center}
 #botonFinalizar input{cursor:pointer;background-color:#009B00;border:1px solid #000;border-radius:.2em;color:#EEE;-webkit-transition-duration:.2s;-moz-transition-duration:.2s;transition-duration:.2s;float:left;font-weight:700;clear:both;margin:0 0 50px 42%;padding:15px 40px}
 #botonFinalizar input:hover{background:#04B486;color:#FFF}
+#indicadores{
+	margin-top: 20px;
+	background: #FAF6DC;
+	text-indent: 50px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+
+}
+#indicadores p{	
+	background: #F0F0F0;
+	width: 80%;
+	margin-left: 10%;
+	box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+.agradecimiento{border:1px solid green;background:#CDF5CD;color:#264426;border-radius:5px;width:50%;margin:10px 0 10px 25%;padding:15px 15px 15px 40px}
+.agradecimiento span{font-family:IcoMoon,arial;font-size:3em;float:left;margin-right:10px;margin-top:-15px}
 .noDisplayDiv {display: none;}

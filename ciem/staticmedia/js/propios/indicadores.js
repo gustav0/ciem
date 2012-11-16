@@ -57,5 +57,6 @@ $(document).ready(function(){
 	$("#id_suplementoAlimenticio_1").click();
 	$("#id_consumoVariaEmocion_1").click();
 	$("#id_tieneDieta_1").click();
+	$("#id_salComidas_1").click();
 	
 });
