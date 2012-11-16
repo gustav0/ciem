@@ -171,8 +171,7 @@ class recordatorioForm(ModelForm):
 		model = datosRecordatorio
 	def save(self,request):
 		requerimiento_calorico = ipaqResultado.objects.getResultados(request.user.id)[0].requerimientoCaloricoDiario
-		print requerimiento_calorico
-		peso_persona = datosAntropometricos.objects.filter(id=request.user.id).order_by('-fecha_creacion')[0].peso
+		peso_persona = datosAntropometricos.objects.filter(user=request.user.id).order_by('-fecha_creacion')[0].peso
 		datosRecordatorio = super(recordatorioForm,self).save()
 		proteinas_necesarias = self.calcular_proteinas_necesarias(requerimiento_calorico,peso_persona)
 		grasas_necesarias = self.calcular_grasas_necesarias(requerimiento_calorico)
