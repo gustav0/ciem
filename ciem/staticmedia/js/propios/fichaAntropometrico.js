@@ -1,6 +1,26 @@
 function cargarContenido(nombre,fecha,peso,cirCi,cirCa,estatura,hiper,diabetes,cancer,trigli){
 	var contenedor;
 	contenedor = document.getElementById("info");
+	if (hiper=="False") {
+		hiper="No";
+	}else{
+		hiper="Si"
+	}
+	if (cancer=="False") {
+		cancer="No";
+	}else{
+		cancer="Si"
+	}
+	if (trigli=="False") {
+		trigli="No";
+	}else{
+		trigli="Si"
+	}
+	if (diabetes=="False") {
+		diabetes="No";
+	}else{
+		diabetes="Si"
+	}
 	texto = "<div style=\"font-weight:bold;margin-bottom:10px;color: #3F3F3F;\">Creado por "+nombre+" el "+fecha+"</div>"+
 	"<div class=\"variableMas\"><div class=\"varLabel\">Peso: </div><div class=\"varContenido\">"+peso+" Kg</div></div>"+
 	"<div class=\"variableMas\"><div class=\"varLabel\">Circunferencia de cintura: </div><div class=\"varContenido\">"+cirCi+" cm</div></div>"+
