@@ -147,5 +147,20 @@ margin: 15px 0 15px 35%;
 	float: left;
 	width: 80px;
 }
+
+#preview{
+	position:absolute;
+	border:1px solid #ccc;
+	background:#333;
+	padding:5px;
+	display:none;
+	color:#fff;
+}
+
+#interrogacion{
+	border: none;
+	margin-top: 60px;
+	margin-left: 15px;
+}
 .identificadorCirCad,.resultadoCirCad,.identificadorCirCin,.resultadoCirCin,.identificadorTrigliceridos,.resultadoTrigliceridos,.identificadorHipertencion,.resultadoHipertencion{float:left;width:80px;height:30px}
 .apreciacionObesidad,.apreciacionCintura,.apreciacionAdiposidad{float:left;margin-top:10px;height:60px;margin-left: 25px;width:250px}

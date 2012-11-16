@@ -1,9 +1,12 @@
 {% extends "homepage/index.html" %}
-{% block title %}Datos antropometricos{% endblock %}
-{% block css %}<link rel="stylesheet" href=" {{ MEDIA_URL }}css/account/antropometricos.css">{% endblock %}
 {%load humanize%}
 {%load custom_filters%}
-
+{% block title %}Datos antropometricos{% endblock %}
+{% block css %}<link rel="stylesheet" href=" {{ MEDIA_URL }}css/account/antropometricos.css">{% endblock %}
+{% block js %}
+<script src="{{ MEDIA_URL }}js/Adquiridos/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}js/Adquiridos/tooltiptext.js"></script>
+{% endblock %}
 {% block content %}
 {% if final %}
 <div id="antropometricos">
@@ -73,8 +76,11 @@
 			<div class="medidaIndicar" title="Kilogramos">Kg</div><div class="labelCampo">Peso:{{ form.peso }}</div>
 		</div>
 		<div id="tallaForm" class="campoForm">
-			<div class="medidaIndicar" title="Centimetros">cm</div><div class="labelCampo">Talla (Estatura): {{ form.estatura }}</div>
+			<div class="medidaIndicar" >cm
+			</div><div class="labelCampo">Talla (Estatura): {{ form.estatura }}</div>
 		</div>
+		<!-- INTERROGACIÓN IMG TOOLTIP  -->
+		<a href="#" title="un metro son 100 cm ej: 1,75 m son 175 cm" class="preview"><img id="interrogacion" src="{{ MEDIA_URL }}img/interrogacion.png" alt="Una ayudaita"></a>
 		<div id="circunferenciaCinturaForm" class="campoForm">
 			<div class="medidaIndicar" title="Centimetros">cm</div><div class="labelCampo">Circunferencia cintura: {{ form.circunferencia_cintura }}</div>
 		</div>
