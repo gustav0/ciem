@@ -195,6 +195,7 @@ def perfilUsuarios(request):
 				return HttpResponseRedirect("/perfiles/")
 			if int(tipoPerfil)==1:#datos antropometricos
 				perfil = datosAntropometricos.objects.getByIdJoin(int(getUser))
+				print perfil
 			elif int(tipoPerfil)==2:#resultados del ipaq
 				perfil = ipaqResultado.objects.getResultados(int(getUser))
 			elif int(tipoPerfil)==3:#frecuenciadeconsumo
@@ -233,7 +234,7 @@ def perfilUsuarios(request):
 				perfil = None
 	except ValueError:
 		return HttpResponseRedirect("/perfiles/")
-	ctx= {'nombre':nombre,'usuario':usuario,'perfil':perfil,'tipo':tipoPerfil, }	
+	ctx= {'nombre':nombre,'usuario':usuario,'perfil':perfil,'tipo':tipoPerfil,'getUser':getUser }	
 	return render_to_response('nutricionista/perfilUsuarios.html', ctx, context_instance=RequestContext(request))
 
 def crear_excel(id):

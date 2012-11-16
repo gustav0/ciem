@@ -224,7 +224,7 @@ class alimentoRecordatorio(models.Model):
 	#1-desayuno | 2-merienda1 | 3-almuerzo | 4-merienda2 | 5-cena | 6-merienda3
 
 class indicadoresDieteticos(models.Model):
-	EMOCIONES = (('aumenta','Aumenta'),('disminuye','Disminuye'))
+	EMOCIONES = (('ninguno','Ninguno'),('aumenta','Aumenta'),('disminuye','Disminuye'))
 	APETITOS = (('bueno','Bueno'), ('regular','Regular'), ('malo','Malo'))
 	fecha_creacion = models.DateField(auto_now_add=True)
 	user = models.ForeignKey(User)
@@ -243,12 +243,12 @@ class indicadoresDieteticos(models.Model):
 	cualAlimento = models.CharField(max_length=140,null=True, blank=True)
 	salComidas = models.BooleanField(default=True)
 	suplementoAlimenticio = models.BooleanField(default=False)
-	cuantasVecesSuplemento = models.CharField(max_length=40)
+	cuantasVecesSuplemento = models.CharField(max_length=40, null=True, blank=True)
 	porqueSuplemento = models.CharField(max_length=140,null=True, blank=True)
 	consumoVariaEmocion = models.BooleanField(default=False)	
-	comoVariaConsumo = models.CharField(max_length=9, choices=EMOCIONES,default='aumenta')
+	comoVariaConsumo = models.CharField(max_length=9, choices=EMOCIONES,default='ninguna')
 	tieneDieta = models.BooleanField(default=False)
-	cuantasVecesDieta = models.CharField(max_length=40)
+	cuantasVecesDieta = models.CharField(max_length=40,null=True,blank=True)
 	tipoDieta = models.CharField(max_length=140,null=True, blank=True)
 	tiempoDieta = models.CharField(max_length=140,null=True, blank=True)
 	objects = indicadoresDieteticosManager()

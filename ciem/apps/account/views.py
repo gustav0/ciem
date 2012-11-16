@@ -318,7 +318,9 @@ def recordatorio(request):
 					print "ERROR"
 			return HttpResponseRedirect('/felicidades/?mensaje=recordatorio')
 	alimentos = alimento.objects.all().order_by('nombre')
-	ctx = {'form':form,'alimentos':alimentos, 'id':request.user.id}
+	perfilAntro = datosAntropometricos.objects.getByIdJoin(int(request.user.id))
+	perfilIpaq = ipaqResultado.objects.getResultados(int(request.user.id))
+	ctx = {'form':form,'alimentos':alimentos, 'id':request.user.id, 'perfilAntro':perfilAntro, 'perfilIpaq':perfilIpaq}
 	return render_to_response('account/recordatorio24.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')
@@ -336,7 +338,7 @@ def indicadores(request):
 
 def felicidades(request):
 	getMensaje = request.GET.get('mensaje')
-	mensaje = 'Opción no valida, le invitamos que ingrese a su perfil.'
+	mensaje = 'Opción no valida o ya completada, le invitamos que ingrese a su perfil.'
 	enlace = '/perfil/'
 	if getMensaje == 'indicadores':
 		mensaje = 'Usted ha finalizado exitosamente %s, le agradecemos su colaboración en nuestra investigación.' % ('los indicadores dieteticos')

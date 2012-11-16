@@ -14,8 +14,8 @@
 .contenedorOpciones{float:left;width:350px;height:210px}
 #submit{cursor:pointer;background-color:#009B00;border:1px solid #000;border-radius:.2em;color:#EEE;-webkit-transition-duration:.2s;-moz-transition-duration:.2s;transition-duration:.2s;float:left;font-weight:700;position:relative;left:250px;clear:both;margin:0;padding:4px}
 #submit:hover{background:#2B6B2B;color:#FFF;border:1px solid #009B00}
-table,th,td{border:1px solid #000;border-collapse:collapse;margin:0}
-.fondo{float:left;margin-left:150px;width:720px}
+table,th,td{border-collapse:collapse}
+.fondo{float:left;margin-left:80px;margin-top:20px;width:720px}
 .haLlenado{float:left;margin-bottom:15px}
 .perfilN{float:left;margin-left:40px;margin-bottom:15px;width:175px}
 .alineacionResultado{float:left;height:300px;width:960px}
@@ -77,11 +77,51 @@ table,th,td{border:1px solid #000;border-collapse:collapse;margin:0}
 100% {background:#087C08;}
 }
 
+
+.customers
+{
+font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+border-collapse:collapse;
+}
+.customers td, .customers th 
+{
+border:1px solid #98bf21;
+padding:3px 3px 2px 3px;
+}
+.customers th 
+{
+text-align:left;
+padding-top:5px;
+padding-bottom:4px;
+background-color:#A7C942;
+color:#ffffff;
+}
+.customers tr.alt td 
+{
+color:#000000;
+background-color:#EAF2D3;
+}
+
+
 .enlaceIPAQ a{
 	text-decoration:none;
 	color:#FCFCFC
 }
-#botonLlenar{line-height:37px;text-indent:5px;color:#4B4B4B;text-decoration:none;float:left;background-color:#CAEBCF;width:240px;height:40px;-webkit-border-radius:10px;border-radius:10px;-webkit-box-shadow:1px 3px 2px 0 #B4B4B4;box-shadow:1px 3px 2px 0 #B4B4B4;margin:15px 0 15px 40%}
+#botonLlenar{
+line-height: 37px;
+text-indent: 5px;
+color: #4B4B4B;
+text-decoration: none;
+float: left;
+background-color: #CAEBCF;
+width: 290px;
+height: 40px;
+-webkit-border-radius: 10px;
+border-radius: 10px;
+-webkit-box-shadow: 1px 3px 2px 0 #B4B4B4;
+box-shadow: 1px 3px 2px 0 #B4B4B4;
+margin: 15px 0 15px 35%;
+}
 #botonLlenar:hover{background-color:#97CFA0}
 .identificadorPeso,.resultadoPeso,.identificadorCancer,.resultadoCancer,.identificadorDiabetes,.resultadoDiabetes{float:left;width:60px;height:30px}
 .identificadorEstatura,.resultadoEstatura,.resultadoColesterol{float:left;width:70px;height:30px}
