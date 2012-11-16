@@ -10,9 +10,7 @@ register = Library()
 
 @register.filter#PARA TRADUCIR BOOL
 def traducir_bool(value):
-	valor = value
-	print valor
-	if valor==False:
+	if value==False:
 		return 'No'
 	else:
 		return 'Si'
