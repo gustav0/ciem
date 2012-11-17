@@ -10,7 +10,7 @@
 	{% if progreso %}
 	 	{% if progreso|get_int < 9 %}
 		<h3>Sección: {{progreso}}   </h3>
-		<a href="{{ MEDIA_URL }}img/ayudaita.jpg" title="Dame una ayudaita" class="preview"><img src="{{ MEDIA_URL }}img/interrogacion.png" alt="Una ayudaita"></a>
+		<a href="{{ MEDIA_URL }}img/ayudaita.jpg" title="Porciones de las comidas" class="preview"><img src="{{ MEDIA_URL }}img/interrogacion.png" alt="Una ayudaita"></a>
 		<form action="." method="POST" id="seccion1">
 			{% csrf_token %}
 			{{preguntas.management_form}}

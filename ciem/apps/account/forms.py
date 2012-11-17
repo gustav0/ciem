@@ -532,6 +532,14 @@ class indicadoresDieteticosForm(ModelForm):
 	salComidas = forms.TypedChoiceField(choices=((1, 'Si'), (0, 'No')), widget=forms.RadioSelect)
 	tieneDieta = forms.TypedChoiceField(choices=((1, 'Si'), (0, 'No')), widget=forms.RadioSelect)
 	consumoVariaEmocion = forms.TypedChoiceField(choices=((1, 'Si'), (0, 'No')), widget=forms.RadioSelect)
+	queComeEntreComidas = forms.CharField(required=False)
+	porqueModifico = forms.CharField(required=False)
+	comoModifico = forms.CharField(required=False)
+	cualAlimento = forms.CharField(required=False)
+	tipoDieta = forms.CharField(required=False)
+	tiempoDieta = forms.CharField(required=False)
+	cuantasVecesDieta = forms.CharField(required=False)
+	cuantasVecesSuplemento = forms.CharField(required=False)
 	class Meta:
 		model = indicadoresDieteticos
 

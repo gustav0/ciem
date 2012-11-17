@@ -16,3 +16,18 @@ select#selCombo1,select#selCombo2,select#selCombo3,select#selCombo4,select#selCo
 #tamanos,.campoForm input,select{float:left}
 #tamanos{margin-left:50px}
 .campoForm li,.campoForm label{float:left}
+#aviso{
+	border: 1px solid red;
+	background: #FFBDBD;
+	text-indent: 20px;
+	border-radius: 5px;
+	color: red;
+	width: 60%;
+	margin-left:20%;
+	padding: 10px;
+}
+
+span{
+	font-family: 'IcoMoon',Helvetica;
+	font-size: 3em;
+}

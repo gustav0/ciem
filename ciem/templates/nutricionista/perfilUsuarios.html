@@ -16,8 +16,7 @@
 
 {% block content %}
 {% if usuario %}
-	{% if nombre.count > 1 %}	
-	
+	{% if nombre.count > 1 %}		
 	<div class="tituloResultado">Lista de Pacientes</div><div id="busqueda">
 	<a href="{% url nutricionista_busqueda %}" class="a-btn">
  		<span class="a-btn-text">Búsqueda avanzada</span>
@@ -158,7 +157,7 @@
 			</div>
 			{% endif %}
 			{% endfor %}
-			<a href="{% url nutricionista_perfilUsuarios %}" id="anterior">«</a>
+			<a href="?user={{ getUser }}" id="anterior">«</a>
 		{% elif tipo|get_int == 2 %}
 				<h2>Información ingresada en el formulario IPAQ.</h2>
 				{% if perfil.0 %}
@@ -276,7 +275,7 @@
 						<p>Este usuario todavía no ha completado el formulario IPAQ.</p>
 					</div>
 				{% endif %}
-				<a href="{% url nutricionista_perfilUsuarios %}" id="anterior">«</a>
+				<a href="?user={{ getUser }}" id="anterior">«</a>
 		{% elif tipo|get_int == 3 %}
 			{% for n in nombre %}
 				<div class="perfilDe divbold">Frecuencia de consumo de {{n.get_full_name|cap}}
@@ -306,7 +305,7 @@
 				{% endif %}
 				</div>
 			{% endfor %}
-			<a href="{% url nutricionista_perfilUsuarios %}" id="anterior">«</a>
+			<a href="?user={{ getUser }}" id="anterior">«</a>
 		{% elif tipo|get_int == 4 %}
 		24horas
 		{% elif tipo|get_int == 5 %}
@@ -345,7 +344,7 @@
 					<p>Este usuario todavía no posee indicadores dieteticos.</p>
 			</div>
 			{% endif %}
-			<a href="{% url nutricionista_perfilUsuarios %}" id="anterior">«</a>
+			<a href="?user={{ getUser }}" id="anterior">«</a>
 		{% else %}
 		No existe esa opción
 		{% endif %}
