@@ -7,12 +7,27 @@
 <script src="{{ MEDIA_URL }}js/propios/busqueda.js"></script>
 <div class="cuadroBuscar">
 <form action="" id="formulario" method="post" enctype="multipart/form-data">
-	{% csrf_token %}
+	{% csrf_token %}	
+<div class="tabla">	
+<div class ="fondo1">
 	<div class="item_busqueda">
 		<div class="label"> GENERO </div> 
 		<div class="valor">{{form.genero}}</div>	
 	</div>
-
+	<div class="item_busqueda">
+		<div class="label"> PAÍS </div> 
+		<div class="valor">{{ form.pais }}</div>
+	</div>	
+	<div class="item_busqueda">
+		<div class="label"> OBESIDAD </div> 
+		<div class="valor">{{ form.obesidad }}</div>
+	</div>	
+	<div class="item_busqueda">
+		<div class="label"> ACTIVIDAD FÍSICA </div> 
+		<div class="valor">{{ form.actividadFisica }}</div>
+	</div>	
+</div>
+<div class="fondo2">	
 	<div class="item_busqueda">
 		<div class="label"> EDAD </div> 
 		<div class="desde">Desde {{ form.edadDesde }}</div>
@@ -29,27 +44,9 @@
 		<div class="desde">Desde {{ form.pesoDesde }}</div>
 		<div class="hasta">Hasta {{ form.pesoHasta }}</div>
 	</div>
-
-	<div class="item_busqueda">
-		<div class="label"> OBESIDAD </div> 
-		<div class="valor">{{ form.obesidad }}</div>
-	</div>	
-	<div class="item_busqueda">
-		<div class="label"> PATOLOGÍA </div> 
-		<div class="valor">{{ form.enf_hip }} Hipertensión</div>
-		<div class="valor">{{ form.enf_dia }} Diabetes</div>
-		<div class="valor">{{ form.enf_can }} Cáncer</div>
-		<div class="valor">{{ form.enf_col }} Colesterol</div>	
-		<div class="valor">{{ form.enf_tri }} Triglicéridos</div>		
-	</div>	
-	<div class="item_busqueda">
-		<div class="label"> ACTIVIDAD FÍSICA </div> 
-		<div class="valor">{{ form.actividadFisica }}</div>
-	</div>	
-	<div class="item_busqueda">
-		<div class="label"> País </div> 
-		<div class="valor">{{ form.pais }}</div>
-	</div>							
+</div>
+</div>
+						
 <input id="boton" type="submit" value="Buscar">
 </form>
 </div>
@@ -60,5 +57,6 @@
 <div class= "link" id="link2"> Descargar IPAQ </div>
 <div id="link3"></div>
 </div>
+
 {% endif %}
 {% endblock %}

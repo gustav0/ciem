@@ -1,19 +1,50 @@
+.fondo1{
+	background-color: blue;
+	position: absolute;
+	top: 264px;
+	left: 504px;
+	width: 394px;
+	height: 367px;
+}
+.fondo2{
+	background-color: black;
+	position: absolute;
+	top: 264px;
+	left: 898px;
+	width: 394px;
+	height: 367px;
+}
+.tabla{
+	width: 287px;
+	height: 473px;
+}
 .item_busqueda{
-	float: left;
-	margin-left: 35px;
+	width: 350px;
+	margin-left: 27px;
+	margin-top: 41px;
+}
+#id_genero{
+	width: 183px;
+}
+#id_obesidad{
+	width: 183px;
+}
+#id_actividadFisica{
+	width: 183px;
+}
+.cuadroBuscar{
+	height: 466px;
+
 }
 #personas_encontradas{
-margin-top: 69px;
-width: 300px;
-float: left;
-margin-left: 238px;
+	margin-top: 69px;
+	width: 300px;
+	float: left;
+	margin-left: 238px;
 }
 .label{
-	width: auto;
-	font-weight: bold;
-	font-size: 	14px;
-	margin-bottom: 6px;
-	margin-top: 20px;
+	float:left;
+	width: 163PX;
 }
 #id_tallaHasta{
 	margin-left: 6px;
@@ -21,9 +52,7 @@ margin-left: 238px;
 #id_pesoHasta{
 	margin-left: 6px;
 }
-#id_obesidad{
-	width: 97px;
-}
+
 .link{
 cursor: pointer;
 float: left;
