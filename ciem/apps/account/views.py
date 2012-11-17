@@ -163,7 +163,6 @@ def frecuencia(request):
 		if progreso=='1':
 			preguntasFormSet = modelformset_factory(dataFrecuenciaConsumo,extra=26,max_num=26)
 			alimento =	alimentoFrecuencia.objects.getById(1) 
-			print alimento.count()
 			if request.method == 'POST':
 				preguntas = preguntasFormSet(request.POST)
 				if preguntas.is_valid():
@@ -179,7 +178,6 @@ def frecuencia(request):
 			if request.method == 'POST':
 				preguntas = preguntasFormSet(request.POST)
 				if preguntas.is_valid():
-					print "validado"
 					preguntas.save()
 					perfilFrecuencia = frecuenciaConsumo.objects.upgradeProgreso(request.user.id,3)
 					return HttpResponseRedirect("/frecuencia/")
@@ -329,7 +327,6 @@ def indicadores(request):
 	form = indicadoresDieteticosForm(request.POST or None)
 	if form.is_valid():
 		form.save()
-		return HttpResponseRedirect('/felicidades/?mensaje=indicadores')
 	ctx= {'form':form,'perfilIndicadores':perfilIndicadores, 'id':request.user.id, }
 	return render_to_response('account/indicadores.html', ctx, context_instance=RequestContext(request))
 
