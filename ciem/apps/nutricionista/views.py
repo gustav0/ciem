@@ -34,6 +34,7 @@ def busqueda(request):
 	form = busquedaForm(request.POST or None)
 	query = userProfile.objects.all()
 	antropometricoPerfil = datosAntropometricos.objects.all()
+
 	if form.is_valid():
 		bandera = True
 		cuenta = 0

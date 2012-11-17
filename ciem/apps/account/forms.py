@@ -469,7 +469,7 @@ class ipaqForm(ModelForm):
 	def cal_apreciacion(self,metTotal):
 		if(float(metTotal) < 1200):
 			return "Baja";
-		elif(float(metTotal) < 2000):
+		elif(float(metTotal) < 3000):
 			return "Moderada"
 		else:
 			return "Alta"

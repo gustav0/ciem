@@ -1,75 +1,140 @@
+.lupa{
+	z-index: 2;
+	position: absolute;
+	left: 278px;
+	top: 249px;
+	width: 57px;
+	height: 58px;
+	background-image:url(../../img/lupa.png)
+
+}
 .fondo1{
 	background-color: blue;
 	position: absolute;
-	top: 264px;
-	left: 504px;
-	width: 394px;
-	height: 367px;
+	top: 290px;
+	left: 261px;
+	width: 411px;
+	height: 306px;
+	background-color: #FAF6DC;
+	z-index: 1;
+}
+
+.titulo{
+	margin-left: 134px;
+	width: 333px;
+	height: 31px;
+	margin-top: 53px;
+	position: absolute;
+	font-size: 20px;
+	color: dimgrey;
 }
 .fondo2{
 	background-color: black;
 	position: absolute;
-	top: 264px;
-	left: 898px;
-	width: 394px;
-	height: 367px;
+	top: 290px;
+	left: 672px;
+	width: 411px;
+	height: 306px;
+	background-color: #F0F0F0;
+
+}
+
+.separar{
+	position: relative;
+	width: 10px;
+	height: 10px;
+}
+
+.desde{
+	float: left;
+	margin-right: 6px;
+}
+.hasta{
+	float: left;
+	margin-right: 6px;
+	margin-left: 26px;
+}
+.desdeCaja{
+	float: left;
+}
+.cuadro{
+		margin-left: 68px;
 }
 .tabla{
-	width: 287px;
-	height: 473px;
+	float: left;
+	width: 827px;
+	height: 311px;
+	margin-left: 63px;
+	margin-top: 87px;
+	-webkit-box-shadow: 2px 2px 5px 0 #888;
+	box-shadow: 2px 2px 5px 0 #888;
+}
+#l2{
+	width: 84px;
+	float: left;
+	font-size: 13px;
+	margin-top: 4px;
+	font-weight: bold;
 }
 .item_busqueda{
-	width: 350px;
+	width: 370px;
 	margin-left: 27px;
 	margin-top: 41px;
 }
+.separar{
+
+}
 #id_genero{
-	width: 183px;
+	width: 163px;
 }
 #id_obesidad{
-	width: 183px;
+	width: 163px;
 }
 #id_actividadFisica{
-	width: 183px;
+	width: 163px;
 }
 .cuadroBuscar{
 	height: 466px;
 
 }
+.fix{
+	width: 330px;
+	text-align: center;
+}
 #personas_encontradas{
-	margin-top: 69px;
-	width: 300px;
+	margin-top: 3px;
+	width: 789px;
 	float: left;
-	margin-left: 238px;
-}
-.label{
-	float:left;
-	width: 163PX;
-}
-#id_tallaHasta{
-	margin-left: 6px;
-}
-#id_pesoHasta{
-	margin-left: 6px;
+	margin-left: 67px;
+	background-color: #9EE09E;
+	padding: 20px;
+	text-align: center;
 }
 
-.link{
-cursor: pointer;
-float: left;
-padding: 5px;
-background-color: #CAEBCF;
-height: 40px;
-margin-left: 40px;
-margin-top: 20px;
--webkit-border-radius: 10px;
-border-radius: 10px;
--webkit-box-shadow: 1px 3px 2px 0 #B4B4B4;
-box-shadow: 1px 3px 2px 0 #B4B4B4;
+.label{
+	float: left;
+	width: 163PX;
+	font-size: 13px;
+	margin-top: 4px;
+	font-weight: bold;
 }
-.cuadro{
-margin-top: 74px;
-width: 331px;
-float: left;
-margin-left: 150px;}
-#boton{ position: relative;left: 417px;cursor:pointer;background-color:#009B00;border:1px solid #000;border-radius:.2em;color:#EEE;-webkit-transition-duration:.2s;-moz-transition-duration:.2s;transition-duration:.2s;float:left;font-weight:700;clear:both;padding:15px 20px;margin-left: 10px;}
+
+#boton{
+	margin-top: -51px;
+	position: relative;
+	left: 339px;
+	cursor: pointer;
+	background-color: #BEC7C5;
+	border: 1px solid black;
+	border-radius: .2em;
+	color: #201B1B;
+	-webkit-transition-duration: .2s;
+	-moz-transition-duration: .2s;
+	transition-duration: .2s;
+	float: left;
+	font-weight: 700;
+	clear: both;
+	padding: 10px 50px;
+	margin-left: 386px;
+}
 #boton input:hover{background:#04B486;color:#FFF}

@@ -8,16 +8,17 @@
 <div class="cuadroBuscar">
 <form action="" id="formulario" method="post" enctype="multipart/form-data">
 	{% csrf_token %}	
+<div class="lupa"></div><div class="titulo"> Busqueda Avanzada de pacientes </div>	
 <div class="tabla">	
 <div class ="fondo1">
-	<div class="item_busqueda">
-		<div class="label"> GENERO </div> 
+	 <div class="item_busqueda">
+		<div class="label"> GÉNERO </div> 
 		<div class="valor">{{form.genero}}</div>	
 	</div>
-	<div class="item_busqueda">
+ <div class="item_busqueda">
 		<div class="label"> PAÍS </div> 
 		<div class="valor">{{ form.pais }}</div>
-	</div>	
+	</div>
 	<div class="item_busqueda">
 		<div class="label"> OBESIDAD </div> 
 		<div class="valor">{{ form.obesidad }}</div>
@@ -27,34 +28,38 @@
 		<div class="valor">{{ form.actividadFisica }}</div>
 	</div>	
 </div>
-<div class="fondo2">	
-	<div class="item_busqueda">
-		<div class="label"> EDAD </div> 
-		<div class="desde">Desde {{ form.edadDesde }}</div>
-		<div class="hasta">Hasta {{ form.edadHasta }}</div>
-	</div>		
-
-	<div class="item_busqueda">
-		<div class="label"> TALLA </div> 
-		<div class="desde">Desde {{ form.tallaDesde }}</div>
-		<div class="hasta">Hasta {{ form.tallaHasta }}</div>
+	<div class="fondo2">	
+	<div class="item_busqueda"  id="i2">
+		<div class="" id="l2"> EDAD </div> 
+		<div class="desde" >Desde</div><div class="desdeCaja">{{ form.edadDesde }}</div>
+		<div class="hasta" >Hasta</div><div class="hastaCaja">{{ form.edadHasta }}</div>
+	</div>
+	<div class="item_busqueda"  id="i2">
+		<div class="" id="l2"> TALLA </div> 
+		<div class="desde" >Desde</div><div class="desdeCaja">{{ form.tallaDesde }}</div>
+		<div class="hasta" >Hasta</div><div class="hastaCaja">{{ form.tallaHasta }}</div>
 	</div>	
-	<div class="item_busqueda">
-		<div class="label"> PESO </div> 
-		<div class="desde">Desde {{ form.pesoDesde }}</div>
-		<div class="hasta">Hasta {{ form.pesoHasta }}</div>
+	<div class="item_busqueda"  id="i2">
+		<div class="" id="l2"> PESO </div> 
+		<div class="desde">Desde</div><div class="desdeCaja">{{ form.pesoDesde }}</div>
+		<div class="hasta">Hasta</div><div class="hastaCaja">{{ form.pesoHasta }}</div>
 	</div>
 </div>
+
 </div>
 						
 <input id="boton" type="submit" value="Buscar">
 </form>
 </div>
 {% if bandera %}
-<a href="{% url nutricionista_perfilUsuarios %}"> <div id="personas_encontradas"> Se han encontrado ({{cuenta}}) pacientes</div> </a>
+<div id="personas_encontradas"> Se han encontrado ({{cuenta}}) pacientes 
+{% if cuenta > 0 %}	
+	<a href="{% url nutricionista_perfilUsuarios %}">[ver pacientes] </a>
+{% endif %}	
+</div>
 <div class="cuadro">
-<div class="link" id="link1"> Descargar informacion antropométrica </div>
-<div class= "link" id="link2"> Descargar IPAQ </div>
+<div class="boton fix" id="link1"> Descargar informacion antropométrica </div>
+<div class= "boton fix" id="link2"> Descargar IPAQ </div>
 <div id="link3"></div>
 </div>
 
