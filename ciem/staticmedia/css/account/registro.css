@@ -103,3 +103,19 @@ padding: 15px 40px;
 	margin-left:20%; 
 	font-weight: bold;
 }
+
+#preview{
+	position:absolute;
+	border:1px solid #ccc;
+	background:#333;
+	padding:5px;
+	display:none;
+	color:#fff;
+}
+
+#interrogacion {
+	position: absolute;
+	border: none;
+	margin-top: 20px;
+	margin-left: 255px;
+}
