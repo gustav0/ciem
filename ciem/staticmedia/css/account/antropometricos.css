@@ -13,7 +13,9 @@
 .campoForm2{float:left;width:220px;margin-right:100px;margin-top:10px}
 .contenedorOpciones{float:left;width:350px;height:210px}
 #submit{cursor:pointer;background-color:#009B00;border:1px solid #000;border-radius:.2em;color:#EEE;-webkit-transition-duration:.2s;-moz-transition-duration:.2s;transition-duration:.2s;float:left;font-weight:700;position:relative;left:250px;clear:both;margin:0;padding:4px}
-#submit:hover{background:#2B6B2B;color:#FFF;border:1px solid #009B00}
+#submit:hover{
+	background:#04B486;color:#FFF
+}
 table,th,td{border-collapse:collapse}
 .fondo{float:left;margin-left:80px;margin-top:20px;width:720px}
 .haLlenado{float:left;margin-bottom:15px}

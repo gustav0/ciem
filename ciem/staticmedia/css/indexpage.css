@@ -286,6 +286,7 @@ a.textoBoton{
 }
 
 .boton:hover{
+	cursor:pointer;
 	background: #65C569;
 	border: 1px solid #65C569;
 	box-shadow: inset 0 -1px;
