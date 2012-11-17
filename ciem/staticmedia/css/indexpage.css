@@ -40,11 +40,9 @@ article{
 	overflow: auto;
 	margin-left: 10px;
 }
-
 #info{
 	margin-left: 10px;
 }
-
 .errorlist{
 	color: red;
 	list-style: none;
@@ -54,8 +52,6 @@ article{
 	margin: auto;
 	padding: 0;
 }
-
-
 #contenido{
 	width: 960px;
 	margin: auto; 
@@ -78,8 +74,6 @@ article{
 	width: 960px;
 	float: left;
 }
-
-
 #imagenCabecera{
 	float: left;
 	width: 960px;
@@ -131,23 +125,31 @@ article{
  	float:left;
  	z-index: 9;
 }
-
-
-
 #imagenHistoria.boton{
 	margin-left: 30px; 
 }
-
-
-#imagenManzana{
-	background:url(/ciem/staticmedia/img/manzana.png) -0px -0px no-repeat;	
- 	width:350px;
- 	height: 250px;
- 	float:right;
- 	z-index: 9;
- 	margin-top: 50px;
+#alinearSlide{
+	float: left;
+	width: 480px;
+	height: 400px;
 }
-
+.centrarSlide{
+	float: left;
+	width: 243px;
+	height: 241px;
+	margin-top: 50px;
+	overflow: hidden;
+	margin-left: 119px;
+}
+#slideInicio{
+	width:243px;
+ 	height:241px;
+ }
+.objetoSlide{
+ 	width:243px;
+ 	height:241px;
+ 	float:left;
+ }
 #cajaLoginIn{
 	height: 30px;
 	line-height: 0px;
@@ -161,7 +163,6 @@ article{
 #cajaLoginIn span{
 	font-weight: bold;
 }
-
 #cajaLoginOut{
 	float: right;
 	outline: 1px solid rgba(214, 214, 214, 0.5);
@@ -186,20 +187,19 @@ div#cajaLoginOut a{
 	-moz-transition-duration: 0.6s;
 }
 div#cajaLoginOut input[type="submit"]{
-margin-left: 50px;
-cursor: pointer;
-float: left;
-font-size: 12px;
-padding: 3px 3px 3px 3px;
-background-color: #009B00;
-border: 1px solid black;
-border-radius: 0.2em;
-color: #EEE;
--webkit-transition-duration: 0.2s;
--moz-transition-duration: 0.2s;
-transition-duration: 0.2s;
+	margin-left: 50px;
+	cursor: pointer;
+	float: left;
+	font-size: 12px;
+	padding: 3px 3px 3px 3px;
+	background-color: #009B00;
+	border: 1px solid black;
+	border-radius: 0.2em;
+	color: #EEE;
+	-webkit-transition-duration: 0.2s;
+	-moz-transition-duration: 0.2s;
+	transition-duration: 0.2s;
 }
-
 div#cajaLoginOut input[type="submit"]:hover{
 	background: #2E64FE;
 	color: white;
@@ -208,27 +208,22 @@ div#cajaLoginOut input[type="submit"]:hover{
 	
 .cajaLoginOut p{
 	margin: 5px;
-
 }
-
 #eslogan{
 	z-index: 3;
 	float: right;
+	margin-right: 15px;
 	width: 450px;
-	text-indent: 10px;
 	text-align: center;
 	color: #2E2E2E;
 	font: 2em/105% 'BebasNeueRegular',Arial,Helvetica,sans-serif;
 	font-weight: normal;
 	text-shadow: -2px 2px 0 rgba(0, 0, 0, 0.2);
 }
-
 #botones a{
 	text-decoration: none;
 	color: white;
 }
-
-
 .colorCabecera{
 	background-color:#FAFCD9;
 	height: 33px;
@@ -250,7 +245,6 @@ div#cajaLoginOut input[type="submit"]:hover{
 	margin-top: -2px;
 
 }
-
 #cuadroPublicaciones{
 	background: rgba(226, 239, 250, 0.44);
 	width: 470px;
