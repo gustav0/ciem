@@ -23,6 +23,10 @@ body{
 	font-size: 16px;
 }
 
+h3{
+	margin-left: 10px;
+}
+
 article{
 	text-align: justify;
 	text-justify:inter-word;
@@ -437,6 +441,10 @@ transition-duration: 0.2s;
 }
 #calorias{
 	width: 120px;
+}
+#leermas{
+	float: right;
+	margin-right: 25px;
 }
 .helptext{
 	display: none;
