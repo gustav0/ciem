@@ -3,7 +3,11 @@
 {% block title %}
 Centro de investigaciones Endocrino-Metabólicas
 {% endblock%}
-
+{% block js %}
+<script src="{{ MEDIA_URL }}pluggins/carouFredSel-6.1.0/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script src="{{ MEDIA_URL }}pluggins/carouFredSel-6.1.0/jquery.carouFredSel-6.1.0.js" type="text/javascript"></script>
+<script src="{{ MEDIA_URL }}js/propios/index.js"></script>
+{% endblock %}
 {% block navi %}
 
 		<a href="{% url homepage_index %}"><div>Inicio</div></a>
@@ -25,18 +29,12 @@ Centro de investigaciones Endocrino-Metabólicas
 			{% endif %}
 
 {% endblock %}
-
 {% block clear %}{% endblock%}
-
 {% block content %}
 	<div id="imagenHistoria">
 			<a class="textoBoton" href="{% url homepage_calculadora %}">
 				<div class="boton">CALCULADORA DE CALORIAS</div>
 			</a>
-			<a class="textoBoton" href="/articleall/" >
-				<div class="boton"style="width: 180px !important;">PUBLICACIONES</div>
-			</a>
-	
 			{% if user.is_authenticated %}
 				<div id="cajaLoginIn"><p>Bienvenido, <span>{{ user.username }}</span></p>
 				</div>
@@ -97,8 +95,18 @@ Centro de investigaciones Endocrino-Metabólicas
 		<article>No hay ningún articulo publicado.</article>
 		{% endif %}
 	</div>
-	<div id="imagenManzana"></div>
-	<div id="eslogan">Que el alimento sea tu única medicina</div>
+	<div id="alinearSlide">
+		<div class="centrarSlide">
+		<div id="slideInicio">
+			<div class="objetoSlide"><img src="{{ MEDIA_URL }}img/image1.jpg" width="243" height="241"></div>
+			<div class="objetoSlide"><img src="{{ MEDIA_URL }}img/image2.jpg" width="243" height="241"></div>
+			<div class="objetoSlide"><img src="{{ MEDIA_URL }}img/image3.jpg" width="243" height="241"></div>
+			<div class="objetoSlide"><img src="{{ MEDIA_URL }}img/image4.jpg" width="243" height="241"></div>
+		</div>
+		</div>
+		<div id="eslogan">Que el alimento sea tu única medicina</div>
+	</div>
+	
 {% endblock%}
 
 {% block footer %}
