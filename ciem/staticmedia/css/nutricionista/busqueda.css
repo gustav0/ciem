@@ -9,7 +9,6 @@
 
 }
 .fondo1{
-	background-color: blue;
 	position: absolute;
 	top: 290px;
 	left: 261px;
@@ -29,13 +28,12 @@
 	color: dimgrey;
 }
 .fondo2{
-	background-color: black;
 	position: absolute;
 	top: 290px;
 	left: 672px;
 	width: 411px;
 	height: 306px;
-	background-color: #F0F0F0;
+	background-color: #E9FDDC;
 
 }
 
@@ -63,7 +61,7 @@
 .tabla{
 	float: left;
 	width: 827px;
-	height: 311px;
+	height: 357px;
 	margin-left: 63px;
 	margin-top: 87px;
 	-webkit-box-shadow: 2px 2px 5px 0 #888;
@@ -94,7 +92,8 @@
 	width: 163px;
 }
 .cuadroBuscar{
-	height: 466px;
+	height: 557px;
+
 
 }
 .fix{
@@ -120,9 +119,9 @@
 }
 
 #boton{
-	margin-top: -51px;
+	margin-top: 42px;
 	position: relative;
-	left: 339px;
+	left: 29px;
 	cursor: pointer;
 	background-color: #BEC7C5;
 	border: 1px solid black;
@@ -138,3 +137,26 @@
 	margin-left: 386px;
 }
 #boton input:hover{background:#04B486;color:#FFF}
+
+.fondo3{
+	position: absolute;
+	left: 261px;
+	width: 821px;
+	height: 47px;
+	top: 596px;
+	background-color: #F0F0F0;
+}
+.item_patologia{
+	margin-top: 14px;
+}
+.valor2{
+	float: left;
+	width: 136px;}
+
+.patologiaLabel{
+	float: left;
+	width: 103px;
+	margin-left: 28px;
+	font-size: 13px;
+	font-weight: bold;
+}
