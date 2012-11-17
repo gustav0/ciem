@@ -4,13 +4,13 @@ $(document).ready(function(){
         infinite    : true,
         direction   : "up",
         width       : 230,     // automatically calculated
-        height      : 189,     // automatically calculated
+        height      : 182,     // automatically calculated
         align       : "center",
         padding     : 0,
         items       : {
             visible         : 1,     //  automatically calculated
             width           : 230,     //  automatically calculated
-            height          : 189     //  automatically calculated
+            height          : 182     //  automatically calculated
         },
         scroll      : {
             items           : 1,     //  items.visible
@@ -30,13 +30,13 @@ $(document).ready(function(){
         infinite    : true,
         direction   : "up",
         width       : 230,     // automatically calculated
-        height      : 189,     // automatically calculated
+        height      : 182,     // automatically calculated
         align       : "center",
         padding     : 0,
         items       : {
             visible         : 1,     //  automatically calculated
             width           : 230,     //  automatically calculated
-            height          : 189     //  automatically calculated
+            height          : 182     //  automatically calculated
         },
         scroll      : {
             items           : 1,     //  items.visible
@@ -56,13 +56,13 @@ $(document).ready(function(){
         infinite    : true,
         direction   : "up",
         width       : 230,     // automatically calculated
-        height      : 189,     // automatically calculated
+        height      : 182,     // automatically calculated
         align       : "center",
         padding     : 0,
         items       : {
             visible         : 1,     //  automatically calculated
             width           : 230,     //  automatically calculated
-            height          : 189     //  automatically calculated
+            height          : 182     //  automatically calculated
         },
         scroll      : {
             items           : 1,     //  items.visible
