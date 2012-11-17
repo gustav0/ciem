@@ -42,6 +42,7 @@ def busqueda(request):
 		edadDesde = form.cleaned_data['edadDesde']
 		edadHasta = form.cleaned_data['edadHasta']
 		pais = form.cleaned_data['pais']
+		estado = form.cleaned_data['estado']
 		tallaDesde = form.cleaned_data['tallaDesde']
 		tallaHasta = form.cleaned_data['tallaHasta']
 		pesoDesde = form.cleaned_data['pesoDesde']
@@ -63,6 +64,10 @@ def busqueda(request):
 		# BUSQUEDA POR PAIS
 		if(pais):
 			query = query.filter(pais=pais)		
+
+		# BUSQUEDA POR ESTADO
+		if(estado):
+			query = query.filter(municipio=estado)					
 		#BUSQUEDA POR EDAD
 		if(edadDesde != 't'):
 			yearHasta = int(currentYear)-int(edadDesde)

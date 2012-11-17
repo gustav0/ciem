@@ -8,7 +8,9 @@
 <div class="cuadroBuscar">
 <form action="" id="formulario" method="post" enctype="multipart/form-data">
 	{% csrf_token %}	
-<div class="lupa"></div><div class="titulo"> Busqueda Avanzada de pacientes </div>	
+<div class="cabeceraBusqueda">
+	<div class="lupa"></div><div class="titulo"> Busqueda Avanzada de pacientes </div>
+</div>	
 <div class="tabla">	
 <div class ="fondo1">
 	 <div class="item_busqueda">
@@ -19,9 +21,9 @@
 		<div class="label"> PAÍS </div> 
 		<div class="valor">{{ form.pais }}</div>
 	</div>
-	<div class="item_busqueda">
-		<div class="label"> OBESIDAD </div> 
-		<div class="valor">{{ form.obesidad }}</div>
+ <div class="item_busqueda">
+		<div class="label"> ESTADO </div> 
+		<div class="valor">{{ form.estado }}</div>
 	</div>	
 	<div class="item_busqueda">
 		<div class="label"> ACTIVIDAD FÍSICA </div> 
@@ -29,21 +31,25 @@
 	</div>	
 </div>
 	<div class="fondo2">	
-	<div class="item_busqueda"  id="i2">
+	<div class="item_busqueda">
 		<div class="" id="l2"> EDAD </div> 
 		<div class="desde" >Desde</div><div class="desdeCaja">{{ form.edadDesde }}</div>
 		<div class="hasta" >Hasta</div><div class="hastaCaja">{{ form.edadHasta }}</div>
 	</div>
-	<div class="item_busqueda"  id="i2">
+	<div class="item_busqueda">
 		<div class="" id="l2"> TALLA </div> 
 		<div class="desde" >Desde</div><div class="desdeCaja">{{ form.tallaDesde }}</div>
 		<div class="hasta" >Hasta</div><div class="hastaCaja">{{ form.tallaHasta }}</div>
 	</div>	
-	<div class="item_busqueda"  id="i2">
+	<div class="item_busqueda">
 		<div class="" id="l2"> PESO </div> 
 		<div class="desde">Desde</div><div class="desdeCaja">{{ form.pesoDesde }}</div>
 		<div class="hasta">Hasta</div><div class="hastaCaja">{{ form.pesoHasta }}</div>
 	</div>
+	<div class="item_busqueda">
+		<div class="label" id="obesidalabel"> OBESIDAD </div> 
+		<div class="valor">{{ form.obesidad }}</div>
+	</div>		
 </div>
 <div class="fondo3">
 		<div class="item_patologia">

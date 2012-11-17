@@ -78,7 +78,11 @@ Centro de investigaciones Endocrino-Metabólicas
 		{% for a in arti %}
 		<h3>{{a.title}}</h3>
 				<article>
-					{{a.body}}
+					{% if a.summary %}
+						{{a.summary}}
+					{% else %}
+						{{a.body}}
+					{% endif %}
 				</article>
 				<section id="info">
 					Autor: {{a.author}}
@@ -86,6 +90,8 @@ Centro de investigaciones Endocrino-Metabólicas
 					Categoría: {{a.category}}
 					Etiquetas: {{a.tags}}
 				</section>	
+				<div id="leermas"><a href="{{a.get_absolute_url}}">Leer más</a>
+				</div>
 		{% endfor %}
 		{% else %}
 		<article>No hay ningún articulo publicado.</article>

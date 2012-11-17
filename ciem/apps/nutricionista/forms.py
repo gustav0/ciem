@@ -15,6 +15,7 @@ class busquedaForm(forms.Form):
 	edadDesde = forms.ChoiceField(choices=EDAD)
 	edadHasta = forms.ChoiceField(choices=EDAD)
 	pais = forms.ModelChoiceField(label="Pais", queryset=Country.objects.all(), widget=forms.Select(attrs={'class':'selector'}),empty_label="Todos",required=False)
+	estado= forms.ModelChoiceField(label='Estado', queryset=VeState.objects.all(), widget=forms.Select(attrs={'class':'selector'}),empty_label="Todos",required=False)
 	tallaDesde = forms.ChoiceField(choices=CM)
 	tallaHasta = forms.ChoiceField(choices=CM)
 	pesoDesde = forms.ChoiceField(choices=KG)

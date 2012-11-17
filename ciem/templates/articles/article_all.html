@@ -14,16 +14,13 @@ Publicaciones de articulos
 		{% if lista %}
 		{% get_articles 10 as arti %}
 		{% for a in arti %}
-		<h3>{{a.title}}</h3>
+		<h3><a href="{{ a.get_absolute_url }}">{{a.title}}</a></h3>
 				<article>
-					{{a.body}}
-				</article>
-				<section id="info">
 					Autor: {{a.author}}
 					Fecha: {{a.publish_date}}
 					Categoría: {{a.category}}
 					Etiquetas: {{a.tags}}
-				</section>	
+				</article>	
 		{% endfor %}
 		{% else %}
 		<article>No hay ningún articulo publicado.</article>
