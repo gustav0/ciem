@@ -46,14 +46,14 @@ $(document).ready(function(){
 	});
 	$("#input1").enterKey(function () {
 		if($('#input1').val() == ""){
-			alert("Debe escribir el nombre de un alimento");
+			//alert("Debe escribir el nombre de un alimento");
 		}else{
 			$('#input1').attr('id_a','0');
 			$auxAlimento = $('#input1').val();
 			$('#alimentosD option').each(function(index) {
 				$name = $(this).val();
 				if($name==$auxAlimento){
-				    alert("conseguí")
+				    //alert("conseguí")
 	    			$('#input1').attr('id_a',$(this).text())
 	    			return false;
 	    		}

@@ -307,7 +307,56 @@
 			{% endfor %}
 			<a href="?user={{ getUser }}" id="anterior">«</a>
 		{% elif tipo|get_int == 4 %}
-		24horas
+			<h2>Información de los resultados del recordatorio 24 horas.</h2>
+			{% if perfil %}				
+				{% for p in perfil %}
+					<div class="wrapperTabla">
+						<div class="titulo">Proteinas</div>
+						<table class="customers">
+							<th>Gramos</th>
+							<th>Calorias</th>	
+							<th>Porcentaje</th>
+						<tr>
+							<td>{{p.proteinas_necesarias_gramos}}</td>
+							<td>{{p.proteinas_necesarias_calorias}}</td>
+							<td>{{p.proteinas_necesarias_porcentaje}}</td>
+						</tr>
+						</table>
+
+						<div class="titulo">Hidratos de carbono</div>
+						<table class="customers">
+							<th>Gramos</th>
+							<th>Calorias</th>	
+							<th>Porcentaje</th>
+						<tr>
+							<td>{{p.hidratos_necesarios_gramos}}</td>
+							<td>{{p.hidratos_necesarios_calorias}}</td>
+							<td>{{p.hidratos_necesarios_porcentaje}}</td>
+						</tr>
+						</table>
+
+						<div class="titulo">Grasas</div>
+						<table class="customers">
+							<th>Gramos</th>
+							<th>Calorias</th>	
+							<th>Porcentaje</th>
+						<tr>
+							<td>{{p.grasas_necesarias_gramos}}</td>
+							<td>{{p.grasas_necesarias_calorias}}</td>
+							<td>{{p.grasas_necesarias_porcentaje}}</td>
+						</tr>
+						</table>
+
+					</div>
+				{% endfor %}
+			{% else %}
+			<div id="aviso">
+					<span aria-hidden="true">!</span>
+					<p>Este usuario todavía no posee resultados del recordatorio 24 horas.
+					</p>
+			</div>
+			{% endif %}
+			<a href="?user={{ getUser }}" id="anterior">«</a>
 		{% elif tipo|get_int == 5 %}
 		<h2>Indicadores dietéticos ingresados</h2>
 			{% if perfil %}

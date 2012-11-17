@@ -4,7 +4,7 @@ from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.core.paginator import EmptyPage, PageNotAnInteger
-from ciem.apps.account.models import datosAntropometricos,antropometricosResultado,userProfile,ipaqResultado,ipaq,frecuenciaConsumo, profesional, indicadoresDieteticos
+from ciem.apps.account.models import datosAntropometricos,antropometricosResultado,userProfile,ipaqResultado,ipaq,frecuenciaConsumo, profesional, indicadoresDieteticos, datosRecordatorioResultado
 from django.contrib.auth.models import User, Group
 from ciem.apps.nutricionista.forms import *
 from time import gmtime, strftime
@@ -202,7 +202,7 @@ def perfilUsuarios(request):
 			elif int(tipoPerfil)==3:#frecuenciadeconsumo
 				perfil = frecuenciaConsumo.objects.getDataById(int(getUser))
 			elif int(tipoPerfil)==4:#recordatorio24
-				perfil = None
+				perfil = datosRecordatorioResultado.objects.getResultadosByUser(int(getUser))
 			elif int(tipoPerfil)==5:#indicadores dieteticos
 				perfil = indicadoresDieteticos.objects.getById(int(getUser))
 			elif int(descarga)>0:

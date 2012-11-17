@@ -19,6 +19,14 @@ class recordatorioManager(models.Manager):
 		query='SELECT * FROM account_datosrecordatorio as recor where recor.user_id='+str(id)+' ORDER BY -fecha_creacion;'
 		return self.model.objects.raw(query)
 
+class datosRecordatorioResultadoManager(models.Manager):
+	"""Manejador de los resultados del recordatorio de 24 horas"""
+	def getById(self, id):
+		return self.model.objects.filter(id=id)
+	def getResultadosByUser(self,id):
+		query='SELECT * FROM ciem.account_datosrecordatorioresultado inner join ciem.account_datosrecordatorio as recordatorio where recordatorio.id='+str(id)+';'
+		return self.model.objects.raw(query)
+
 class userProfileManager(models.Manager):
 	def getUserJoin(self,id):
 		query='SELECT * FROM auth_user as u INNER JOIN account_userprofile as p ON u.id=p.user_id WHERE u.id='+str(id)+';'

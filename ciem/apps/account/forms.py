@@ -177,6 +177,8 @@ class recordatorioForm(ModelForm):
 		grasas_necesarias = self.calcular_grasas_necesarias(requerimiento_calorico)
 		hidratos_necesarios = self.calcular_hidratos_necesarios(requerimiento_calorico,int(proteinas_necesarias['porcentaje']+grasas_necesarias['porcentaje']))
 		datosRecordatorioResultado.objects.create(recordatorio=datosRecordatorio,proteinas_necesarias_gramos=proteinas_necesarias['gramos'],proteinas_necesarias_calorias=proteinas_necesarias['calorias'],proteinas_necesarias_porcentaje=proteinas_necesarias['porcentaje'],hidratos_necesarios_gramos=hidratos_necesarios['gramos'],hidratos_necesarios_calorias=hidratos_necesarios['calorias'],hidratos_necesarios_porcentaje=hidratos_necesarios['porcentaje'],grasas_necesarias_gramos=grasas_necesarias['gramos'],grasas_necesarias_calorias=grasas_necesarias['calorias'],grasas_necesarias_porcentaje=grasas_necesarias['porcentaje'],)
+		return datosRecordatorio
+
 	def calcular_proteinas_necesarias(self,requerimiento_calorico,peso_persona):
 		calorias = peso_persona * 4
 		if(requerimiento_calorico!=0):

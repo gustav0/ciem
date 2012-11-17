@@ -66,7 +66,6 @@ class ipaq(models.Model):
 	dias = ( ('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),('6','6'),('7','7'), )
 	horas = ( ('0','-'),('1','1'),('2','2'),('3','3'),('4','4'),('5','5'),('6','6'),('10','7+'), )
 	minutos = ( ('0','-'),('10','10'),('15','15'),('20','20'),('30','30'),('40','40'),('45','45') )
-
 	p2a_trabajo = models.CharField(max_length=1, choices=dias, default='0')
 	p2b_trabajo = models.BooleanField(default=False)
 	p3a_trabajo = models.CharField(max_length=2, choices=horas, default='0')
@@ -212,6 +211,7 @@ class datosRecordatorio(models.Model):
 	diasCena =  models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(7)])
 	horaMerienda3 = models.TimeField(max_length=40) 
 	diasMerienda3 =  models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(7)])
+	
 	objects = recordatorioManager()
 
 
@@ -265,6 +265,7 @@ class datosRecordatorioResultado(models.Model):
 	grasas_necesarias_gramos = models.FloatField()
 	grasas_necesarias_calorias = models.FloatField()
 	grasas_necesarias_porcentaje = models.FloatField()
+	objects = datosRecordatorioResultadoManager()
 
 class preguntaSecreta(models.Model):
 	pregunta = models.CharField(max_length=100)
