@@ -327,7 +327,6 @@ def indicadores(request):
 	form = indicadoresDieteticosForm(request.POST or None)
 	if form.is_valid():
 		form.save()
-		return HttpResponseRedirect('/felicidades/?mensaje=indicadores')
 	ctx= {'form':form,'perfilIndicadores':perfilIndicadores, 'id':request.user.id, }
 	return render_to_response('account/indicadores.html', ctx, context_instance=RequestContext(request))
 
