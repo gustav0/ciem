@@ -3,14 +3,39 @@
 {% block tittle %}
 Acerca del CIEM
 {% endblock %}
-
+{% block js %}
+<script src="{{ MEDIA_URL }}pluggins/carouFredSel-6.1.0/jquery-1.8.2.min.js" type="text/javascript"></script>
+<script src="{{ MEDIA_URL }}pluggins/carouFredSel-6.1.0/jquery.carouFredSel-6.1.0.js" type="text/javascript"></script>
+<script src="{{ MEDIA_URL }}js/propios/nosotros.js"></script>
+{% endblock %}
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/homepage/misionvision.css">
 {% endblock %}
 
+
 {% block content %}
 <div id="contenido">
-	<div id="bannerFrutas"></div>
+	<div id="bannerFrutas">
+		<div id="slideUno">
+			<div class="objetoSlide"><img src="{{ MEDIA_URL }}img/jCarousell/image1.jpg" width="230" height="189"></div>
+			<div class="objetoSlide"><img src="{{ MEDIA_URL }}img/jCarousell/image2.jpg" width="230" height="189"></div>
+			<div class="objetoSlide"><img src="{{ MEDIA_URL }}img/jCarousell/image3.jpg" width="230" height="189"></div>
+			<div class="objetoSlide"><img src="{{ MEDIA_URL }}img/jCarousell/image4.jpg" width="230" height="189"></div>
+		</div>
+		<div id="slideDos">
+			<div class="objetoSlide"><img src="{{ MEDIA_URL }}img/jCarousell/image5.jpg" width="230" height="189"></div>
+			<div class="objetoSlide"><img src="{{ MEDIA_URL }}img/jCarousell/image6.jpg" width="230" height="189"></div>
+			<div class="objetoSlide"><img src="{{ MEDIA_URL }}img/jCarousell/image7.jpg" width="230" height="189"></div>
+			<div class="objetoSlide"><img src="{{ MEDIA_URL }}img/jCarousell/image8.jpg" width="230" height="189"></div>
+			
+		</div>
+		<div id="slideTres">
+			<div class="objetoSlide"><img src="{{ MEDIA_URL }}img/jCarousell/image9.jpg" width="230" height="189"></div>
+			<div class="objetoSlide"><img src="{{ MEDIA_URL }}img/jCarousell/image10.jpg" width="230" height="189"></div>
+			<div class="objetoSlide"><img src="{{ MEDIA_URL }}img/jCarousell/image11.jpg" width="230" height="189"></div>
+			<div class="objetoSlide"><img src="{{ MEDIA_URL }}img/jCarousell/image12.jpg" width="230" height="189"></div>
+		</div>
+	</div>
 	<div id="wrapper">
 		<h3>Nuestra Misión</h3>
 		<div class="rayita"></div>

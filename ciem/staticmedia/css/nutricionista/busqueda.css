@@ -1,39 +1,40 @@
 .lupa{
+	position: relative;
+	margin-left:  83px;
+	float: left;
 	z-index: 2;
-	position: absolute;
-	left: 278px;
-	top: 249px;
 	width: 57px;
-	height: 58px;
-	background-image:url(../../img/lupa.png)
+	height: 58px;	
+	background-image: url(../../img/lupa.png);
 
 }
+
+.cabeceraBusqueda{
+	float: left;
+	width: 453px;
+	height: 60px;
+	margin-top: 28px;
+}
+.titulo{
+	float: left;
+	width: 310px;
+	height: 31px;
+	margin-top: 10px;
+	font-size: 20px;
+	color: dimgrey;
+}
 .fondo1{
-	position: absolute;
-	top: 290px;
-	left: 261px;
+	float: left;
 	width: 411px;
 	height: 306px;
 	background-color: #FAF6DC;
 	z-index: 1;
 }
-
-.titulo{
-	margin-left: 134px;
-	width: 333px;
-	height: 31px;
-	margin-top: 53px;
-	position: absolute;
-	font-size: 20px;
-	color: dimgrey;
-}
 .fondo2{
-	position: absolute;
-	top: 290px;
-	left: 672px;
+	float: left;
 	width: 411px;
 	height: 306px;
-	background-color: #E9FDDC;
+	background-color: #F0F0F0;
 
 }
 
@@ -60,10 +61,10 @@
 }
 .tabla{
 	float: left;
-	width: 827px;
+	width: 822px;
 	height: 357px;
-	margin-left: 63px;
-	margin-top: 87px;
+	margin-left: 79px;
+	margin-top: -14px;
 	-webkit-box-shadow: 2px 2px 5px 0 #888;
 	box-shadow: 2px 2px 5px 0 #888;
 }
@@ -86,7 +87,7 @@
 	width: 163px;
 }
 #id_obesidad{
-	width: 163px;
+	width:  260px;
 }
 #id_actividadFisica{
 	width: 163px;
@@ -136,15 +137,19 @@
 	padding: 10px 50px;
 	margin-left: 386px;
 }
+#id_estado{
+	width: 162px;
+}
 #boton input:hover{background:#04B486;color:#FFF}
 
+#obesidalabel{
+	width: 85px;
+}
 .fondo3{
-	position: absolute;
-	left: 261px;
-	width: 821px;
+	float: left;
+	width: 822px;
 	height: 47px;
-	top: 596px;
-	background-color: #F0F0F0;
+	background-color: #FDFDFD;
 }
 .item_patologia{
 	margin-top: 14px;

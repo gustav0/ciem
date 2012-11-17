@@ -11,18 +11,40 @@
 	float: right;
 }
 #bannerFrutas{
-	background: #3D3D3D;
 	width: 230px;
 	height: 546px;
 	text-align: center;
 	padding: 0px;
 	float: left;
 }
-
 .rayita{
 	background-color: #4FBB4F;
 	height: 2px;
 	float: left;
 	width: 645px;
 	margin-top: -8px;
+}
+#slideUno{
+	width:230px;
+	height:188px;
+	float:left;
+	overflow: hidden;
+}
+#slideDos{
+	width:230px;
+	height:188px;
+	float:left;
+	overflow: hidden;
+}
+#slideTres{
+	width:230px;
+	height:188px;
+	float:left;
+	overflow: hidden;
+}
+.objetoSlide{
+	width: 230px;
+	height: 189px;
+	float: left;
+	overflow: hidden;
 }
