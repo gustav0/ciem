@@ -1,9 +1,6 @@
 {% extends "homepage/index.html" %}
 {% load custom_filters %}
 {% block title %}Indicadores dieteticos{% endblock %}
-<<<<<<< HEAD
-{% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/account/indicadoresdieteticos.css">{% endblock %}
-=======
 {% block css %}<link rel="stylesheet"href="{{ MEDIA_URL }}css/account/indicadoresdieteticos.css">
 {% endblock %}
 {% block js %}
@@ -11,27 +8,24 @@
 </script>
 <script type="text/javascript" src="{{ MEDIA_URL }}js/propios/indicadores.js"></script>
 {% endblock %}
->>>>>>> 2b7b3a4db36b6c22942ee565b1de8c33af8be26d
 {% block content %}
 <h2>Indicadores dietéticos</h2>
 {% if not perfilIndicadores.0 %}
-
 	<form action="." method="POST">
 		{% csrf_token %}
 		<input type="hidden" id="user" name="user" value="{{ id }}" />
-<<<<<<< HEAD
 		<div class="campoForm">
 			<div class="pregunta">{{ form.comidasAlDia.errors}} ¿Cuántas comidas hace al día? {{ form.comidasAlDia }}</div>
 			<div class="pregunta">{{ form.quienPreparaAlimentos.errors }} ¿Quién prepara sus alimentos? {{ form.quienPreparaAlimentos }}</div>
 		</div>	
 		<div class="campoForm">
 			<div class="pregunta preguntaTipoSeleccion"><div style="float:left;margin-left: 80px;">{{ form.comeEntreComidas.erros }} ¿Come entre comidas?</div><div style="float:left;">{{ form.comeEntreComidas }}</div></div>
-			<div class="pregunta">{{ form.queComeEntreComidas.errors}} ¿Que come entre comidas? {{ form.queComeEntreComidas }}</div>
+			<div id="condicion1"class="pregunta">{{ form.queComeEntreComidas.errors}} ¿Que come entre comidas? {{ form.queComeEntreComidas }}</div>
 		</div>
 		<div class="campoForm">
 			<div class="pregunta preguntaTipoSeleccion"><div style="float:left;margin-left: 40px;">{{ form.modificadoAlimentacionReciente.errors}} ¿Ha modificado su alimentación en el último año? </div><div style="float:left;margin-left: 160px;">	{{ form.modificadoAlimentacionReciente }}</div></div>
-			<div class="pregunta">{{ form.porqueModifico.errors }} ¿Por qué? {{ form.porqueModifico }}</div>
-			<div class="pregunta">{{ form.comoModifico.erros }} ¿Cómo? {{ form.comoModifico }}</div>
+			<div id="condicion2" class="pregunta">{{ form.porqueModifico.errors }} ¿Por qué? {{ form.porqueModifico }}</div>
+			<div id="condicion3" class="pregunta">{{ form.comoModifico.erros }} ¿Cómo? {{ form.comoModifico }}</div>
 		</div>
 		<div class="campoForm">
 			<div class="pregunta">{{ form.comoSuApetito.errors}} ¿Cómo es su apetito? {{ form.comoSuApetito }}</div>
@@ -43,127 +37,25 @@
 		</div>
 		<div class="campoForm">
 			<div class="pregunta preguntaTipoSeleccion">{{ form.esAlergicoIntolerante.errors}} ¿Es alérgico o intolerante a algún alimento? {{ form.esAlergicoIntolerante }}</div>
-			<div class="pregunta">{{ form.cualAlimento.erros }} ¿Cuál? {{ form.cualAlimento }}</div>
+			<div id="condicion4" class="pregunta">{{ form.cualAlimento.erros }} ¿Cuál? {{ form.cualAlimento }}</div>
 		</div>
 		<div class="campoForm">
 			<div class="pregunta preguntaTipoSeleccion">{{ form.salComidas.errors }} ¿Agrega sal a la comida? {{ form.salComidas }}</div>
 		</div>
 		<div class="campoForm">
 			<div class="pregunta preguntaTipoSeleccion">{{ form.suplementoAlimenticio.errors}} ¿Toma algún suplemento alimenticio? {{ form.suplementoAlimenticio }}</div>
-			<div class="pregunta">{{ form.cuantasVecesSuplemento.erros }}Cuantas veces al día:{{ form.cuantasVecesSuplemento }}</div>
-			<div class="pregunta" style="margin-left: 450px;">{{ form.porqueSuplemento.erros }} Porqué lo utiliza: {{ form.porqueSuplemento }}</div>
+			<div id="condicion5" class="pregunta">{{ form.cuantasVecesSuplemento.erros }}Cuantas veces al día:{{ form.cuantasVecesSuplemento }}</div>
+			<div id="condicion6" class="pregunta" style="margin-left: 450px;">{{ form.porqueSuplemento.erros }} Porqué lo utiliza: {{ form.porqueSuplemento }}</div>
 		</div>
 		<div class="campoForm">
 			<div class="pregunta preguntaTipoSeleccion">{{ form.consumoVariaEmocion.errors}} ¿Su consumo de alminetos varía cuando esta ansioso, triste o nerviso? {{ form.consumoVariaEmocion }}</div>
-			<div class="pregunta">{{ form.comoVariaConsumo.erros }} Cómo: {{ form.comoVariaConsumo }}</div>
+			<div id="condicion7" class="pregunta">{{ form.comoVariaConsumo.erros }} Cómo: {{ form.comoVariaConsumo }}</div>
 		</div>
 		<div class="campoForm">
 			<div class="pregunta preguntaTipoSeleccion">{{ form.tieneDieta.errors}} ¿Se ha sometido a dietas? {{ form.tieneDieta }}</div>
 			<div class="pregunta">{{ form.cuantasVecesDieta.erros }} Cuántas veces: {{ form.cuantasVecesDieta }}</div>
-			<div class="pregunta">{{ form.tipoDieta.erros }} Qué tipo de dieta: {{ form.tipoDieta}}</div>
-			<div class="pregunta">{{ form.tiempoDieta.erros }}¿Hace cuanto tiempo posee la dieta? {{ form.tiempoDieta }}</div>
-=======
-		<div id="div1" class="campoForm">
-			{{ form.comidasAlDia.errors}}
-			<label>¿Cuántas comidas hace al día?</label>
-			{{ form.comidasAlDia }}
-			{{ form.quienPreparaAlimentos.errors }}
-			<label>¿Quién prepara sus alimentos?</label>
-			{{ form.quienPreparaAlimentos }}
-			{{ form.comeEntreComidas.erros }}
-			<label>¿Come entre comidas?</label>
-			{{ form.comeEntreComidas }}
-		</div>
-		<div id="div2" class="campoForm">
-			{{ form.queComeEntreComidas.errors}}
-			<label>¿Que come entre comidas?</label>
-			{{ form.queComeEntreComidas }}
-		</div>
-		<div id="div3" class="campoForm">
-			{{ form.modificadoAlimentacionReciente.errors}}
-			<label>¿Ha modificado su alimentación en el último año?</label>
-			{{ form.modificadoAlimentacionReciente }}
-			{{ form.porqueModifico.errors }}
-			<div id="div3porque"><label>¿Por qué?</label>
-				{{ form.porqueModifico }}
-				{{ form.comoModifico.erros }}
-				<label>¿Cómo?</label>
-				{{ form.comoModifico }}
-			</div>
-		</div>
-		<div id="div4" class="campoForm">
-			{{ form.comoSuApetito.errors}}
-			<label>¿Cómo es su apetito?</label>
-			{{ form.comoSuApetito }}
-			{{ form.horaMasHambre.erros }}
-			<label>¿A qué hora tiene más hambre?</label>
-			{{ form.horaMasHambre }}
-		</div>
-		<div id="div5" class="campoForm">
-			{{ form.alimentoPreferido.errors}}
-			<label>Alimento preferidos:</label>
-			{{ form.alimentoPreferido }}
-			{{ form.alimentoDesagrado.erros }}
-			<label>Alimentos que le desagradan:</label>
-			{{ form.alimentoDesagrado }}
-		</div>
-		<div id="div6" class="campoForm">
-			{{ form.salComidas.errors }}
-			<label>¿Agrega sal a la comida?</label>
-			{{ form.salComidas }}
-		</div>
-		<div id="div7" class="campoForm">
-			{{ form.esAlergicoIntolerante.errors}}
-			<label>¿Es alérgico o intolerante a algún alimento?</label>
-			{{ form.esAlergicoIntolerante }}
-			<div id="div7porque">
-				{{ form.cualAlimento.erros }}
-				<label>¿Cuál?</label>
-				{{ form.cualAlimento }}
-			</div>
-		</div>
-		<div id="div8" class="campoForm">
-			{{ form.suplementoAlimenticio.errors}}
-			<label>¿Toma algún suplemento alimenticio?</label>
-			{{ form.suplementoAlimenticio }}
-		</div>
-		<div id="div9" class="campoForm">
-			{{ form.cuantasVecesSuplemento.erros }}
-			<label>Cuantas veces al día:</label>
-			{{ form.cuantasVecesSuplemento }}
-			{{ form.porqueSuplemento.erros }}
-			<label>Porqué lo utiliza:</label>
-			{{ form.porqueSuplemento }}
-		</div>
-		<div id="div10" class="campoForm">
-			{{ form.consumoVariaEmocion.errors}}
-			<label>¿Su consumo de alimentos varía cuando esta ansioso, triste o nerviso?
-			</label>
-			{{ form.consumoVariaEmocion }}
-			<div id="div10porque">
-				{{ form.comoVariaConsumo.erros }}
-				<label>Cómo:</label>
-				{{ form.comoVariaConsumo }}
-			</div>
-		</div>
-		<div id="div11" class="campoForm">
-			{{ form.tieneDieta.errors}}
-			<label>¿Se ha sometido a dietas?</label>
-			{{ form.tieneDieta }}
-		</div>
-		<div id="div12" class="campoForm">
-			{{ form.cuantasVecesDieta.erros }}
-			<label>Cuántas veces:</label>
-			{{ form.cuantasVecesDieta }}
-			{{ form.tipoDieta.erros }}
-			<label>Qué tipo de dieta:</label>
-			{{ form.tipoDieta}}
-		</div>
-		<div id="div13" class="campoForm">
-			{{ form.tiempoDieta.erros }}
-			<label for="cuantoTiempo">¿Hace cuanto tiempo posee la dieta?</label>
-			{{ form.tiempoDieta }}
->>>>>>> 2b7b3a4db36b6c22942ee565b1de8c33af8be26d
+			<div id="condicion8" class="pregunta">{{ form.tipoDieta.erros }} Qué tipo de dieta: {{ form.tipoDieta}}</div>
+			<div id="condicion9" class="pregunta">{{ form.tiempoDieta.erros }}¿Hace cuanto tiempo posee la dieta? {{ form.tiempoDieta }}</div>
 		</div>
 		{{ form.errors }}
 		{{ form.non_field_errors }}
