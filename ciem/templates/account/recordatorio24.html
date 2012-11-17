@@ -16,8 +16,9 @@
 {% endblock %}
 
 {% block content %}
-<h2>Recordatorio 24 horas</h2>
-<h4>La siguiente encuesta debe llenarse cuidadosamente, lo ideal es que coloque lo consumido habitaulmente en cada una de las comidas.</h4>
+{% if perfilAntro.0 and perfilIpaq.0 %}
+	<h2>Recordatorio 24 horas</h2>
+	<h4>La siguiente encuesta debe llenarse cuidadosamente, lo ideal es que coloque lo consumido habitaulmente en cada una de las comidas.</h4>
 	<form action="." method="POST" id="form1">
 		{% csrf_token %}
 		<input type="hidden" id="user_id" name="user" value="{{ id }}" />
@@ -264,4 +265,10 @@
 		{{ form.non_field_errors }}
 		<input type="submit" value="Cargar" id="botonRecordar">
 	</form>
+{% else %}
+	<div id="aviso">
+		<span aria-hidden="true">X</span>
+		<p>Debe primero completar los datos antropometricos y el formulario de activdad física IPAQ antes de seguir con el recordatorío de 24 horas.</p>
+	</div>
+{% endif %}
 {% endblock %}

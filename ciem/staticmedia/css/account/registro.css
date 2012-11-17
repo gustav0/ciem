@@ -32,6 +32,23 @@ form{text-align:center}
 }
 
 .usernameForm{
+	background: #F7F7F7;
+	border: 1px solid #D7D7D7;
+	box-shadow: 0 0 1em #EEE;
+	border-radius: .3em;
+	overflow: auto;
+	width: 50%;
+	display: inline-block;
+	text-align: left;
+	margin: 1em 1.75em;
+	padding: .25em;
+	clear: both;
+}
+.usernameForm input{
+	float: right;
+}
+
+#usernameForm p{
 background: #F7F7F7;
 border: 1px solid #D7D7D7;
 box-shadow: 0 0 1em #EEE;
@@ -45,9 +62,8 @@ padding: .25em;
 clear: both;
 }
 
-.usernameForm input{
+#usernameForm input,select{
 	float: right;
-	margin-right: 100px;
 }
 
 #botonFinalizar input[type="submit"]:hover{
@@ -70,7 +86,7 @@ margin: 0 0 50px 42%;
 padding: 15px 40px;
 }
 
-span{
+.error span{
 	font-family: 'IcoMoon',helvetica;
 	font-size: 24px;
 }
@@ -86,4 +102,20 @@ span{
 	width: 60%;
 	margin-left:20%; 
 	font-weight: bold;
+}
+
+#preview{
+	position:absolute;
+	border:1px solid #ccc;
+	background:#333;
+	padding:5px;
+	display:none;
+	color:#fff;
+}
+
+#interrogacion {
+	position: absolute;
+	border: none;
+	margin-top: 20px;
+	margin-left: 255px;
 }

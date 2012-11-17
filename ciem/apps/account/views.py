@@ -316,29 +316,25 @@ def recordatorio(request):
 					print "ERROR"
 			return HttpResponseRedirect('/felicidades/?mensaje=recordatorio')
 	alimentos = alimento.objects.all().order_by('nombre')
-	ctx = {'form':form,'alimentos':alimentos, 'id':request.user.id}
+	perfilAntro = datosAntropometricos.objects.getByIdJoin(int(request.user.id))
+	perfilIpaq = ipaqResultado.objects.getResultados(int(request.user.id))
+	ctx = {'form':form,'alimentos':alimentos, 'id':request.user.id, 'perfilAntro':perfilAntro, 'perfilIpaq':perfilIpaq}
 	return render_to_response('account/recordatorio24.html', ctx, context_instance=RequestContext(request))
 
 @login_required(login_url='/login')
 def indicadores(request):
 	perfilIndicadores = indicadoresDieteticos.objects.getById(request.user.id)
-	if not perfilIndicadores.exists():
-		form = indicadoresDieteticosForm(request.POST or None)
-		if form.is_valid():
-			form.save()
-			return HttpResponseRedirect('/felicidades/?mensaje=indicadores')
-		ctx= {'form':form, 'id':request.user.id, }
-		return render_to_response('account/indicadores.html', ctx, context_instance=RequestContext(request))
-	return HttpResponseRedirect('/felicidades/')
-	
+	form = indicadoresDieteticosForm(request.POST or None)
+	if form.is_valid():
+		form.save()
+		return HttpResponseRedirect('/felicidades/?mensaje=indicadores')
+	ctx= {'form':form,'perfilIndicadores':perfilIndicadores, 'id':request.user.id, }
+	return render_to_response('account/indicadores.html', ctx, context_instance=RequestContext(request))
 
 def felicidades(request):
 	getMensaje = request.GET.get('mensaje')
-	mensaje = 'Opción no valida, le invitamos que ingrese a su perfil.'
+	mensaje = 'Opción no valida o ya completada, le invitamos que ingrese a su perfil.'
 	enlace = '/perfil/'
-	if getMensaje == 'indicadores':
-		mensaje = 'Usted ha finalizado exitosamente %s, le agradecemos su colaboración en nuestra investigación.' % ('los indicadores dieteticos')
-		enlace = '/frecuencia/'
 	if getMensaje == 'frecuencia7':
 		mensaje = 'Usted ha finalizado exitosamente %s, le agradecemos su colaboración en nuestra investigación.' % ('la frecuencia de consumo 7 días')
 		enlace = '/perfil/'

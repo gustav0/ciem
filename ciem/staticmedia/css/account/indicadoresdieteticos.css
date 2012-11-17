@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 form{
 	text-align:center;
 }
@@ -61,3 +62,30 @@ form{
 	background:#04B486;
 	color:#FFF;
 }
+=======
+.campoForm span{font-size:0}
+.campoForm input,select{border:1px solid #AAA;-webkit-box-shadow:0 1px 0 rgba(255,255,255,0.5);-moz-box-shadow:0 1px 0 rgba(255,255,255,0.5);box-shadow:0 1px 0 rgba(255,255,255,0.5);float:left}
+.campoForm{background:#F7F7F7;border:1px solid #D7D7D7;-webkit-transition:height .5s;-moz-transition:height .5s;transition:height.5s;-mox-transition-timing-function:linear;-webkit-transition-timing-function:linear;transition-timing-function:linear;box-shadow:0 0 1em #EEE;border-radius:.3em;overflow:auto;width:95%;display:inline-block;text-align:left;margin:1em 1.75em;padding:.25em}
+.campoForm ul{margin:0;padding:0 5px}
+.campoForm li,ul,label{list-style:none;float:left}
+form{text-align:center}
+#botonFinalizar input{cursor:pointer;background-color:#009B00;border:1px solid #000;border-radius:.2em;color:#EEE;-webkit-transition-duration:.2s;-moz-transition-duration:.2s;transition-duration:.2s;float:left;font-weight:700;clear:both;margin:0 0 50px 42%;padding:15px 40px}
+#botonFinalizar input:hover{background:#04B486;color:#FFF}
+#indicadores{
+	margin-top: 20px;
+	background: #FAF6DC;
+	text-indent: 50px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+
+}
+#indicadores p{	
+	background: #F0F0F0;
+	width: 80%;
+	margin-left: 10%;
+	box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+.agradecimiento{border:1px solid green;background:#CDF5CD;color:#264426;border-radius:5px;width:50%;margin:10px 0 10px 25%;padding:15px 15px 15px 40px}
+.agradecimiento span{font-family:IcoMoon,arial;font-size:3em;float:left;margin-right:10px;margin-top:-15px}
+.noDisplayDiv {display: none;}
+>>>>>>> 2b7b3a4db36b6c22942ee565b1de8c33af8be26d
