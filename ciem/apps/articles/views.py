@@ -8,7 +8,6 @@ from ciem.apps.articles.forms import *
 
 def nuevoArticulo(request):
 	form = articleNuevoForm(request.POST or None)
-	print request.POST
 	if form.is_valid():
 		articulo = form.save(commit=False)
 		articulo.author = request.user

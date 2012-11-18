@@ -220,6 +220,24 @@ div#cajaLoginOut input[type="submit"]:hover{
 	font-weight: normal;
 	text-shadow: -2px 2px 0 rgba(0, 0, 0, 0.2);
 }
+
+#eslogandos {
+	float: left;
+	position: relative;
+	top: 150px;
+	left: -45px;
+	width: 450px;
+	font-family: 'open sans', Arial, sans-serif;
+	font-size: 43px;
+	font-weight: bold;
+	color: rgba(129, 162, 131, 1);
+		
+}
+
+#eslogandos span{
+	color: rgba(255, 255, 255, 1);
+	background: lightcoral;
+}
 #botones a{
 	text-decoration: none;
 	color: white;

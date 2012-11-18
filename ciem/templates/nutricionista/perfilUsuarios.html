@@ -310,6 +310,7 @@
 			<h2>Información de los resultados del recordatorio 24 horas.</h2>
 			{% if perfil %}				
 				{% for p in perfil %}
+				<div class="perfilN">Perfil del {{ p.fecha_creacion|date:"d/m/Y" }}:</div>
 					<div class="wrapperTabla">
 						<div class="titulo">Proteinas</div>
 						<table class="customers">
