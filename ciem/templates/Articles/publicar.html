@@ -13,7 +13,7 @@ Publicaciones de articulos
 {% block clear %}{% endblock%}
 {% block content %}
 		<section id="publicaciones">
-			{% if user|in_group:"profesional" %}
+			{% if user|in_group:"profesional" or user|in_group:"profesional2" or user.is_superuser %}
 	       		<h2>Publicar un nuevo articulo</h2>
 				<form id="formulario" action="." method="POST">
 					{% csrf_token %}
@@ -29,7 +29,6 @@ Publicaciones de articulos
       	  	{% endif %}
 		</section>
 {% endblock%}
-
 {% block footer %}
 Centro de Investigaciones Endocrino-Metabolicas. © Copyright 2012. Todos los Derechos Reservados.  
 {% endblock%}
