@@ -78,7 +78,7 @@ article{
 	float: left;
 	width: 960px;
 	height: 160px;
-	background:url(/ciem/staticmedia/img/imaCabecera.jpg)
+	background:url(/staticmedia/img/imaCabecera.jpg)
 }
 #barraNavegacion {
 	width: 960px;
@@ -109,7 +109,7 @@ article{
 	float: left;
 	height:33px;
 	width:120px;
-	background:url(/ciem/staticmedia/img/fondomenu.png) -0px -0px no-repeat;	
+	background:url(/staticmedia/img/fondomenu.png) -0px -0px no-repeat;	
 	-webkit-transition: all .1s;
 	-moz-transition: all .1s;
 	-o-transition: all .1s;
@@ -119,7 +119,7 @@ article{
 	background-position:-0px -32px
 }
 #imagenHistoria{
- 	background:url(/ciem/staticmedia/img/bannerinicio.jpg) -0px -0px no-repeat;	
+ 	background:url(/staticmedia/img/bannerinicio.jpg) -0px -0px no-repeat;	
  	width:960px;
  	height: 300px;
  	float:left;
@@ -443,4 +443,31 @@ transition-duration: 0.2s;
 }
 .helptext{
 	display: none;
+}
+
+#img1{
+	background: url(/staticmedia/img/img1.png) 0 0 no-repeat;
+	width:243px; 
+	height:241px;
+}
+
+#img2{
+	background: url(/staticmedia/img/img2.png) 0 0 no-repeat;
+	width:243px; 
+	height:241px;
+}
+#img3{
+	background: url(/staticmedia/img/img3.png) 0 0 no-repeat;
+	width:243px; 
+	height:241px;
+}
+#img4{
+	background: url(/staticmedia/img/img4.png) 0 0 no-repeat;
+	width:243px; 
+	height:241px;
+}
+#img5{
+	background: url(/staticmedia/img/img5.png) 0 0 no-repeat;
+	width:243px; 
+	height:241px;
 }
