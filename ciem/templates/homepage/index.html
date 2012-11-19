@@ -27,14 +27,10 @@ Centro de investigaciones Endocrino-Metabólicas
 			{% else %}
 				<a href="{% url account_register %}"><div>Registrarme </div></a>
 			{% endif %}
-
 {% endblock %}
 {% block clear %}{% endblock%}
 {% block content %}
 	<div id="imagenHistoria">
-			<a class="textoBoton" href="{% url homepage_calculadora %}">
-				<div class="boton">CALCULADORA DE CALORIAS</div>
-			</a>
 			<div id="eslogandos"><p>La primera riqueza es </p>la <span>salud.</span></div>
 			{% if user.is_authenticated %}
 				<div id="cajaLoginIn"><p>Bienvenido, <span>{{ user.username }}</span></p>

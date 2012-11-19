@@ -95,7 +95,10 @@
 		<div class="lineaTitulo lineaTituloUltimo"><div class="tituloActividad">Mi recordatorio de 24 horas</div>
 			<div class="lineaActividad"><div class="labelActividad">Veces que lo ha completado:</div><div class="contenidoGeneral">{% if recordatorios %}{{ recordatorios|count_by_len }}{% else %}0{% endif %}</div></div>
 		</div><a href="{% url account_recordatorio %}"><div class="botonLlenar"> <div class="textoBoton">LLENAR EL RECORDATORIO 24</div></div></a>
-
+			<a  href="{% url homepage_calculadora %}">
+				<div id="calculadoraicon">
+				</div>
+			</a>
 		{% else %}
 		<div id="botonBonito">
  			<a href="{% url account_datosAntropometricos %}" class="a-btn">
