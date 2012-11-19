@@ -2,7 +2,7 @@
 # Django settings for ciem project.
 #TEST
 import os
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
