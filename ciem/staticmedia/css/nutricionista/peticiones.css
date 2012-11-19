@@ -54,21 +54,23 @@ span{
 	margin-bottom: 15px;
 }
 .labelDato{
+	margin-right: 10px;
 	font-weight: bold;
 }
 .dato{
 	margin-bottom: 8px;
-	text-indent: 10px;
+	padding-left: 15px;
 }
 .siNo{
-	float: left;
 	line-height: 27px;
+	width: 250px;
 	position: relative;
-	bottom: 60px;
-	left: 680px;
+	bottom: 57px;
+	left: 649px;
 }
 .siNo a{
 	color:#4B4B4B;
+	width: 100px;
 	text-decoration: none;
 	float: left;
 }
