@@ -14,12 +14,12 @@ Publicaciones de articulos
 		{% if lista %}
 		{% get_articles 10 as arti %}
 		{% for a in arti %}
-		<h3><a href="{{ a.get_absolute_url }}">{{a.title}}</a></h3>
+		<h3><a href="{{ a.get_absolute_url }}">{{a.title|escape}}</a></h3>
 				<article>
-					Autor: {{a.author}}
-					Fecha: {{a.publish_date}}
-					Categoría: {{a.category}}
-					Etiquetas: {{a.tags}}
+					Autor: {{a.author|escape}}
+					Fecha: {{a.publish_date|escape}}
+					Categoría: {{a.category|escape}}
+					Etiquetas: {{a.tags|escape}}
 				</article>	
 		{% endfor %}
 		{% else %}

@@ -8,15 +8,15 @@ Publicaciones de articulos
 {% block content %}	
 	<section id="informacionarticulo">
 				
-					<h2>{{article.title}}</h2>
+					<h2>{{article.title|escape}}</h2>
 					<article>
-						{{article.body}}
+						{{article.body|escape}}
 					</article>
 					<section id="info">
-						Autor: {{article.author}}
-						Fecha: {{article.publish_date}}
+						Autor: {{article.author|escape}}
+						Fecha: {{article.publish_date|escape}}
 						Categoría: {{article.category}}
-						Etiquetas: {{article.tags}}
+						Etiquetas: {{article.tags|escape}}
 					</section>	
 	</section>
 {% endblock%}
