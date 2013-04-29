@@ -467,20 +467,29 @@ class ipaqForm(ModelForm):
 			vMinutos = float(0)
 		return vMinutos
 
-	def cal_apreciacion(self,metTotal):
-		if(float(metTotal) < 1200):
-			return "Baja";
-		elif(float(metTotal) < 3000):
-			return "Moderada"
+	def apreciacionIpaq(self, diasTotalVigoroso, metTotal, diasTotal, tiempoVigoroso):
+		actividad = ""
+		if(float(diasTotalVigoroso) >= 3 and float(metTotal) >= 1500):
+			actividad= "Alta"
+		elif(float(diasTotal) >=7 and float(metTotal)>=3000):
+			actividad= "Alta"
+		elif(float(diasTotalVigoroso) >= 3 and float(minVigorosoTotal) >= 60):
+			actividad= "Moderada"
+		elif((float(diasTotal) - float(diasTotalVigoroso)) >= 5 and (float(tiempoAndar)+float(tiempoModerado)) >= 150):
+			actividad= "Moderada"	
+		elif(float(diasTotal) >= 5 and float(metTotal) >= 600):
+			actividad= "Moderada"		
 		else:
-			return "Alta"
+			actividad= "Baja"
+		return actividad
 
 	def cal_requerimientoCaloricoDiario(self, id, metTotal):
 		genero= userProfile.objects.get(user_id=id).genero
 		idAntropometrico = datosAntropometricos.objects.filter(user_id = id)
 		antropometricos = list(antropometricosResultado.objects.filter(datosAntropometricos_id=idAntropometrico[len(idAntropometrico)-1].id))
 		MB = antropometricos[len(antropometricos)-1].metabolismoBasal
-		apreciacion = self.cal_apreciacion(metTotal)
+		apreciacion = "Alta"
+		#self.cal_apreciacion(metTotal)
 		if(genero == 'f'):
 			if(apreciacion == "Baja"):
 				requerimiento = MB * 1.50 
@@ -509,6 +518,7 @@ class ipaqForm(ModelForm):
 		transporte = self.cal_metTransporte()
 		hogar = self.cal_metHogar()
 		recreacion = self.cal_metRecreacion()
+		apreciacion = self.apreciacionIpaq(diasTotalVigoroso, metTotal, float(diasTotalVigoroso + diasTotalAndar + diasTotalModerado), minVigorosoTotal)
 		ipaqResultado.objects.create(ipaq=ipaq,metTrabajo=trabajo["metTrabajo"], metTransporte=transporte["metTransporte"], \
 			metHogar=hogar["metHogar"], metRecreacion=recreacion["metRecreacion"],tiempoAndar = minAndandoTotal, tiempoVigoroso = minVigorosoTotal, \
 			tiempoModerado = minModeradoTotal, metTotal = metTotal, tiempoSentado=self.cal_sentadoTotal(),MediaSentado = mediaSentado,\
@@ -520,7 +530,7 @@ class ipaqForm(ModelForm):
 			metVigorosoRecreacion = recreacion["metVigoroso"], metModeradoHogar = hogar["metModerado"], metModeradoJHogar = hogar["metModeradoJ"],\
 			metModeradoTrabajo = trabajo["metModerado"], metModeradoTransporte = transporte["metModerado"], metModeradoRecreacion = recreacion["metModerado"],\
 			diasTotalModerado = diasTotalModerado, diasTotalAndar = diasTotalAndar, diasTotalVigoroso = diasTotalVigoroso, \
-			diasTotal = float(diasTotalVigoroso+diasTotalAndar+diasTotalModerado), apreciacionIpaq =self.cal_apreciacion(metTotal), requerimientoCaloricoDiario =self.cal_requerimientoCaloricoDiario(request.user.id, metTotal),\
+			diasTotal = float(diasTotalVigoroso + diasTotalAndar + diasTotalModerado), apreciacionIpaq = apreciacion, requerimientoCaloricoDiario =self.cal_requerimientoCaloricoDiario(request.user.id, metTotal),\
 			trabaja= trabajo["trabaja"], minVehiculo = float(self.cal_tiempoVehiculo()))
 		return ipaq
 
